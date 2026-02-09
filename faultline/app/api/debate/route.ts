@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400 })
   }
 
-  const { topic, personaIds, mode = 'blitz' } = body
+  const { topic, personaIds, mode = 'blitz', save = true } = body
 
   if (!topic || typeof topic !== 'string') {
     return NextResponse.json({ error: 'Missing or invalid topic' }, { status: 400 })

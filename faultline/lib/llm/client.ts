@@ -178,6 +178,13 @@ function repairTruncatedJSON(json: string): string | null {
     repaired += '"'
   }
 
+  // Handle truncation after a key without a value (e.g. "key": "val", "desc")
+  // or after a colon without a value (e.g. "key":)
+  // Strip trailing key-without-value or dangling colon
+  repaired = repaired.replace(/,\s*"[^"]*"\s*$/, '')   // trailing key without colon/value
+  repaired = repaired.replace(/,\s*"[^"]*"\s*:\s*$/, '') // trailing key: without value
+  repaired = repaired.replace(/:\s*$/, ': null')         // dangling colon → null
+
   // Close any unclosed brackets/braces
   const stack: string[] = []
   inString = false

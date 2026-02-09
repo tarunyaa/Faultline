@@ -82,7 +82,7 @@ export async function generateInitialStances(
 
 export interface InitialStancesWithReasoning {
   stances: AgentStance[]
-  reasoning: string
+  reasonings: { claimId: string; reasoning: string }[]
 }
 
 /**
@@ -108,9 +108,10 @@ export async function generateInitialStancesWithReasoning(
     round: 0,
   }))
 
-  const reasoning = result.stances
-    .map(s => `${s.stance} (${(s.confidence * 100).toFixed(0)}%): ${s.reasoning}`)
-    .join('\n')
+  const reasonings = result.stances.map(s => ({
+    claimId: s.claimId,
+    reasoning: s.reasoning,
+  }))
 
-  return { stances, reasoning }
+  return { stances, reasonings }
 }

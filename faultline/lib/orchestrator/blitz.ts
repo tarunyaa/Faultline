@@ -84,7 +84,7 @@ export async function* runBlitz(config: BlitzConfig): AsyncGenerator<SSEEvent> {
     let blackboard = createBlackboard(topic, claims)
 
     // Fire all LLM calls in parallel, but yield results as they resolve
-    const initialStanceResults: { personaId: PersonaId; stances: typeof blackboard.stances; reasoning: string }[] = []
+    const initialStanceResults: { personaId: PersonaId; stances: typeof blackboard.stances; reasonings: { claimId: string; reasoning: string }[] }[] = []
     const stancePromises = personaIds.map(async (id) => {
       const agent = agents.get(id)!
       const result = await generateInitialStancesWithReasoning(agent, claims)
@@ -113,7 +113,7 @@ export async function* runBlitz(config: BlitzConfig): AsyncGenerator<SSEEvent> {
         type: 'initial_stance',
         personaId: result.personaId,
         stances: result.stances,
-        reasoning: result.reasoning,
+        reasonings: result.reasonings,
       }
     }
 

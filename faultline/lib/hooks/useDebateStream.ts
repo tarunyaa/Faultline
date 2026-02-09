@@ -239,7 +239,7 @@ function processEvent(
           {
             personaId: event.personaId,
             stances: event.stances,
-            reasoning: event.reasoning,
+            reasonings: event.reasonings,
           },
         ],
       }))

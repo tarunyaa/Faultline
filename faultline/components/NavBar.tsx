@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: '/cards', label: 'Decks' },
   { href: '/setup', label: 'Setup' },
   { href: '/debates', label: 'Past Debates' },
+  { href: '/whitepaper', label: 'Whitepaper' },
 ]
 
 export default function NavBar() {

@@ -164,7 +164,7 @@ export type SSEEvent =
   | { type: 'merge_complete'; mergedCruxes: Crux[] }
   | { type: 'final_table_start'; personaIds: PersonaId[] }
   | { type: 'speaker_selected'; personaId: PersonaId; urgency: number; intent: string }
-  | { type: 'initial_stance'; personaId: PersonaId; stances: AgentStance[]; reasoning: string }
+  | { type: 'initial_stance'; personaId: PersonaId; stances: AgentStance[]; reasonings: { claimId: string; reasoning: string }[] }
   | { type: 'debate_complete'; output: DebateOutput }
   | { type: 'error'; message: string }
 
@@ -183,7 +183,7 @@ export interface AgentMessage {
 export interface InitialStanceEntry {
   personaId: string
   stances: AgentStance[]
-  reasoning: string
+  reasonings: { claimId: string; reasoning: string }[]
 }
 
 // ─── Debate Session ───────────────────────────────────────────

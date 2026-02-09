@@ -55,7 +55,7 @@ export function hydrateDebateState(events: SSEEvent[]): HydratedDebateState {
         state.initialStances.push({
           personaId: event.personaId,
           stances: event.stances,
-          reasoning: event.reasoning,
+          reasonings: event.reasonings,
         })
         break
 

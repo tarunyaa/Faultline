@@ -14,7 +14,7 @@ export async function extractOutput(
       { role: 'user', content: finalOutputPrompt(blackboard) },
     ],
     model: 'haiku',
-    maxTokens: 2048,
+    maxTokens: 4096,
     temperature: 0.3,
   })
 
