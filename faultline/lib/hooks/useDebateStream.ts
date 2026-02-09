@@ -1,0 +1,251 @@
+'use client'
+
+import { useState, useRef, useCallback } from 'react'
+import type {
+  SSEEvent,
+  Claim,
+  AgentStance,
+  ConvergenceState,
+  Crux,
+  FlipCondition,
+  DebateOutput,
+} from '@/lib/types'
+
+type DebateStatus = 'idle' | 'connecting' | 'streaming' | 'completed' | 'error'
+
+interface AgentMessage {
+  personaId: string
+  tableId: number
+  content: string
+  stance: AgentStance
+  timestamp: number
+}
+
+interface DebateStreamState {
+  status: DebateStatus
+  debateId: string | null
+  claims: Claim[]
+  messages: AgentMessage[]
+  convergence: ConvergenceState | null
+  cruxes: Crux[]
+  flipConditions: FlipCondition[]
+  output: DebateOutput | null
+  error: string | null
+  tables: Map<number, string[]>
+}
+
+interface DebateStreamControls {
+  start: (params: { topic: string; personaIds: string[] }) => void
+  abort: () => void
+}
+
+const initialState: DebateStreamState = {
+  status: 'idle',
+  debateId: null,
+  claims: [],
+  messages: [],
+  convergence: null,
+  cruxes: [],
+  flipConditions: [],
+  output: null,
+  error: null,
+  tables: new Map(),
+}
+
+export function useDebateStream(): [DebateStreamState, DebateStreamControls] {
+  const [state, setState] = useState<DebateStreamState>(initialState)
+  const abortRef = useRef<AbortController | null>(null)
+
+  const abort = useCallback(() => {
+    if (abortRef.current) {
+      abortRef.current.abort()
+      abortRef.current = null
+    }
+  }, [])
+
+  const start = useCallback(
+    (params: { topic: string; personaIds: string[] }) => {
+      // Abort any existing stream
+      abort()
+
+      const controller = new AbortController()
+      abortRef.current = controller
+
+      setState({ ...initialState, status: 'connecting' })
+
+      ;(async () => {
+        try {
+          const res = await fetch('/api/debate', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              topic: params.topic,
+              personaIds: params.personaIds,
+              mode: 'blitz',
+            }),
+            signal: controller.signal,
+          })
+
+          if (!res.ok) {
+            const errBody = await res.text()
+            setState(prev => ({
+              ...prev,
+              status: 'error',
+              error: `API error ${res.status}: ${errBody}`,
+            }))
+            return
+          }
+
+          const reader = res.body?.getReader()
+          if (!reader) {
+            setState(prev => ({ ...prev, status: 'error', error: 'No response body' }))
+            return
+          }
+
+          setState(prev => ({ ...prev, status: 'streaming' }))
+
+          const decoder = new TextDecoder()
+          let buffer = ''
+
+          while (true) {
+            const { done, value } = await reader.read()
+            if (done) break
+
+            buffer += decoder.decode(value, { stream: true })
+
+            // Split on double newlines (SSE event boundary)
+            const parts = buffer.split('\n\n')
+            // Keep the last incomplete chunk in the buffer
+            buffer = parts.pop() ?? ''
+
+            for (const part of parts) {
+              const trimmed = part.trim()
+              if (!trimmed) continue
+
+              // Extract the data line
+              const dataLine = trimmed
+                .split('\n')
+                .find(line => line.startsWith('data: '))
+              if (!dataLine) continue
+
+              const jsonStr = dataLine.slice(6) // remove 'data: '
+              try {
+                const event = JSON.parse(jsonStr) as SSEEvent
+                processEvent(event, setState)
+              } catch {
+                // Malformed JSON — skip
+              }
+            }
+          }
+
+          // Process any remaining buffer
+          if (buffer.trim()) {
+            const dataLine = buffer
+              .trim()
+              .split('\n')
+              .find(line => line.startsWith('data: '))
+            if (dataLine) {
+              try {
+                const event = JSON.parse(dataLine.slice(6)) as SSEEvent
+                processEvent(event, setState)
+              } catch {
+                // skip
+              }
+            }
+          }
+
+          // If we finished without debate_complete or error, mark completed
+          setState(prev => {
+            if (prev.status === 'streaming') {
+              return { ...prev, status: 'completed' }
+            }
+            return prev
+          })
+        } catch (err: unknown) {
+          if (err instanceof DOMException && err.name === 'AbortError') {
+            return // User aborted
+          }
+          setState(prev => ({
+            ...prev,
+            status: 'error',
+            error: err instanceof Error ? err.message : 'Stream error',
+          }))
+        }
+      })()
+    },
+    [abort]
+  )
+
+  return [state, { start, abort }]
+}
+
+function processEvent(
+  event: SSEEvent,
+  setState: React.Dispatch<React.SetStateAction<DebateStreamState>>
+) {
+  switch (event.type) {
+    case 'debate_start':
+      setState(prev => ({
+        ...prev,
+        debateId: event.debateId,
+        claims: event.claims,
+      }))
+      break
+
+    case 'table_assigned':
+      setState(prev => {
+        const tables = new Map(prev.tables)
+        tables.set(event.tableId, event.personaIds)
+        return { ...prev, tables }
+      })
+      break
+
+    case 'agent_turn':
+      setState(prev => ({
+        ...prev,
+        messages: [
+          ...prev.messages,
+          {
+            personaId: event.personaId,
+            tableId: event.tableId,
+            content: event.content,
+            stance: event.stance,
+            timestamp: Date.now(),
+          },
+        ],
+      }))
+      break
+
+    case 'convergence_update':
+      setState(prev => ({
+        ...prev,
+        convergence: event.metrics,
+      }))
+      break
+
+    case 'merge_complete':
+      setState(prev => ({
+        ...prev,
+        cruxes: event.mergedCruxes,
+      }))
+      break
+
+    case 'debate_complete':
+      setState(prev => ({
+        ...prev,
+        status: 'completed',
+        output: event.output,
+        cruxes: event.output.cruxes,
+        flipConditions: event.output.flipConditions,
+      }))
+      break
+
+    case 'error':
+      setState(prev => ({
+        ...prev,
+        status: 'error',
+        error: event.message,
+      }))
+      break
+  }
+}

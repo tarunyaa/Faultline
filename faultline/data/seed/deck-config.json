@@ -1,0 +1,40 @@
+{
+  "deck": {
+    "id": "memory-supercycle",
+    "name": "Memory SuperCycle Pricing Debate",
+    "slug": "memory-supercycle"
+  },
+  "topic": "DRAM/HBM Memory",
+  "personas": [
+    {
+      "id": "Serenity",
+      "twitterHandle": "aleabitoreddit",
+      "substackUrl": null
+    },
+    {
+      "id": "Jukan",
+      "twitterHandle": "jukan05",
+      "substackUrl": null
+    },
+    {
+      "id": "Dylan Patel",
+      "twitterHandle": "SemiAnalysis_",
+      "substackUrl": "https://semianalysis.substack.com"
+    },
+    {
+      "id": "Austin Lyons",
+      "twitterHandle": null,
+      "substackUrl": "https://chipstrat.substack.com"
+    },
+    {
+      "id": "Global Semi Research",
+      "twitterHandle": null,
+      "substackUrl": "https://globalsemiresearch.substack.com"
+    }
+  ],
+  "settings": {
+    "maxTweets": 100,
+    "maxSubstackPosts": 20,
+    "maxAnchorExcerpts": 15
+  }
+}

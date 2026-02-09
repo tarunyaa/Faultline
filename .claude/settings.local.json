@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"C:\\\\Users\\\\tarun\\\\code\\\\Faultline\\\\Faultline\" show draft1:faultline/app/api/debate/route.ts)",
+      "Bash(git -C \"C:\\\\Users\\\\tarun\\\\code\\\\Faultline\\\\Faultline\" show draft1:faultline/lib/evidence-store.ts)",
+      "Bash(git -C \"C:\\\\Users\\\\tarun\\\\code\\\\Faultline\\\\Faultline\" show draft1:faultline/personas/elon/personality.md)",
+      "Bash(git -C \"C:\\\\Users\\\\tarun\\\\code\\\\Faultline\\\\Faultline\" show draft1:docs/UI.md)",
+      "Bash(git -C \"C:\\\\Users\\\\tarun\\\\code\\\\Faultline\\\\Faultline\" show draft1:faultline/scripts/build-evidence.ts)",
+      "Bash(git -C \"C:\\\\Users\\\\tarun\\\\code\\\\Faultline\\\\Faultline\" show draft1:faultline/data/sources/elon-raw.txt)",
+      "Bash(git -C \"C:\\\\Users\\\\tarun\\\\code\\\\Faultline\\\\Faultline\" show draft1:faultline/data/evidence/elon.json)"
+    ]
+  }
+}

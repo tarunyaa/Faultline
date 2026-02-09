@@ -1,0 +1,64 @@
+{
+  "decks": [
+    {
+      "id": "memory-supercycle",
+      "name": "Memory SuperCycle Pricing Debate",
+      "slug": "memory-supercycle",
+      "personaIds": [
+        "Serenity",
+        "Jukan",
+        "Dylan Patel",
+        "Austin Lyons",
+        "Global Semi Research"
+      ],
+      "locked": false,
+      "createdAt": "2026-02-09T09:16:49.450Z"
+    }
+  ],
+  "personas": [
+    {
+      "id": "Serenity",
+      "name": "Serenity",
+      "twitterHandle": "@aleabitoreddit",
+      "twitterPicture": "https://pbs.twimg.com/profile_images/1996176688414367744/LXfA_lIx_400x400.jpg",
+      "deckIds": [
+        "memory-supercycle"
+      ],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Jukan",
+      "name": "Jukan",
+      "twitterHandle": "@jukan05",
+      "twitterPicture": "https://pbs.twimg.com/profile_images/2004846121634660353/kfyL9P7U_400x400.jpg",
+      "deckIds": [
+        "memory-supercycle"
+      ],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Dylan Patel",
+      "name": "SemiAnalysis",
+      "twitterHandle": "@SemiAnalysis_",
+      "twitterPicture": "https://pbs.twimg.com/profile_images/1947370460192378882/rA6oRuv-_400x400.jpg",
+      "deckIds": [
+        "memory-supercycle"
+      ],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Austin Lyons",
+      "name": "Austin Lyons",
+      "twitterHandle": "",
+      "twitterPicture": "",
+      "deckIds": [
+        "memory-supercycle"
+      ],
+      "suite": null,
+      "locked": false
+    }
+  ]
+}
