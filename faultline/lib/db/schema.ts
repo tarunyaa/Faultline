@@ -73,3 +73,16 @@ export const personaContracts = pgTable('persona_contracts', {
   contractJson: jsonb('contract_json').notNull(), // full PersonaContract object
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
 })
+
+// ─── Debates ─────────────────────────────────────────────────
+
+export const debates = pgTable('debates', {
+  id: text('id').primaryKey(),
+  topic: text('topic').notNull(),
+  mode: text('mode').notNull(), // 'blitz' | 'classical'
+  personaIds: jsonb('persona_ids').notNull().$type<string[]>(),
+  events: jsonb('events').notNull().$type<unknown[]>(),
+  output: jsonb('output').$type<unknown>(),
+  status: text('status').notNull(), // 'completed' | 'error'
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+})

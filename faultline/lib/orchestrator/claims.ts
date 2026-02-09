@@ -15,7 +15,8 @@ export async function decomposeClaims(
 ): Promise<Claim[]> {
   const result = await completeJSON<ClaimDecompositionResult>({
     messages: [{ role: 'user', content: claimDecompositionPrompt(topic) }],
-    model: 'sonnet',
+    model: 'haiku',
+    maxTokens: 512,
     temperature: 0.5,
   })
 

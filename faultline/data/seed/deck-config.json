@@ -1,40 +1,197 @@
-{
-  "deck": {
-    "id": "memory-supercycle",
-    "name": "Memory SuperCycle Pricing Debate",
-    "slug": "memory-supercycle"
-  },
-  "topic": "DRAM/HBM Memory",
-  "personas": [
-    {
-      "id": "Serenity",
-      "twitterHandle": "aleabitoreddit",
-      "substackUrl": null
+[
+  {
+    "deck": {
+      "id": "memory-supercycle",
+      "name": "Memory Cycle",
+      "slug": "memory-supercycle"
     },
-    {
-      "id": "Jukan",
-      "twitterHandle": "jukan05",
-      "substackUrl": null
-    },
-    {
-      "id": "Dylan Patel",
-      "twitterHandle": "SemiAnalysis_",
-      "substackUrl": "https://semianalysis.substack.com"
-    },
-    {
-      "id": "Austin Lyons",
-      "twitterHandle": null,
-      "substackUrl": "https://chipstrat.substack.com"
-    },
-    {
-      "id": "Global Semi Research",
-      "twitterHandle": null,
-      "substackUrl": "https://globalsemiresearch.substack.com"
+    "topic": "DRAM/HBM Memory",
+    "personas": [
+      {
+        "id": "Serenity",
+        "twitterHandle": "aleabitoreddit",
+        "substackUrl": null
+      },
+      {
+        "id": "Jukan",
+        "twitterHandle": "jukan05",
+        "substackUrl": null
+      },
+      {
+        "id": "Dylan Patel",
+        "twitterHandle": "SemiAnalysis_",
+        "substackUrl": "https://semianalysis.substack.com"
+      },
+      {
+        "id": "Austin Lyons",
+        "twitterHandle": null,
+        "substackUrl": "https://chipstrat.substack.com"
+      },
+      {
+        "id": "Global Semi Research",
+        "twitterHandle": null,
+        "substackUrl": "https://globalsemiresearch.substack.com"
+      }
+    ],
+    "settings": {
+      "maxTweets": 100,
+      "maxSubstackPosts": 20,
+      "maxAnchorExcerpts": 15
     }
-  ],
-  "settings": {
-    "maxTweets": 100,
-    "maxSubstackPosts": 20,
-    "maxAnchorExcerpts": 15
+  },
+  {
+    "deck": {
+      "id": "macroeconomic-trends",
+      "name": "Macroeconomic Trends",
+      "slug": "macroeconomic-trends"
+    },
+    "topic": "Macroeconomic Trends",
+    "personas": [
+      {
+        "id": "Chamath Palihapitiya",
+        "twitterHandle": "chamath",
+        "substackUrl": null
+      },
+      {
+        "id": "Jordi Visser",
+        "twitterHandle": "jvisserlabs",
+        "substackUrl": null
+      },
+      {
+        "id": "Michael Burry",
+        "twitterHandle": "michaeljburry",
+        "substackUrl": null
+      },
+      {
+        "id": "Robert Kiyosaki",
+        "twitterHandle": "theRealKiyosaki",
+        "substackUrl": null
+      },
+      {
+        "id": "Aswath Damodaran",
+        "twitterHandle": "AswathDamodaran",
+        "substackUrl": null
+      },
+      {
+        "id": "Cathie Wood",
+        "twitterHandle": "CathieDWood",
+        "substackUrl": null
+      }
+    ],
+    "settings": {
+      "maxTweets": 100,
+      "maxSubstackPosts": 20,
+      "maxAnchorExcerpts": 15
+    }
+  },
+  {
+    "deck": {
+      "id": "crypto",
+      "name": "Crypto",
+      "slug": "crypto"
+    },
+    "topic": "Crypto",
+    "personas": [
+      {
+        "id": "Michael Saylor",
+        "twitterHandle": "saylor",
+        "substackUrl": null
+      },
+      {
+        "id": "Arthur Hayes",
+        "twitterHandle": "CryptoHayes",
+        "substackUrl": null
+      },
+      {
+        "id": "Brian Armstrong",
+        "twitterHandle": "brian_armstrong",
+        "substackUrl": null
+      },
+      {
+        "id": "Vitalik Buterin",
+        "twitterHandle": "VitalikButerin",
+        "substackUrl": null
+      }
+    ],
+    "settings": {
+      "maxTweets": 100,
+      "maxSubstackPosts": 20,
+      "maxAnchorExcerpts": 15
+    }
+  },
+  {
+    "deck": {
+      "id": "famous-personalities",
+      "name": "Famous Personalities",
+      "slug": "famous-personalities"
+    },
+    "topic": "Famous Personalities",
+    "personas": [
+      {
+        "id": "Elon Musk",
+        "twitterHandle": "elonmusk",
+        "substackUrl": null
+      },
+      {
+        "id": "Sam Altman",
+        "twitterHandle": "sama",
+        "substackUrl": null
+      },
+      {
+        "id": "Satya Nadella",
+        "twitterHandle": "satyanadella",
+        "substackUrl": null
+      },
+      {
+        "id": "Mark Zuckerberg",
+        "twitterHandle": "finkd",
+        "substackUrl": null
+      },
+      {
+        "id": "Bill Gates",
+        "twitterHandle": "BillGates",
+        "substackUrl": null
+      }
+    ],
+    "settings": {
+      "maxTweets": 100,
+      "maxSubstackPosts": 20,
+      "maxAnchorExcerpts": 15
+    }
+  },
+  {
+    "deck": {
+      "id": "ai",
+      "name": "AI",
+      "slug": "ai"
+    },
+    "topic": "AI",
+    "personas": [
+      {
+        "id": "Jim Fan",
+        "twitterHandle": "DrJimFan",
+        "substackUrl": null
+      },
+      {
+        "id": "Garry Tan",
+        "twitterHandle": "garrytan",
+        "substackUrl": null
+      },
+      {
+        "id": "Yann LeCun",
+        "twitterHandle": "ylecun",
+        "substackUrl": null
+      },
+      {
+        "id": "Andrej Karpathy",
+        "twitterHandle": "karpathy",
+        "substackUrl": null
+      }
+    ],
+    "settings": {
+      "maxTweets": 100,
+      "maxSubstackPosts": 20,
+      "maxAnchorExcerpts": 15
+    }
   }
-}
+]

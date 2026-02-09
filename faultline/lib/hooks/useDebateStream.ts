@@ -9,16 +9,17 @@ import type {
   Crux,
   FlipCondition,
   DebateOutput,
+  DebateMode,
+  AgentMessage,
+  InitialStanceEntry,
 } from '@/lib/types'
 
 type DebateStatus = 'idle' | 'connecting' | 'streaming' | 'completed' | 'error'
 
-interface AgentMessage {
+interface ActiveSpeaker {
   personaId: string
-  tableId: number
-  content: string
-  stance: AgentStance
-  timestamp: number
+  urgency: number
+  intent: string
 }
 
 interface DebateStreamState {
@@ -33,10 +34,12 @@ interface DebateStreamState {
   output: DebateOutput | null
   error: string | null
   tables: Map<number, string[]>
+  activeSpeaker: ActiveSpeaker | null
+  initialStances: InitialStanceEntry[]
 }
 
 interface DebateStreamControls {
-  start: (params: { topic: string; personaIds: string[] }) => void
+  start: (params: { topic: string; personaIds: string[]; mode?: DebateMode }) => void
   abort: () => void
 }
 
@@ -52,6 +55,8 @@ const initialState: DebateStreamState = {
   output: null,
   error: null,
   tables: new Map(),
+  activeSpeaker: null,
+  initialStances: [],
 }
 
 export function useDebateStream(): [DebateStreamState, DebateStreamControls] {
@@ -66,7 +71,7 @@ export function useDebateStream(): [DebateStreamState, DebateStreamControls] {
   }, [])
 
   const start = useCallback(
-    (params: { topic: string; personaIds: string[] }) => {
+    (params: { topic: string; personaIds: string[]; mode?: DebateMode }) => {
       // Abort any existing stream
       abort()
 
@@ -83,7 +88,7 @@ export function useDebateStream(): [DebateStreamState, DebateStreamControls] {
             body: JSON.stringify({
               topic: params.topic,
               personaIds: params.personaIds,
-              mode: 'blitz',
+              mode: params.mode ?? 'blitz',
             }),
             signal: controller.signal,
           })
@@ -210,9 +215,35 @@ function processEvent(
       })
       break
 
+    case 'initial_stance':
+      setState(prev => ({
+        ...prev,
+        initialStances: [
+          ...prev.initialStances,
+          {
+            personaId: event.personaId,
+            stances: event.stances,
+            reasoning: event.reasoning,
+          },
+        ],
+      }))
+      break
+
+    case 'speaker_selected':
+      setState(prev => ({
+        ...prev,
+        activeSpeaker: {
+          personaId: event.personaId,
+          urgency: event.urgency,
+          intent: event.intent,
+        },
+      }))
+      break
+
     case 'agent_turn':
       setState(prev => ({
         ...prev,
+        activeSpeaker: null,
         messages: [
           ...prev.messages,
           {

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import NavBar from "@/components/NavBar";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Faultline",
-  description: "AI debate engine — find where minds diverge",
+  title: "Crux",
+  description: "Where AI minds debate\u2014so you can decide.",
 };
 
 export default function RootLayout({
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
+        <NavBar />
         {children}
       </body>
     </html>

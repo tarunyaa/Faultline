@@ -5,8 +5,10 @@
  * then uses Claude to generate structured persona contracts.
  *
  * Usage:
- *   npx tsx scripts/build-personas.ts              # build all
- *   npx tsx scripts/build-personas.ts --only elon  # build one
+ *   npx tsx scripts/build-personas.ts                        # build all decks
+ *   npx tsx scripts/build-personas.ts --deck crypto          # build one deck
+ *   npx tsx scripts/build-personas.ts --deck crypto --only "Michael Saylor"  # one persona in one deck
+ *   npx tsx scripts/build-personas.ts --only "Elon Musk"     # one persona across all decks
  */
 
 import dotenv from 'dotenv'
@@ -482,15 +484,23 @@ Return ONLY the JSON array, no other text.`
 
 // ─── Main ────────────────────────────────────────────────────
 
-async function loadConfig(): Promise<DeckConfig> {
+async function loadConfigs(): Promise<DeckConfig[]> {
   const configPath = path.join(SEED_DIR, 'deck-config.json')
   try {
     const raw = await fs.readFile(configPath, 'utf-8')
-    const config = JSON.parse(raw) as DeckConfig
-    if (!config.deck?.id || !config.topic || !config.personas?.length) {
-      throw new Error('Invalid deck-config.json: missing deck.id, topic, or personas array')
+    const parsed = JSON.parse(raw)
+
+    // Support both single object and array format
+    const configs: DeckConfig[] = Array.isArray(parsed) ? parsed : [parsed]
+
+    for (const config of configs) {
+      if (!config.deck?.id || !config.topic || !config.personas?.length) {
+        throw new Error(
+          `Invalid deck config for "${config.deck?.id ?? 'unknown'}": missing deck.id, topic, or personas array`
+        )
+      }
     }
-    return config
+    return configs
   } catch (err) {
     if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
       console.error(`ERROR: ${configPath} not found. Create it first.`)
@@ -699,49 +709,82 @@ async function buildPersona(
 }
 
 async function main() {
-  console.log('Faultline — Persona Builder\n')
+  console.log('Crux — Persona Builder\n')
 
-  // Parse --only flag
+  // Parse flags
   const args = process.argv.slice(2)
   const onlyIndex = args.indexOf('--only')
   const onlyId = onlyIndex !== -1 ? args[onlyIndex + 1] : null
+  const deckIndex = args.indexOf('--deck')
+  const deckId = deckIndex !== -1 ? args[deckIndex + 1] : null
 
-  // Load config
-  const config = await loadConfig()
-  console.log(`Deck: ${config.deck.name}`)
-  console.log(`Topic: ${config.topic}`)
-  console.log(`Personas: ${config.personas.map(p => p.id).join(', ')}`)
+  // Load configs
+  const allConfigs = await loadConfigs()
+
+  // Filter decks if --deck
+  const configs = deckId
+    ? allConfigs.filter(c => c.deck.id === deckId || c.deck.slug === deckId)
+    : allConfigs
+
+  if (configs.length === 0) {
+    const available = allConfigs.map(c => c.deck.id).join(', ')
+    console.error(`ERROR: No deck found with id "${deckId}". Available: ${available}`)
+    process.exit(1)
+  }
+
+  console.log(`Decks to build: ${configs.map(c => c.deck.id).join(', ')}\n`)
 
   // Init clients
   const twitter = getTwitterClient()
   const claude = getAnthropicClient()
 
   if (!twitter) {
-    console.warn('\nWARNING: X_BEARER_TOKEN not set. Twitter fetching disabled.')
+    console.warn('WARNING: X_BEARER_TOKEN not set. Twitter fetching disabled.')
     console.warn('Only Substack content will be used.\n')
   }
 
-  // Filter personas if --only
-  const personasToBuild = onlyId
-    ? config.personas.filter(p => p.id === onlyId)
-    : config.personas
+  // Build all selected decks
+  const allPersonaMetadata: NonNullable<Awaited<ReturnType<typeof buildPersona>>>[] = []
+  const allDeckEntries: Array<Record<string, unknown>> = []
 
-  if (personasToBuild.length === 0) {
-    console.error(`ERROR: No persona found with id "${onlyId}"`)
-    process.exit(1)
-  }
+  for (const config of configs) {
+    console.log(`\n${'━'.repeat(60)}`)
+    console.log(`Deck: ${config.deck.name}`)
+    console.log(`Topic: ${config.topic}`)
+    console.log(`Personas: ${config.personas.map(p => p.id).join(', ')}`)
+    console.log(`${'━'.repeat(60)}`)
 
-  // Build each persona
-  const personaMetadata: NonNullable<Awaited<ReturnType<typeof buildPersona>>>[] = []
+    // Filter personas if --only
+    const personasToBuild = onlyId
+      ? config.personas.filter(p => p.id === onlyId)
+      : config.personas
 
-  for (const persona of personasToBuild) {
-    const result = await buildPersona(config, persona, twitter, claude)
-    if (result) personaMetadata.push(result)
+    if (personasToBuild.length === 0) {
+      console.warn(`WARNING: No persona "${onlyId}" in deck "${config.deck.id}". Skipping.`)
+      continue
+    }
+
+    const personaMetadata: NonNullable<Awaited<ReturnType<typeof buildPersona>>>[] = []
+
+    for (const persona of personasToBuild) {
+      const result = await buildPersona(config, persona, twitter, claude)
+      if (result) personaMetadata.push(result)
+    }
+
+    allPersonaMetadata.push(...personaMetadata)
+
+    allDeckEntries.push({
+      id: config.deck.id,
+      name: config.deck.name,
+      slug: config.deck.slug,
+      personaIds: config.personas.map(p => p.id),
+      locked: false,
+      createdAt: new Date().toISOString(),
+    })
   }
 
   // ─── Write personas.json ───
-  // If --only, merge with existing file
-  let existingPersonas: typeof personaMetadata = []
+  let existingPersonas: typeof allPersonaMetadata = []
   let existingDecks: Array<Record<string, unknown>> = []
 
   const personasPath = path.join(SEED_DIR, 'personas.json')
@@ -755,21 +798,15 @@ async function main() {
 
   // Merge personas (replace by id)
   const personaMap = new Map(existingPersonas.map(p => [p.id, p]))
-  for (const p of personaMetadata) {
+  for (const p of allPersonaMetadata) {
     personaMap.set(p.id, p)
   }
 
-  // Merge deck
-  const deckEntry = {
-    id: config.deck.id,
-    name: config.deck.name,
-    slug: config.deck.slug,
-    personaIds: config.personas.map(p => p.id),
-    locked: false,
-    createdAt: new Date().toISOString(),
-  }
+  // Merge decks (replace by id)
   const deckMap = new Map(existingDecks.map(d => [d.id as string, d]))
-  deckMap.set(deckEntry.id, deckEntry)
+  for (const d of allDeckEntries) {
+    deckMap.set(d.id as string, d)
+  }
 
   const personasFile = {
     decks: Array.from(deckMap.values()),
@@ -779,9 +816,9 @@ async function main() {
   await fs.writeFile(personasPath, JSON.stringify(personasFile, null, 2))
   console.log(`\nWrote: ${personasPath}`)
 
-  console.log(`\nDone! Built ${personaMetadata.length} persona(s).`)
+  console.log(`\nDone! Built ${allPersonaMetadata.length} persona(s) across ${allDeckEntries.length} deck(s).`)
   console.log('Generated files:')
-  for (const p of personaMetadata) {
+  for (const p of allPersonaMetadata) {
     console.log(`  - data/seed/contracts/${p.id}.json`)
     console.log(`  - data/seed/corpus/${p.id}.json`)
   }

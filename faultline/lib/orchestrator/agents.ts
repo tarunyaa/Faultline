@@ -67,6 +67,7 @@ export async function generateInitialStances(
     system: agent.systemPrompt,
     messages: [{ role: 'user', content: initialStancePrompt(claims) }],
     model: 'sonnet',
+    maxTokens: 512,
     temperature: 0.6,
   })
 
@@ -77,4 +78,39 @@ export async function generateInitialStances(
     confidence: Math.max(0, Math.min(1, s.confidence)),
     round: 0,
   }))
+}
+
+export interface InitialStancesWithReasoning {
+  stances: AgentStance[]
+  reasoning: string
+}
+
+/**
+ * Generate initial stances and return per-claim reasoning for display.
+ */
+export async function generateInitialStancesWithReasoning(
+  agent: Agent,
+  claims: Claim[],
+): Promise<InitialStancesWithReasoning> {
+  const result = await completeJSON<StanceResult>({
+    system: agent.systemPrompt,
+    messages: [{ role: 'user', content: initialStancePrompt(claims) }],
+    model: 'sonnet',
+    maxTokens: 512,
+    temperature: 0.6,
+  })
+
+  const stances = result.stances.map(s => ({
+    personaId: agent.persona.id,
+    claimId: s.claimId,
+    stance: s.stance,
+    confidence: Math.max(0, Math.min(1, s.confidence)),
+    round: 0,
+  }))
+
+  const reasoning = result.stances
+    .map(s => `${s.stance} (${(s.confidence * 100).toFixed(0)}%): ${s.reasoning}`)
+    .join('\n')
+
+  return { stances, reasoning }
 }

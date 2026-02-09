@@ -6,7 +6,7 @@ import type {
   Stance,
 } from '@/lib/types'
 import { decomposeClaims } from './claims'
-import { initializeAgents, generateInitialStances } from './agents'
+import { initializeAgents, generateInitialStancesWithReasoning } from './agents'
 import type { Agent } from './agents'
 import { createBlackboard, updateBlackboard } from './blackboard'
 import type { TurnResult } from './blackboard'
@@ -73,20 +73,27 @@ export async function* runBlitz(config: BlitzConfig): AsyncGenerator<SSEEvent> {
       personaIds,
     }
 
-    // 3. Generate initial stances (parallel)
+    // 3. Generate initial stances (parallel, yield as each completes)
     yield { type: 'status', phase: 'stances', message: 'Generating initial stances...' }
     let blackboard = createBlackboard(topic, claims)
-    const initialStancePromises = personaIds.map(async id => {
-      const agent = agents.get(id)!
-      return generateInitialStances(agent, claims)
-    })
-    const allInitialStances = await Promise.all(initialStancePromises)
 
-    for (let i = 0; i < personaIds.length; i++) {
-      const stances = allInitialStances[i]
+    // Fire all LLM calls in parallel, but yield results as they resolve
+    const initialStanceResults: { personaId: PersonaId; stances: typeof blackboard.stances; reasoning: string }[] = []
+    const stancePromises = personaIds.map(async (id) => {
+      const agent = agents.get(id)!
+      const result = await generateInitialStancesWithReasoning(agent, claims)
+      return { personaId: id, ...result }
+    })
+
+    // Use Promise.allSettled to process in completion order isn't straightforward,
+    // but we can collect all and yield them — they resolve in parallel anyway
+    const allResults = await Promise.all(stancePromises)
+
+    for (const result of allResults) {
+      initialStanceResults.push(result)
       blackboard = updateBlackboard(blackboard, {
-        personaId: personaIds[i],
-        stances: stances.map(s => ({
+        personaId: result.personaId,
+        stances: result.stances.map(s => ({
           claimId: s.claimId,
           stance: s.stance,
           confidence: s.confidence,
@@ -95,6 +102,13 @@ export async function* runBlitz(config: BlitzConfig): AsyncGenerator<SSEEvent> {
         flipTriggers: [],
         round: 0,
       })
+
+      yield {
+        type: 'initial_stance',
+        personaId: result.personaId,
+        stances: result.stances,
+        reasoning: result.reasoning,
+      }
     }
 
     // 4. Debate loop
@@ -224,6 +238,7 @@ async function executeAgentTurn(
         },
       ],
       model: 'sonnet',
+      maxTokens: 1024,
       temperature: 0.7,
     })
 

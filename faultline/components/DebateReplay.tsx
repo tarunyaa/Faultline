@@ -1,9 +1,8 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { useDebateStream } from '@/lib/hooks/useDebateStream'
 import type { DebateMode } from '@/lib/types'
+import type { HydratedDebateState } from '@/lib/hooks/hydrateDebateState'
 import HexAvatar from '@/components/HexAvatar'
 import SuitIcon from '@/components/SuitIcon'
 import AgentPolygon from '@/components/AgentPolygon'
@@ -14,15 +13,13 @@ interface PersonaMeta {
   picture: string
 }
 
-interface MatchClientProps {
+interface DebateReplayProps {
   topic: string
-  personaIds: string[]
+  mode: DebateMode
   personaMetas: PersonaMeta[]
-  mode?: DebateMode
-}
-
-function stripMarkdown(text: string): string {
-  return text.replace(/\*{1,2}([^*]+)\*{1,2}/g, '$1')
+  state: HydratedDebateState
+  createdAt: string
+  hasError: boolean
 }
 
 function stanceBadge(stance: string) {
@@ -38,53 +35,8 @@ function stanceBadge(stance: string) {
   )
 }
 
-export default function MatchClient({ topic, personaIds, personaMetas, mode = 'blitz' }: MatchClientProps) {
-  const [state, { start, abort }] = useDebateStream()
-  const feedRef = useRef<HTMLDivElement>(null)
-  const [autoScroll, setAutoScroll] = useState(true)
-  const startedRef = useRef(false)
-
+export default function DebateReplay({ topic, mode, personaMetas, state, createdAt, hasError }: DebateReplayProps) {
   const metaMap = new Map(personaMetas.map(p => [p.id, p]))
-
-  // Auto-start the debate on mount
-  useEffect(() => {
-    if (!startedRef.current) {
-      startedRef.current = true
-      start({ topic, personaIds, mode })
-    }
-    return () => { abort() }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  // Auto-scroll feed
-  useEffect(() => {
-    if (autoScroll && feedRef.current) {
-      feedRef.current.scrollTop = feedRef.current.scrollHeight
-    }
-  }, [state.messages, autoScroll])
-
-  function handleFeedScroll() {
-    if (!feedRef.current) return
-    const { scrollTop, scrollHeight, clientHeight } = feedRef.current
-    const atBottom = scrollHeight - scrollTop - clientHeight < 60
-    setAutoScroll(atBottom)
-  }
-
-  const statusLabel = {
-    idle: 'Idle',
-    connecting: 'Connecting...',
-    streaming: 'Debate in progress',
-    completed: 'Debate complete',
-    error: 'Error',
-  }[state.status]
-
-  const statusColor = {
-    idle: 'text-muted',
-    connecting: 'text-yellow-400',
-    streaming: 'text-accent',
-    completed: 'text-accent',
-    error: 'text-danger',
-  }[state.status]
 
   return (
     <div className="space-y-6">
@@ -93,19 +45,25 @@ export default function MatchClient({ topic, personaIds, personaMetas, mode = 'b
         <div className="min-w-0">
           <h1 className="text-2xl font-bold truncate">{topic}</h1>
           <div className="flex items-center gap-3">
-            <p className={`text-sm flex items-center ${statusColor}`}>
-              {state.status === 'streaming' && (
-                <span className="inline-block w-2 h-2 rounded-full bg-accent mr-2 animate-pulse" />
-              )}
-              {statusLabel}
+            <p className={`text-sm ${hasError ? 'text-danger' : 'text-accent'}`}>
+              {hasError ? 'Error' : 'Debate complete'}
             </p>
             <span className="text-xs px-2 py-0.5 rounded-full bg-card-border text-muted uppercase tracking-wider">
               {mode}
             </span>
+            <span className="text-xs text-muted">
+              {new Date(createdAt).toLocaleDateString(undefined, {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
+            </span>
           </div>
         </div>
-        <Link href="/setup" className="text-muted hover:text-foreground text-sm shrink-0 transition-colors">
-          &larr; Setup
+        <Link href="/debates" className="text-muted hover:text-foreground text-sm shrink-0 transition-colors">
+          &larr; Past Debates
         </Link>
       </div>
 
@@ -133,45 +91,18 @@ export default function MatchClient({ topic, personaIds, personaMetas, mode = 'b
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         {/* Message feed */}
         <div className="lg:col-span-2">
-          {/* Active speaker indicator (classical mode) */}
-          {state.activeSpeaker && state.status === 'streaming' && (() => {
-            const speakerMeta = metaMap.get(state.activeSpeaker.personaId)
-            return (
-              <div className="mb-2 flex items-center gap-2 rounded-lg border border-accent/30 bg-accent-dim/10 px-3 py-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-sm font-medium">
-                  Speaking: {speakerMeta?.name ?? state.activeSpeaker.personaId}
-                </span>
-                <span className="text-xs text-muted ml-auto truncate max-w-[50%]">
-                  {state.activeSpeaker.intent}
-                </span>
-              </div>
-            )
-          })()}
           <div
-            ref={feedRef}
-            onScroll={handleFeedScroll}
             className="rounded-xl border border-card-border bg-card-bg p-4 space-y-4 overflow-y-auto"
             style={{ minHeight: '400px' }}
           >
-            {(state.status === 'connecting' || (state.status === 'streaming' && state.messages.length === 0 && state.initialStances.length === 0)) && (
-              <div className="flex flex-col items-center justify-center h-40 text-muted gap-3">
-                <svg className="animate-spin h-6 w-6" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                </svg>
-                <span className="text-sm">{state.statusMessage ?? 'Connecting to debate engine...'}</span>
-              </div>
-            )}
-
-            {/* Initial stances (shown before debate rounds begin) */}
+            {/* Initial stances */}
             {state.initialStances.length > 0 && state.messages.length === 0 && (
               <div className="space-y-3">
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted">Opening Positions</p>
                 {state.initialStances.map((entry) => {
                   const meta = metaMap.get(entry.personaId)
                   return (
-                    <div key={entry.personaId} className="flex items-start gap-3 animate-fade-in">
+                    <div key={entry.personaId} className="flex items-start gap-3">
                       <HexAvatar
                         src={meta?.picture || undefined}
                         alt={meta?.name ?? entry.personaId}
@@ -189,27 +120,18 @@ export default function MatchClient({ topic, personaIds, personaMetas, mode = 'b
                             </span>
                           ))}
                         </div>
-                        <p className="text-sm text-foreground/70 whitespace-pre-wrap">{stripMarkdown(entry.reasoning)}</p>
+                        <p className="text-sm text-foreground/70 whitespace-pre-wrap">{entry.reasoning}</p>
                       </div>
                     </div>
                   )
                 })}
-                {state.status === 'streaming' && (
-                  <div className="flex items-center gap-2 text-muted text-sm pt-2">
-                    <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-                    </svg>
-                    <span>{state.statusMessage ?? 'Starting debate...'}</span>
-                  </div>
-                )}
               </div>
             )}
 
             {state.messages.map((msg, i) => {
               const meta = metaMap.get(msg.personaId)
               return (
-                <div key={i} className="flex items-start gap-3 animate-fade-in">
+                <div key={i} className="flex items-start gap-3">
                   <HexAvatar
                     src={meta?.picture || undefined}
                     alt={meta?.name ?? msg.personaId}
@@ -225,12 +147,15 @@ export default function MatchClient({ topic, personaIds, personaMetas, mode = 'b
                         {(msg.stance.confidence * 100).toFixed(0)}%
                       </span>
                     </div>
-                    <p className="text-sm text-foreground/85 whitespace-pre-wrap">{stripMarkdown(msg.content)}</p>
+                    <p className="text-sm text-foreground/85 whitespace-pre-wrap">{msg.content}</p>
                   </div>
                 </div>
               )
             })}
 
+            {state.messages.length === 0 && state.initialStances.length === 0 && (
+              <p className="text-muted text-sm text-center py-8">No messages recorded</p>
+            )}
           </div>
         </div>
 
@@ -245,7 +170,7 @@ export default function MatchClient({ topic, personaIds, personaMetas, mode = 'b
               <AgentPolygon
                 agents={personaMetas}
                 messages={state.messages}
-                activeSpeakerId={state.activeSpeaker?.personaId ?? null}
+                activeSpeakerId={null}
               />
             </div>
           )}
@@ -281,7 +206,7 @@ export default function MatchClient({ topic, personaIds, personaMetas, mode = 'b
                 )}
               </div>
             ) : (
-              <p className="text-muted text-sm">No data yet</p>
+              <p className="text-muted text-sm">No data</p>
             )}
           </div>
 
@@ -338,20 +263,14 @@ export default function MatchClient({ topic, personaIds, personaMetas, mode = 'b
       </div>
 
       {/* Error display */}
-      {state.status === 'error' && state.error && (
+      {hasError && state.error && (
         <div className="rounded-xl border border-danger/50 bg-danger/10 p-4 space-y-2">
           <h2 className="text-sm font-semibold text-danger">Error</h2>
           <p className="text-sm text-foreground/80">{state.error}</p>
-          <Link
-            href="/setup"
-            className="inline-block text-sm text-accent hover:underline"
-          >
-            Return to setup
-          </Link>
         </div>
       )}
 
-      {/* Output panel — shown on debate_complete */}
+      {/* Output panel */}
       {state.output && (
         <div className="rounded-xl border border-accent/30 bg-accent-dim/10 p-6 space-y-6 card-shadow">
           <h2 className="text-xl font-bold text-accent flex items-center gap-2">

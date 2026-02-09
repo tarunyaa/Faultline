@@ -13,6 +13,61 @@
       ],
       "locked": false,
       "createdAt": "2026-02-09T09:36:10.121Z"
+    },
+    {
+      "id": "macroeconomic-trends",
+      "name": "Macroeconomic Trends",
+      "slug": "macroeconomic-trends",
+      "personaIds": [
+        "Chamath Palihapitiya",
+        "Jordi Visser",
+        "Michael Burry",
+        "Robert Kiyosaki",
+        "Aswath Damodaran",
+        "Cathie Wood"
+      ],
+      "locked": false,
+      "createdAt": "2026-02-09T10:00:00.000Z"
+    },
+    {
+      "id": "crypto",
+      "name": "Crypto",
+      "slug": "crypto",
+      "personaIds": [
+        "Michael Saylor",
+        "Arthur Hayes",
+        "Brian Armstrong",
+        "Vitalik Buterin"
+      ],
+      "locked": false,
+      "createdAt": "2026-02-09T10:00:00.000Z"
+    },
+    {
+      "id": "famous-personalities",
+      "name": "Famous Personalities",
+      "slug": "famous-personalities",
+      "personaIds": [
+        "Elon Musk",
+        "Sam Altman",
+        "Satya Nadella",
+        "Mark Zuckerberg",
+        "Bill Gates"
+      ],
+      "locked": false,
+      "createdAt": "2026-02-09T10:00:00.000Z"
+    },
+    {
+      "id": "ai",
+      "name": "AI",
+      "slug": "ai",
+      "personaIds": [
+        "Jim Fan",
+        "Garry Tan",
+        "Yann LeCun",
+        "Andrej Karpathy"
+      ],
+      "locked": false,
+      "createdAt": "2026-02-09T10:00:00.000Z"
     }
   ],
   "personas": [
@@ -21,9 +76,7 @@
       "name": "Serenity",
       "twitterHandle": "@aleabitoreddit",
       "twitterPicture": "https://pbs.twimg.com/profile_images/1996176688414367744/LXfA_lIx_400x400.jpg",
-      "deckIds": [
-        "memory-supercycle"
-      ],
+      "deckIds": ["memory-supercycle"],
       "suite": null,
       "locked": false
     },
@@ -32,9 +85,7 @@
       "name": "Jukan",
       "twitterHandle": "@jukan05",
       "twitterPicture": "https://pbs.twimg.com/profile_images/2004846121634660353/kfyL9P7U_400x400.jpg",
-      "deckIds": [
-        "memory-supercycle"
-      ],
+      "deckIds": ["memory-supercycle"],
       "suite": null,
       "locked": false
     },
@@ -43,20 +94,16 @@
       "name": "SemiAnalysis",
       "twitterHandle": "@SemiAnalysis_",
       "twitterPicture": "https://pbs.twimg.com/profile_images/1947370460192378882/rA6oRuv-_400x400.jpg",
-      "deckIds": [
-        "memory-supercycle"
-      ],
+      "deckIds": ["memory-supercycle"],
       "suite": null,
       "locked": false
     },
     {
       "id": "Austin Lyons",
       "name": "Austin Lyons",
-      "twitterHandle": "",
-      "twitterPicture": "",
-      "deckIds": [
-        "memory-supercycle"
-      ],
+      "twitterHandle": "@chipstrat",
+      "twitterPicture": "https://substack-post-media.s3.amazonaws.com/public/images/c180a750-7572-4aff-88e4-317aa435d533_1203x902.jpeg",
+      "deckIds": ["memory-supercycle"],
       "suite": null,
       "locked": false
     },
@@ -65,9 +112,178 @@
       "name": "Global Semi Research",
       "twitterHandle": "",
       "twitterPicture": "",
-      "deckIds": [
-        "memory-supercycle"
-      ],
+      "deckIds": ["memory-supercycle"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Chamath Palihapitiya",
+      "name": "Chamath Palihapitiya",
+      "twitterHandle": "@chamath",
+      "twitterPicture": "",
+      "deckIds": ["macroeconomic-trends"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Jordi Visser",
+      "name": "Jordi Visser",
+      "twitterHandle": "@jvisserlabs",
+      "twitterPicture": "",
+      "deckIds": ["macroeconomic-trends"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Michael Burry",
+      "name": "Michael Burry",
+      "twitterHandle": "@michaeljburry",
+      "twitterPicture": "",
+      "deckIds": ["macroeconomic-trends"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Robert Kiyosaki",
+      "name": "Robert Kiyosaki",
+      "twitterHandle": "@theRealKiyosaki",
+      "twitterPicture": "",
+      "deckIds": ["macroeconomic-trends"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Aswath Damodaran",
+      "name": "Aswath Damodaran",
+      "twitterHandle": "@AswathDamodaran",
+      "twitterPicture": "",
+      "deckIds": ["macroeconomic-trends"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Cathie Wood",
+      "name": "Cathie Wood",
+      "twitterHandle": "@CathieDWood",
+      "twitterPicture": "",
+      "deckIds": ["macroeconomic-trends"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Michael Saylor",
+      "name": "Michael Saylor",
+      "twitterHandle": "@saylor",
+      "twitterPicture": "",
+      "deckIds": ["crypto"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Arthur Hayes",
+      "name": "Arthur Hayes",
+      "twitterHandle": "@CryptoHayes",
+      "twitterPicture": "",
+      "deckIds": ["crypto"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Brian Armstrong",
+      "name": "Brian Armstrong",
+      "twitterHandle": "@brian_armstrong",
+      "twitterPicture": "",
+      "deckIds": ["crypto"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Vitalik Buterin",
+      "name": "Vitalik Buterin",
+      "twitterHandle": "@VitalikButerin",
+      "twitterPicture": "",
+      "deckIds": ["crypto"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Elon Musk",
+      "name": "Elon Musk",
+      "twitterHandle": "@elonmusk",
+      "twitterPicture": "",
+      "deckIds": ["famous-personalities"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Sam Altman",
+      "name": "Sam Altman",
+      "twitterHandle": "@sama",
+      "twitterPicture": "",
+      "deckIds": ["famous-personalities"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Satya Nadella",
+      "name": "Satya Nadella",
+      "twitterHandle": "@satyanadella",
+      "twitterPicture": "",
+      "deckIds": ["famous-personalities"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Mark Zuckerberg",
+      "name": "Mark Zuckerberg",
+      "twitterHandle": "@finkd",
+      "twitterPicture": "",
+      "deckIds": ["famous-personalities"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Bill Gates",
+      "name": "Bill Gates",
+      "twitterHandle": "@BillGates",
+      "twitterPicture": "",
+      "deckIds": ["famous-personalities"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Jim Fan",
+      "name": "Jim Fan",
+      "twitterHandle": "@DrJimFan",
+      "twitterPicture": "",
+      "deckIds": ["ai"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Garry Tan",
+      "name": "Garry Tan",
+      "twitterHandle": "@garrytan",
+      "twitterPicture": "",
+      "deckIds": ["ai"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Yann LeCun",
+      "name": "Yann LeCun",
+      "twitterHandle": "@ylecun",
+      "twitterPicture": "",
+      "deckIds": ["ai"],
+      "suite": null,
+      "locked": false
+    },
+    {
+      "id": "Andrej Karpathy",
+      "name": "Andrej Karpathy",
+      "twitterHandle": "@karpathy",
+      "twitterPicture": "",
+      "deckIds": ["ai"],
       "suite": null,
       "locked": false
     }

@@ -142,6 +142,15 @@ export interface DebateOutput {
   resolutionPaths: ResolutionPath[]
 }
 
+// ─── Action Plans (Classical Mode) ───────────────────────────
+
+export interface ActionPlan {
+  personaId: PersonaId
+  action: 'speak' | 'interrupt' | 'listen'
+  urgency: number
+  intent: string
+}
+
 // ─── SSE Events ───────────────────────────────────────────────
 
 export type SSEEvent =
@@ -154,8 +163,26 @@ export type SSEEvent =
   | { type: 'merge_start'; round: number }
   | { type: 'merge_complete'; mergedCruxes: Crux[] }
   | { type: 'final_table_start'; personaIds: PersonaId[] }
+  | { type: 'speaker_selected'; personaId: PersonaId; urgency: number; intent: string }
+  | { type: 'initial_stance'; personaId: PersonaId; stances: AgentStance[]; reasoning: string }
   | { type: 'debate_complete'; output: DebateOutput }
   | { type: 'error'; message: string }
+
+// ─── Agent Messages (shared with hooks & replay) ─────────────
+
+export interface AgentMessage {
+  personaId: string
+  tableId: number
+  content: string
+  stance: AgentStance
+  timestamp: number
+}
+
+export interface InitialStanceEntry {
+  personaId: string
+  stances: AgentStance[]
+  reasoning: string
+}
 
 // ─── Debate Session ───────────────────────────────────────────
 

@@ -65,7 +65,7 @@ interface CorpusExcerpt {
 }
 
 async function main() {
-  console.log('Faultline — Database Seeder\n')
+  console.log('Crux — Database Seeder\n')
 
   const connectionString =
     process.env.DATABASE_URL ?? 'postgresql://faultline:faultline@localhost:5432/faultline'

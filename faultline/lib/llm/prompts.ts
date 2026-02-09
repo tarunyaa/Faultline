@@ -1,4 +1,4 @@
-import type { BlackboardState, Claim, AgentStance } from '@/lib/types'
+import type { BlackboardState, Claim, AgentStance, PersonaId } from '@/lib/types'
 
 // ─── Claim Decomposition ─────────────────────────────────────
 
@@ -19,7 +19,7 @@ Respond with ONLY valid JSON matching this schema:
   ]
 }
 
-Return 2-4 claims. No commentary outside the JSON.`
+Return 2-4 claims. Keep each claim to one sentence. No commentary outside the JSON.`
 }
 
 // ─── Agent Turn ──────────────────────────────────────────────
@@ -59,9 +59,11 @@ ${ctx.localNeighborhood || '(opening round)'}
 ## Instructions
 Engage with the claims directly. Reference specific evidence. Address disagreements with other participants. Update your stance if new arguments warrant it.
 
+Keep your response concise — aim for 2-3 short paragraphs, ~100-150 words total. Be direct, not exhaustive.
+
 Respond with ONLY valid JSON matching this schema:
 {
-  "response": "Your debate contribution (2-4 paragraphs)",
+  "response": "Your debate contribution (2-3 short paragraphs, ~100-150 words). Plain text ONLY — no markdown, no asterisks, no bold/italic formatting. Do NOT repeat your stance or confidence in the response text — those go in the stances array.",
   "stances": [
     {
       "claimId": "claim id",
@@ -73,7 +75,7 @@ Respond with ONLY valid JSON matching this schema:
   "flipTriggers": ["any of your flip conditions that were triggered this round"]
 }
 
-Be specific, cite evidence, and include confidence levels. No text outside the JSON.`
+Be specific and concise. No text outside the JSON. No markdown formatting anywhere.`
 }
 
 // ─── Blackboard Summary ──────────────────────────────────────
@@ -176,4 +178,121 @@ Extract the following into valid JSON:
 }
 
 Be thorough but concise. Focus on the most significant disagreements and their root causes. Return ONLY valid JSON.`
+}
+
+// ─── Action Plan (Classical Mode) ───────────────────────────
+
+export interface ActionPlanContext {
+  blackboardSummary: string
+  recentMessages: string
+  claims: Claim[]
+  currentStances: AgentStance[]
+  personaId: PersonaId
+}
+
+export function actionPlanPrompt(ctx: ActionPlanContext): string {
+  const claimList = ctx.claims
+    .map((c, i) => `  ${i + 1}. [${c.id}] ${c.text}`)
+    .join('\n')
+
+  const stanceList = ctx.currentStances.length > 0
+    ? ctx.currentStances
+        .map(s => `  - Claim ${s.claimId}: ${s.stance} (confidence: ${s.confidence})`)
+        .join('\n')
+    : '  (no prior stances)'
+
+  return `You are deciding whether to speak in a structured debate. Based on the current state, decide your next action.
+
+## Claims Under Debate
+${claimList}
+
+## Your Current Stances
+${stanceList}
+
+## Blackboard (Shared State)
+${ctx.blackboardSummary}
+
+## Recent Discussion
+${ctx.recentMessages || '(no messages yet)'}
+
+## Instructions
+Decide what to do next:
+- **speak**: You have a new argument, evidence, or rebuttal to contribute.
+- **interrupt**: Someone made an urgent factual error or logical fallacy that must be corrected immediately.
+- **listen**: The current thread is productive and you have nothing new to add right now.
+
+Set urgency from 0.0 (no desire to speak) to 1.0 (critical that you speak next).
+- 0.0-0.3: Low urgency — you could speak but others may have more to say
+- 0.4-0.6: Moderate — you have a meaningful contribution
+- 0.7-0.9: High — you have important evidence or a strong rebuttal
+- 1.0: Maximum — urgent correction or critical new information
+
+Respond with ONLY valid JSON:
+{
+  "action": "speak" | "interrupt" | "listen",
+  "urgency": 0.0-1.0,
+  "intent": "one sentence describing what you would say if selected"
+}
+
+No text outside the JSON.`
+}
+
+// ─── Classical Agent Turn (Classical Mode) ──────────────────
+
+export interface ClassicalAgentTurnContext {
+  blackboardSummary: string
+  localNeighborhood: string
+  claims: Claim[]
+  currentStances: AgentStance[]
+  intent: string
+}
+
+export function classicalAgentTurnPrompt(ctx: ClassicalAgentTurnContext): string {
+  const claimList = ctx.claims
+    .map((c, i) => `  ${i + 1}. [${c.id}] ${c.text}`)
+    .join('\n')
+
+  const stanceList = ctx.currentStances.length > 0
+    ? ctx.currentStances
+        .map(s => `  - Claim ${s.claimId}: ${s.stance} (confidence: ${s.confidence})`)
+        .join('\n')
+    : '  (no prior stances)'
+
+  return `You are participating in a structured debate. You have been selected as the next speaker.
+
+## Your Intent
+You indicated you want to: ${ctx.intent}
+
+## Claims Under Debate
+${claimList}
+
+## Your Previous Stances
+${stanceList}
+
+## Blackboard (Shared State)
+${ctx.blackboardSummary}
+
+## Recent Discussion
+${ctx.localNeighborhood || '(opening round)'}
+
+## Instructions
+Deliver your contribution, staying focused on your stated intent. Engage with the claims directly. Reference specific evidence. Address disagreements with other participants. Update your stance if new arguments warrant it.
+
+Keep your response concise — aim for 2-3 short paragraphs, ~100-150 words total. Be direct, not exhaustive.
+
+Respond with ONLY valid JSON matching this schema:
+{
+  "response": "Your debate contribution (2-3 short paragraphs, ~100-150 words). Plain text ONLY — no markdown, no asterisks, no bold/italic formatting. Do NOT repeat your stance or confidence in the response text — those go in the stances array.",
+  "stances": [
+    {
+      "claimId": "claim id",
+      "stance": "pro" | "con" | "uncertain",
+      "confidence": 0.0-1.0
+    }
+  ],
+  "newCruxes": ["any new disputed propositions you identify"],
+  "flipTriggers": ["any of your flip conditions that were triggered this round"]
+}
+
+Be specific and concise. No text outside the JSON. No markdown formatting anywhere.`
 }

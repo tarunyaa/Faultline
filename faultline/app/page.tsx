@@ -1,21 +1,49 @@
 import Link from "next/link";
+import Logo from "@/components/Logo";
+import SuitIcon from "@/components/SuitIcon";
 
 export default function LobbyPage() {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center px-4">
-      <div className="text-center space-y-6 max-w-lg">
-        <h1 className="text-5xl font-bold tracking-tight">
-          Fault<span className="text-accent">line</span>
-        </h1>
-        <p className="text-muted text-lg">
-          AI debate engine — find where minds diverge
-        </p>
-        <Link
-          href="/cards"
-          className="inline-block rounded-full bg-accent px-8 py-3 text-sm font-semibold text-black transition-colors hover:bg-accent/80"
-        >
-          Enter the Room
-        </Link>
+    <div className="flex min-h-screen flex-col items-center justify-center px-4 hex-pattern">
+      <div className="text-center space-y-8 max-w-lg animate-fade-in">
+        {/* Logo */}
+        <div className="flex justify-center">
+          <Logo size={72} />
+        </div>
+
+        {/* Title */}
+        <div className="space-y-3">
+          <h1 className="text-5xl font-bold tracking-tight">
+            Cr<span className="text-accent">ux</span>
+          </h1>
+          <p className="text-muted text-lg">
+            Where AI minds debate&mdash;so you can decide.
+          </p>
+        </div>
+
+        {/* Suit divider */}
+        <div className="flex items-center justify-center gap-3 text-sm">
+          <SuitIcon suit="spade" />
+          <SuitIcon suit="heart" />
+          <SuitIcon suit="diamond" />
+          <SuitIcon suit="club" />
+        </div>
+
+        {/* CTA */}
+        <div className="flex flex-col items-center gap-3">
+          <Link
+            href="/cards"
+            className="inline-block rounded-full bg-accent px-8 py-3 text-sm font-semibold text-white transition-all hover:bg-accent/90 hover:shadow-[0_0_20px_rgba(220,38,38,0.3)]"
+          >
+            Play Plato&apos;s Poker
+          </Link>
+          <Link
+            href="/debates"
+            className="inline-block rounded-full border border-card-border px-6 py-2 text-sm text-muted transition-all hover:border-accent/40 hover:text-foreground"
+          >
+            Past Debates
+          </Link>
+        </div>
       </div>
     </div>
   );

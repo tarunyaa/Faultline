@@ -11,6 +11,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: '**.substack.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'substack-post-media.s3.amazonaws.com',
+      },
     ],
   },
 };
