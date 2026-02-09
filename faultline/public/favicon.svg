@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Three overlapping cards (minimal) -->
+  <g opacity="0.95">
+    <rect x="6" y="8" width="8" height="16" rx="1.5" fill="#09090B" stroke="#3B82F6" stroke-width="1.2"/>
+    <rect x="10" y="8" width="8" height="16" rx="1.5" fill="#09090B" stroke="#10B981" stroke-width="1.2"/>
+    <rect x="14" y="8" width="8" height="16" rx="1.5" fill="#09090B" stroke="#F59E0B" stroke-width="1.2"/>
+  </g>
+
+  <!-- Subtle fault line -->
+  <path d="M 2 16 L 14 16 L 15 15 L 16 17 L 17 15.5 L 22 15.5"
+        stroke="#52525B"
+        stroke-width="1"
+        stroke-dasharray="1.5 1.5"
+        opacity="0.6"/>
+</svg>

@@ -1,0 +1,31 @@
+<svg width="400" height="80" viewBox="0 0 400 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Three overlapping cards (smaller, horizontal layout) -->
+  <g opacity="0.9">
+    <!-- Card 1 (back) -->
+    <rect x="8" y="15" width="32" height="50" rx="4" fill="#18181B" stroke="#3B82F6" stroke-width="1.2"/>
+
+    <!-- Card 2 (middle) -->
+    <rect x="18" y="15" width="32" height="50" rx="4" fill="#18181B" stroke="#10B981" stroke-width="1.2"/>
+
+    <!-- Card 3 (front) -->
+    <rect x="28" y="15" width="32" height="50" rx="4" fill="#18181B" stroke="#F59E0B" stroke-width="1.2"/>
+  </g>
+
+  <!-- Subtle fault line -->
+  <path d="M 0 40 L 28 40 L 30 38 L 32 42 L 34 39 L 60 39"
+        stroke="#52525B"
+        stroke-width="1.5"
+        stroke-dasharray="3 3"
+        stroke-linecap="round"
+        opacity="0.4"/>
+
+  <!-- FAULTLINE text -->
+  <text x="75" y="52"
+        font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+        font-size="32"
+        font-weight="700"
+        fill="#FAFAFA"
+        letter-spacing="-1">
+    FAULTLINE
+  </text>
+</svg>

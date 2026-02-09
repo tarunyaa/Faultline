@@ -1,0 +1,82 @@
+[
+  {
+    "id": "jensen-0",
+    "persona": "jensen",
+    "type": "anchor_quote",
+    "text": "We are at the beginning of a new computing era. AI is the defining technology of our time, and accelerated computing is the foundation that makes it possible.",
+    "source_url": "https://www.youtube.com/watch?v=gtc-example",
+    "source_type": "keynote",
+    "date": "2024-03-18",
+    "topic_tags": [
+      "GPUs",
+      "AI",
+      "accelerated computing"
+    ],
+    "confidence": "high",
+    "is_core_belief": false
+  },
+  {
+    "id": "jensen-1",
+    "persona": "jensen",
+    "type": "anchor_quote",
+    "text": "Moore's Law is dead in the traditional sense. But accelerated computing is the new Moore's Law. We're getting 100x performance improvements through software, algorithms, and specialized hardware.",
+    "source_url": "https://www.youtube.com/watch?v=example3",
+    "source_type": "interview",
+    "date": "2023-10-15",
+    "topic_tags": [
+      "NVIDIA",
+      "manufacturing",
+      "Moore's Law"
+    ],
+    "confidence": "high",
+    "is_core_belief": false
+  },
+  {
+    "id": "jensen-2",
+    "persona": "jensen",
+    "type": "anchor_quote",
+    "text": "The demand for our data center products is unprecedented. Every industry is racing to build AI infrastructure. This is a multi-trillion dollar opportunity.",
+    "source_url": "https://investor.nvidia.com/example",
+    "source_type": "earnings-call",
+    "date": "2024-02-21",
+    "topic_tags": [
+      "demand",
+      "data centers",
+      "growth"
+    ],
+    "confidence": "high",
+    "is_core_belief": false
+  },
+  {
+    "id": "jensen-3",
+    "persona": "jensen",
+    "type": "signature_take",
+    "text": "The future of computing is accelerated. AI models will continue to scale, and the infrastructure to train and run them will need to scale with it.",
+    "source_url": "https://twitter.com/nvidia/status/1234567895",
+    "source_type": "twitter",
+    "date": "2024-01-25",
+    "topic_tags": [
+      "GPUs",
+      "AI training",
+      "future"
+    ],
+    "confidence": "high",
+    "is_core_belief": true
+  },
+  {
+    "id": "jensen-4",
+    "persona": "jensen",
+    "type": "anchor_quote",
+    "text": "AI is not just about software. It's about building intelligent machines that can understand and interact with the physical world. That requires massive compute.\n\n# TODO: Add 25-45 more excerpts\n# Sources:\n# - GTC keynote transcripts\n# - Earnings call transcripts\n# - Tech media interviews\n# - Twitter/X posts from @nvidia\n# - Conference appearances",
+    "source_url": "https://www.nvidia.com/gtc-2023",
+    "source_type": "keynote",
+    "date": "2023-09-12",
+    "topic_tags": [
+      "AI",
+      "robotics",
+      "autonomous systems"
+    ],
+    "confidence": "high",
+    "is_core_belief": false
+  }
+]

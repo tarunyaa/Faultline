@@ -1,0 +1,49 @@
+# Jensen Huang - Raw Evidence Sources
+
+---
+source: keynote
+url: https://www.youtube.com/watch?v=gtc-example
+date: 2024-03-18
+tags: GPUs, AI, accelerated computing
+---
+We are at the beginning of a new computing era. AI is the defining technology of our time, and accelerated computing is the foundation that makes it possible.
+
+---
+source: interview
+url: https://www.youtube.com/watch?v=example3
+date: 2023-10-15
+tags: NVIDIA, manufacturing, Moore's Law
+---
+Moore's Law is dead in the traditional sense. But accelerated computing is the new Moore's Law. We're getting 100x performance improvements through software, algorithms, and specialized hardware.
+
+---
+source: earnings-call
+url: https://investor.nvidia.com/example
+date: 2024-02-21
+tags: demand, data centers, growth
+---
+The demand for our data center products is unprecedented. Every industry is racing to build AI infrastructure. This is a multi-trillion dollar opportunity.
+
+---
+source: twitter
+url: https://twitter.com/nvidia/status/1234567895
+date: 2024-01-25
+tags: GPUs, AI training, future
+---
+The future of computing is accelerated. AI models will continue to scale, and the infrastructure to train and run them will need to scale with it.
+
+---
+source: keynote
+url: https://www.nvidia.com/gtc-2023
+date: 2023-09-12
+tags: AI, robotics, autonomous systems
+---
+AI is not just about software. It's about building intelligent machines that can understand and interact with the physical world. That requires massive compute.
+
+# TODO: Add 25-45 more excerpts
+# Sources:
+# - GTC keynote transcripts
+# - Earnings call transcripts
+# - Tech media interviews
+# - Twitter/X posts from @nvidia
+# - Conference appearances

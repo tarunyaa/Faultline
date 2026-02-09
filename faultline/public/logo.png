@@ -1,0 +1,25 @@
+<svg width="120" height="48" viewBox="0 0 120 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Three overlapping cards -->
+  <g opacity="0.95">
+    <rect x="2" y="8" width="10" height="32" rx="2" fill="#09090B" stroke="#3B82F6" stroke-width="0.8"/>
+    <rect x="7" y="8" width="10" height="32" rx="2" fill="#09090B" stroke="#10B981" stroke-width="0.8"/>
+    <rect x="12" y="8" width="10" height="32" rx="2" fill="#09090B" stroke="#F59E0B" stroke-width="0.8"/>
+  </g>
+  
+  <!-- Fault line -->
+  <path d="M 0 24 L 12 24 L 13 22.5 L 14 25.5 L 15 23.5 L 22 23.5"
+        stroke="#3F3F46"
+        stroke-width="0.8"
+        stroke-dasharray="2 2"
+        opacity="0.5"/>
+  
+  <!-- Text -->
+  <text x="28" y="32"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="16"
+        font-weight="700"
+        fill="#FAFAFA"
+        letter-spacing="-0.5">
+    FAULTLINE
+  </text>
+</svg>

@@ -1,0 +1,83 @@
+[
+  {
+    "id": "sam-0",
+    "persona": "sam",
+    "type": "signature_take",
+    "text": "AGI has the potential to give everyone incredible new capabilities; we can imagine a world where all of us have access to help with almost any cognitive task. But we also need to be careful about the risks.",
+    "source_url": "https://blog.samaltman.com/planning-for-agi-and-beyond",
+    "source_type": "essay",
+    "date": "2023-02-24",
+    "topic_tags": [
+      "AGI",
+      "OpenAI",
+      "safety",
+      "planning"
+    ],
+    "confidence": "high",
+    "is_core_belief": true
+  },
+  {
+    "id": "sam-1",
+    "persona": "sam",
+    "type": "signature_take",
+    "text": "I think the most likely path to AGI is through the scaling hypothesis continuing to work. We keep scaling up compute, data, and model size, and we get emergent capabilities.",
+    "source_url": "https://lexfridman.com/sam-altman-2",
+    "source_type": "podcast",
+    "date": "2023-06-15",
+    "topic_tags": [
+      "AGI",
+      "timeline",
+      "scaling"
+    ],
+    "confidence": "medium",
+    "is_core_belief": false
+  },
+  {
+    "id": "sam-2",
+    "persona": "sam",
+    "type": "signature_take",
+    "text": "I'm very optimistic about AI. I think we can build it in a way that's safe and beneficial. The key is to keep iterating and learning as we go.",
+    "source_url": "https://twitter.com/sama/status/1234567893",
+    "source_type": "twitter",
+    "date": "2024-01-10",
+    "topic_tags": [
+      "AI",
+      "optimism",
+      "building"
+    ],
+    "confidence": "medium",
+    "is_core_belief": false
+  },
+  {
+    "id": "sam-3",
+    "persona": "sam",
+    "type": "signature_take",
+    "text": "I think some regulation of AI is necessary, but it needs to be the right kind of regulation. We need democratic input into how these systems work and what they optimize for.",
+    "source_url": "https://www.youtube.com/watch?v=example2",
+    "source_type": "interview",
+    "date": "2023-11-20",
+    "topic_tags": [
+      "regulation",
+      "governance",
+      "democracy"
+    ],
+    "confidence": "medium",
+    "is_core_belief": false
+  },
+  {
+    "id": "sam-4",
+    "persona": "sam",
+    "type": "signature_take",
+    "text": "AGI will be the most transformative technology in human history. We have a responsibility to get it right.\n\n# TODO: Add 25-45 more excerpts\n# Sources:\n# - blog.samaltman.com essays\n# - Twitter posts\n# - Senate testimony\n# - Interviews and podcasts\n# - OpenAI blog posts he's authored",
+    "source_url": "https://twitter.com/sama/status/1234567894",
+    "source_type": "twitter",
+    "date": "2024-02-12",
+    "topic_tags": [
+      "AGI",
+      "transformation",
+      "society"
+    ],
+    "confidence": "high",
+    "is_core_belief": false
+  }
+]

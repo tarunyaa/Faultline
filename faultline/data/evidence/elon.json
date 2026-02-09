@@ -1,0 +1,82 @@
+[
+  {
+    "id": "elon-0",
+    "persona": "elon",
+    "type": "anchor_quote",
+    "text": "AI will probably be smarter than any single human next year. By 2029, it is probably smarter than all humans combined.",
+    "source_url": "https://twitter.com/elonmusk/status/1234567890",
+    "source_type": "twitter",
+    "date": "2024-03-15",
+    "topic_tags": [
+      "AI",
+      "AGI",
+      "timeline"
+    ],
+    "confidence": "medium",
+    "is_core_belief": false
+  },
+  {
+    "id": "elon-1",
+    "persona": "elon",
+    "type": "signature_take",
+    "text": "The biggest risk with AI is not that it will be evil, but that it will be extremely competent at doing something we didn't really want. We need to be very careful about alignment.",
+    "source_url": "https://lexfridman.com/elon-musk-4",
+    "source_type": "podcast",
+    "date": "2024-01-20",
+    "topic_tags": [
+      "AI safety",
+      "regulation",
+      "civilization"
+    ],
+    "confidence": "high",
+    "is_core_belief": true
+  },
+  {
+    "id": "elon-2",
+    "persona": "elon",
+    "type": "signature_take",
+    "text": "We need to make life multiplanetary while we still can. The window of opportunity may not be open forever. A single-planet species has a 100% extinction rate eventually.",
+    "source_url": "https://twitter.com/elonmusk/status/1234567891",
+    "source_type": "twitter",
+    "date": "2023-12-10",
+    "topic_tags": [
+      "Mars",
+      "SpaceX",
+      "multiplanetary"
+    ],
+    "confidence": "high",
+    "is_core_belief": true
+  },
+  {
+    "id": "elon-3",
+    "persona": "elon",
+    "type": "anchor_quote",
+    "text": "You have to think about things from first principles. What are the fundamental truths? Then reason up from there. Most people reason by analogy - they copy what others are doing with slight variations.",
+    "source_url": "https://www.youtube.com/watch?v=example",
+    "source_type": "interview",
+    "date": "2024-02-05",
+    "topic_tags": [
+      "Tesla",
+      "manufacturing",
+      "first principles"
+    ],
+    "confidence": "high",
+    "is_core_belief": true
+  },
+  {
+    "id": "elon-4",
+    "persona": "elon",
+    "type": "signature_take",
+    "text": "I think we'll have AGI by 2026, maybe sooner. The rate of improvement is exponential. People underestimate exponentials.\n\n# TODO: Add 25-45 more excerpts\n# Sources to mine:\n# - Recent X/Twitter posts (2023-2024)\n# - Lex Fridman podcasts\n# - All-In podcast appearances\n# - Earnings call transcripts\n# - Master Plan Part 3",
+    "source_url": "https://twitter.com/elonmusk/status/1234567892",
+    "source_type": "twitter",
+    "date": "2024-01-30",
+    "topic_tags": [
+      "AGI",
+      "timeline",
+      "OpenAI"
+    ],
+    "confidence": "medium",
+    "is_core_belief": false
+  }
+]
