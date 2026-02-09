@@ -51,6 +51,9 @@ export async function* runBlitz(config: BlitzConfig): AsyncGenerator<SSEEvent> {
   const { topic, personaIds, debateId, maxRounds = MAX_ROUNDS } = config
 
   try {
+    // 0. Signal setup started
+    yield { type: 'status', phase: 'claims', message: 'Decomposing topic into testable claims...' }
+
     // 1. Decompose topic into claims
     const claims = await decomposeClaims(topic, debateId)
 
@@ -61,6 +64,7 @@ export async function* runBlitz(config: BlitzConfig): AsyncGenerator<SSEEvent> {
     }
 
     // 2. Initialize agents
+    yield { type: 'status', phase: 'agents', message: `Loading ${personaIds.length} persona contracts...` }
     const agents = await initializeAgents(personaIds)
 
     yield {
@@ -70,6 +74,7 @@ export async function* runBlitz(config: BlitzConfig): AsyncGenerator<SSEEvent> {
     }
 
     // 3. Generate initial stances (parallel)
+    yield { type: 'status', phase: 'stances', message: 'Generating initial stances...' }
     let blackboard = createBlackboard(topic, claims)
     const initialStancePromises = personaIds.map(async id => {
       const agent = agents.get(id)!

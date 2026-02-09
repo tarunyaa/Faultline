@@ -123,13 +123,13 @@ export default function MatchClient({ topic, personaIds, personaMetas }: MatchCl
             className="rounded-xl border border-card-border bg-card-bg p-4 space-y-4 overflow-y-auto"
             style={{ maxHeight: '60vh', minHeight: '300px' }}
           >
-            {state.status === 'connecting' && (
-              <div className="flex items-center justify-center h-40 text-muted">
-                <svg className="animate-spin h-6 w-6 mr-3" viewBox="0 0 24 24">
+            {(state.status === 'connecting' || (state.status === 'streaming' && state.messages.length === 0)) && (
+              <div className="flex flex-col items-center justify-center h-40 text-muted gap-3">
+                <svg className="animate-spin h-6 w-6" viewBox="0 0 24 24">
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                 </svg>
-                Connecting to debate engine...
+                <span className="text-sm">{state.statusMessage ?? 'Connecting to debate engine...'}</span>
               </div>
             )}
 
@@ -165,9 +165,6 @@ export default function MatchClient({ topic, personaIds, personaMetas }: MatchCl
               )
             })}
 
-            {state.messages.length === 0 && state.status === 'streaming' && (
-              <p className="text-muted text-sm text-center py-8">Waiting for first response...</p>
-            )}
           </div>
         </div>
 

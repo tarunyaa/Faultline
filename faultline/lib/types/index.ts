@@ -145,6 +145,7 @@ export interface DebateOutput {
 // ─── SSE Events ───────────────────────────────────────────────
 
 export type SSEEvent =
+  | { type: 'status'; phase: string; message: string }
   | { type: 'debate_start'; debateId: string; claims: Claim[] }
   | { type: 'table_assigned'; tableId: number; personaIds: PersonaId[] }
   | { type: 'agent_turn'; personaId: PersonaId; tableId: number; content: string; stance: AgentStance }

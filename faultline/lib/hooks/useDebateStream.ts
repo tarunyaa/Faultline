@@ -23,6 +23,7 @@ interface AgentMessage {
 
 interface DebateStreamState {
   status: DebateStatus
+  statusMessage: string | null
   debateId: string | null
   claims: Claim[]
   messages: AgentMessage[]
@@ -41,6 +42,7 @@ interface DebateStreamControls {
 
 const initialState: DebateStreamState = {
   status: 'idle',
+  statusMessage: null,
   debateId: null,
   claims: [],
   messages: [],
@@ -184,11 +186,19 @@ function processEvent(
   setState: React.Dispatch<React.SetStateAction<DebateStreamState>>
 ) {
   switch (event.type) {
+    case 'status':
+      setState(prev => ({
+        ...prev,
+        statusMessage: event.message,
+      }))
+      break
+
     case 'debate_start':
       setState(prev => ({
         ...prev,
         debateId: event.debateId,
         claims: event.claims,
+        statusMessage: null,
       }))
       break
 
