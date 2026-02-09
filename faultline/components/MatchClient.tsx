@@ -1,12 +1,12 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
-import Link from 'next/link'
 import { useDebateStream } from '@/lib/hooks/useDebateStream'
 import type { DebateMode } from '@/lib/types'
 import HexAvatar from '@/components/HexAvatar'
 import SuitIcon from '@/components/SuitIcon'
 import AgentPolygon from '@/components/AgentPolygon'
+import DebateReplay from '@/components/DebateReplay'
 
 interface PersonaMeta {
   id: string
@@ -43,6 +43,7 @@ export default function MatchClient({ topic, personaIds, personaMetas, mode = 'b
   const [state, { start, abort }] = useDebateStream()
   const feedRef = useRef<HTMLDivElement>(null)
   const [autoScroll, setAutoScroll] = useState(true)
+  const [showAnalysis, setShowAnalysis] = useState(false)
 
   const metaMap = new Map(personaMetas.map(p => [p.id, p]))
 
@@ -407,19 +408,40 @@ export default function MatchClient({ topic, personaIds, personaMetas, mode = 'b
                 </div>
               </div>
             </div>
-            {state.debateId && (
-              <Link
-                href={`/debates/${state.debateId}`}
-                className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-black text-sm font-semibold hover:bg-accent/90 transition-colors"
-              >
-                View Full Analysis
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
-            )}
+            <button
+              onClick={() => setShowAnalysis(prev => !prev)}
+              className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-accent text-black text-sm font-semibold hover:bg-accent/90 transition-colors"
+            >
+              {showAnalysis ? 'Hide Analysis' : 'View Full Analysis'}
+              <svg className={`w-4 h-4 transition-transform ${showAnalysis ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </button>
           </div>
         </div>
+      )}
+
+      {/* Inline full analysis */}
+      {showAnalysis && state.output && (
+        <DebateReplay
+          topic={topic}
+          mode={mode}
+          personaMetas={personaMetas}
+          state={{
+            debateId: state.debateId,
+            claims: state.claims,
+            messages: state.messages,
+            convergence: state.convergence,
+            cruxes: state.cruxes,
+            flipConditions: state.flipConditions,
+            output: state.output,
+            error: state.error,
+            tables: {},
+            initialStances: state.initialStances,
+          }}
+          createdAt={new Date().toISOString()}
+          hasError={state.status === 'error'}
+        />
       )}
     </div>
   )
