@@ -308,7 +308,7 @@ export default function DebateReplay({ topic, mode, personaMetas, state, created
                               </span>
                             ))}
                           </div>
-                          <p className="text-sm text-foreground/70 whitespace-pre-wrap">{entry.reasoning}</p>
+                          <p className="text-sm text-foreground/70 whitespace-pre-wrap">{entry.reasonings.map(r => r.reasoning).join('\n\n')}</p>
                         </div>
                       </div>
                     )
