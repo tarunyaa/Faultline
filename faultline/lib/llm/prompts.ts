@@ -57,14 +57,14 @@ ${ctx.blackboardSummary}
 ${ctx.localNeighborhood || '(opening round)'}
 
 ## Instructions
-Respond to EACH claim individually. For each claim, write a focused 1-2 sentence response (~40-60 words) that engages with that specific claim. Reference specific evidence. Address disagreements with other participants on that point. Update your stance if new arguments warrant it.
+Respond to EACH claim in ONE punchy sentence (max 25 words). Lead with your strongest point — no filler, no hedging, no throat-clearing. If you reference evidence, name it specifically.
 
 Respond with ONLY valid JSON matching this schema:
 {
   "claimResponses": [
     {
       "claimId": "claim id",
-      "response": "Your 1-2 sentence response addressing this specific claim (~40-60 words). Plain text ONLY — no markdown, no asterisks, no bold/italic formatting.",
+      "response": "One sentence, max 25 words. High signal only. Plain text — no markdown.",
       "stance": "pro" | "con" | "uncertain",
       "confidence": 0.0-1.0
     }
@@ -73,7 +73,7 @@ Respond with ONLY valid JSON matching this schema:
   "flipTriggers": ["any of your flip conditions that were triggered this round"]
 }
 
-You MUST include one entry in claimResponses for EVERY claim listed above. Be specific and concise. No text outside the JSON. No markdown formatting anywhere.`
+You MUST include one entry in claimResponses for EVERY claim. No text outside the JSON. No markdown formatting anywhere.`
 }
 
 // ─── Blackboard Summary ──────────────────────────────────────
@@ -84,17 +84,15 @@ export function blackboardSummaryPrompt(
 ): string {
   const bb = JSON.stringify(blackboard, null, 2)
 
-  return `Compress the following debate blackboard state into a concise summary of approximately ${tokenBudget} tokens. Preserve:
-- All active claims and their current dispute status
-- Key cruxes (especially unresolved ones)
-- Current stance distribution per claim (who is pro/con/uncertain)
-- Any triggered flip conditions
-- Open questions
+  return `Compress the following debate blackboard into ~${tokenBudget} tokens. Use telegraphic style — no full sentences needed. Preserve:
+- Claim status (who is pro/con/uncertain per claim)
+- Unresolved cruxes only
+- Triggered flip conditions only
 
 Blackboard state:
 ${bb}
 
-Respond with a plain text summary. No JSON, no markdown headers.`
+Respond with a terse plain text summary. No JSON, no markdown headers.`
 }
 
 // ─── Initial Stance Generation ───────────────────────────────
@@ -175,7 +173,7 @@ Extract the following into valid JSON:
   ]
 }
 
-Be thorough but concise. Focus on the most significant disagreements and their root causes. Return ONLY valid JSON.`
+Be ruthlessly concise. Keep every description and condition to one sentence max. Only surface the top 2-3 cruxes, fault lines, and resolution paths — omit anything minor. Return ONLY valid JSON.`
 }
 
 // ─── Action Plan (Classical Mode) ───────────────────────────
@@ -274,14 +272,14 @@ ${ctx.blackboardSummary}
 ${ctx.localNeighborhood || '(opening round)'}
 
 ## Instructions
-Deliver your contribution, staying focused on your stated intent. Respond to EACH claim individually. For each claim, write a focused 1-2 sentence response (~40-60 words) that engages with that specific claim. Reference specific evidence. Address disagreements with other participants on that point. Update your stance if new arguments warrant it.
+Deliver your contribution, staying focused on your stated intent. Respond to EACH claim in ONE punchy sentence (max 25 words). Lead with your strongest point — no filler, no hedging. If you reference evidence, name it specifically.
 
 Respond with ONLY valid JSON matching this schema:
 {
   "claimResponses": [
     {
       "claimId": "claim id",
-      "response": "Your 1-2 sentence response addressing this specific claim (~40-60 words). Plain text ONLY — no markdown, no asterisks, no bold/italic formatting.",
+      "response": "One sentence, max 25 words. High signal only. Plain text — no markdown.",
       "stance": "pro" | "con" | "uncertain",
       "confidence": 0.0-1.0
     }
@@ -290,5 +288,5 @@ Respond with ONLY valid JSON matching this schema:
   "flipTriggers": ["any of your flip conditions that were triggered this round"]
 }
 
-You MUST include one entry in claimResponses for EVERY claim listed above. Be specific and concise. No text outside the JSON. No markdown formatting anywhere.`
+You MUST include one entry in claimResponses for EVERY claim. No text outside the JSON. No markdown formatting anywhere.`
 }
