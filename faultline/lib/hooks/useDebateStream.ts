@@ -13,6 +13,7 @@ import type {
   AgentMessage,
   InitialStanceEntry,
 } from '@/lib/types'
+import type { Argument, Attack, ValidationResult, Labelling } from '@/lib/types/graph'
 
 type DebateStatus = 'idle' | 'connecting' | 'streaming' | 'completed' | 'error'
 
@@ -20,6 +21,16 @@ interface ActiveSpeaker {
   personaId: string
   urgency: number
   intent: string
+}
+
+interface GraphState {
+  arguments: Argument[]
+  attacks: Attack[]
+  validationResults: ValidationResult[]
+  labelling: Labelling | null
+  groundedSize: number
+  preferredCount: number
+  graphConverged: boolean
 }
 
 interface DebateStreamState {
@@ -36,6 +47,7 @@ interface DebateStreamState {
   tables: Map<number, string[]>
   activeSpeaker: ActiveSpeaker | null
   initialStances: InitialStanceEntry[]
+  graph: GraphState | null
 }
 
 interface DebateStreamControls {
@@ -57,6 +69,7 @@ const initialState: DebateStreamState = {
   tables: new Map(),
   activeSpeaker: null,
   initialStances: [],
+  graph: null,
 }
 
 export function useDebateStream(): [DebateStreamState, DebateStreamControls] {
@@ -297,6 +310,61 @@ function processEvent(
         cruxes: event.output.cruxes ?? [],
         flipConditions: event.output.flipConditions ?? [],
       }))
+      break
+
+    case 'arguments_submitted':
+      setState(prev => {
+        const g = prev.graph ?? { arguments: [], attacks: [], validationResults: [], labelling: null, groundedSize: 0, preferredCount: 0, graphConverged: false }
+        return {
+          ...prev,
+          graph: { ...g, arguments: [...g.arguments, ...event.arguments] },
+        }
+      })
+      break
+
+    case 'attacks_generated':
+      setState(prev => {
+        const g = prev.graph ?? { arguments: [], attacks: [], validationResults: [], labelling: null, groundedSize: 0, preferredCount: 0, graphConverged: false }
+        return {
+          ...prev,
+          graph: { ...g, attacks: [...g.attacks, ...event.attacks] },
+        }
+      })
+      break
+
+    case 'validation_complete':
+      setState(prev => {
+        const g = prev.graph ?? { arguments: [], attacks: [], validationResults: [], labelling: null, groundedSize: 0, preferredCount: 0, graphConverged: false }
+        return {
+          ...prev,
+          graph: { ...g, validationResults: [...g.validationResults, ...event.results] },
+        }
+      })
+      break
+
+    case 'graph_update':
+      setState(prev => {
+        const g = prev.graph ?? { arguments: [], attacks: [], validationResults: [], labelling: null, groundedSize: 0, preferredCount: 0, graphConverged: false }
+        return {
+          ...prev,
+          graph: {
+            ...g,
+            labelling: event.labelling,
+            groundedSize: event.groundedSize,
+            preferredCount: event.preferredCount,
+          },
+        }
+      })
+      break
+
+    case 'graph_convergence':
+      setState(prev => {
+        const g = prev.graph ?? { arguments: [], attacks: [], validationResults: [], labelling: null, groundedSize: 0, preferredCount: 0, graphConverged: false }
+        return {
+          ...prev,
+          graph: { ...g, graphConverged: event.stable },
+        }
+      })
       break
 
     case 'error':

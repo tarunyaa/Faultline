@@ -8,6 +8,17 @@ import type {
   AgentMessage,
   InitialStanceEntry,
 } from '@/lib/types'
+import type { Argument, Attack, ValidationResult, Labelling } from '@/lib/types/graph'
+
+export interface HydratedGraphState {
+  arguments: Argument[]
+  attacks: Attack[]
+  validationResults: ValidationResult[]
+  labelling: Labelling | null
+  groundedSize: number
+  preferredCount: number
+  graphConverged: boolean
+}
 
 export interface HydratedDebateState {
   debateId: string | null
@@ -20,6 +31,7 @@ export interface HydratedDebateState {
   error: string | null
   tables: Record<number, string[]>
   initialStances: InitialStanceEntry[]
+  graph: HydratedGraphState | null
 }
 
 /**
@@ -38,6 +50,7 @@ export function hydrateDebateState(events: SSEEvent[]): HydratedDebateState {
     error: null,
     tables: {},
     initialStances: [],
+    graph: null,
   }
 
   for (const event of events) {
@@ -84,6 +97,38 @@ export function hydrateDebateState(events: SSEEvent[]): HydratedDebateState {
         state.cruxes = event.output.cruxes
         state.flipConditions = event.output.flipConditions
         break
+
+      case 'arguments_submitted': {
+        if (!state.graph) state.graph = { arguments: [], attacks: [], validationResults: [], labelling: null, groundedSize: 0, preferredCount: 0, graphConverged: false }
+        state.graph.arguments.push(...event.arguments)
+        break
+      }
+
+      case 'attacks_generated': {
+        if (!state.graph) state.graph = { arguments: [], attacks: [], validationResults: [], labelling: null, groundedSize: 0, preferredCount: 0, graphConverged: false }
+        state.graph.attacks.push(...event.attacks)
+        break
+      }
+
+      case 'validation_complete': {
+        if (!state.graph) state.graph = { arguments: [], attacks: [], validationResults: [], labelling: null, groundedSize: 0, preferredCount: 0, graphConverged: false }
+        state.graph.validationResults.push(...event.results)
+        break
+      }
+
+      case 'graph_update': {
+        if (!state.graph) state.graph = { arguments: [], attacks: [], validationResults: [], labelling: null, groundedSize: 0, preferredCount: 0, graphConverged: false }
+        state.graph.labelling = event.labelling
+        state.graph.groundedSize = event.groundedSize
+        state.graph.preferredCount = event.preferredCount
+        break
+      }
+
+      case 'graph_convergence': {
+        if (!state.graph) state.graph = { arguments: [], attacks: [], validationResults: [], labelling: null, groundedSize: 0, preferredCount: 0, graphConverged: false }
+        state.graph.graphConverged = event.stable
+        break
+      }
 
       case 'error':
         state.error = event.message

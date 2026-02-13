@@ -321,57 +321,148 @@ export default function MatchClient({ topic, personaIds, personaMetas, mode = 'b
             )}
           </div>
 
-          {/* Cruxes */}
-          <div className="rounded-xl border border-card-border bg-surface p-4 space-y-2">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-accent">
-              Cruxes
-            </h2>
-            <p className="text-xs text-muted/60">Key factual questions where the answer would change someone{"'"}s mind.</p>
-            {state.cruxes.length > 0 ? (
-              <ul className="space-y-2">
-                {state.cruxes.map((crux) => (
-                  <li key={crux.id} className="text-sm">
-                    <span className={crux.resolved ? 'line-through text-muted' : 'text-foreground/90'}>
-                      {crux.proposition}
-                    </span>
-                    <span className="text-xs text-muted ml-2 font-mono" title="Weight: how central this crux is to the disagreement. Higher = more decisive.">
-                      w={crux.weight.toFixed(2)}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <p className="text-muted text-sm">No cruxes surfaced</p>
-            )}
-          </div>
+          {/* Graph sidebar (graph mode) */}
+          {mode === 'graph' && state.graph && (
+            <>
+              <div className="rounded-xl border border-card-border bg-surface p-4 space-y-2">
+                <h2 className="text-xs font-semibold uppercase tracking-wider text-accent">
+                  Argumentation Graph
+                </h2>
+                <p className="text-xs text-muted/60">Formal argument status computed via Dung{"'"}s semantics.</p>
+                <div className="space-y-1.5 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted">Arguments</span>
+                    <span className="font-mono text-xs">{state.graph.arguments.length}</span>
+                  </div>
+                  {state.graph.labelling && (() => {
+                    const labels = state.graph.labelling.labels
+                    const labelValues: string[] = labels instanceof Map
+                      ? [...labels.values()]
+                      : Object.values(labels as Record<string, string>)
+                    const inCount = labelValues.filter(l => l === 'IN').length
+                    const outCount = labelValues.filter(l => l === 'OUT').length
+                    const undecCount = labelValues.filter(l => l === 'UNDEC').length
+                    return (
+                      <>
+                        <div className="flex justify-between">
+                          <span className="text-green-400">IN (accepted)</span>
+                          <span className="font-mono text-xs">{inCount}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-red-400">OUT (defeated)</span>
+                          <span className="font-mono text-xs">{outCount}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-yellow-400">UNDEC</span>
+                          <span className="font-mono text-xs">{undecCount}</span>
+                        </div>
+                      </>
+                    )
+                  })()}
+                  <div className="flex justify-between">
+                    <span className="text-muted">Camps</span>
+                    <span className="font-mono text-xs">{state.graph.preferredCount}</span>
+                  </div>
+                  {state.graph.graphConverged && (
+                    <p className="text-accent text-xs font-semibold pt-1">Graph Stable</p>
+                  )}
+                </div>
+              </div>
 
-          {/* Flip Conditions */}
-          <div className="rounded-xl border border-card-border bg-surface p-4 space-y-2">
-            <h2 className="text-xs font-semibold uppercase tracking-wider text-accent">
-              Flip Conditions
-            </h2>
-            <p className="text-xs text-muted/60">What evidence would make each agent change their position.</p>
-            {state.flipConditions.length > 0 ? (
-              <ul className="space-y-2">
-                {state.flipConditions.map((fc, i) => {
-                  const meta = metaMap.get(fc.personaId)
-                  return (
-                    <li key={i} className="text-sm">
-                      <span className="font-medium">{meta?.name ?? fc.personaId}:</span>{' '}
-                      <span className={fc.triggered ? 'text-accent' : 'text-foreground/80'}>
-                        {fc.condition}
+              {/* Attack log */}
+              <div className="rounded-xl border border-card-border bg-surface p-4 space-y-2">
+                <h2 className="text-xs font-semibold uppercase tracking-wider text-accent">
+                  Recent Attacks
+                </h2>
+                <p className="text-xs text-muted/60">Latest attacks with type and validation status.</p>
+                {state.graph.attacks.length > 0 ? (
+                  <ul className="space-y-2">
+                    {state.graph.attacks.slice(-6).reverse().map((atk) => {
+                      const validation = state.graph!.validationResults.find(v => v.attackId === atk.id)
+                      const typeBadge: Record<string, string> = {
+                        rebut: 'bg-red-900/40 text-red-400',
+                        undermine: 'bg-yellow-900/40 text-yellow-400',
+                        undercut: 'bg-purple-900/40 text-purple-400',
+                      }
+                      return (
+                        <li key={atk.id} className="text-sm space-y-0.5">
+                          <div className="flex items-center gap-2">
+                            <span className={`text-xs px-1.5 py-0.5 rounded ${typeBadge[atk.type] ?? 'bg-card-border text-muted'}`}>
+                              {atk.type}
+                            </span>
+                            {validation && (
+                              <span className={`text-xs ${validation.valid ? 'text-green-400' : 'text-red-400'}`}>
+                                {validation.valid ? 'valid' : 'invalid'}
+                              </span>
+                            )}
+                          </div>
+                          <p className="text-xs text-foreground/70 truncate">{atk.counterProposition}</p>
+                        </li>
+                      )
+                    })}
+                  </ul>
+                ) : (
+                  <p className="text-muted text-sm">No attacks yet</p>
+                )}
+              </div>
+            </>
+          )}
+
+          {/* Cruxes (non-graph modes) */}
+          {mode !== 'graph' && (
+            <div className="rounded-xl border border-card-border bg-surface p-4 space-y-2">
+              <h2 className="text-xs font-semibold uppercase tracking-wider text-accent">
+                Cruxes
+              </h2>
+              <p className="text-xs text-muted/60">Key factual questions where the answer would change someone{"'"}s mind.</p>
+              {state.cruxes.length > 0 ? (
+                <ul className="space-y-2">
+                  {state.cruxes.map((crux) => (
+                    <li key={crux.id} className="text-sm">
+                      <span className={crux.resolved ? 'line-through text-muted' : 'text-foreground/90'}>
+                        {crux.proposition}
                       </span>
-                      {fc.triggered && (
-                        <span className="text-xs text-accent ml-1">(triggered)</span>
-                      )}
+                      <span className="text-xs text-muted ml-2 font-mono" title="Weight: how central this crux is to the disagreement. Higher = more decisive.">
+                        w={crux.weight.toFixed(2)}
+                      </span>
                     </li>
-                  )
-                })}
-              </ul>
-            ) : (
-              <p className="text-muted text-sm">None triggered</p>
-            )}
-          </div>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-muted text-sm">No cruxes surfaced</p>
+              )}
+            </div>
+          )}
+
+          {/* Flip Conditions (non-graph modes) */}
+          {mode !== 'graph' && (
+            <div className="rounded-xl border border-card-border bg-surface p-4 space-y-2">
+              <h2 className="text-xs font-semibold uppercase tracking-wider text-accent">
+                Flip Conditions
+              </h2>
+              <p className="text-xs text-muted/60">What evidence would make each agent change their position.</p>
+              {state.flipConditions.length > 0 ? (
+                <ul className="space-y-2">
+                  {state.flipConditions.map((fc, i) => {
+                    const meta = metaMap.get(fc.personaId)
+                    return (
+                      <li key={i} className="text-sm">
+                        <span className="font-medium">{meta?.name ?? fc.personaId}:</span>{' '}
+                        <span className={fc.triggered ? 'text-accent' : 'text-foreground/80'}>
+                          {fc.condition}
+                        </span>
+                        {fc.triggered && (
+                          <span className="text-xs text-accent ml-1">(triggered)</span>
+                        )}
+                      </li>
+                    )
+                  })}
+                </ul>
+              ) : (
+                <p className="text-muted text-sm">None triggered</p>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
@@ -438,6 +529,7 @@ export default function MatchClient({ topic, personaIds, personaMetas, mode = 'b
             error: state.error,
             tables: {},
             initialStances: state.initialStances,
+            graph: state.graph,
           }}
           createdAt={new Date().toISOString()}
           hasError={state.status === 'error'}

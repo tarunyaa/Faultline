@@ -149,7 +149,7 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
       {/* Mode selector */}
       <div className="space-y-2">
         <label className="text-xs font-semibold uppercase tracking-wider text-muted">Mode</label>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-3 gap-3">
           <button
             type="button"
             onClick={() => setMode('blitz')}
@@ -176,6 +176,20 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
             <span className="block text-sm font-semibold">Classical</span>
             <span className="block text-xs mt-1 opacity-70">
               Sequential turns — agents choose when to speak based on urgency
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setMode('graph')}
+            className={`rounded-lg border px-4 py-3 text-left transition-all ${
+              mode === 'graph'
+                ? 'border-accent bg-accent-dim/20 text-foreground shadow-[0_0_8px_rgba(220,38,38,0.15)]'
+                : 'border-card-border bg-card-bg text-muted hover:text-foreground hover:border-muted'
+            }`}
+          >
+            <span className="block text-sm font-semibold">Graph</span>
+            <span className="block text-xs mt-1 opacity-70">
+              Formal argumentation — structured attacks with computed cruxes
             </span>
           </button>
         </div>

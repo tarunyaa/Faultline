@@ -140,11 +140,59 @@ export default function DebateReplay({ topic, mode, personaMetas, state, created
               Debate Results
             </h2>
 
+            {/* Graph-specific results */}
+            {mode === 'graph' && state.graph && (
+              <>
+                {/* Common Ground */}
+                {state.graph.labelling && (() => {
+                  const labels = state.graph.labelling.labels
+                  const labelMap: Map<string, string> = labels instanceof Map ? labels : new Map(Object.entries(labels as Record<string, string>))
+                  const inArgs = state.graph.arguments.filter(a => labelMap.get(a.id) === 'IN')
+                  if (inArgs.length === 0) return null
+                  return (
+                    <div className="space-y-2">
+                      <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">Common Ground</h3>
+                      <p className="text-xs text-muted/60">Arguments accepted by all preferred extensions (grounded extension).</p>
+                      <ul className="space-y-2">
+                        {inArgs.map(arg => {
+                          const meta = metaMap.get(arg.speakerId)
+                          return (
+                            <li key={arg.id} className="text-sm">
+                              <span className="text-green-400 text-xs font-mono mr-2">IN</span>
+                              <span className="font-medium">{meta?.name ?? arg.speakerId}:</span>{' '}
+                              <span className="text-foreground/90">{arg.claim}</span>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </div>
+                  )
+                })()}
+
+                {/* Camps */}
+                {state.graph.preferredCount > 1 && (
+                  <div className="space-y-2">
+                    <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">Camps</h3>
+                    <p className="text-xs text-muted/60">Distinct argument groups from preferred extensions — each represents a coherent position.</p>
+                    <p className="text-sm text-foreground/80">
+                      {state.graph.preferredCount} distinct camps identified
+                    </p>
+                  </div>
+                )}
+              </>
+            )}
+
             {/* Cruxes */}
             {(state.output.cruxes?.length ?? 0) > 0 && (
               <div className="space-y-2">
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">Key Cruxes</h3>
-                <p className="text-xs text-muted/60">The pivotal factual disagreements that drove the debate.</p>
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">
+                  {mode === 'graph' ? 'Crux Assumptions' : 'Key Cruxes'}
+                </h3>
+                <p className="text-xs text-muted/60">
+                  {mode === 'graph'
+                    ? 'Assumptions that drive the split between argument camps — computed from graph structure.'
+                    : 'The pivotal factual disagreements that drove the debate.'}
+                </p>
                 <ul className="space-y-2">
                   {state.output.cruxes?.map((crux) => (
                     <li key={crux.id} className="text-sm">

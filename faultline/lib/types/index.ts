@@ -1,9 +1,11 @@
+import type { Argument, Attack, ValidationResult, Labelling } from './graph'
+
 // ─── Primitives ───────────────────────────────────────────────
 
 export type PersonaId = string
 export type DeckId = string
 export type Stance = 'pro' | 'con' | 'uncertain'
-export type DebateMode = 'blitz' | 'classical'
+export type DebateMode = 'blitz' | 'classical' | 'graph'
 
 // ─── Personas ─────────────────────────────────────────────────
 
@@ -166,6 +168,11 @@ export type SSEEvent =
   | { type: 'speaker_selected'; personaId: PersonaId; urgency: number; intent: string }
   | { type: 'initial_stance'; personaId: PersonaId; stances: AgentStance[]; reasonings: { claimId: string; reasoning: string }[] }
   | { type: 'debate_complete'; output: DebateOutput }
+  | { type: 'arguments_submitted'; personaId: PersonaId; arguments: Argument[]; round: number }
+  | { type: 'attacks_generated'; attacks: Attack[]; round: number }
+  | { type: 'validation_complete'; results: ValidationResult[]; round: number }
+  | { type: 'graph_update'; labelling: Labelling; groundedSize: number; preferredCount: number; round: number }
+  | { type: 'graph_convergence'; stable: boolean; newEdges: number; round: number }
   | { type: 'error'; message: string }
 
 // ─── Agent Messages (shared with hooks & replay) ─────────────

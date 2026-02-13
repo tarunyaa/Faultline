@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { runBlitz } from '@/lib/orchestrator/blitz'
 import { runClassical } from '@/lib/orchestrator/classical'
+import { runGraph } from '@/lib/orchestrator/graph-orchestrator'
 import { saveDebate } from '@/lib/db/debates'
 import type { SSEEvent, DebateOutput } from '@/lib/types'
 
@@ -10,7 +11,7 @@ export const maxDuration = 300 // 5 minutes
 interface DebateRequest {
   topic: string
   personaIds: string[]
-  mode?: 'blitz' | 'classical'
+  mode?: 'blitz' | 'classical' | 'graph'
   save?: boolean
 }
 
@@ -30,8 +31,8 @@ export async function POST(req: NextRequest) {
   if (!Array.isArray(personaIds) || personaIds.length < 2) {
     return NextResponse.json({ error: 'Need at least 2 persona IDs' }, { status: 400 })
   }
-  if (mode !== 'blitz' && mode !== 'classical') {
-    return NextResponse.json({ error: 'Invalid mode — must be "blitz" or "classical"' }, { status: 400 })
+  if (mode !== 'blitz' && mode !== 'classical' && mode !== 'graph') {
+    return NextResponse.json({ error: 'Invalid mode — must be "blitz", "classical", or "graph"' }, { status: 400 })
   }
 
   const debateId = `debate-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`
@@ -48,9 +49,11 @@ export async function POST(req: NextRequest) {
       let debateStatus: 'completed' | 'error' = 'completed'
 
       try {
-        const generator = mode === 'classical'
-          ? runClassical({ topic, personaIds, debateId })
-          : runBlitz({ topic, personaIds, debateId })
+        const generator = mode === 'graph'
+          ? runGraph({ topic, personaIds, debateId })
+          : mode === 'classical'
+            ? runClassical({ topic, personaIds, debateId })
+            : runBlitz({ topic, personaIds, debateId })
 
         for await (const event of generator) {
           collectedEvents.push(event)
