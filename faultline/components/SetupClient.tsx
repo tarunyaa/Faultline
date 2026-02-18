@@ -56,6 +56,12 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
       .join(',')
     const topicParam = encodeURIComponent(topic.trim())
     const deckParam = encodeURIComponent(deck.id)
+
+    if (mode === 'dialogue') {
+      router.push(`/dialogue?personas=${personaParam}&topic=${topicParam}`)
+      return
+    }
+
     router.push(`/match/new?deck=${deckParam}&personas=${personaParam}&topic=${topicParam}&mode=${mode}${saveGame ? '&save=1' : ''}`)
   }
 
@@ -149,7 +155,21 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
       {/* Mode selector */}
       <div className="space-y-2">
         <label className="text-xs font-semibold uppercase tracking-wider text-muted">Mode</label>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-2 gap-3">
+          <button
+            type="button"
+            onClick={() => setMode('v2')}
+            className={`rounded-lg border px-4 py-3 text-left transition-all ${
+              mode === 'v2'
+                ? 'border-accent bg-accent-dim/20 text-foreground shadow-[0_0_8px_rgba(220,38,38,0.15)]'
+                : 'border-card-border bg-card-bg text-muted hover:text-foreground hover:border-muted'
+            }`}
+          >
+            <span className="block text-sm font-semibold">v2 ⚡</span>
+            <span className="block text-xs mt-1 opacity-70">
+              Natural dialogue with crystallization — 3x faster, sparse graph
+            </span>
+          </button>
           <button
             type="button"
             onClick={() => setMode('blitz')}
@@ -190,6 +210,20 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
             <span className="block text-sm font-semibold">Graph</span>
             <span className="block text-xs mt-1 opacity-70">
               Formal argumentation — structured attacks with computed cruxes
+            </span>
+          </button>
+          <button
+            type="button"
+            onClick={() => setMode('dialogue')}
+            className={`rounded-lg border px-4 py-3 text-left transition-all ${
+              mode === 'dialogue'
+                ? 'border-accent bg-accent-dim/20 text-foreground shadow-[0_0_8px_rgba(220,38,38,0.15)]'
+                : 'border-card-border bg-card-bg text-muted hover:text-foreground hover:border-muted'
+            }`}
+          >
+            <span className="block text-sm font-semibold">Dialogue</span>
+            <span className="block text-xs mt-1 opacity-70">
+              Natural group chat — crux rooms spawn when real disagreements emerge
             </span>
           </button>
         </div>

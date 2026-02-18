@@ -141,6 +141,46 @@ export async function completeJSON<T>(opts: CompletionOptions): Promise<T> {
   try {
     return JSON.parse(cleaned) as T
   } catch (err) {
+    // Try multiple extraction strategies
+
+    // Strategy 1: Find first complete JSON object (greedy match)
+    const greedyMatch = cleaned.match(/(\{(?:[^{}]|(?:\{[^{}]*\}))*\})/)
+    if (greedyMatch) {
+      try {
+        return JSON.parse(greedyMatch[1]) as T
+      } catch {
+        // Continue to next strategy
+      }
+    }
+
+    // Strategy 2: Find JSON between specific markers
+    const objectMatch = cleaned.match(/\{[\s\S]*\}/)
+    if (objectMatch) {
+      // Take only up to the first complete JSON object
+      let jsonStr = objectMatch[0]
+      let depth = 0
+      let endIdx = 0
+
+      for (let i = 0; i < jsonStr.length; i++) {
+        if (jsonStr[i] === '{') depth++
+        if (jsonStr[i] === '}') {
+          depth--
+          if (depth === 0) {
+            endIdx = i + 1
+            break
+          }
+        }
+      }
+
+      if (endIdx > 0) {
+        try {
+          return JSON.parse(jsonStr.substring(0, endIdx)) as T
+        } catch {
+          // Continue to next strategy
+        }
+      }
+    }
+
     // If truncated, attempt to repair the JSON
     if (result.truncated) {
       const repaired = repairTruncatedJSON(cleaned)
@@ -148,6 +188,9 @@ export async function completeJSON<T>(opts: CompletionOptions): Promise<T> {
         return JSON.parse(repaired) as T
       }
     }
+
+    // Log the actual text for debugging
+    console.error('[completeJSON] Failed to parse. Raw text:', result.text)
     throw err
   }
 }

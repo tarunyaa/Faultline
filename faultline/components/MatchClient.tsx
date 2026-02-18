@@ -766,17 +766,168 @@ const MOVE_COLORS: Record<string, string> = {
 }
 
 function MatchClientV2({ topic, personaIds, personaMetas }: { topic: string; personaIds: string[]; personaMetas: PersonaMeta[] }) {
-  const [state, { start, abort }] = useDebateV2Stream()
+  const [state, setState] = useState<{
+    running: boolean
+    complete: boolean
+    error: string | null
+    transcript: any[]
+    currentPhase: number | null
+    graph: any
+    graphStats: any
+    concessions: any[]
+    cruxProposals: any[]
+    output: any
+  }>({
+    running: false,
+    complete: false,
+    error: null,
+    transcript: [],
+    currentPhase: null,
+    graph: null,
+    graphStats: { inCount: 0, outCount: 0, undecCount: 0, preferredCount: 0 },
+    concessions: [],
+    cruxProposals: [],
+    output: null,
+  })
+
   const chatRef = useRef<HTMLDivElement>(null)
   const [autoScroll, setAutoScroll] = useState(true)
+  const abortControllerRef = useRef<AbortController | null>(null)
 
   const personaMap = new Map(personaMetas.map(p => [p.id, p]))
 
   useEffect(() => {
-    start({ topic, personaIds, maxTurns: 30 })
-    return () => { abort() }
+    startDebate()
+    return () => {
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort()
+      }
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  async function startDebate() {
+    console.log('[V2] Starting debate with:', { topic, personaIds })
+    setState(prev => ({ ...prev, running: true, error: null }))
+
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort()
+    }
+    abortControllerRef.current = new AbortController()
+
+    try {
+      console.log('[V2] Calling /api/debate-v2...')
+      const response = await fetch('/api/debate-v2', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ topic, personaIds, maxTurns: 30 }),
+        signal: abortControllerRef.current.signal,
+      })
+
+      console.log('[V2] Response status:', response.status, response.ok)
+
+      if (!response.ok) {
+        const errorText = await response.text()
+        console.error('[V2] Response error:', errorText)
+        throw new Error(`Failed to start debate: ${errorText}`)
+      }
+
+      const reader = response.body?.getReader()
+      if (!reader) throw new Error('No response body')
+
+      console.log('[V2] Starting SSE stream read...')
+      const decoder = new TextDecoder()
+      let buffer = ''
+      let eventCount = 0
+
+      while (true) {
+        const { done, value } = await reader.read()
+        if (done) {
+          console.log('[V2] Stream ended after', eventCount, 'events')
+          break
+        }
+
+        buffer += decoder.decode(value, { stream: true })
+        const events = buffer.split('\n\n')
+        buffer = events.pop() ?? ''
+
+        for (const eventBlock of events) {
+          if (!eventBlock.trim() || eventBlock.startsWith(':')) continue
+
+          // Parse SSE format: "event: TYPE\ndata: JSON"
+          const lines = eventBlock.split('\n')
+          let eventType = null
+          let eventData = null
+
+          for (const line of lines) {
+            if (line.startsWith('event: ')) {
+              eventType = line.substring(7).trim()
+            } else if (line.startsWith('data: ')) {
+              eventData = line.substring(6).trim()
+            }
+          }
+
+          if (eventData) {
+            eventCount++
+            const event = JSON.parse(eventData)
+            console.log('[V2] Event', eventCount, ':', event.type)
+            handleEvent(event)
+          }
+        }
+      }
+    } catch (err: any) {
+      if (err.name !== 'AbortError') {
+        console.error('[MatchClientV2] Error:', err)
+        setState(prev => ({ ...prev, running: false, error: err.message }))
+      } else {
+        console.log('[V2] Stream aborted')
+      }
+    }
+  }
+
+  function handleEvent(event: any) {
+    switch (event.type) {
+      case 'dialogue_turn':
+        setState(prev => ({ ...prev, transcript: [...prev.transcript, event.turn] }))
+        break
+      case 'phase_start':
+      case 'phase_transition':
+        setState(prev => ({ ...prev, currentPhase: event.phase || event.to }))
+        break
+      case 'graph_updated':
+        setState(prev => ({
+          ...prev,
+          graphStats: {
+            inCount: event.inCount,
+            outCount: event.outCount,
+            undecCount: event.undecCount,
+            preferredCount: event.preferredCount,
+          },
+        }))
+        break
+      case 'concession':
+        setState(prev => ({ ...prev, concessions: [...prev.concessions, event.concession] }))
+        break
+      case 'crux_proposed':
+        setState(prev => ({
+          ...prev,
+          cruxProposals: [...prev.cruxProposals, { personaId: event.personaId, statement: event.statement }],
+        }))
+        break
+      case 'engine_complete':
+        setState(prev => ({
+          ...prev,
+          running: false,
+          complete: true,
+          output: event.output,
+          graph: event.output.graph,
+        }))
+        break
+      case 'engine_error':
+        setState(prev => ({ ...prev, running: false, error: event.message }))
+        break
+    }
+  }
 
   // Auto-scroll
   useEffect(() => {

@@ -91,18 +91,28 @@ export function useDebateV2Stream() {
           if (done) break
 
           buffer += decoder.decode(value, { stream: true })
-          const lines = buffer.split('\n\n')
-          buffer = lines.pop() ?? ''
+          const events = buffer.split('\n\n')
+          buffer = events.pop() ?? ''
 
-          for (const line of lines) {
-            if (!line.trim() || line.startsWith(':')) continue
+          for (const eventBlock of events) {
+            if (!eventBlock.trim() || eventBlock.startsWith(':')) continue
 
-            const eventMatch = line.match(/^event: (.+)/)
-            const dataMatch = line.match(/^data: (.+)/)
+            // Parse SSE format: "event: TYPE\ndata: JSON"
+            const lines = eventBlock.split('\n')
+            let eventType = null
+            let eventData = null
 
-            if (eventMatch && dataMatch) {
+            for (const line of lines) {
+              if (line.startsWith('event: ')) {
+                eventType = line.substring(7).trim()
+              } else if (line.startsWith('data: ')) {
+                eventData = line.substring(6).trim()
+              }
+            }
+
+            if (eventData) {
               try {
-                const event: DebateEvent = JSON.parse(dataMatch[1])
+                const event: DebateEvent = JSON.parse(eventData)
                 handleEvent(event)
               } catch (err) {
                 console.error('Failed to parse event:', err)
@@ -113,10 +123,11 @@ export function useDebateV2Stream() {
       })
       .catch(err => {
         if (err.name !== 'AbortError') {
+          console.error('[useDebateV2Stream] Error:', err)
           setState(prev => ({
             ...prev,
             running: false,
-            error: err.message,
+            error: err.message || 'Stream error',
           }))
         }
       })
