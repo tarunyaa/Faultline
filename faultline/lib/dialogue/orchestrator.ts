@@ -1,4 +1,4 @@
-// ─── Dialogue Orchestrator ────────────────────────────────────
+// ─── Panel Debate Orchestrator ────────────────────────────────
 
 import type {
   DialogueConfig,
@@ -6,31 +6,29 @@ import type {
   DialogueMessage,
   DialogueEvent,
   PersonaId,
+  DebateContext,
+  PositionShift,
 } from './types'
 import type { PersonaContract, Persona } from '@/lib/types'
 import { loadContract, getPersona } from '@/lib/personas/loader'
-import { generateMicroTurn, generateOpeningMicroTurn } from './agent'
-import { assignNextTurn } from './turn-manager'
+import { generateOpeningMicroTurn, generateTake, generateRebuttal, generateClosing } from './agent'
+import { decomposeTopicIntoAspects } from './topic-decomposer'
+import { buildTurnContext, summarizeRound } from './context-builder'
 import { detectDisagreements, CandidateRegistry } from './disagreement-detector'
 import { runCruxRoom } from '@/lib/crux/orchestrator'
+import { completeJSON } from '@/lib/llm/client'
 
 export async function* runDialogue(
   config: DialogueConfig,
 ): AsyncGenerator<DialogueEvent> {
   const { topic, personaIds } = config
-  const maxMessages = config.maxMessages ?? 50
-  const maxDurationMs = config.maxDurationMs ?? 5 * 60 * 1000
-
-  const startTime = Date.now()
 
   const state: DialogueState = {
     topic,
     messages: [],
     activePersonas: personaIds,
-    startTime,
+    startTime: Date.now(),
   }
-
-  yield { type: 'dialogue_start', topic, personas: personaIds }
 
   // Load persona contracts and data
   const contracts = new Map<PersonaId, PersonaContract>()
@@ -47,138 +45,305 @@ export async function* runDialogue(
     }
   }
 
-  // ─── Phase 1: Opening Messages ────────────────────────────
+  // ─── Topic Decomposition ────────────────────────────────────
 
-  for (const personaId of personaIds) {
-    const contract = contracts.get(personaId)!
-    const persona = personas.get(personaId)!
-    const content = await generateOpeningMicroTurn(contract, persona, topic)
+  const aspects = await decomposeTopicIntoAspects(topic, 3)
 
-    if (content) {
-      const message: DialogueMessage = {
+  yield { type: 'dialogue_start', topic, personas: personaIds }
+  yield { type: 'debate_start', topic, aspects, personas: personaIds }
+
+  // Initialize debate context
+  const debateContext: DebateContext = {
+    originalTopic: topic,
+    aspects,
+    rounds: [],
+    contestedClaims: [],
+    cruxCards: [],
+  }
+
+  // ─── Opening Round ──────────────────────────────────────────
+
+  const openingMessages = await Promise.all(
+    personaIds.map(async (personaId) => {
+      const contract = contracts.get(personaId)!
+      const persona = personas.get(personaId)!
+      const content = await generateOpeningMicroTurn(contract, persona, topic)
+      if (!content) return null
+      return {
         id: generateMessageId(personaId, state.messages.length),
         personaId,
         content,
         timestamp: Date.now(),
-      }
-      state.messages.push(message)
-      state.lastSpeakerId = personaId
-      yield { type: 'message_posted', message }
+      } as DialogueMessage
+    })
+  )
+
+  for (const msg of openingMessages) {
+    if (msg) {
+      state.messages.push(msg)
+      yield { type: 'message_posted', message: msg, phase: 'opening' }
     }
   }
 
-  // ─── Phase 2: Conversational Turns ────────────────────────
+  // ─── Aspect Rounds ─────────────────────────────────────────
 
   const registry = new CandidateRegistry()
-  // Track which persona pairs currently have an active crux room
   const activeRoomPairs = new Set<string>()
 
-  let consecutiveSkips = 0
-  const maxConsecutiveSkips = personaIds.length * 2
+  for (let roundIdx = 0; roundIdx < aspects.length; roundIdx++) {
+    const aspect = aspects[roundIdx]
 
-  while (state.messages.length < maxMessages) {
-    if (Date.now() - startTime > maxDurationMs) break
+    yield { type: 'round_start', aspect, roundNumber: roundIdx + 1 }
 
-    const turn = assignNextTurn(state.messages, personaIds, state.lastSpeakerId)
-    const nextContract = contracts.get(turn.personaId)!
-    const nextPersona = personas.get(turn.personaId)!
+    const roundMessages: DialogueMessage[] = []
+    const clashMessages: DialogueMessage[] = []
 
-    const replyToMessage = turn.replyToMessageId
-      ? state.messages.find(m => m.id === turn.replyToMessageId) ?? null
-      : null
+    // ── Parallel Takes ──────────────────────────────────────
 
-    const content = await generateMicroTurn(
-      nextContract,
-      nextPersona,
-      replyToMessage,
-      turn.intent,
-      personaNames,
-      state.messages.slice(-5, -1),
+    const contextText = buildTurnContext(debateContext, [], personaNames)
+
+    const takes = await Promise.all(
+      personaIds.map(async (personaId) => {
+        const contract = contracts.get(personaId)!
+        const persona = personas.get(personaId)!
+        const content = await generateTake(contract, persona, aspect, contextText)
+        if (!content) return null
+        return {
+          id: generateMessageId(personaId, state.messages.length + roundMessages.length),
+          personaId,
+          content,
+          timestamp: Date.now(),
+        } as DialogueMessage
+      })
     )
 
-    if (!content) {
-      consecutiveSkips++
-      if (consecutiveSkips >= maxConsecutiveSkips) break
-      state.lastSpeakerId = turn.personaId
-      continue
+    for (const msg of takes) {
+      if (msg) {
+        state.messages.push(msg)
+        roundMessages.push(msg)
+        yield { type: 'message_posted', message: msg, phase: 'take' }
+      }
     }
 
-    consecutiveSkips = 0
+    // ── Disagreement Detection on Takes ─────────────────────
 
-    const message: DialogueMessage = {
-      id: generateMessageId(turn.personaId, state.messages.length),
-      personaId: turn.personaId,
-      content,
-      replyTo: turn.replyToMessageId,
-      timestamp: Date.now(),
-    }
+    const detected = await detectDisagreements(roundMessages, personaNames)
 
-    state.messages.push(message)
-    state.lastSpeakerId = turn.personaId
-    yield { type: 'message_posted', message }
+    if (detected) {
+      yield {
+        type: 'disagreement_detected',
+        candidate: {
+          messages: roundMessages.map(m => m.id),
+          personas: detected.personas,
+          topic: detected.topic,
+          confidence: 1,  // Boolean decomposition replaces confidence float
+        },
+      }
 
-    // ─── Check for Disagreements (every 3 messages) ─────────
+      // ── Sequential Clash (2-4 rebuttals) ────────────────
 
-    if (state.messages.length % 3 === 0) {
-      const detected = await detectDisagreements(state.messages, personaNames)
+      yield { type: 'clash_start', personas: detected.personas, aspect: aspect.label }
 
-      if (detected) {
-        const readyCandidate = registry.update(
-          detected.personas,
-          detected.topic,
-          detected.shortLabel,
-          activeRoomPairs,
+      const clashPair = detected.personas.slice(0, 2)
+      const maxClashTurns = 4
+
+      for (let clashTurn = 0; clashTurn < maxClashTurns; clashTurn++) {
+        const speakerId = clashPair[clashTurn % 2]
+        const targetId = clashPair[(clashTurn + 1) % 2]
+
+        const speakerContract = contracts.get(speakerId)!
+        const speakerPersona = personas.get(speakerId)!
+        const targetName = personaNames.get(targetId) ?? targetId
+
+        // Find latest message from opponent
+        const targetMessage = [...roundMessages, ...clashMessages]
+          .reverse()
+          .find(m => m.personaId === targetId)
+
+        if (!targetMessage) break
+
+        const clashContext = buildTurnContext(debateContext, [...roundMessages, ...clashMessages], personaNames)
+        const content = await generateRebuttal(
+          speakerContract,
+          speakerPersona,
+          targetMessage,
+          targetName,
+          clashContext,
         )
 
-        // Emit detection event (informational)
-        yield {
-          type: 'disagreement_detected',
-          candidate: {
-            messages: state.messages.slice(-6).map(m => m.id),
-            personas: detected.personas,
-            topic: detected.topic,
-            confidence: 1,  // Kept for type compat; boolean decomposition replaces confidence
-          },
+        if (!content) break
+
+        const msg: DialogueMessage = {
+          id: generateMessageId(speakerId, state.messages.length),
+          personaId: speakerId,
+          content,
+          replyTo: targetMessage.id,
+          timestamp: Date.now(),
         }
 
-        if (readyCandidate) {
-          const roomId = `crux-${Date.now()}-${readyCandidate.personas.join('-')}`
-          const pairKey = [...readyCandidate.personas].sort().join('|')
-          activeRoomPairs.add(pairKey)
-          registry.recordSpawn(readyCandidate.personas)
-
-          yield {
-            type: 'crux_room_spawning',
-            roomId,
-            question: readyCandidate.topic,
-            label: readyCandidate.shortLabel,
-            personas: readyCandidate.personas,
-          }
-
-          for await (const cruxEvent of runCruxRoom(
-            roomId,
-            readyCandidate.topic,
-            readyCandidate.personas,
-            state.messages.slice(-6).map(m => m.id),
-            personaNames,
-            topic,  // Pass original debate topic for wider context
-          )) {
-            if (cruxEvent.type === 'crux_message') {
-              yield { type: 'crux_message', roomId: cruxEvent.roomId, message: cruxEvent.message }
-            } else if (cruxEvent.type === 'crux_card_generated') {
-              yield { type: 'crux_card_posted', card: cruxEvent.card }
-            }
-          }
-
-          activeRoomPairs.delete(pairKey)
-        }
+        state.messages.push(msg)
+        roundMessages.push(msg)
+        clashMessages.push(msg)
+        yield { type: 'message_posted', message: msg, phase: 'clash' }
       }
+
+      // ── Check if Clash Resolved or Spawn Crux Room ──────
+
+      const readyCandidate = registry.update(
+        detected.personas,
+        detected.topic,
+        detected.shortLabel,
+        activeRoomPairs,
+      )
+
+      if (readyCandidate) {
+        const roomId = `crux-${Date.now()}-${readyCandidate.personas.join('-')}`
+        const pairKey = [...readyCandidate.personas].sort().join('|')
+        activeRoomPairs.add(pairKey)
+        registry.recordSpawn(readyCandidate.personas)
+
+        // Add contested claim
+        debateContext.contestedClaims.push({
+          claim: readyCandidate.topic,
+          personas: [readyCandidate.personas[0], readyCandidate.personas[1]],
+          status: 'unresolved',
+          source: 'detection',
+        })
+
+        yield {
+          type: 'crux_room_spawning',
+          roomId,
+          question: readyCandidate.topic,
+          label: readyCandidate.shortLabel,
+          personas: readyCandidate.personas,
+        }
+
+        for await (const cruxEvent of runCruxRoom(
+          roomId,
+          readyCandidate.topic,
+          readyCandidate.personas,
+          clashMessages.map(m => m.id),
+          personaNames,
+          topic,  // Pass original debate topic for wider context
+        )) {
+          if (cruxEvent.type === 'crux_message') {
+            yield { type: 'crux_message', roomId: cruxEvent.roomId, message: cruxEvent.message }
+          } else if (cruxEvent.type === 'crux_card_generated') {
+            debateContext.cruxCards.push(cruxEvent.card)
+            yield { type: 'crux_card_posted', card: cruxEvent.card }
+          }
+        }
+
+        activeRoomPairs.delete(pairKey)
+      }
+    }
+
+    // ── Round Summary ───────────────────────────────────────
+
+    const summary = await summarizeRound(aspect.label, roundMessages, personaNames)
+    debateContext.rounds.push({
+      aspect,
+      summary,
+      takes: takes.filter(Boolean) as DialogueMessage[],
+      clashMessages,
+    })
+
+    yield { type: 'round_end', aspect }
+  }
+
+  // ─── Closing Round ──────────────────────────────────────────
+
+  const closingContext = buildTurnContext(debateContext, [], personaNames)
+
+  const closingMessages = await Promise.all(
+    personaIds.map(async (personaId) => {
+      const contract = contracts.get(personaId)!
+      const persona = personas.get(personaId)!
+      const content = await generateClosing(contract, persona, topic, closingContext)
+      if (!content) return null
+      return {
+        id: generateMessageId(personaId, state.messages.length),
+        personaId,
+        content,
+        timestamp: Date.now(),
+      } as DialogueMessage
+    })
+  )
+
+  for (const msg of closingMessages) {
+    if (msg) {
+      state.messages.push(msg)
+      yield { type: 'message_posted', message: msg, phase: 'closing' }
     }
   }
 
-  yield { type: 'dialogue_complete', finalState: state }
+  // ─── Shift Detection ────────────────────────────────────────
+
+  const shifts = await detectShifts(
+    personaIds,
+    openingMessages.filter(Boolean) as DialogueMessage[],
+    closingMessages.filter(Boolean) as DialogueMessage[],
+    personaNames,
+  )
+
+  yield { type: 'dialogue_complete', finalState: state, shifts }
 }
+
+// ─── Helpers ──────────────────────────────────────────────────
 
 function generateMessageId(personaId: string, index: number): string {
   return `msg-${Date.now()}-${personaId}-${index}`
+}
+
+async function detectShifts(
+  personaIds: PersonaId[],
+  openings: DialogueMessage[],
+  closings: DialogueMessage[],
+  personaNames: Map<string, string>,
+): Promise<PositionShift[]> {
+  const pairs: string[] = []
+  for (const id of personaIds) {
+    const opening = openings.find(m => m.personaId === id)
+    const closing = closings.find(m => m.personaId === id)
+    if (opening && closing) {
+      const name = personaNames.get(id) ?? id
+      pairs.push(`${name}:\n  Opening: "${opening.content}"\n  Closing: "${closing.content}"`)
+    }
+  }
+
+  if (pairs.length === 0) return []
+
+  try {
+    const result = await completeJSON<{ shifts: Array<{ name: string; shifted: boolean; summary: string }> }>({
+      system: 'You detect position shifts in debate participants by comparing their opening and closing statements.',
+      messages: [{
+        role: 'user',
+        content: `Compare each participant's opening and closing statements. Did they shift their position?
+
+${pairs.join('\n\n')}
+
+Output JSON:
+{
+  "shifts": [
+    { "name": "participant name", "shifted": true/false, "summary": "1 sentence describing shift or lack thereof" }
+  ]
+}`,
+      }],
+      model: 'haiku',
+      maxTokens: 300,
+      temperature: 0.2,
+    })
+
+    return result.shifts.map(s => {
+      // Map name back to ID
+      let personaId = s.name
+      for (const [id, name] of personaNames.entries()) {
+        if (name === s.name) { personaId = id; break }
+      }
+      return { personaId, shifted: s.shifted, summary: s.summary }
+    })
+  } catch (error) {
+    console.error('[shifts] Error detecting shifts:', error)
+    return []
+  }
 }

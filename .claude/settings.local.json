@@ -38,7 +38,8 @@
       "WebFetch(domain:cs.stanford.edu)",
       "WebFetch(domain:martianlantern.github.io)",
       "WebFetch(domain:www.sciencedirect.com)",
-      "WebFetch(domain:aclanthology.org)"
+      "WebFetch(domain:aclanthology.org)",
+      "Bash(git:*)"
     ]
   }
 }
