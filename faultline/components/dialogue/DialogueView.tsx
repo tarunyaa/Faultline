@@ -22,6 +22,10 @@ export function DialogueView({ topic, personaIds, personaNames, personaAvatars }
     isRunning,
     isComplete,
     error,
+    aspects,
+    currentRound,
+    currentPhase,
+    shifts,
     start,
   } = useDialogueStream(topic, personaIds)
 
@@ -60,6 +64,10 @@ export function DialogueView({ topic, personaIds, personaNames, personaAvatars }
         personaAvatars={personaAvatars}
         isRunning={isRunning}
         isComplete={isComplete}
+        aspects={aspects}
+        currentRound={currentRound}
+        currentPhase={currentPhase}
+        shifts={shifts}
       />
     </div>
   )

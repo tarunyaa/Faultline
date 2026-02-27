@@ -1,7 +1,7 @@
 // ─── Hook for Dialogue SSE Stream ────────────────────────────
 
 import { useState, useCallback, useRef } from 'react'
-import type { DialogueEvent, DialogueMessage } from '@/lib/dialogue/types'
+import type { DialogueEvent, DialogueMessage, DebateAspect, PositionShift } from '@/lib/dialogue/types'
 import type { CruxCard, CruxMessage } from '@/lib/crux/types'
 
 export interface ActiveCruxRoom {
@@ -17,10 +17,15 @@ export interface DialogueStreamState {
   messages: DialogueMessage[]
   cruxCards: CruxCard[]
   activeCruxRooms: Map<string, ActiveCruxRoom>
-  completedRooms: Map<string, ActiveCruxRoom>  // Rooms done, still viewable
+  completedRooms: Map<string, ActiveCruxRoom>
   isRunning: boolean
   isComplete: boolean
   error: string | null
+  // Panel debate state
+  aspects: DebateAspect[]
+  currentRound: number | null
+  currentPhase: 'opening' | 'take' | 'clash' | 'closing' | null
+  shifts: PositionShift[]
 }
 
 export function useDialogueStream(
@@ -35,6 +40,10 @@ export function useDialogueStream(
     isRunning: false,
     isComplete: false,
     error: null,
+    aspects: [],
+    currentRound: null,
+    currentPhase: null,
+    shifts: [],
   })
 
   // useRef guard prevents double-invocation from React StrictMode
@@ -52,6 +61,10 @@ export function useDialogueStream(
       isRunning: true,
       isComplete: false,
       error: null,
+      aspects: [],
+      currentRound: null,
+      currentPhase: null,
+      shifts: [],
     })
 
     fetch('/api/dialogue', {
@@ -84,8 +97,24 @@ export function useDialogueStream(
               try {
                 const event = JSON.parse(line.slice(6)) as DialogueEvent
 
-                if (event.type === 'message_posted') {
-                  setState(prev => ({ ...prev, messages: [...prev.messages, event.message] }))
+                if (event.type === 'debate_start') {
+                  setState(prev => ({ ...prev, aspects: event.aspects }))
+
+                } else if (event.type === 'round_start') {
+                  setState(prev => ({ ...prev, currentRound: event.roundNumber, currentPhase: 'take' }))
+
+                } else if (event.type === 'clash_start') {
+                  setState(prev => ({ ...prev, currentPhase: 'clash' }))
+
+                } else if (event.type === 'round_end') {
+                  setState(prev => ({ ...prev, currentRound: null, currentPhase: null }))
+
+                } else if (event.type === 'message_posted') {
+                  setState(prev => ({
+                    ...prev,
+                    messages: [...prev.messages, event.message],
+                    currentPhase: event.phase ?? prev.currentPhase,
+                  }))
 
                 } else if (event.type === 'crux_room_spawning') {
                   setState(prev => {
@@ -118,7 +147,6 @@ export function useDialogueStream(
                   setState(prev => {
                     const newActive = new Map(prev.activeCruxRooms)
                     const newCompleted = new Map(prev.completedRooms)
-                    // Move room from active to completed
                     const room = newActive.get(event.card.cruxRoomId)
                     if (room) {
                       newActive.delete(event.card.cruxRoomId)
@@ -133,7 +161,12 @@ export function useDialogueStream(
                   })
 
                 } else if (event.type === 'dialogue_complete') {
-                  setState(prev => ({ ...prev, isRunning: false, isComplete: true }))
+                  setState(prev => ({
+                    ...prev,
+                    isRunning: false,
+                    isComplete: true,
+                    shifts: event.shifts ?? [],
+                  }))
 
                 } else if (event.type === 'error') {
                   setState(prev => ({ ...prev, isRunning: false, error: event.error }))

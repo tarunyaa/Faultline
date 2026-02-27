@@ -7,10 +7,10 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { MessageThread } from './MessageThread'
-import { PlayingCard, PlayingCardExpanded } from '@/components/crux/PlayingCard'
+import { PlayingCard } from '@/components/crux/PlayingCard'
 import { CruxRoom } from '@/components/crux/CruxRoom'
 import HexAvatar from '@/components/HexAvatar'
-import type { DialogueMessage } from '@/lib/dialogue/types'
+import type { DialogueMessage, DebateAspect, PositionShift } from '@/lib/dialogue/types'
 import type { CruxCard as CruxCardType } from '@/lib/crux/types'
 import type { ActiveCruxRoom } from '@/lib/hooks/useDialogueStream'
 
@@ -207,6 +207,21 @@ function DialoguePolygon({
   )
 }
 
+// ─── Phase Divider ──────────────────────────────────────────
+
+function PhaseDivider({ label, sublabel }: { label: string; sublabel?: string }) {
+  return (
+    <div className="flex items-center gap-3 py-3">
+      <div className="flex-1 h-px bg-card-border" />
+      <div className="text-center">
+        <span className="text-[10px] font-semibold uppercase tracking-wider text-accent">{label}</span>
+        {sublabel && <p className="text-[9px] text-muted mt-0.5">{sublabel}</p>}
+      </div>
+      <div className="flex-1 h-px bg-card-border" />
+    </div>
+  )
+}
+
 // ─── DialogueLayout ───────────────────────────────────────────
 
 interface DialogueLayoutProps {
@@ -220,6 +235,11 @@ interface DialogueLayoutProps {
   personaAvatars: Map<string, string>
   isRunning: boolean
   isComplete: boolean
+  // Panel debate props
+  aspects?: DebateAspect[]
+  currentRound?: number | null
+  currentPhase?: 'opening' | 'take' | 'clash' | 'closing' | null
+  shifts?: PositionShift[]
 }
 
 export function ThreeColumnLayout({
@@ -233,6 +253,10 @@ export function ThreeColumnLayout({
   personaAvatars,
   isRunning,
   isComplete,
+  aspects = [],
+  currentRound,
+  currentPhase,
+  shifts = [],
 }: DialogueLayoutProps) {
   // Track which crux room cards are expanded
   const [expandedRooms, setExpandedRooms] = useState<Set<string>>(new Set())
@@ -272,6 +296,85 @@ export function ThreeColumnLayout({
   const personaNamesList = Array.from(personaNames.values())
   const lastSpeakerId = messages.length > 0 ? messages[messages.length - 1].personaId : undefined
 
+  // Build message feed with phase dividers
+  const feedElements: Array<{ type: 'divider'; label: string; sublabel?: string; key: string } | { type: 'message'; message: DialogueMessage; key: string }> = []
+
+  // We track phases by examining message order + aspects
+  // The orchestrator sends messages in order: openings, then per-round takes+clashes, then closings
+  // We detect transitions based on message index vs persona count
+  const numPersonas = personaIds.length
+  let msgIdx = 0
+
+  // Opening phase: first N messages (one per persona)
+  if (messages.length > 0) {
+    feedElements.push({ type: 'divider', label: 'Opening Statements', key: 'div-opening' })
+    for (let i = 0; i < Math.min(numPersonas, messages.length); i++) {
+      feedElements.push({ type: 'message', message: messages[i], key: messages[i].id })
+    }
+    msgIdx = Math.min(numPersonas, messages.length)
+  }
+
+  // Aspect rounds
+  if (aspects.length > 0 && msgIdx < messages.length) {
+    for (let roundIdx = 0; roundIdx < aspects.length; roundIdx++) {
+      const aspect = aspects[roundIdx]
+      if (msgIdx >= messages.length) break
+
+      feedElements.push({
+        type: 'divider',
+        label: `Round ${roundIdx + 1}: ${aspect.label}`,
+        sublabel: aspect.description,
+        key: `div-round-${roundIdx}`,
+      })
+
+      // Takes: next N messages are parallel takes (one per persona)
+      const takeStart = msgIdx
+      for (let i = 0; i < numPersonas && msgIdx < messages.length; i++) {
+        // Check if this is still a take (no replyTo) or if we've moved to clash
+        const msg = messages[msgIdx]
+        if (msg.replyTo) break
+        feedElements.push({ type: 'message', message: msg, key: msg.id })
+        msgIdx++
+      }
+
+      // Clash messages: messages with replyTo in this round
+      let hasClashDivider = false
+      while (msgIdx < messages.length) {
+        const msg = messages[msgIdx]
+        // If this message doesn't have replyTo, it's the start of the next phase
+        if (!msg.replyTo) break
+
+        if (!hasClashDivider) {
+          // Determine clash participants from the messages
+          const clashPersonas = new Set<string>()
+          // Look ahead to find clash participants
+          for (let peek = msgIdx; peek < messages.length && messages[peek].replyTo; peek++) {
+            clashPersonas.add(messages[peek].personaId)
+          }
+          const clashNames = Array.from(clashPersonas).map(id => (personaNames.get(id) ?? id).split(' ')[0])
+          feedElements.push({
+            type: 'divider',
+            label: `Clash: ${clashNames.join(' vs ')}`,
+            key: `div-clash-${roundIdx}`,
+          })
+          hasClashDivider = true
+        }
+
+        feedElements.push({ type: 'message', message: msg, key: msg.id })
+        msgIdx++
+      }
+    }
+  }
+
+  // Closing phase: remaining messages after all rounds
+  if (msgIdx < messages.length) {
+    feedElements.push({ type: 'divider', label: 'Closing Statements', key: 'div-closing' })
+    while (msgIdx < messages.length) {
+      feedElements.push({ type: 'message', message: messages[msgIdx], key: messages[msgIdx].id })
+      msgIdx++
+    }
+  }
+
   return (
     <div className="space-y-6">
 
@@ -283,7 +386,15 @@ export function ThreeColumnLayout({
           {isRunning && (
             <div className="flex items-center gap-1.5">
               <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-sm text-muted">Live</span>
+              <span className="text-sm text-muted">
+                {currentPhase && currentRound
+                  ? `Round ${currentRound} — ${currentPhase}`
+                  : currentPhase === 'opening'
+                  ? 'Opening'
+                  : currentPhase === 'closing'
+                  ? 'Closing'
+                  : 'Live'}
+              </span>
             </div>
           )}
           {isComplete && (
@@ -299,6 +410,25 @@ export function ThreeColumnLayout({
             </span>
           ))}
         </div>
+        {/* Aspect pills */}
+        {aspects.length > 0 && (
+          <div className="flex items-center gap-2 mt-2 flex-wrap">
+            {aspects.map((aspect, i) => (
+              <span
+                key={aspect.id}
+                className={`text-[10px] px-2 py-0.5 rounded border ${
+                  currentRound === i + 1
+                    ? 'border-accent text-accent'
+                    : currentRound !== null && i + 1 < currentRound
+                    ? 'border-card-border text-muted'
+                    : 'border-card-border text-muted opacity-50'
+                }`}
+              >
+                {aspect.label}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* ── Main grid: 2/3 chat + 1/3 sidebar — fixed height so crux cards start at consistent Y ── */}
@@ -308,19 +438,29 @@ export function ThreeColumnLayout({
         <div className="lg:col-span-2 lg:h-full lg:overflow-hidden">
           <div
             ref={feedRef}
-            className="rounded-xl border border-card-border bg-card-bg p-4 space-y-4 overflow-y-auto lg:h-full"
+            className="rounded-xl border border-card-border bg-card-bg p-4 space-y-1 overflow-y-auto lg:h-full"
             style={{ minHeight: '400px', maxHeight: '68vh' }}
           >
             {messages.length === 0 ? (
               <div className="flex items-center justify-center h-24">
-                <p className="text-muted text-sm">Starting conversation...</p>
+                <p className="text-muted text-sm">Decomposing topic...</p>
               </div>
             ) : (
-              <MessageThread
-                messages={messages}
-                personaNames={personaNames}
-                personaAvatars={personaAvatars}
-              />
+              <>
+                {feedElements.map(el => {
+                  if (el.type === 'divider') {
+                    return <PhaseDivider key={el.key} label={el.label} sublabel={el.sublabel} />
+                  }
+                  return (
+                    <MessageThread
+                      key={el.key}
+                      messages={[el.message]}
+                      personaNames={personaNames}
+                      personaAvatars={personaAvatars}
+                    />
+                  )
+                })}
+              </>
             )}
             {isRunning && messages.length > 0 && (
               <div className="flex items-center gap-1.5 px-3 py-1">
@@ -387,7 +527,7 @@ export function ThreeColumnLayout({
                     {isActive ? (
                       <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse flex-shrink-0" />
                     ) : (
-                      <span className="text-[10px] text-accent flex-shrink-0">✓</span>
+                      <span className="text-[10px] text-accent flex-shrink-0">done</span>
                     )}
                   </div>
                   {/* Row 2: short label, muted */}
@@ -473,9 +613,32 @@ export function ThreeColumnLayout({
               <div className="flex items-center gap-3 text-xs text-muted">
                 <span>{messages.length} messages</span>
                 <span>·</span>
+                <span>{aspects.length} rounds</span>
+                <span>·</span>
                 <span>{completedRooms.size} crux room{completedRooms.size !== 1 ? 's' : ''}</span>
               </div>
             </div>
+
+            {/* ── Position Shifts ── */}
+            {shifts.length > 0 && (
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-wider text-muted mb-2">Position Shifts</p>
+                <div className="space-y-1.5">
+                  {shifts.map(shift => {
+                    const name = (personaNames.get(shift.personaId) ?? shift.personaId).split(' ')[0]
+                    return (
+                      <div key={shift.personaId} className="flex items-start gap-2 text-xs">
+                        <span className={`font-medium ${shift.shifted ? 'text-accent' : 'text-foreground'}`}>
+                          {name}
+                        </span>
+                        <span className="text-muted">—</span>
+                        <span className="text-muted">{shift.summary}</span>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
 
             {/* ── Metrics row ── */}
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -515,7 +678,7 @@ export function ThreeColumnLayout({
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-wider text-muted mb-2">
                 Benchmark Metrics
-                <span className="ml-2 text-[9px] font-normal normal-case opacity-60">§8 evaluation suite</span>
+                <span className="ml-2 text-[9px] font-normal normal-case opacity-60">evaluation suite</span>
               </p>
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
                 {/* H — Disagreement Entropy */}
@@ -530,19 +693,19 @@ export function ThreeColumnLayout({
                   <p className="text-[10px] font-semibold uppercase tracking-wider text-muted mb-1">CCR</p>
                   <p className="text-lg font-bold text-foreground leading-none">{(ccr * 100).toFixed(0)}%</p>
                   <p className="text-[10px] text-muted mt-1">Crux compression rate</p>
-                  <p className="text-[9px] text-muted opacity-60 mt-0.5">Target ≥ 50%</p>
+                  <p className="text-[9px] text-muted opacity-60 mt-0.5">Target >= 50%</p>
                 </div>
                 {/* IQS — Insight Quality Score */}
                 <div className="rounded-lg border border-card-border bg-card-bg p-3">
                   <p className="text-[10px] font-semibold uppercase tracking-wider text-muted mb-1">IQS</p>
-                  <p className="text-lg font-bold text-muted leading-none opacity-40">—</p>
+                  <p className="text-lg font-bold text-muted leading-none opacity-40">--</p>
                   <p className="text-[10px] text-muted mt-1">Insight quality score</p>
                   <p className="text-[9px] text-muted opacity-60 mt-0.5">Needs expert raters</p>
                 </div>
                 {/* CRR — Crux Recurrence Rate */}
                 <div className="rounded-lg border border-card-border bg-card-bg p-3">
                   <p className="text-[10px] font-semibold uppercase tracking-wider text-muted mb-1">CRR</p>
-                  <p className="text-lg font-bold text-muted leading-none opacity-40">—</p>
+                  <p className="text-lg font-bold text-muted leading-none opacity-40">--</p>
                   <p className="text-[10px] text-muted mt-1">Crux recurrence rate</p>
                   <p className="text-[9px] text-muted opacity-60 mt-0.5">Needs multi-session</p>
                 </div>
@@ -580,7 +743,7 @@ export function ThreeColumnLayout({
                                 'text-muted opacity-30'
                               return (
                                 <td key={card.id} className={`py-2 px-2 text-center ${color}`}>
-                                  {pos ?? '—'}
+                                  {pos ?? '--'}
                                 </td>
                               )
                             })}
@@ -609,10 +772,10 @@ export function ThreeColumnLayout({
                         <span className="text-foreground font-medium">{p1.split(' ')[0]}</span>
                         {card && (
                           <>
-                            <span className="text-muted">·</span>
+                            <span className="text-muted">--</span>
                             <span className="text-muted capitalize">{card.disagreementType}</span>
                             {card.resolved
-                              ? <span className="text-accent text-[10px]">✓ resolved</span>
+                              ? <span className="text-accent text-[10px]">resolved</span>
                               : <span className="text-muted text-[10px]">unresolved</span>
                             }
                           </>
