@@ -419,7 +419,7 @@ export function ThreeColumnLayout({
                 className={`text-[10px] px-2 py-0.5 rounded border ${
                   currentRound === i + 1
                     ? 'border-accent text-accent'
-                    : currentRound !== null && i + 1 < currentRound
+                    : currentRound != null && i + 1 < currentRound
                     ? 'border-card-border text-muted'
                     : 'border-card-border text-muted opacity-50'
                 }`}
@@ -693,7 +693,7 @@ export function ThreeColumnLayout({
                   <p className="text-[10px] font-semibold uppercase tracking-wider text-muted mb-1">CCR</p>
                   <p className="text-lg font-bold text-foreground leading-none">{(ccr * 100).toFixed(0)}%</p>
                   <p className="text-[10px] text-muted mt-1">Crux compression rate</p>
-                  <p className="text-[9px] text-muted opacity-60 mt-0.5">Target >= 50%</p>
+                  <p className="text-[9px] text-muted opacity-60 mt-0.5">Target {'>='} 50%</p>
                 </div>
                 {/* IQS — Insight Quality Score */}
                 <div className="rounded-lg border border-card-border bg-card-bg p-3">
