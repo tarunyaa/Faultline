@@ -53,13 +53,34 @@
 
 ### PlayingCard Patterns
 - Suit array `['♠','♥','♦','♣']`, colors `['text-foreground','text-accent','text-accent','text-foreground']`
-- Collapsed: card div `rounded-lg border border-card-border bg-card-bg hover:border-accent hover:shadow-[0_0_8px_rgba(220,38,38,0.15)] transition-all cursor-pointer p-3`
-  - Top row: suit `text-base font-bold` + type badge (border pill `text-[10px]`) + resolved `ml-auto`
-  - Question: `text-xs font-medium text-foreground leading-snug line-clamp-2 mb-2.5`
+- Collapsed: portrait card `w-40` with `aspectRatio: '5/7'`, `rounded-lg border border-card-border bg-card-bg`
+  - Top-left + bottom-right corners both present (suit symbol + rank initial, bottom-right `rotate-180`)
+  - Inner inset border: `absolute inset-[5px] rounded border border-card-border/25`
+  - Watermark: `absolute inset-0 flex items-center justify-center`, suit at `text-7xl opacity-[0.04]`
+  - Question centered in body, persona positions strip above bottom corner
   - Personas: first-name + position; YES=`text-foreground`, NO=`text-accent`, NUANCED=`text-muted`
 - Expanded: `rounded-lg border border-accent bg-card-bg p-3 shadow-[0_0_12px_rgba(220,38,38,0.15)]`
 - `ExpandedDetail` is an internal helper shared by both `PlayingCard` and `PlayingCardExpanded`
 - `PlayingCardExpanded` — always-expanded, no onClick — call without `onCollapse` prop
+
+### Hex Avatar Pattern (inline, without HexAvatar component)
+When using hex clip inline (e.g., small compact sizes in message threads), use this pattern:
+```tsx
+<div className="relative w-6 h-6 flex-shrink-0">
+  <div className="absolute inset-[-1px] hex-clip" style={{ background: 'var(--card-border)' }} />
+  <div className="absolute inset-0 hex-clip overflow-hidden bg-card-bg flex items-center justify-center">
+    {/* image or fallback initial */}
+  </div>
+</div>
+```
+Use `HexAvatar` component for standalone larger avatars (≥32px); use inline pattern for compact chat avatars.
+
+### Suit Icon Usage Conventions
+- `SuitIcon` component: `suit` prop = 'spade'|'heart'|'diamond'|'club'; hearts/diamonds are `text-accent`, spades/clubs are `text-foreground/40`
+- NavBar: four suits as subtle separator between logo and nav links, `opacity-30`, `text-[10px]`
+- Section headers: single suit before label text, `text-[9px]`; red suits (♥♦) for "positive" concepts, black (♠♣) for "neutral/structural"
+- Phase dividers: suit flanking label text, chosen deterministically by hashing the label string `% 4`
+- PhaseDivider in ThreeColumnLayout uses `PHASE_SUITS = ['♠','♥','♦','♣']` constant defined at module level
 
 ### Full-Page Pitch Deck Pattern (whitepaper/page.tsx)
 - Use `'use client'` when IntersectionObserver is needed for a fixed slide nav

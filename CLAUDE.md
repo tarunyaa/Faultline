@@ -39,7 +39,7 @@ npm run build-personas  # Scrape X/Substack + generate contracts via Claude
 
 ### Repository Layout
 
-The Next.js app lives in `faultline/` — **not** the repo root. The repo root contains `docker-compose.yml`, `CLAUDE.md`, and `past_implementation.md` (history of all past debate engine attempts).
+The Next.js app lives in `faultline/` — **not** the repo root. The repo root contains `docker-compose.yml` and `CLAUDE.md`. `docs/past_implementation.md` has history of all past debate engine attempts.
 
 ### Data Flow: Personas
 
@@ -59,18 +59,19 @@ data/seed/corpus/[Name].json    — raw scraped text (tweets, essays)
 The only active engine is the **Dialogue + Crux system** at `/dialogue`.
 
 ```
-app/api/dialogue/route.ts       — SSE endpoint (POST)
-lib/dialogue/orchestrator.ts    — async generator: runDialogue()
-lib/dialogue/agent.ts           — per-persona LLM call (generateMicroTurn)
-lib/dialogue/turn-manager.ts    — round-robin turn assignment
-lib/dialogue/disagreement-detector.ts — Haiku call; watches messages for disputes
-lib/crux/orchestrator.ts        — runCruxRoom(): 5-phase crux room flow
-lib/crux/steelman.ts            — steelman generation + validation
-lib/crux/diagnosis.ts           — root cause classification
-lib/crux/card-generator.ts      — produces CruxCard from completed room
+app/api/dialogue/route.ts              — SSE endpoint (POST)
+lib/dialogue/orchestrator.ts           — async generator: runDialogue()
+lib/dialogue/agent.ts                  — per-persona LLM calls (opening, take, closing)
+lib/dialogue/disagreement-detector.ts  — Haiku call; detects opposition from parallel takes
+lib/dialogue/topic-decomposer.ts       — breaks topic into 3 debatable aspects
+lib/dialogue/context-builder.ts        — assembles turn context + round summaries
+lib/dialogue/summarizer.ts             — post-debate structured extraction
+lib/dialogue/speech-roles.ts           — per-persona voice profiles (patterns, vocabulary, forbidden phrases)
+lib/crux/orchestrator.ts               — runCruxRoom(): 3-phase crux room (position → exchange → card)
+lib/crux/prompts.ts                    — all crux room prompt templates
 ```
 
-**SSE event flow**: `dialogue_start` → `dialogue_message` (per turn) → `crux_room_start` (when disagreement detected) → `crux_room_message` → `crux_card` → `dialogue_end`
+**SSE event flow**: `dialogue_start` → `debate_start` → `round_start` → `message_posted` (per take) → `disagreement_detected` → `crux_room_spawning` → `crux_message` (repeated) → `crux_card_posted` → `round_end` → `dialogue_complete`
 
 **Frontend**: `components/dialogue/DialogueView.tsx` consumes `lib/hooks/useDialogueStream.ts`. Crux cards rendered by `components/crux/CruxCard.tsx`.
 
@@ -114,6 +115,12 @@ Never use `gray-*`, `blue-*`, or `purple-*` classes. Palette is black/red/white 
 
 ## Core Principles
 
+### Structural Understanding Over Ad-Hoc Fixes
+- **Never apply ad-hoc patches or band-aid fixes.** Before changing anything, understand the full architectural context — how the component fits into the system, what flows through it, and what depends on it.
+- Diagnose root causes, not symptoms. If something is broken, understand WHY before writing a fix.
+- Fixes must be structurally sound — they should respect and reinforce the existing architecture, not work around it.
+- Be critical and intelligent about every change. Question assumptions, trace data flow, and verify that the fix addresses the actual problem rather than masking it.
+
 ### Avoid Overengineering
 - Prefer the simplest solution that solves the problem
 - Don't add abstractions, helpers, or utilities for one-time operations
@@ -129,6 +136,42 @@ When implementing new features, ALWAYS follow this process:
 4. **Plan Before Implementing** — Use EnterPlanMode for non-trivial features. Get user sign-off before writing code.
 5. **Implement** — Only after approval. Stick to scope. No surprise additions.
 
+## Prompt Engineering Rules
+
+The LLM prompt architecture is **layered and intentional**. Before modifying any prompt-related code, understand the full stack:
+
+### Prompt Architecture
+
+```
+System Prompt Layer (per-persona identity)
+├── buildConsolidatedPrompt()  — lib/personas/loader.ts
+│   Merges: personality + bias + stakes + epistemology + voice profile + forbidden phrases
+│   Used by: lib/dialogue/agent.ts AND lib/crux/orchestrator.ts
+│
+└── Voice data source: lib/dialogue/speech-roles.ts
+    VOICE_PROFILES constant → consumed by buildConsolidatedPrompt()
+
+User Prompt Layer (per-call instructions)
+├── lib/dialogue/agent.ts          — 4 generation functions (opening, take, replyToReply, closing)
+├── lib/crux/prompts.ts            — 7 prompt functions (position, early/late exchange, exit check, convergence, extraction)
+├── lib/dialogue/disagreement-detector.ts — 2 detection functions (sequential window, parallel takes)
+├── lib/dialogue/summarizer.ts     — post-debate extraction
+├── lib/dialogue/topic-decomposer.ts — topic → 3 aspects
+└── lib/dialogue/context-builder.ts — round summarization + context assembly
+```
+
+### Known Issues (Do NOT add to these)
+- 3 system prompts in crux/orchestrator.ts are inline strings instead of being in crux/prompts.ts
+
+### Rules When Touching Prompts
+1. **Never add new inline system prompts** — put them in the appropriate prompts file
+2. **Never duplicate prompt logic** — if a prompt already does something similar, modify the existing one
+3. **Always use `buildConsolidatedPrompt`** for new persona-voiced LLM calls (not `buildSystemPrompt`)
+4. **Understand the full prompt stack before changing anything** — read the system prompt, user prompt, and post-processing together
+5. **Don't add ad-hoc prompt patches** — if detection/generation isn't working well, understand WHY before adding more prompt text
+6. **Keep prompt functions pure** — they return strings, they don't make LLM calls (orchestrators do that)
+7. **Temperature conventions**: generation = 0.85, analysis/detection = 0.2, crux exchange = 0.75
+
 ## What NOT to Do
 
 - ❌ Don't implement features without discussing approach first
@@ -137,3 +180,13 @@ When implementing new features, ALWAYS follow this process:
 - ❌ Don't use colors outside the black/red/white palette
 - ❌ Don't add extensive error handling for impossible scenarios
 - ❌ Don't create utilities/helpers for one-off operations
+
+## Debate Integrity: No LLM Hallucinations
+
+This project demands **real, substantive debate** — not LLM theater. Every aspect of debate generation, moderation, and results must be grounded in actual reasoning:
+
+- **No fabricated claims or citations** — Personas must argue from their established positions (contracts, bias, stakes). Never invent facts, studies, or quotes that aren't grounded in the persona's loaded context.
+- **No hallucinated disagreements** — Disagreement detection must reflect genuine opposition in what personas actually said, not manufactured conflict.
+- **No hallucinated moderation/results** — Crux cards, summaries, and debate outcomes must be faithfully derived from the actual exchange. Don't fabricate consensus, concessions, or crux points that didn't emerge from the conversation.
+- **No sycophantic hedging** — Personas should hold their ground when their position warrants it. Don't let LLM politeness override genuine disagreement.
+- **Prompt design must enforce grounding** — All prompts for detection, extraction, and summarization should instruct the model to cite or reference specific messages/claims from the debate transcript, not generate from imagination.
