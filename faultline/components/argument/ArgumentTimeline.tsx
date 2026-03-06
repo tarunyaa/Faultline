@@ -1,111 +1,119 @@
 'use client'
 
 import { useRef, useEffect } from 'react'
-import type { ArgumentMessage, TaskInfo } from '@/lib/argument/types'
+import type { ArgumentMessage, TaskInfo, ConsensusData, PositionInfo } from '@/lib/argument/types'
+import { formatArgumentText } from '@/lib/utils/format-argument-text'
 
-// Deterministic expert colors within black/red/white palette
-const EXPERT_COLORS = [
-  'bg-accent/80 text-foreground',
-  'bg-foreground/80 text-background',
-  'bg-accent/40 text-foreground',
-  'bg-foreground/40 text-foreground',
-  'bg-accent/60 text-foreground',
-]
+interface ArgumentTimelineProps {
+  messages: ArgumentMessage[]
+  experts: string[]
+  expertNames: Map<string, string>
+  expertAvatars: Map<string, string>
+  task: TaskInfo | null
+  phase: string
+  consensus: ConsensusData | null
+  framedTopic: string | null
+  positions: PositionInfo[]
+}
 
-function ExpertAvatar({ name, index }: { name: string; index: number }) {
-  const initial = name.charAt(0).toUpperCase()
-  const colorClass = EXPERT_COLORS[Math.abs(index) % EXPERT_COLORS.length]
+function HexAvatarSmall({ name, avatarUrl }: { name: string; avatarUrl?: string }) {
   return (
-    <span className={`w-7 h-7 flex-shrink-0 rounded-md flex items-center justify-center text-xs font-bold ${colorClass}`}>
-      {initial}
-    </span>
+    <div className="relative w-6 h-6 flex-shrink-0">
+      <div className="absolute inset-[-1px] hex-clip" style={{ background: 'var(--card-border)' }} />
+      <div className="absolute inset-0 hex-clip overflow-hidden bg-card-bg flex items-center justify-center">
+        {avatarUrl ? (
+          <img src={avatarUrl} alt={name} className="w-full h-full object-cover" />
+        ) : (
+          <span className="text-[9px] font-bold text-accent">{name.charAt(0).toUpperCase()}</span>
+        )}
+      </div>
+    </div>
   )
 }
 
-function ScoreBadges({ initial, final }: { initial: number | null; final: number | null }) {
-  if (initial === null && final === null) return null
-  const lift = initial !== null && final !== null ? final - initial : null
-  return (
-    <span className="inline-flex items-center gap-2 text-[10px] text-muted">
-      {initial !== null && <span className="font-mono">{'\u03C4'}={initial.toFixed(2)}</span>}
-      {final !== null && <span className="font-mono text-foreground">{'\u03C3'}={final.toFixed(2)}</span>}
-      {lift !== null && (
-        <span className={`font-mono font-semibold ${lift >= 0 ? 'text-foreground' : 'text-accent'}`}>
-          {lift >= 0 ? '+' : ''}{lift.toFixed(2)}
-        </span>
-      )}
-    </span>
-  )
-}
-
-function TypeBadge({ type }: { type: ArgumentMessage['type'] }) {
-  if (type === 'main_argument') {
-    return <span className="text-[9px] font-bold tracking-wider text-muted uppercase">main</span>
-  }
+function TypeIndicator({ type }: { type: ArgumentMessage['type'] }) {
   if (type === 'attack') {
-    return <span className="text-[9px] font-bold tracking-wider text-accent uppercase">attack</span>
+    return <span className="text-[9px] font-semibold tracking-wider text-accent uppercase">attack</span>
   }
-  return <span className="text-[9px] font-bold tracking-wider text-muted/60 uppercase">support</span>
+  if (type === 'support') {
+    return <span className="text-[9px] font-semibold tracking-wider text-muted/60 uppercase">support</span>
+  }
+  return null
 }
 
 interface MessageRowProps {
   message: ArgumentMessage
+  expertNames: Map<string, string>
+  expertAvatars: Map<string, string>
   isWinner?: boolean
 }
 
-function MessageRow({ message, isWinner }: MessageRowProps) {
-  const borderClass = message.type === 'attack'
-    ? 'border-l-accent'
-    : message.type === 'support'
-      ? 'border-l-card-border/40'
-      : 'border-l-foreground/30'
+function MessageRow({ message, expertNames, expertAvatars, isWinner }: MessageRowProps) {
+  const displayName = expertNames.get(message.expertName) ?? message.expertName
+  const avatarUrl = expertAvatars.get(message.expertName)
+  const isAttack = message.type === 'attack'
 
   return (
-    <div style={{ paddingLeft: `${message.depth * 20}px` }}>
-      <div className={`border-l-2 ${borderClass} pl-3 py-2`}>
-        <div className="flex items-start gap-2">
-          {message.depth === 0 && (
-            <ExpertAvatar name={message.expertName} index={message.expertIndex} />
+    <div
+      className={`group flex gap-2 px-3 py-1.5 rounded-md transition-colors ${
+        isAttack
+          ? 'border-l-2 border-l-accent bg-accent/5'
+          : message.type === 'support'
+            ? 'border-l-2 border-l-card-border/40 hover:bg-surface'
+            : 'hover:bg-surface'
+      }`}
+      style={{ marginLeft: `${Math.min(message.depth, 3) * 16}px` }}
+    >
+      <div className="flex-shrink-0 mt-0.5">
+        <HexAvatarSmall name={displayName} avatarUrl={avatarUrl} />
+      </div>
+
+      <div className="flex-1 min-w-0 max-w-xl">
+        <div className="flex items-baseline gap-1.5">
+          <span className="text-xs font-semibold text-accent leading-none">{displayName}</span>
+          <TypeIndicator type={message.type} />
+          {isWinner && (
+            <span className="text-[9px] font-bold tracking-wider text-accent border border-accent/40 px-1 py-px rounded">
+              WINNER
+            </span>
           )}
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-medium text-foreground truncate">{message.expertName}</span>
-              <TypeBadge type={message.type} />
-              {isWinner && (
-                <span className="text-[9px] font-bold tracking-wider text-accent border border-accent/40 px-1.5 py-0.5 rounded">
-                  WINNER
-                </span>
-              )}
-              {message.scores && (
-                <ScoreBadges initial={message.scores.initial} final={message.scores.final} />
-              )}
-            </div>
-            <p className="text-sm text-foreground/90 leading-relaxed whitespace-pre-wrap">{message.content}</p>
-          </div>
+          {message.scores && message.scores.final !== null && (
+            <span className="text-[10px] font-mono text-muted ml-auto">
+              {message.scores.final.toFixed(2)}
+            </span>
+          )}
+        </div>
+        <div className="text-xs text-foreground leading-snug mt-0.5">
+          {formatArgumentText(message.content)}
         </div>
       </div>
     </div>
   )
 }
 
-function PhaseDivider({ label }: { label: string }) {
+function PhaseDivider({ label, suit }: { label: string; suit?: string }) {
   return (
-    <div className="flex items-center gap-3 py-2">
-      <div className="flex-1 h-px bg-card-border" />
+    <div className="flex items-center gap-2 py-1.5 px-1">
+      {suit && <span className="text-accent text-[10px]">{suit}</span>}
+      <div className="flex-1 h-px bg-card-border opacity-60" />
       <span className="text-[10px] text-muted uppercase tracking-widest flex-shrink-0">{label}</span>
-      <div className="flex-1 h-px bg-card-border" />
+      <div className="flex-1 h-px bg-card-border opacity-60" />
+      {suit && <span className="text-accent text-[10px]">{suit}</span>}
     </div>
   )
 }
 
-interface ArgumentTimelineProps {
-  messages: ArgumentMessage[]
-  task: TaskInfo | null
-  phase: string
-  winnerStatement?: string
-}
-
-export function ArgumentTimeline({ messages, task, phase, winnerStatement }: ArgumentTimelineProps) {
+export function ArgumentTimeline({
+  messages,
+  experts,
+  expertNames,
+  expertAvatars,
+  task,
+  phase,
+  consensus,
+  framedTopic,
+  positions,
+}: ArgumentTimelineProps) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const isBuilding = !['idle', 'complete', 'error', 'baselines'].includes(phase)
 
@@ -115,11 +123,9 @@ export function ArgumentTimeline({ messages, task, phase, winnerStatement }: Arg
     }
   }, [messages.length])
 
-  // Group messages: main arguments at depth 0, sub-arguments nested below
   const mainArgs = messages.filter(m => m.depth === 0)
   const subArgs = messages.filter(m => m.depth > 0)
 
-  // Build a map of parentId -> children for threading
   const childrenByParent = new Map<string, ArgumentMessage[]>()
   for (const msg of subArgs) {
     if (!msg.parentId) continue
@@ -128,55 +134,103 @@ export function ArgumentTimeline({ messages, task, phase, winnerStatement }: Arg
     childrenByParent.set(msg.parentId, children)
   }
 
+  const winnerStatement = consensus?.winner
+
   function renderThread(msg: ArgumentMessage) {
     const children = childrenByParent.get(msg.id) ?? []
     const isWinner = winnerStatement ? msg.content === winnerStatement : false
     return (
       <div key={msg.id}>
-        <MessageRow message={msg} isWinner={isWinner} />
+        <MessageRow
+          message={msg}
+          expertNames={expertNames}
+          expertAvatars={expertAvatars}
+          isWinner={isWinner}
+        />
         {children.map(child => renderThread(child))}
       </div>
     )
   }
 
   return (
-    <div className="bg-card-bg border border-card-border rounded-lg flex flex-col h-full">
-      <div className="px-4 py-3 border-b border-card-border">
-        <h2 className="text-xs font-semibold text-muted uppercase tracking-widest">Debate</h2>
-      </div>
+    <div className="bg-card-bg border border-card-border rounded-xl flex flex-col h-full">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto px-2 py-3 space-y-0.5 max-h-[75vh]">
 
-      <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-3 space-y-1 max-h-[70vh]">
-        {task && (
+        {/* Task framing with positions */}
+        {(framedTopic || task) && (
           <>
-            <PhaseDivider label="Task" />
-            <div className="px-3 py-2 text-xs text-muted leading-relaxed">
-              <span className="font-medium text-foreground">{task.main_task}</span>
-              {task.key_elements.length > 0 && (
-                <p className="mt-1 text-[10px]">{task.key_elements.join(' \u2022 ')}</p>
+            <PhaseDivider label="Task" suit="♣" />
+            <div className="px-3 py-1 space-y-1">
+              {task && (
+                <p className="text-xs text-foreground leading-snug max-w-xl">{task.main_task}</p>
+              )}
+              {positions.length > 0 && (
+                <div className="space-y-0.5">
+                  {positions.map((pos, i) => (
+                    <div key={i} className="flex items-start gap-1.5">
+                      <span className="text-[10px] font-bold text-accent flex-shrink-0 mt-px">
+                        {pos.label || String.fromCharCode(65 + i)}
+                      </span>
+                      <span className="text-[11px] text-muted leading-snug max-w-lg">
+                        {pos.shortName ? <strong className="text-foreground">{pos.shortName}: </strong> : null}
+                        {pos.description}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               )}
             </div>
           </>
         )}
 
+        {/* Opening positions */}
         {mainArgs.length > 0 && (
           <>
-            <PhaseDivider label="Arguments" />
-            <div className="space-y-3">
+            <PhaseDivider label="Opening Positions" suit="♠" />
+            <div className="space-y-0.5">
               {mainArgs.map(msg => renderThread(msg))}
             </div>
           </>
         )}
 
+        {/* Loading states */}
         {mainArgs.length === 0 && isBuilding && (
           <div className="py-8 text-center">
-            <p className="text-sm text-muted animate-pulse">Generating arguments...</p>
+            <p className="text-xs text-muted animate-pulse">Personas are forming positions...</p>
           </div>
         )}
 
         {isBuilding && mainArgs.length > 0 && subArgs.length === 0 && (
           <div className="py-3 text-center">
-            <p className="text-xs text-muted animate-pulse">Building argument tree...</p>
+            <p className="text-xs text-muted animate-pulse">Debate in progress...</p>
           </div>
+        )}
+
+        {/* Verdict + Complete */}
+        {phase === 'complete' && consensus && (
+          <>
+            <PhaseDivider label="Verdict" suit="♥" />
+            <div className="px-3 py-2 mx-2 rounded-lg border border-accent/20 bg-accent/5">
+              {consensus.winner_score !== null && (
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-[10px] font-mono text-accent font-bold">
+                    {consensus.winner_score.toFixed(4)}
+                  </span>
+                  {consensus.override_decision && consensus.override_decision !== consensus.original_decision && (
+                    <span className="text-[9px] px-1.5 py-px rounded bg-accent/10 text-accent uppercase tracking-wider">
+                      Override
+                    </span>
+                  )}
+                </div>
+              )}
+              <div className="text-xs text-foreground leading-snug max-w-xl">
+                {formatArgumentText(consensus.consensus_text || consensus.winner || '')}
+              </div>
+            </div>
+          </>
+        )}
+        {phase === 'complete' && !consensus && (
+          <PhaseDivider label="Complete" suit="♥" />
         )}
       </div>
     </div>

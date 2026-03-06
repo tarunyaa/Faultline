@@ -75,14 +75,14 @@ export async function* runArgora(config: BridgeConfig): AsyncGenerator<ArgumentE
     '--topic', framedTopic,
     '--num-experts', String(config.numExperts ?? 3),
     '--rounds', String(config.rounds ?? 1),
-    '--model', config.model ?? 'gpt-4o-mini',
+    '--model', config.model ?? 'claude-haiku-4-5-20251001',
     '--qsem-type', config.qsemType ?? 'DFQuADModel',
     ...(personasJsonPath ? ['--personas-json', personasJsonPath] : []),
   ];
 
   const proc = spawn(pythonPath, args, {
     cwd: argoraDir,
-    env: { ...process.env },
+    env: { ...process.env, ARGORA_SKIP_EMBEDDINGS: '1' },
     stdio: ['pipe', 'pipe', 'pipe'],
   });
 

@@ -7,6 +7,8 @@ import { ArgumentTimeline } from './ArgumentTimeline'
 import { PersonasSidebar } from './PersonasSidebar'
 import { ResultsSection } from './ResultsSection'
 import { MethodComparison } from './MethodComparison'
+import { FrameworkConfig } from './FrameworkConfig'
+import { TechnicalAnalysis } from './TechnicalAnalysis'
 
 interface ArgumentViewProps {
   config: BridgeConfig
@@ -14,10 +16,13 @@ interface ArgumentViewProps {
   personaAvatars: Map<string, string>
 }
 
+type ResultTab = 'results' | 'benchmarks' | 'technical'
+
 export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentViewProps) {
   const { state, messages, start } = useArgumentStream(config)
   const startedRef = useRef(false)
   const [showResults, setShowResults] = useState(false)
+  const [activeTab, setActiveTab] = useState<ResultTab>('results')
 
   useEffect(() => {
     if (!startedRef.current) {
@@ -27,7 +32,6 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  // Auto-show results when complete
   useEffect(() => {
     if (state.phase === 'complete') setShowResults(true)
   }, [state.phase])
@@ -35,19 +39,7 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
   const isRunning = !['idle', 'complete', 'error'].includes(state.phase)
   const isComplete = state.phase === 'complete'
 
-  if (state.phase === 'error') {
-    return (
-      <div className="min-h-screen bg-background px-6 py-8">
-        <div className="max-w-md p-6 bg-card-bg border border-accent/40 rounded-xl text-accent">
-          <h2 className="font-bold mb-2">Error</h2>
-          <p className="text-sm text-muted">{state.error}</p>
-        </div>
-      </div>
-    )
-  }
-
   // Build expert-to-persona mapping
-  // ARGORA generates expert names like "AI Safety Researcher" — we map by index to persona
   const expertNames = new Map<string, string>()
   const expertAvatars = new Map<string, string>()
   if (config.personaIds && config.personaIds.length > 0) {
@@ -62,18 +54,63 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
     })
   }
 
+  if (state.phase === 'error') {
+    return (
+      <div className="min-h-screen bg-background px-6 py-8">
+        <div className="max-w-md p-6 bg-card-bg border border-accent/40 rounded-xl text-accent">
+          <h2 className="font-bold mb-2">Error</h2>
+          <p className="text-sm text-muted">{state.error}</p>
+        </div>
+      </div>
+    )
+  }
+
+  const phaseLabel: Record<string, string> = {
+    idle: 'Idle',
+    starting: 'Initializing',
+    experts: 'Selecting Experts',
+    arguments: 'Generating Arguments',
+    building: 'Building Graph',
+    scoring: 'Scoring',
+    evaluating: 'QBAF Evaluation',
+    analyzing: 'Counterfactual Analysis',
+    baselines: 'Running Benchmarks',
+    complete: 'Complete',
+  }
+
+  const tabs: { id: ResultTab; label: string; suit: string }[] = [
+    { id: 'results', label: 'Debate Results', suit: '♥' },
+    { id: 'benchmarks', label: 'Benchmarks', suit: '♦' },
+    { id: 'technical', label: 'Technical Analysis', suit: '♣' },
+  ]
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Header — minimal */}
-      <div className="border-b border-card-border px-6 py-3">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
-          <div className="flex-1 min-w-0">
-            <p className="text-foreground text-sm font-medium leading-snug line-clamp-1">{config.topic}</p>
-          </div>
-          <div className="flex-shrink-0 flex items-center gap-2">
+      {/* ─── Top Bar ─── */}
+      <div className="border-b border-card-border bg-surface/50">
+        <div className="max-w-7xl mx-auto px-6 py-2.5 flex items-center gap-4">
+          {/* Topic */}
+          <p className="text-foreground text-sm font-medium leading-snug line-clamp-1 flex-1 min-w-0">
+            {config.topic}
+          </p>
+
+          {/* Status */}
+          <div className="flex-shrink-0 flex items-center gap-3">
             {isRunning && (
-              <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+              <div className="flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                <span className="text-[10px] text-muted uppercase tracking-wider">
+                  {phaseLabel[state.phase] || state.phase}
+                </span>
+              </div>
             )}
+            {isComplete && (
+              <span className="text-[10px] px-2 py-0.5 rounded bg-foreground/10 text-foreground/50 font-medium uppercase tracking-wider">
+                Complete
+              </span>
+            )}
+
+            {/* Results toggle */}
             {isComplete && (
               <button
                 onClick={() => setShowResults(!showResults)}
@@ -86,11 +123,11 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
         </div>
       </div>
 
-      {/* Body — 2/3 + 1/3 grid */}
-      <div className="max-w-7xl mx-auto px-6 py-6">
-        <div className="flex flex-col lg:flex-row gap-6">
+      {/* ─── Main Layout ─── */}
+      <div className="max-w-7xl mx-auto px-6 py-5">
+        <div className="flex flex-col lg:flex-row gap-5">
 
-          {/* Left: Live debate feed (2/3) */}
+          {/* Left: Debate Timeline */}
           <div className="flex-1 min-w-0">
             <ArgumentTimeline
               messages={messages}
@@ -100,11 +137,13 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
               task={state.task}
               phase={state.phase}
               consensus={state.consensus}
+              framedTopic={state.framedTopic}
+              positions={state.positions}
             />
           </div>
 
-          {/* Right: Sidebar (1/3) */}
-          <div className="lg:w-72 xl:w-80 flex-shrink-0 space-y-4">
+          {/* Right: Sidebar — Alignment Graph + Config */}
+          <div className="lg:w-72 flex-shrink-0 space-y-4">
             {state.experts.length > 0 && (
               <PersonasSidebar
                 experts={state.experts}
@@ -115,50 +154,93 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
               />
             )}
 
-            {/* Loading state */}
             {state.experts.length === 0 && isRunning && (
               <div className="rounded-xl border border-card-border bg-surface p-4">
                 <p className="text-xs text-muted animate-pulse">Setting up debate...</p>
               </div>
             )}
+
+            {/* Framework Config */}
+            {(state.experts.length > 0 || isComplete) && (
+              <FrameworkConfig
+                config={config}
+                experts={state.experts}
+                expertNames={expertNames}
+                levelInfo={state.levelInfo}
+                fullResult={state.fullResult}
+              />
+            )}
           </div>
         </div>
 
-        {/* Results Section — expandable cards after completion */}
+        {/* ─── Results Sections (Tabbed) ─── */}
         {showResults && isComplete && (
-          <div className="mt-8 space-y-6">
-            <div className="flex items-center gap-3">
+          <div className="mt-8">
+            {/* Section divider */}
+            <div className="flex items-center gap-3 mb-5">
               <span className="text-accent text-xs">♠</span>
               <div className="flex-1 h-px bg-card-border" />
-              <span className="text-xs text-muted uppercase tracking-widest">Results</span>
+              <div className="flex items-center gap-1">
+                {tabs.map(tab => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`text-[10px] px-3 py-1.5 rounded uppercase tracking-wider font-medium transition-colors ${
+                      activeTab === tab.id
+                        ? 'bg-accent/10 text-accent'
+                        : 'text-muted hover:text-foreground'
+                    }`}
+                  >
+                    <span className="mr-1">{tab.suit}</span>
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
               <div className="flex-1 h-px bg-card-border" />
               <span className="text-accent text-xs">♠</span>
             </div>
 
-            <ResultsSection
-              consensus={state.consensus}
-              counterfactual={state.counterfactual}
-              report={state.report}
-              hierarchy={state.qbafHierarchy}
-              strengths={state.qbafStrengths}
-            />
+            {/* Tab Content */}
+            {activeTab === 'results' && (
+              <ResultsSection
+                consensus={state.consensus}
+                counterfactual={state.counterfactual}
+                report={state.report}
+                hierarchy={state.qbafHierarchy}
+                strengths={state.qbafStrengths}
+                expertNames={expertNames}
+                expertAvatars={expertAvatars}
+              />
+            )}
 
-            {/* Method Comparison with preference selection */}
-            {state.baselineResults.length > 0 && (
-              <>
-                <div className="flex items-center gap-3">
-                  <span className="text-accent text-xs">♦</span>
-                  <div className="flex-1 h-px bg-card-border" />
-                  <span className="text-xs text-muted uppercase tracking-widest">Method Comparison</span>
-                  <div className="flex-1 h-px bg-card-border" />
-                  <span className="text-accent text-xs">♦</span>
-                </div>
-                <MethodComparison
-                  results={state.baselineResults}
-                  consensus={state.consensus}
-                  topic={config.topic}
-                />
-              </>
+            {activeTab === 'benchmarks' && (
+              <div className="max-w-5xl">
+                {state.baselineResults.length > 0 ? (
+                  <MethodComparison
+                    results={state.baselineResults}
+                    consensus={state.consensus}
+                    topic={config.topic}
+                  />
+                ) : (
+                  <div className="rounded-xl border border-card-border bg-surface p-8 text-center">
+                    <p className="text-xs text-muted">No benchmark baselines were run for this debate.</p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {activeTab === 'technical' && (
+              <TechnicalAnalysis
+                baseScores={state.baseScores}
+                consensus={state.consensus}
+                report={state.report}
+                hierarchy={state.qbafHierarchy}
+                strengths={state.qbafStrengths}
+                counterfactual={state.counterfactual}
+                experts={state.experts}
+                expertNames={expertNames}
+                fullResult={state.fullResult}
+              />
             )}
           </div>
         )}

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getDecks, getPersonas } from "@/lib/personas/loader";
 import PersonaCard from "@/components/PersonaCard";
 import SuitIcon from "@/components/SuitIcon";
+import CreateAgentModal from "@/components/CreateAgentModal";
 
 const COMING_SOON_DECKS = [
   {
@@ -54,11 +55,14 @@ export default async function CardsPage() {
   return (
     <div className="min-h-screen px-6 py-12">
       <div className="mx-auto max-w-5xl space-y-8">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">
-            <span className="uppercase tracking-wider text-sm text-muted block mb-1">Browse</span>
-            Decks
-          </h1>
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">
+              <span className="uppercase tracking-wider text-sm text-muted block mb-1">Browse</span>
+              Decks
+            </h1>
+          </div>
+          <CreateAgentModal decks={decks.map(d => ({ id: d.id, name: d.name }))} />
         </div>
 
         {/* Suit divider */}

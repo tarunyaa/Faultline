@@ -13,6 +13,10 @@ interface PersonasFile {
 
 let _cache: PersonasFile | null = null
 
+export function invalidatePersonasCache() {
+  _cache = null
+}
+
 async function loadPersonasFile(): Promise<PersonasFile> {
   if (_cache) return _cache
   const raw = await fs.readFile(path.join(SEED_DIR, 'personas.json'), 'utf-8')

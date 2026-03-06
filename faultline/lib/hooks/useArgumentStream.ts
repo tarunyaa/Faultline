@@ -14,6 +14,7 @@ import type {
   ReportData,
   ArgumentCompleteData,
   BaselineResult,
+  PositionInfo,
 } from '@/lib/argument/types'
 import { createInitialState } from '@/lib/argument/types'
 import type { BridgeConfig } from '@/lib/argument/bridge'
@@ -247,12 +248,20 @@ export function useArgumentStream(config: BridgeConfig) {
         case 'progress_task_extracted':
           setState(s => ({ ...s, phase: 'starting' }))
           break
-        case 'progress_experts_selected':
-          setState(s => ({ ...s, phase: 'experts' }))
+        case 'progress_experts_selected': {
+          const d = event.data as { experts?: string[] }
+          setState(s => ({ ...s, phase: 'experts', experts: d?.experts ?? s.experts }))
           break
-        case 'progress_main_arguments_ready':
-          setState(s => ({ ...s, phase: 'arguments' }))
+        }
+        case 'progress_main_arguments_ready': {
+          const d = event.data as MainArgumentsData
+          setState(s => ({
+            ...s,
+            phase: 'arguments',
+            mainArguments: d?.main_arguments?.length ? d.main_arguments : s.mainArguments,
+          }))
           break
+        }
         case 'progress_first_level_complete':
           setState(s => ({ ...s, phase: 'building' }))
           break
@@ -265,6 +274,18 @@ export function useArgumentStream(config: BridgeConfig) {
         case 'progress_counterfactual_complete':
           setState(s => ({ ...s, phase: 'analyzing' }))
           break
+
+        case 'status': {
+          const data = event.data as { message?: string; positions?: PositionInfo[]; framedTopic?: string }
+          if (data.positions || data.framedTopic) {
+            setState(s => ({
+              ...s,
+              framedTopic: data.framedTopic ?? s.framedTopic,
+              positions: data.positions ?? s.positions,
+            }))
+          }
+          break
+        }
 
         case 'error': {
           const data = event.data as { message: string }

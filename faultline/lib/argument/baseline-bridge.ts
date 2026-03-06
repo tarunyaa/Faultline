@@ -36,11 +36,12 @@ export interface BaselineResultData {
 export async function* runBaselines(
   topic: string,
   model = 'gpt-4o-mini',
+  cotModel = 'o3',
 ): AsyncGenerator<BaselineEvent> {
   const pythonPath = getPythonPath();
   const bridgePath = path.join(ARGORA_DIR, 'bridge_baselines.py');
 
-  const args = [bridgePath, '--topic', topic, '--model', model];
+  const args = [bridgePath, '--topic', topic, '--model', model, '--cot-model', cotModel];
 
   const proc = spawn(pythonPath, args, {
     cwd: ARGORA_DIR,

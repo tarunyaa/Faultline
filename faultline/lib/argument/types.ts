@@ -196,6 +196,12 @@ export interface ArgumentMessage {
   };
 }
 
+export interface PositionInfo {
+  label: string;       // "Position A"
+  shortName: string;   // "DRAM Bull"
+  description: string; // "DRAM stocks will outperform due to..."
+}
+
 export interface ArgumentState {
   phase: 'idle' | 'starting' | 'experts' | 'arguments' | 'building' | 'scoring' | 'evaluating' | 'analyzing' | 'baselines' | 'complete' | 'error';
   topic: string;
@@ -211,6 +217,8 @@ export interface ArgumentState {
   report: ReportData | null;
   fullResult: ArgumentCompleteData | null;
   baselineResults: BaselineResult[];
+  framedTopic: string | null;
+  positions: PositionInfo[];
   error: string | null;
 }
 
@@ -230,6 +238,8 @@ export function createInitialState(): ArgumentState {
     report: null,
     fullResult: null,
     baselineResults: [],
+    framedTopic: null,
+    positions: [],
     error: null,
   };
 }
