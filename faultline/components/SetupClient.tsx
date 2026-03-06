@@ -29,12 +29,13 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
   const [selectedDeckId, setSelectedDeckId] = useState(decks[0]?.id ?? '')
   const [selectedPersonas, setSelectedPersonas] = useState<Set<string>>(new Set())
   const [topic, setTopic] = useState('')
-  const [mode, setMode] = useState<'dialogue' | 'graph'>('dialogue')
+  const [mode, setMode] = useState<'dialogue' | 'graph' | 'argument' | 'argument_personas'>('dialogue')
 
   const deck = decks.find(d => d.id === selectedDeckId)
   const deckPersonaIds = deck?.personaIds ?? []
 
-  const canDeal = selectedPersonas.size >= 2 && topic.trim().length > 0
+  const needsPersonas = mode !== 'argument'
+  const canDeal = topic.trim().length > 0 && (!needsPersonas || selectedPersonas.size >= 2)
 
   function togglePersona(id: string) {
     setSelectedPersonas(prev => {
@@ -54,8 +55,18 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
       .map(id => encodeURIComponent(id))
       .join(',')
     const topicParam = encodeURIComponent(topic.trim())
-    const modeParam = mode === 'graph' ? '&mode=graph' : ''
-    router.push(`/dialogue?personas=${personaParam}&topic=${topicParam}${modeParam}`)
+
+    if (mode === 'argument') {
+      // Vanilla ARGORA — no personas, auto-generated experts
+      router.push(`/argument?topic=${topicParam}&experts=3`)
+    } else if (mode === 'argument_personas') {
+      // ARGORA with personality agents
+      router.push(`/argument?topic=${topicParam}&personas=${personaParam}`)
+    } else {
+      // Dialogue or Belief Graph
+      const modeParam = mode === 'graph' ? '&mode=graph' : ''
+      router.push(`/dialogue?personas=${personaParam}&topic=${topicParam}${modeParam}`)
+    }
   }
 
   return (
@@ -122,19 +133,26 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
       </div>
 
       {/* Selected count */}
-      <p className="text-sm text-muted">
-        <span className="text-accent font-semibold">{selectedPersonas.size}</span>
-        {' '}persona{selectedPersonas.size !== 1 ? 's' : ''} selected
-        {selectedPersonas.size < 2 && ' (need at least 2)'}
-      </p>
+      {needsPersonas && (
+        <p className="text-sm text-muted">
+          <span className="text-accent font-semibold">{selectedPersonas.size}</span>
+          {' '}persona{selectedPersonas.size !== 1 ? 's' : ''} selected
+          {selectedPersonas.size < 2 && ' (need at least 2)'}
+        </p>
+      )}
+      {mode === 'argument' && (
+        <p className="text-sm text-muted">
+          ARGORA will auto-generate domain experts for this topic
+        </p>
+      )}
 
       {/* Mode selector */}
       <div className="space-y-2">
         <label className="text-xs font-semibold uppercase tracking-wider text-muted">Mode</label>
-        <div className="flex gap-3">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           <button
             onClick={() => setMode('dialogue')}
-            className={`flex-1 rounded-lg border px-4 py-3 text-left transition-colors ${
+            className={`rounded-lg border px-4 py-3 text-left transition-colors ${
               mode === 'dialogue'
                 ? 'border-accent bg-accent/10'
                 : 'border-card-border bg-card-bg hover:border-muted'
@@ -142,12 +160,12 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
           >
             <span className="text-sm font-medium text-foreground">Dialogue</span>
             <p className="text-[11px] text-muted mt-0.5">
-              Free-flowing debate that spawns focused side rooms when real disagreements surface
+              Free-flowing debate with crux rooms
             </p>
           </button>
           <button
             onClick={() => setMode('graph')}
-            className={`flex-1 rounded-lg border px-4 py-3 text-left transition-colors ${
+            className={`rounded-lg border px-4 py-3 text-left transition-colors ${
               mode === 'graph'
                 ? 'border-accent bg-accent/10'
                 : 'border-card-border bg-card-bg hover:border-muted'
@@ -155,17 +173,35 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
           >
             <span className="text-sm font-medium text-foreground">Belief Graph</span>
             <p className="text-[11px] text-muted mt-0.5">
-              Maps each persona's beliefs into a graph, finds contradictions, and revises positions
+              Maps beliefs, finds contradictions
             </p>
           </button>
-          <div
-            className="flex-1 rounded-lg border border-card-border bg-card-bg px-4 py-3 text-left opacity-50 cursor-not-allowed"
+          <button
+            onClick={() => setMode('argument')}
+            className={`rounded-lg border px-4 py-3 text-left transition-colors ${
+              mode === 'argument'
+                ? 'border-accent bg-accent/10'
+                : 'border-card-border bg-card-bg hover:border-muted'
+            }`}
           >
-            <span className="text-sm font-medium text-foreground">Latent</span>
+            <span className="text-sm font-medium text-foreground">Argument</span>
             <p className="text-[11px] text-muted mt-0.5">
-              Coming soon
+              ARGORA structured argumentation with QBAF
             </p>
-          </div>
+          </button>
+          <button
+            onClick={() => setMode('argument_personas')}
+            className={`rounded-lg border px-4 py-3 text-left transition-colors ${
+              mode === 'argument_personas'
+                ? 'border-accent bg-accent/10'
+                : 'border-card-border bg-card-bg hover:border-muted'
+            }`}
+          >
+            <span className="text-sm font-medium text-foreground">Argument + Personas</span>
+            <p className="text-[11px] text-muted mt-0.5">
+              ARGORA with personality agents
+            </p>
+          </button>
         </div>
       </div>
 

@@ -1,0 +1,399 @@
+{
+  "personaId": "Citadel",
+  "personaName": "Citadel",
+  "positions": [
+    {
+      "id": "pos-0",
+      "claim": "AI will function primarily as a complement to labor rather than a substitute, preventing mass unemployment",
+      "confidence": 0.9,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-5",
+        "cluster-0"
+      ],
+      "implicitAssumptions": [
+        "The task composition changes from AI will create new labor demand categories faster than they eliminate existing ones",
+        "Complementarity effects dominate substitution effects at current and near-term AI capability levels",
+        "Historical patterns of technological revolution (where labor wasn't eliminated) will hold for AI despite its different characteristics"
+      ]
+    },
+    {
+      "id": "pos-1",
+      "claim": "Current labor market data (e.g., software engineer postings up 11% YoY) demonstrates that AI displacement fears are empirically unfounded",
+      "confidence": 0.95,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-0"
+      ],
+      "implicitAssumptions": [
+        "Current job posting data is a leading indicator of AI's labor market impact rather than a lagging indicator",
+        "The 11% YoY growth represents a steady-state signal rather than a temporary lag before displacement accelerates",
+        "Software engineering is a representative canary sector for AI displacement rather than an exceptional case"
+      ]
+    },
+    {
+      "id": "pos-2",
+      "claim": "AI-driven productivity shocks will expand potential output and real incomes without reducing aggregate labor demand",
+      "confidence": 0.85,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-3",
+        "cluster-6"
+      ],
+      "implicitAssumptions": [
+        "Productivity gains will translate into demand expansion for existing goods/services rather than pure price deflation",
+        "The composition of demand will shift toward labor-intensive sectors as productivity frees up purchasing power",
+        "Income effects from productivity gains will outweigh substitution effects on labor demand"
+      ]
+    },
+    {
+      "id": "pos-3",
+      "claim": "Compute costs will rise to meet or exceed human labor costs, creating a natural economic brake on labor substitution",
+      "confidence": 0.8,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-2"
+      ],
+      "implicitAssumptions": [
+        "Compute demand growth from automation will outpace Moore's Law and manufacturing capacity expansion",
+        "Compute costs are primarily constrained by physical production capacity rather than algorithmic efficiency improvements",
+        "The marginal cost curve for compute is upward-sloping in the relevant time horizon rather than continuing to decline exponentially"
+      ]
+    },
+    {
+      "id": "pos-4",
+      "claim": "Technology adoption growth rates are self-limiting through declining marginal adopter productivity and infrastructure constraints",
+      "confidence": 0.75,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-1"
+      ],
+      "implicitAssumptions": [
+        "AI adoption follows a standard diffusion curve where early adopters capture disproportionate gains",
+        "Complementary infrastructure (data pipelines, organizational redesign, training) develops slower than core AI capabilities",
+        "The productivity distribution across potential adopters is wide enough that marginal adopters significantly drag down aggregate adoption rates"
+      ]
+    },
+    {
+      "id": "pos-5",
+      "claim": "Extreme labor displacement scenarios require implausibly high elasticity of substitution between AI capital and human labor",
+      "confidence": 0.85,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-4"
+      ],
+      "implicitAssumptions": [
+        "Current economic production functions have fundamental complementarities that AI cannot overcome",
+        "The elasticity of substitution is a stable parameter rather than something that could shift dramatically with capability breakthroughs",
+        "Labor's share of income collapsing would require near-perfect substitutability, which is empirically implausible given current AI limitations"
+      ]
+    },
+    {
+      "id": "pos-6",
+      "claim": "Even if labor displacement occurred, aggregate demand would not automatically collapse because redistribution mechanisms would activate",
+      "confidence": 0.7,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-4"
+      ],
+      "implicitAssumptions": [
+        "Political systems will implement redistribution before aggregate demand failures become severe",
+        "The threshold for 'persistent failure of redistribution mechanisms' is high enough that it represents a tail risk rather than a central scenario",
+        "Investment opportunities would remain available to absorb capital income even in high-automation scenarios"
+      ]
+    },
+    {
+      "id": "pos-7",
+      "claim": "Productivity gains will lead to workweek reduction rather than unemployment",
+      "confidence": 0.65,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-6"
+      ],
+      "implicitAssumptions": [
+        "Labor markets will adjust through hours reduction rather than headcount reduction",
+        "Workers have sufficient bargaining power or institutional support to capture productivity gains as leisure rather than being displaced",
+        "The preference for leisure over income is strong enough at current income levels to drive workweek reduction"
+      ]
+    },
+    {
+      "id": "pos-8",
+      "claim": "Current AI displacement narratives reflect premature certainty about unknowable future outcomes",
+      "confidence": 0.9,
+      "type": "value_judgment",
+      "groundingClusters": [
+        "cluster-0"
+      ],
+      "implicitAssumptions": [
+        "The burden of proof lies with displacement proponents rather than with those claiming continuity",
+        "Absence of current evidence of displacement is strong evidence against future displacement rather than merely uninformative",
+        "Extrapolating from current trends is more epistemically sound than modeling potential discontinuities"
+      ]
+    },
+    {
+      "id": "pos-9",
+      "claim": "Marginal cost reductions from productivity shocks do not automatically translate to labor displacement",
+      "confidence": 0.8,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-3"
+      ],
+      "implicitAssumptions": [
+        "Lower marginal costs primarily drive output expansion rather than input reduction",
+        "Demand elasticity for AI-enhanced goods/services is high enough to absorb productivity gains through volume growth",
+        "Firms optimize for growth rather than pure cost minimization when productivity shocks occur"
+      ]
+    },
+    {
+      "id": "pos-10",
+      "claim": "The capital income vs. wage income consumption differential is insufficient to cause demand collapse in realistic scenarios",
+      "confidence": 0.75,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-4"
+      ],
+      "implicitAssumptions": [
+        "The marginal propensity to consume gap between capital and labor income is modest enough that redistribution mechanisms can compensate",
+        "Capital income recipients will maintain sufficient consumption or investment to prevent demand spirals",
+        "The scenario where capital income dominates AND has low MPC AND redistribution fails represents a conjunction of unlikely events"
+      ]
+    },
+    {
+      "id": "pos-11",
+      "claim": "Technological revolutions alter task composition without eliminating labor in aggregate",
+      "confidence": 0.85,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-5"
+      ],
+      "implicitAssumptions": [
+        "The historical pattern of task recomposition creating new labor demand categories will continue with AI",
+        "Human comparative advantage is robust enough that new tasks will emerge even as AI capabilities expand",
+        "The speed of task elimination will not exceed the speed of new task creation by enough to cause persistent unemployment"
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "cluster-6",
+      "theme": "productivity / reduction / gains / labor",
+      "nodeIds": [
+        "n_46",
+        "n_47",
+        "n_48",
+        "n_49",
+        "n_50",
+        "n_51",
+        "n_52",
+        "n_53",
+        "n_54",
+        "n_55",
+        "n_56",
+        "n_57"
+      ],
+      "edgeIds": [
+        "n_46->n_47",
+        "n_48->n_49",
+        "n_48->n_50",
+        "n_48->n_51",
+        "n_48->n_52",
+        "n_48->n_53",
+        "n_54->n_55",
+        "n_56->n_57"
+      ],
+      "sourceChunks": [
+        "article-citadel-keynes-15-hour"
+      ],
+      "representativeClaims": [
+        "productivity growth → workweek reduction",
+        "productivity gains → composition of demand alteration",
+        "productivity gains → real incomes expansion",
+        "productivity gains → new industries generation",
+        "productivity gains ⊣ labor withdrawal"
+      ],
+      "claimCount": 8
+    },
+    {
+      "id": "cluster-3",
+      "theme": "productivity / shock / ai-driven / automation",
+      "nodeIds": [
+        "n_20",
+        "n_21",
+        "n_22",
+        "n_23",
+        "n_24",
+        "n_25",
+        "n_26",
+        "n_27",
+        "n_28",
+        "n_29"
+      ],
+      "edgeIds": [
+        "n_20->n_21",
+        "n_22->n_23",
+        "n_22->n_24",
+        "n_22->n_25",
+        "n_22->n_26",
+        "n_22->n_27",
+        "n_28->n_29"
+      ],
+      "sourceChunks": [
+        "article-citadel-productivity-shocks"
+      ],
+      "representativeClaims": [
+        "AI-driven automation → productivity shock",
+        "productivity shocks ⊣ marginal costs",
+        "productivity shocks → potential output",
+        "productivity shocks → real income",
+        "major technological advances (steam power, electrification, internal combustion engine, computing) → productivity shock pattern"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-5",
+      "theme": "labor / demand / office / complement",
+      "nodeIds": [
+        "n_36",
+        "n_37",
+        "n_38",
+        "n_39",
+        "n_40",
+        "n_41",
+        "n_42",
+        "n_43",
+        "n_44",
+        "n_45"
+      ],
+      "edgeIds": [
+        "n_36->n_37",
+        "n_38->n_39",
+        "n_38->n_40",
+        "n_41->n_42",
+        "n_43->n_42",
+        "n_44->n_45"
+      ],
+      "sourceChunks": [
+        "article-citadel-complement-not-substitute"
+      ],
+      "representativeClaims": [
+        "technological revolutions → task composition alteration",
+        "AI as complement to labor ⊣ labor demand reduction",
+        "technological revolutions ⊣ labor elimination",
+        "Microsoft Office advent → office worker labor demand",
+        "near-total automation of economically relevant labor → negative demand shock large enough to overwhelm output expansion"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-2",
+      "theme": "automation / compute / demand / marginal",
+      "nodeIds": [
+        "n_10",
+        "n_11",
+        "n_12",
+        "n_13",
+        "n_14",
+        "n_15",
+        "n_16",
+        "n_17",
+        "n_18",
+        "n_19"
+      ],
+      "edgeIds": [
+        "n_10->n_11",
+        "n_12->n_13",
+        "n_14->n_15",
+        "n_16->n_17",
+        "n_18->n_19"
+      ],
+      "sourceChunks": [
+        "article-citadel-compute-constraints"
+      ],
+      "representativeClaims": [
+        "automation expansion → compute demand",
+        "increased compute demand → marginal cost of compute",
+        "marginal cost of compute rises above marginal cost of human labor ⊣ substitution of human labor by automation",
+        "constraints (physical capital, energy availability, regulatory approvals, organizational change) ⊣ economic deployment of automation",
+        "natural economic boundary to automation → lack of substitution occurring"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-1",
+      "theme": "growth / technology / adoption / costs",
+      "nodeIds": [
+        "n_4",
+        "n_5",
+        "n_6",
+        "n_7",
+        "n_8",
+        "n_9"
+      ],
+      "edgeIds": [
+        "n_4->n_5",
+        "n_6->n_5",
+        "n_7->n_8",
+        "n_9->n_8"
+      ],
+      "sourceChunks": [
+        "article-citadel-recursive-adoption"
+      ],
+      "representativeClaims": [
+        "costs fall → growth acceleration in technology adoption",
+        "marginal adopter productivity/profitability decline → growth deceleration",
+        "complementary infrastructure development → growth acceleration in technology adoption",
+        "saturation in technology adoption → growth deceleration"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-4",
+      "theme": "capital / labor / income / aggregate",
+      "nodeIds": [
+        "n_30",
+        "n_31",
+        "n_32",
+        "n_33",
+        "n_34",
+        "n_35"
+      ],
+      "edgeIds": [
+        "n_30->n_31",
+        "n_32->n_33",
+        "n_34->n_35"
+      ],
+      "sourceChunks": [
+        "article-citadel-substitution-elasticity"
+      ],
+      "representativeClaims": [
+        "extremely high elasticity of substitution between AI capital and labor → labor's share of income collapses",
+        "persistent failure of redistribution mechanisms and simultaneous drying up of investment opportunities → structural fall in aggregate demand",
+        "capital income having lower marginal propensity to consume than wage income ⊣ aggregate demand automatically imploding"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-0",
+      "theme": "displacement / narrative / current / certainty",
+      "nodeIds": [
+        "n_0",
+        "n_1",
+        "n_2",
+        "n_3"
+      ],
+      "edgeIds": [
+        "n_0->n_1",
+        "n_2->n_3"
+      ],
+      "sourceChunks": [
+        "article-citadel-2026-global-intelligence-crisis"
+      ],
+      "representativeClaims": [
+        "rising software engineer job postings (up 11% YoY) → undermines displacement narrative",
+        "current displacement narrative about AI ⊣ certainty about future labor destruction"
+      ],
+      "claimCount": 2
+    }
+  ],
+  "synthesizedAt": "2026-03-05T04:04:18.793Z"
+}

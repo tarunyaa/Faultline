@@ -1,0 +1,3112 @@
+{
+  "personaId": "Citrini",
+  "personaName": "Citrini",
+  "positions": [
+    {
+      "id": "pos-0",
+      "claim": "AI-driven labor displacement will cause a structural economic crisis that traditional monetary policy cannot address, requiring direct fiscal transfers to households",
+      "confidence": 0.95,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-0",
+        "cluster-5",
+        "cluster-9",
+        "cluster-81"
+      ],
+      "implicitAssumptions": [
+        "The velocity of AI capability improvement exceeds the economy's ability to redeploy displaced workers into new roles",
+        "Political institutions will respond reactively to economic crisis rather than proactively implementing preventive measures",
+        "Labor's declining share of GDP cannot be offset by productivity gains distributed through existing market mechanisms"
+      ]
+    },
+    {
+      "id": "pos-1",
+      "claim": "White-collar job displacement represents a fundamentally different economic phenomenon than historical technological disruption because AI targets the cognitive labor that comprises 50% of US employment",
+      "confidence": 0.9,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-5",
+        "cluster-8",
+        "cluster-7"
+      ],
+      "implicitAssumptions": [
+        "Historical patterns of technological job displacement depended on cognitive work remaining a human monopoly",
+        "The economic value of human intelligence was artificially inflated by its scarcity rather than its intrinsic worth",
+        "Institutions built on assumptions of scarce human intelligence (mortgage underwriting, tax systems) cannot adapt quickly enough to abundance"
+      ]
+    },
+    {
+      "id": "pos-2",
+      "claim": "Companies will aggressively cut headcount and reinvest savings into AI capabilities, creating a self-reinforcing cycle of margin expansion for compute owners and unemployment for workers",
+      "confidence": 0.9,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-1",
+        "cluster-3",
+        "cluster-81"
+      ],
+      "implicitAssumptions": [
+        "Corporate incentive structures prioritize margin expansion over employment stability even when aggregate demand effects are negative",
+        "AI capability improvements will continue to reduce costs faster than they create new labor demand",
+        "Equity markets will reward labor cost reduction before pricing in the demand-side consequences of unemployment"
+      ]
+    },
+    {
+      "id": "pos-3",
+      "claim": "Being bullish on AI capabilities necessarily implies bearish outcomes for labor markets and traditional economic structures, creating a paradox where technological optimism leads to market pessimism",
+      "confidence": 0.85,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-0",
+        "cluster-81",
+        "cluster-1"
+      ],
+      "implicitAssumptions": [
+        "AI capability gains translate more directly to labor substitution than to new market creation",
+        "The time lag between job displacement and new job creation is long enough to cause systemic economic stress",
+        "Markets will eventually price in unemployment effects despite initially rewarding margin expansion"
+      ]
+    },
+    {
+      "id": "pos-4",
+      "claim": "Software companies face existential repricing risk from agentic AI even before actual business impact materializes, as the threat alone justifies valuation compression",
+      "confidence": 0.8,
+      "type": "concern",
+      "groundingClusters": [
+        "cluster-77",
+        "cluster-6"
+      ],
+      "implicitAssumptions": [
+        "Agentic AI will commoditize software functionality faster than software companies can capture AI-driven productivity gains",
+        "The 'ARR as recurring' assumption breaks down when AI agents can switch between tools frictionlessly",
+        "Software company moats depend on switching costs and integration complexity that AI agents eliminate"
+      ]
+    },
+    {
+      "id": "pos-5",
+      "claim": "NVIDIA's dominance in AI training is overstated because Google's vertical integration with TPUs demonstrates that frontier models can be trained without NVIDIA hardware",
+      "confidence": 0.7,
+      "type": "concern",
+      "groundingClusters": [
+        "cluster-85",
+        "cluster-86"
+      ],
+      "implicitAssumptions": [
+        "Training efficiency gains from vertical integration (co-designing chips and models) outweigh NVIDIA's ecosystem advantages",
+        "Other hyperscalers will follow Google's path toward custom silicon rather than remaining NVIDIA-dependent",
+        "The marginal cost advantage of TPUs is large enough to justify the fixed costs of chip design and fabrication"
+      ]
+    },
+    {
+      "id": "pos-6",
+      "claim": "AI infrastructure expansion will drive natural gas prices structurally higher as datacenter power demand tightens supply-demand balances",
+      "confidence": 0.75,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-90"
+      ],
+      "implicitAssumptions": [
+        "AI training and inference compute scales faster than renewable energy capacity can be deployed",
+        "Natural gas remains the marginal power source for datacenter expansion despite renewable energy goals",
+        "Datacenter power demand is relatively price-inelastic compared to other natural gas demand sources"
+      ]
+    },
+    {
+      "id": "pos-7",
+      "claim": "Private credit exposure to software companies represents systemic risk as ARR-backed loans default when AI makes recurring revenue non-recurring",
+      "confidence": 0.75,
+      "type": "concern",
+      "groundingClusters": [
+        "cluster-6",
+        "cluster-77"
+      ],
+      "implicitAssumptions": [
+        "Private credit underwriting models assume software revenue persistence that AI disruption invalidates",
+        "Household savings exposure through annuities creates contagion pathways from software defaults to broader financial system",
+        "The private credit market's growth to $2.5 trillion concentrates rather than diversifies software company risk"
+      ]
+    },
+    {
+      "id": "pos-8",
+      "claim": "Asymmetric warfare enabled by cheap drones creates sustained defense spending acceleration that favors smaller specialized companies over traditional defense primes",
+      "confidence": 0.8,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-107",
+        "cluster-75",
+        "cluster-76"
+      ],
+      "implicitAssumptions": [
+        "Military procurement cycles will adapt quickly enough to favor drone specialists over traditional contractors",
+        "The cost-effectiveness of drones (cheap assets destroying expensive infrastructure) represents a permanent shift rather than a temporary asymmetry",
+        "Geopolitical fracturing accelerates rather than consolidates, sustaining defense spending growth"
+      ]
+    },
+    {
+      "id": "pos-9",
+      "claim": "Understanding semiconductor supply chain dynamics 6-12 months forward provides asymmetric trading opportunities that surface-level 'GPU-deep' AI analysis misses",
+      "confidence": 0.85,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-79",
+        "cluster-80"
+      ],
+      "implicitAssumptions": [
+        "Supply chain bottlenecks and capacity constraints are more predictive of AI stock performance than model capability announcements",
+        "Post-Traumatic Supply Disorder (overcorrection from past shortages) creates persistent supply-demand imbalances",
+        "Most market participants lack the technical depth to translate semiconductor supply dynamics into investment theses"
+      ]
+    },
+    {
+      "id": "pos-10",
+      "claim": "Traditional payment networks face moat erosion as stablecoins on Solana or Ethereum L2s enable near-zero-cost settlement, targeting the 2-3% interchange rate for elimination",
+      "confidence": 0.7,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-4"
+      ],
+      "implicitAssumptions": [
+        "Regulatory frameworks will permit stablecoin payment systems to compete directly with card networks",
+        "Consumer and merchant adoption of crypto-based payments will overcome UX and trust barriers",
+        "The value of payment network effects (acceptance, fraud protection) is smaller than the cost savings from eliminating interchange fees"
+      ]
+    },
+    {
+      "id": "pos-11",
+      "claim": "Liquidity injections and rate cuts beginning in 2024 will create bullish conditions for risk assets despite underlying economic deterioration from AI displacement",
+      "confidence": 0.75,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-82",
+        "cluster-81",
+        "cluster-54"
+      ],
+      "implicitAssumptions": [
+        "Monetary policy operates on shorter time horizons than structural labor market changes, creating temporary asset price support",
+        "Political pressure from midterm elections forces liquidity provision regardless of long-term economic fundamentals",
+        "Equity markets will respond to liquidity conditions before pricing in AI-driven unemployment effects"
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "cluster-1",
+      "theme": "real / compute / output / growth",
+      "nodeIds": [
+        "n_8",
+        "n_9",
+        "n_10",
+        "n_11",
+        "n_12",
+        "n_13",
+        "n_14",
+        "n_15",
+        "n_16",
+        "n_17",
+        "n_18",
+        "n_19",
+        "n_20",
+        "n_21",
+        "n_342",
+        "n_343",
+        "n_344",
+        "n_345",
+        "n_346",
+        "n_347",
+        "n_348",
+        "n_349",
+        "n_350",
+        "n_351"
+      ],
+      "edgeIds": [
+        "n_8->n_9",
+        "n_9->n_10",
+        "n_11->n_12",
+        "n_13->n_14",
+        "n_15->n_16",
+        "n_15->n_17",
+        "n_18->n_19",
+        "n_20->n_21",
+        "n_342->n_343",
+        "n_344->n_345",
+        "n_344->n_346",
+        "n_344->n_10",
+        "n_347->n_348",
+        "n_349->n_350",
+        "n_349->n_351"
+      ],
+      "sourceChunks": [
+        "article-citrini-2028gic-ghost-gdp_seg0",
+        "substack-0_seg1"
+      ],
+      "representativeClaims": [
+        "layoffs due to human obsolescence → margin expansion and earnings beats",
+        "margin expansion and earnings beats → stock rally",
+        "labor cost reduction from AI → wealth explosion for compute owners",
+        "labor cost reduction from AI → real wage growth collapse",
+        "white-collar job displacement to machines → worker forced into lower-paying roles"
+      ],
+      "claimCount": 15
+    },
+    {
+      "id": "cluster-3",
+      "theme": "investment / increased / cost / company",
+      "nodeIds": [
+        "n_24",
+        "n_25",
+        "n_26",
+        "n_27",
+        "n_28",
+        "n_29",
+        "n_30",
+        "n_31",
+        "n_32",
+        "n_33",
+        "n_34",
+        "n_35",
+        "n_36",
+        "n_37",
+        "n_66",
+        "n_67",
+        "n_68",
+        "n_69",
+        "n_70",
+        "n_71",
+        "n_72",
+        "n_73",
+        "n_74",
+        "n_75",
+        "n_76",
+        "n_77",
+        "n_78"
+      ],
+      "edgeIds": [
+        "n_24->n_25",
+        "n_26->n_27",
+        "n_28->n_29",
+        "n_30->n_31",
+        "n_32->n_33",
+        "n_34->n_35",
+        "n_36->n_37",
+        "n_66->n_67",
+        "n_68->n_69",
+        "n_34->n_70",
+        "n_71->n_72",
+        "n_72->n_73",
+        "n_73->n_74",
+        "n_75->n_76",
+        "n_77->n_78"
+      ],
+      "sourceChunks": [
+        "article-citrini-2028gic-reflexivity",
+        "article-citrini-2028gic-no-natural-brake"
+      ],
+      "representativeClaims": [
+        "AI threat to company viability → aggressive AI adoption by incumbents",
+        "savings from headcount cuts → increased AI capability investment",
+        "AI improvement and cost reduction → worker layoffs",
+        "cost savings from layoffs → increased AI capability purchases",
+        "increased AI capability → additional worker layoffs"
+      ],
+      "claimCount": 15
+    },
+    {
+      "id": "cluster-98",
+      "theme": "inflation / goods / bond / tariff",
+      "nodeIds": [
+        "n_569",
+        "n_570",
+        "n_571",
+        "n_572",
+        "n_573",
+        "n_574",
+        "n_575",
+        "n_576",
+        "n_577",
+        "n_578",
+        "n_579",
+        "n_580",
+        "n_581",
+        "n_582",
+        "n_607",
+        "n_608",
+        "n_609",
+        "n_610",
+        "n_611",
+        "n_612",
+        "n_613"
+      ],
+      "edgeIds": [
+        "n_569->n_570",
+        "n_571->n_572",
+        "n_573->n_574",
+        "n_575->n_576",
+        "n_577->n_578",
+        "n_579->n_580",
+        "n_581->n_582",
+        "n_607->n_570",
+        "n_608->n_570",
+        "n_609->n_610",
+        "n_611->n_576",
+        "n_612->n_576",
+        "n_613->n_570"
+      ],
+      "sourceChunks": [
+        "substack-13_seg0",
+        "substack-15_seg0"
+      ],
+      "representativeClaims": [
+        "services disinflation ⊣ overall inflation",
+        "tariff effects on goods prices ⊣ overall inflation",
+        "cyclical economic slowdown → labor market weakness",
+        "goods inflation from tariffs ⊣ overall inflation",
+        "Fed signaling openness to rate cuts → long bond yields falling"
+      ],
+      "claimCount": 13
+    },
+    {
+      "id": "cluster-0",
+      "theme": "unemployment / market / economic / bearish",
+      "nodeIds": [
+        "n_0",
+        "n_1",
+        "n_2",
+        "n_3",
+        "n_4",
+        "n_5",
+        "n_6",
+        "n_7",
+        "n_335",
+        "n_336",
+        "n_337",
+        "n_338",
+        "n_339",
+        "n_340",
+        "n_341"
+      ],
+      "edgeIds": [
+        "n_0->n_1",
+        "n_2->n_3",
+        "n_4->n_5",
+        "n_6->n_7",
+        "n_335->n_336",
+        "n_337->n_338",
+        "n_339->n_340",
+        "n_4->n_341"
+      ],
+      "sourceChunks": [
+        "article-citrini-2028gic-intro",
+        "substack-0_seg0"
+      ],
+      "representativeClaims": [
+        "higher-than-expected unemployment data → stock market sell-off",
+        "Global Intelligence Crisis (AI-driven unemployment/economic disruption) → unemployment rate increases",
+        "continued AI bullishness being correct → bearish market outcomes",
+        "AI capabilities continue advancing as predicted → economic outcomes become negative/bearish",
+        "higher-than-expected unemployment data → stock market sells off"
+      ],
+      "claimCount": 8
+    },
+    {
+      "id": "cluster-4",
+      "theme": "payment / agents / cost / reduction",
+      "nodeIds": [
+        "n_38",
+        "n_39",
+        "n_40",
+        "n_41",
+        "n_42",
+        "n_43",
+        "n_44",
+        "n_45",
+        "n_46",
+        "n_47",
+        "n_48",
+        "n_49",
+        "n_50",
+        "n_51"
+      ],
+      "edgeIds": [
+        "n_38->n_39",
+        "n_40->n_41",
+        "n_42->n_43",
+        "n_44->n_45",
+        "n_46->n_47",
+        "n_48->n_49",
+        "n_50->n_51"
+      ],
+      "sourceChunks": [
+        "article-citrini-2028gic-payments-disruption"
+      ],
+      "representativeClaims": [
+        "2-3% card interchange rate → target for cost elimination",
+        "stablecoins via Solana or Ethereum L2s → near-instant settlement with minimal transaction costs",
+        "friction approaching zero → erosion of traditional payment network moats",
+        "agents controlling transactions → search for cost reduction opportunities",
+        "agents routing around interchange fees → American Express revenue model undermined"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-5",
+      "theme": "job / white-collar / pattern / roles",
+      "nodeIds": [
+        "n_52",
+        "n_53",
+        "n_54",
+        "n_55",
+        "n_56",
+        "n_57",
+        "n_58",
+        "n_59",
+        "n_60",
+        "n_61",
+        "n_62",
+        "n_63",
+        "n_64",
+        "n_65"
+      ],
+      "edgeIds": [
+        "n_52->n_53",
+        "n_54->n_55",
+        "n_56->n_57",
+        "n_58->n_59",
+        "n_60->n_61",
+        "n_62->n_63",
+        "n_64->n_65"
+      ],
+      "sourceChunks": [
+        "article-citrini-2028gic-systemic-risk"
+      ],
+      "representativeClaims": [
+        "white-collar workers representing 50% of employment → white-collar sector being central to US economy",
+        "AI capability in white-collar services → job displacement in US economy",
+        "AI being general intelligence improving at human tasks → traditional technological job displacement/redeployment pattern breaking down",
+        "AI capability in management and specialized roles ⊣ displaced workers' ability to redeploy to new roles",
+        "new AI-created roles ⊣ wage levels compared to displaced jobs"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-81",
+      "theme": "productivity / gains / economic / concerns",
+      "nodeIds": [
+        "n_408",
+        "n_409",
+        "n_410",
+        "n_411",
+        "n_412",
+        "n_413",
+        "n_414",
+        "n_415",
+        "n_416",
+        "n_417",
+        "n_418",
+        "n_419",
+        "n_420",
+        "n_421"
+      ],
+      "edgeIds": [
+        "n_408->n_409",
+        "n_410->n_411",
+        "n_412->n_413",
+        "n_414->n_415",
+        "n_416->n_417",
+        "n_418->n_419",
+        "n_420->n_421"
+      ],
+      "sourceChunks": [
+        "substack-4_seg0"
+      ],
+      "representativeClaims": [
+        "midterm election political pressure → White House focus on consumer concerns",
+        "AI productivity gains ⊣ US economy bearish outlook",
+        "funding pressures → liquidity injections",
+        "productivity gains from AI → productivity increase",
+        "pro-growth policy and fiscal impulse → economic acceleration"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-82",
+      "theme": "monetary / policy / liquidity / bullish",
+      "nodeIds": [
+        "n_422",
+        "n_423",
+        "n_424",
+        "n_425",
+        "n_426",
+        "n_427",
+        "n_428",
+        "n_429",
+        "n_430",
+        "n_431",
+        "n_432",
+        "n_433"
+      ],
+      "edgeIds": [
+        "n_422->n_423",
+        "n_424->n_425",
+        "n_424->n_426",
+        "n_424->n_427",
+        "n_428->n_429",
+        "n_430->n_431",
+        "n_432->n_433"
+      ],
+      "sourceChunks": [
+        "substack-4_seg1"
+      ],
+      "representativeClaims": [
+        "rate cuts beginning in August 2024 → long-and-lagging effects of bullish monetary policy materializing",
+        "Fed's new liquidity program → resolution of stretched liquidity issues",
+        "bullish monetary policy → tight credit spreads",
+        "bullish monetary policy → decreased overall borrowing costs",
+        "stretched liquidity in funding markets → financial system friction"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-90",
+      "theme": "gas / natural / demand / supply",
+      "nodeIds": [
+        "n_492",
+        "n_493",
+        "n_494",
+        "n_495",
+        "n_496",
+        "n_497",
+        "n_498",
+        "n_499",
+        "n_500",
+        "n_501",
+        "n_502",
+        "n_503",
+        "n_504"
+      ],
+      "edgeIds": [
+        "n_492->n_493",
+        "n_494->n_495",
+        "n_496->n_497",
+        "n_498->n_499",
+        "n_500->n_501",
+        "n_502->n_501",
+        "n_503->n_504"
+      ],
+      "sourceChunks": [
+        "substack-9_seg0"
+      ],
+      "representativeClaims": [
+        "AI infrastructure expansion → natural gas demand",
+        "increased natural gas demand from AI → natural gas prices",
+        "tightening gas supply and demand balances → natural gas prices moving structurally higher",
+        "persistent supply growth from US drillers → natural gas market oversupply",
+        "new LNG export facilities ramp → gas supply and demand balance tightness"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-77",
+      "theme": "software / company / agentic / threat",
+      "nodeIds": [
+        "n_370",
+        "n_371",
+        "n_372",
+        "n_373",
+        "n_374",
+        "n_375",
+        "n_376",
+        "n_377",
+        "n_378",
+        "n_379",
+        "n_380"
+      ],
+      "edgeIds": [
+        "n_370->n_371",
+        "n_372->n_373",
+        "n_374->n_375",
+        "n_376->n_377",
+        "n_378->n_371",
+        "n_379->n_380"
+      ],
+      "sourceChunks": [
+        "substack-2_seg0"
+      ],
+      "representativeClaims": [
+        "agentic AI threat to software companies ⊣ software company valuations",
+        "threat of agentic AI (without actual business impact) → software company stock repricing",
+        "AI disruption uncertainty ⊣ software company valuations relative to historical ranges",
+        "software selloff due to AI concerns → non-software assets being sold indiscriminately",
+        "uncertainty about switching costs/sticky UX relevance in AI era ⊣ software company valuations"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-85",
+      "theme": "google / competitive / market / openai",
+      "nodeIds": [
+        "n_450",
+        "n_451",
+        "n_452",
+        "n_453",
+        "n_454",
+        "n_455",
+        "n_456",
+        "n_457",
+        "n_458",
+        "n_459",
+        "n_460",
+        "n_461"
+      ],
+      "edgeIds": [
+        "n_450->n_451",
+        "n_452->n_453",
+        "n_454->n_455",
+        "n_456->n_457",
+        "n_458->n_459",
+        "n_460->n_461"
+      ],
+      "sourceChunks": [
+        "substack-6_seg0"
+      ],
+      "representativeClaims": [
+        "OpenAI lacking own datacenters and chips → OpenAI's competitive disadvantage in AI",
+        "Google being a hyperscaler and chip designer with competitive TPUs → Google's competitive advantage in AI",
+        "Google's vertical integration and TPU optimization → cheaper training costs for Google",
+        "Technical and market tailwinds favoring Google → Google should outperform consensus AI winners",
+        "Google's low customer acquisition costs and first-party data → Google's market advantage"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-92",
+      "theme": "economy / income / secular / capex",
+      "nodeIds": [
+        "n_514",
+        "n_515",
+        "n_516",
+        "n_517",
+        "n_518",
+        "n_519",
+        "n_520",
+        "n_521",
+        "n_522",
+        "n_523",
+        "n_524"
+      ],
+      "edgeIds": [
+        "n_514->n_515",
+        "n_516->n_517",
+        "n_518->n_519",
+        "n_520->n_521",
+        "n_522->n_521",
+        "n_523->n_524"
+      ],
+      "sourceChunks": [
+        "substack-10_seg0"
+      ],
+      "representativeClaims": [
+        "raging bull markets → investor psychology treating developments as unique and unprecedented",
+        "secular economy capex spending cycle → equity returns on indices",
+        "skewed consumer spending by high net worth/high income households → K-shaped economy",
+        "economic inequality (Haves vs Have Nots) → cyclical economy and lower income cohort performing poorly",
+        "wealth effect and equity prices → K-shaped economy"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-107",
+      "theme": "drone / military / russian / damage",
+      "nodeIds": [
+        "n_652",
+        "n_653",
+        "n_654",
+        "n_655",
+        "n_656",
+        "n_657",
+        "n_658",
+        "n_659",
+        "n_660",
+        "n_661",
+        "n_662",
+        "n_663"
+      ],
+      "edgeIds": [
+        "n_652->n_653",
+        "n_654->n_655",
+        "n_656->n_657",
+        "n_658->n_659",
+        "n_660->n_661",
+        "n_662->n_663"
+      ],
+      "sourceChunks": [
+        "substack-18_seg0"
+      ],
+      "representativeClaims": [
+        "cheap drones → destruction of expensive military infrastructure",
+        "Ukrainian drone attack deep into Russian territory → damage to Kirishi refinery and Russian aerial assault capabilities",
+        "Israeli drone and traditional asset strikes → damage to Iranian nuclear facilities and military targets",
+        "Houthi drone attacks → blockade of global commerce through Red Sea",
+        "Iranian missile and drone barrage → Israeli air defense system activation"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-6",
+      "theme": "software / private / credit / growth",
+      "nodeIds": [
+        "n_79",
+        "n_80",
+        "n_81",
+        "n_82",
+        "n_83",
+        "n_84",
+        "n_85",
+        "n_86",
+        "n_87",
+        "n_88"
+      ],
+      "edgeIds": [
+        "n_79->n_80",
+        "n_81->n_82",
+        "n_83->n_84",
+        "n_85->n_86",
+        "n_87->n_88"
+      ],
+      "sourceChunks": [
+        "article-citrini-2028gic-private-credit"
+      ],
+      "representativeClaims": [
+        "ARR no longer recurring (just revenue not yet departed) → largest ARR-backed loan becoming largest private credit software default",
+        "private credit growth to $2.5 trillion by 2026 → capital deployment into leveraged SaaS buyouts",
+        "household savings structured as annuities invested in defaulting PE-backed software → exposure to same defaults affecting the system",
+        "valuations assuming mid-teens perpetual revenue growth → software-backed loan defaults in Q3 2027",
+        "permanent capital structure (household annuities invested in PE-backed software) ⊣ system resilience"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-7",
+      "theme": "income / mortgage / underwriting / assumption",
+      "nodeIds": [
+        "n_89",
+        "n_90",
+        "n_91",
+        "n_92",
+        "n_93",
+        "n_94",
+        "n_95",
+        "n_96",
+        "n_97"
+      ],
+      "edgeIds": [
+        "n_89->n_90",
+        "n_90->n_91",
+        "n_92->n_93",
+        "n_94->n_95",
+        "n_96->n_97"
+      ],
+      "sourceChunks": [
+        "article-citrini-2028gic-mortgage-crisis"
+      ],
+      "representativeClaims": [
+        "white-collar employment crisis → sustained shift in income expectations",
+        "sustained shift in income expectations → threat to mortgage underwriting fundamental assumption",
+        "borrower remains employed at roughly current income level → mortgage underwriting assumption holds",
+        "world changed after loans were written → borrowers can no longer afford to believe in their future",
+        "income impairment of marginal buyer → falling home prices become unmanageable"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-8",
+      "theme": "human / intelligence / premium / economy",
+      "nodeIds": [
+        "n_98",
+        "n_99",
+        "n_100",
+        "n_101",
+        "n_102",
+        "n_103",
+        "n_104",
+        "n_105",
+        "n_106",
+        "n_107"
+      ],
+      "edgeIds": [
+        "n_98->n_99",
+        "n_100->n_101",
+        "n_102->n_103",
+        "n_104->n_105",
+        "n_106->n_107"
+      ],
+      "sourceChunks": [
+        "article-citrini-2028gic-intelligence-premium"
+      ],
+      "representativeClaims": [
+        "human intelligence scarcity → human intelligence premium in economy",
+        "machine intelligence becoming competent substitute for human intelligence → unwinding of human intelligence premium",
+        "economic institutions designed for scarce human intelligence → labor market, mortgage market, and tax code structure",
+        "building new economic frameworks in time → economy finding new equilibrium",
+        "machine intelligence substituting for human intelligence → financial system repricing"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-9",
+      "theme": "human / declining / labor / real",
+      "nodeIds": [
+        "n_108",
+        "n_109",
+        "n_110",
+        "n_111",
+        "n_112",
+        "n_113",
+        "n_114",
+        "n_115",
+        "n_116",
+        "n_117"
+      ],
+      "edgeIds": [
+        "n_108->n_109",
+        "n_110->n_111",
+        "n_112->n_113",
+        "n_114->n_115",
+        "n_116->n_117"
+      ],
+      "sourceChunks": [
+        "article-citrini-2028gic-policy-failure"
+      ],
+      "representativeClaims": [
+        "federal tax receipts declining (12% below CBO baseline) → need for government money transfers to households",
+        "traditional policy toolkit (rate cuts, QE) ⊣ addressing the real economy engine problem caused by AI",
+        "AI exponential improvement → labor's share of GDP declining",
+        "Claude agents replacing human workers at lower cost ⊣ value of human labor (e.g., product managers)",
+        "AI making human intelligence less scarce and valuable ⊣ real economy engine performance"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-54",
+      "theme": "company / low / rates / equity",
+      "nodeIds": [
+        "n_259",
+        "n_260",
+        "n_261",
+        "n_262",
+        "n_263",
+        "n_264",
+        "n_265",
+        "n_266",
+        "n_267",
+        "n_268"
+      ],
+      "edgeIds": [
+        "n_259->n_260",
+        "n_261->n_262",
+        "n_263->n_264",
+        "n_265->n_266",
+        "n_267->n_268"
+      ],
+      "sourceChunks": [
+        "tweet-2022832298517819768"
+      ],
+      "representativeClaims": [
+        "locking in generationally low rates for equity investment → financial gain/positive outcome",
+        "unexpected growth/inflation → equity investment benefitting",
+        "borrowing yen at low rates to invest in company → financial gain when company sees higher earnings",
+        "yen depreciation → company earnings increase",
+        "yen-denominated debt → reduced exposure to currency risk"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-75",
+      "theme": "defense / industry / theme / geopolitical",
+      "nodeIds": [
+        "n_352",
+        "n_353",
+        "n_354",
+        "n_355",
+        "n_356",
+        "n_357",
+        "n_358",
+        "n_359"
+      ],
+      "edgeIds": [
+        "n_352->n_353",
+        "n_354->n_353",
+        "n_355->n_353",
+        "n_356->n_357",
+        "n_358->n_359"
+      ],
+      "sourceChunks": [
+        "substack-1_seg0"
+      ],
+      "representativeClaims": [
+        "geopolitical events → drone industry performance",
+        "rapid evolution of asymmetric modern warfare → drone industry performance",
+        "large jumps in global defense spending → drone industry performance",
+        "defense industry theme → portfolio tailwinds",
+        "multiple critical forces in defense theme → investment opportunity strength"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-76",
+      "theme": "acceleration / investment / defense / geopolitical",
+      "nodeIds": [
+        "n_360",
+        "n_361",
+        "n_362",
+        "n_363",
+        "n_364",
+        "n_365",
+        "n_366",
+        "n_367",
+        "n_368",
+        "n_369"
+      ],
+      "edgeIds": [
+        "n_360->n_361",
+        "n_362->n_363",
+        "n_364->n_365",
+        "n_366->n_367",
+        "n_368->n_369"
+      ],
+      "sourceChunks": [
+        "substack-1_seg1"
+      ],
+      "representativeClaims": [
+        "focus on smaller defense enablers of modern warfare → exposure to highest-pace acceleration trends",
+        "geopolitical fracturing of the world → defense spending acceleration",
+        "regime change possibility → US naval buildout around Venezuela",
+        "disruptive technology with public market opportunity → investment catalyst acceleration",
+        "ripped-from-the-headline investment approach → investment performance success"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-79",
+      "theme": "semiconductor / understanding / technology / full",
+      "nodeIds": [
+        "n_389",
+        "n_390",
+        "n_391",
+        "n_392",
+        "n_393",
+        "n_394",
+        "n_395",
+        "n_396",
+        "n_397",
+        "n_398"
+      ],
+      "edgeIds": [
+        "n_389->n_390",
+        "n_391->n_392",
+        "n_393->n_394",
+        "n_395->n_396",
+        "n_397->n_398"
+      ],
+      "sourceChunks": [
+        "substack-3_seg0"
+      ],
+      "representativeClaims": [
+        "reinforcement of supply/demand imbalance (Post-Traumatic Supply Disorder) → strong performance in prominent AI/semiconductor players",
+        "shallow understanding of semiconductor technology landscape → risk of being left behind",
+        "understanding of AI that only goes GPU-deep ⊣ ability to stay current with advancing semiconductor technology",
+        "lack of deep understanding of the full AI/semiconductor picture → inability to be properly positioned for future opportunities",
+        "AI/semiconductor narratives taking hold in the real world → importance of understanding the full technological picture"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-80",
+      "theme": "supply / chain / semiconductor / dynamics",
+      "nodeIds": [
+        "n_399",
+        "n_400",
+        "n_401",
+        "n_402",
+        "n_403",
+        "n_404",
+        "n_405",
+        "n_406",
+        "n_407"
+      ],
+      "edgeIds": [
+        "n_399->n_400",
+        "n_401->n_400",
+        "n_402->n_403",
+        "n_404->n_405",
+        "n_406->n_407"
+      ],
+      "sourceChunks": [
+        "substack-3_seg1"
+      ],
+      "representativeClaims": [
+        "hiring deep semiconductor analysts → ability to understand hidden supply chain dynamics and translate to thematic upside",
+        "paying attention to complex supply chain dynamics → catching asymmetric AI trades",
+        "having strong forward-looking views on supply chain (6-12 months ahead) → catching asymmetric AI trades",
+        "moderating expected returns from mainstream semiconductor stocks → need to look beyond mainstream layups",
+        "lack of semiconductor expertise among generalists → difficulty identifying asymmetric opportunities"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-83",
+      "theme": "forecasting / better / ability / future",
+      "nodeIds": [
+        "n_434",
+        "n_435",
+        "n_436",
+        "n_437",
+        "n_438",
+        "n_439",
+        "n_440",
+        "n_441",
+        "n_442",
+        "n_443"
+      ],
+      "edgeIds": [
+        "n_434->n_435",
+        "n_436->n_437",
+        "n_438->n_439",
+        "n_440->n_441",
+        "n_442->n_443"
+      ],
+      "sourceChunks": [
+        "substack-5_seg0"
+      ],
+      "representativeClaims": [
+        "calendar year changing ⊣ better forecasting ability for next twelve months",
+        "efforts spent towards being right about the future → rewards for speculators",
+        "becoming too in-the-weeds with forecasting details ⊣ creative process for developing differentiated views",
+        "vocational emphasis on accurate forecasting ⊣ investor performance",
+        "dropping pretense of knowing the future → ability to develop better insights"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-86",
+      "theme": "google / shift / training / frontier",
+      "nodeIds": [
+        "n_462",
+        "n_463",
+        "n_464",
+        "n_465",
+        "n_466",
+        "n_467",
+        "n_468",
+        "n_469",
+        "n_470",
+        "n_471"
+      ],
+      "edgeIds": [
+        "n_462->n_463",
+        "n_464->n_465",
+        "n_466->n_467",
+        "n_468->n_469",
+        "n_470->n_471"
+      ],
+      "sourceChunks": [
+        "substack-6_seg1"
+      ],
+      "representativeClaims": [
+        "Gemini 3 release → sentiment shift toward Google's AI capabilities",
+        "Google training frontier models on TPUs → feasibility of frontier model training without NVIDIA",
+        "Anthropic and Meta planning TPU implementation → questions about NVIDIA's dominance",
+        "one-two punch of announcements combined with growing skepticism of OpenAI → passing of the torch (shift in market positioning)",
+        "legal overhang lessening → timing of Google writeup"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-88",
+      "theme": "healthcare / theme / volatility / market",
+      "nodeIds": [
+        "n_480",
+        "n_481",
+        "n_482",
+        "n_483",
+        "n_484",
+        "n_485",
+        "n_486",
+        "n_487",
+        "n_488",
+        "n_489"
+      ],
+      "edgeIds": [
+        "n_480->n_481",
+        "n_482->n_483",
+        "n_484->n_485",
+        "n_486->n_487",
+        "n_488->n_489"
+      ],
+      "sourceChunks": [
+        "substack-8_seg1"
+      ],
+      "representativeClaims": [
+        "policy-induced volatility and market freakouts → opportunity to increase exposure to healthcare theme",
+        "multi-year healthcare industry upswing → positive outlook on healthcare theme",
+        "staying the course during volatility → outperformance of healthcare thematic proxies",
+        "focus on small-cap healthcare exposure → conviction being rewarded with sharp rebound",
+        "start of multi-year industry upswing → current market rebound in healthcare theme"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-91",
+      "theme": "gas / growth / natural / demand",
+      "nodeIds": [
+        "n_505",
+        "n_506",
+        "n_507",
+        "n_508",
+        "n_509",
+        "n_510",
+        "n_511",
+        "n_512",
+        "n_513"
+      ],
+      "edgeIds": [
+        "n_505->n_506",
+        "n_507->n_508",
+        "n_509->n_510",
+        "n_511->n_512",
+        "n_513->n_512"
+      ],
+      "sourceChunks": [
+        "substack-9_seg1"
+      ],
+      "representativeClaims": [
+        "plentiful and cheap gas for over a decade → miscalibration of production growth expectations and pricing",
+        "Permian Basin oil production plateau and end of associated gas deluge → US natural gas supply becoming price sensitive",
+        "LNG export demand growth → new US natural gas demand",
+        "shift to dry gas plays requiring economic returns → change in natural gas market dynamics from supply-push to demand-pull",
+        "AI Data Center electricity demand growth → new US natural gas demand"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-93",
+      "theme": "fiscal / government / spending / certain",
+      "nodeIds": [
+        "n_525",
+        "n_526",
+        "n_527",
+        "n_528",
+        "n_529",
+        "n_530",
+        "n_531",
+        "n_532",
+        "n_533",
+        "n_534"
+      ],
+      "edgeIds": [
+        "n_525->n_526",
+        "n_527->n_528",
+        "n_529->n_530",
+        "n_531->n_532",
+        "n_533->n_534"
+      ],
+      "sourceChunks": [
+        "substack-10_seg1"
+      ],
+      "representativeClaims": [
+        "Fiscal Primacy era → government spending backstops certain industries along partisan lines",
+        "stimulus checks and targeting mortgage rates through GSE MBS cap lifting → keep asset prices elevated",
+        "Fiscal Dominance (Fiscal driving monetary policy) → environment where administration takes steps to support economy until midterm elections",
+        "US populist bent since COVID → government spending will backstop certain industries along partisan lines",
+        "Republicans hanging on by a thread in House midterms → administration will take whatever steps necessary to support economy until midterm elections"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-94",
+      "theme": "data / center / demand / infrastructure",
+      "nodeIds": [
+        "n_535",
+        "n_536",
+        "n_537",
+        "n_538",
+        "n_539",
+        "n_540",
+        "n_541",
+        "n_542",
+        "n_543",
+        "n_544"
+      ],
+      "edgeIds": [
+        "n_535->n_536",
+        "n_537->n_538",
+        "n_539->n_540",
+        "n_541->n_542",
+        "n_543->n_544"
+      ],
+      "sourceChunks": [
+        "substack-11_seg0"
+      ],
+      "representativeClaims": [
+        "AI implementation and realization of full potential → need for large-scale data center buildout",
+        "enormous computing power required for AI/ML → considerable demands on technology sectors",
+        "Global Data Center Hyper-Scaling (Phase 1 of AI Trade) → sustained demand for data center equipment suppliers",
+        "heightened demand for infrastructure from AI/ML → significant benefits to companies providing necessary infrastructure",
+        "accelerated computing demand for AI training and inference → development and build-out of robust computational infrastructure"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-97",
+      "theme": "investment / need / focus / data",
+      "nodeIds": [
+        "n_559",
+        "n_560",
+        "n_561",
+        "n_562",
+        "n_563",
+        "n_564",
+        "n_565",
+        "n_566",
+        "n_567",
+        "n_568"
+      ],
+      "edgeIds": [
+        "n_559->n_560",
+        "n_561->n_562",
+        "n_563->n_564",
+        "n_565->n_566",
+        "n_567->n_568"
+      ],
+      "sourceChunks": [
+        "substack-12_seg1"
+      ],
+      "representativeClaims": [
+        "need to train AI models with more GPU servers → investment focus on GPU server suppliers (Nvidia, Supermicro, Celestica)",
+        "need for infrastructure to connect servers and span data center distances → investment focus shift to connectivity suppliers (Credo, Ciena)",
+        "high voltage power requirements to run data centers → investment focus on power management products (American Superconductor, Siemens Energy)",
+        "large capital investment (few trillion dollars over five years) → ability to build more than just basic AI accelerator deployments in existing facilities",
+        "building new greenfield data centers → need for comprehensive infrastructure beyond existing facility upgrades"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-103",
+      "theme": "glp-1 / obesity / becoming / second-order",
+      "nodeIds": [
+        "n_618",
+        "n_619",
+        "n_620",
+        "n_621",
+        "n_622",
+        "n_623",
+        "n_624",
+        "n_625",
+        "n_626",
+        "n_627"
+      ],
+      "edgeIds": [
+        "n_618->n_619",
+        "n_620->n_621",
+        "n_622->n_623",
+        "n_624->n_625",
+        "n_626->n_627"
+      ],
+      "sourceChunks": [
+        "substack-16_seg0"
+      ],
+      "representativeClaims": [
+        "GLP-1 drugs → addressing obesity epidemic",
+        "GLP-1s becoming ubiquitous → first downtick in U.S. obesity rate in four decades",
+        "competition heating up among GLP-1 manufacturers → consolidation to few key winners",
+        "successful weight loss drug adoption → second-order effects creating investment opportunities",
+        "manufacturer competition intensifying → long-term second-order effects becoming most enticing trade"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-104",
+      "theme": "glp-1 / market / effects / second-order",
+      "nodeIds": [
+        "n_628",
+        "n_629",
+        "n_630",
+        "n_631",
+        "n_632",
+        "n_633",
+        "n_634",
+        "n_635",
+        "n_636",
+        "n_637"
+      ],
+      "edgeIds": [
+        "n_628->n_629",
+        "n_630->n_631",
+        "n_632->n_633",
+        "n_634->n_635",
+        "n_636->n_637"
+      ],
+      "sourceChunks": [
+        "substack-16_seg1"
+      ],
+      "representativeClaims": [
+        "risk of patent cliff and compounded pharmaceuticals/grey market peptides on GLP-1 manufacturer economics → decision to exit basket",
+        "market attempting to front run GLP-1 impact ⊣ trade performance on second-order effects",
+        "increasing GLP-1 prescription adoption (4% of U.S. adults) → evidence of first-order effect playing out",
+        "patent cliff and compounded pharmaceuticals/grey market peptides ⊣ GLP-1 manufacturer economics",
+        "first-order effects playing out to critical degree → second-order effects materializing"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-108",
+      "theme": "countries / iranian / ballistic / missiles",
+      "nodeIds": [
+        "n_664",
+        "n_665",
+        "n_666",
+        "n_667",
+        "n_668",
+        "n_669",
+        "n_670",
+        "n_671",
+        "n_672"
+      ],
+      "edgeIds": [
+        "n_664->n_665",
+        "n_666->n_667",
+        "n_666->n_668",
+        "n_669->n_670",
+        "n_671->n_672"
+      ],
+      "sourceChunks": [
+        "substack-18_seg1"
+      ],
+      "representativeClaims": [
+        "Iranian ballistic missiles penetrating Iron Dome → direct damage on civilian and military installations",
+        "technology advancement → winning wars",
+        "War from Home (WFH) strategy → new form of leverage for under-resourced countries",
+        "War from Home (WFH) strategy → wake-up call for countries with lots of resources",
+        "relying on yesterday's tactics → great powers being quickly defeated"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-55",
+      "theme": "short / japanese / bond / issuance",
+      "nodeIds": [
+        "n_269",
+        "n_270",
+        "n_271",
+        "n_272",
+        "n_273",
+        "n_274",
+        "n_275"
+      ],
+      "edgeIds": [
+        "n_269->n_270",
+        "n_269->n_271",
+        "n_272->n_273",
+        "n_274->n_275"
+      ],
+      "sourceChunks": [
+        "tweet-2022791536296001751"
+      ],
+      "representativeClaims": [
+        "Japanese bond issuance combined with long equity positions → profitable macro trade",
+        "Japanese bond issuance → short currency position",
+        "Japanese bond issuance → short rates position",
+        "short currency and short rates while long equities → best macro trade performance"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-78",
+      "theme": "uncertainty / future / capabilities / investors",
+      "nodeIds": [
+        "n_381",
+        "n_382",
+        "n_383",
+        "n_384",
+        "n_385",
+        "n_386",
+        "n_387",
+        "n_388"
+      ],
+      "edgeIds": [
+        "n_381->n_382",
+        "n_383->n_384",
+        "n_385->n_386",
+        "n_387->n_388"
+      ],
+      "sourceChunks": [
+        "substack-2_seg1"
+      ],
+      "representativeClaims": [
+        "AI technology advancing at rapid rate → uncertainty about future AI capabilities",
+        "Lack of ability to predict future outcomes (no crystal ball) → more questions than answers about software strategy",
+        "Anthropic and others demonstrating agentic AI capabilities → investors forced to reconcile with hard potential realities",
+        "Fundamental uncertainty about AI's trajectory and software moats → investors adopting simpler decision-making frameworks"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-87",
+      "theme": "healthcare / trump / administration / new",
+      "nodeIds": [
+        "n_472",
+        "n_473",
+        "n_474",
+        "n_475",
+        "n_476",
+        "n_477",
+        "n_478",
+        "n_479"
+      ],
+      "edgeIds": [
+        "n_472->n_473",
+        "n_474->n_475",
+        "n_476->n_477",
+        "n_478->n_479"
+      ],
+      "sourceChunks": [
+        "substack-8_seg0"
+      ],
+      "representativeClaims": [
+        "advances in medical technology and life sciences → super-cycle of more effective and efficient healthcare",
+        "transient cyclical factors → market overlooking healthcare innovation opportunity",
+        "Trump administration's new healthcare policies → investor panic about company fundamentals and valuations",
+        "Trump administration's new policy agenda → support for healthcare industry thesis"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-96",
+      "theme": "company / theme / thematic / infrastructure",
+      "nodeIds": [
+        "n_551",
+        "n_552",
+        "n_553",
+        "n_554",
+        "n_555",
+        "n_556",
+        "n_557",
+        "n_558"
+      ],
+      "edgeIds": [
+        "n_551->n_552",
+        "n_553->n_554",
+        "n_555->n_556",
+        "n_557->n_558"
+      ],
+      "sourceChunks": [
+        "substack-12_seg0"
+      ],
+      "representativeClaims": [
+        "rise of artificial intelligence → powerful and enduring market theme",
+        "company well positioned to benefit from thematic tailwinds → warrants feature coverage",
+        "transformational nature of AI thematic → most single stock ideas being based on AI infrastructure role",
+        "company's role in AI infrastructure buildout → company positioned to benefit from AI theme"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-99",
+      "theme": "inflation / market / growth / fed",
+      "nodeIds": [
+        "n_583",
+        "n_584",
+        "n_585",
+        "n_586",
+        "n_587",
+        "n_588",
+        "n_589",
+        "n_590"
+      ],
+      "edgeIds": [
+        "n_583->n_584",
+        "n_585->n_586",
+        "n_587->n_588",
+        "n_589->n_590"
+      ],
+      "sourceChunks": [
+        "substack-13_seg1"
+      ],
+      "representativeClaims": [
+        "tariff-driven goods inflation concerns → market worry",
+        "Fed board composition uncertainty → uncertainty about Fed rate cuts beyond September",
+        "US stock market nonstop rally since April → amplified inflation and growth risks",
+        "weak jobs report (growth scare) → market concern given short-run inflation worries"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-100",
+      "theme": "market / dominant / theme / likelihood",
+      "nodeIds": [
+        "n_591",
+        "n_592",
+        "n_593",
+        "n_594",
+        "n_595",
+        "n_596",
+        "n_597",
+        "n_598"
+      ],
+      "edgeIds": [
+        "n_591->n_592",
+        "n_593->n_594",
+        "n_595->n_596",
+        "n_597->n_598"
+      ],
+      "sourceChunks": [
+        "substack-14_seg0"
+      ],
+      "representativeClaims": [
+        "singular dominant theme in market ⊣ likelihood of missing out on opportunities",
+        "rapid-fire thematic markets with broad dispersion → likelihood of thematic misfires",
+        "broad dispersion across multiple themes → difficulty in market navigation",
+        "one dominant theme (like AI in 2024) → easier market environment"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-101",
+      "theme": "investment / trend / shifts / better",
+      "nodeIds": [
+        "n_599",
+        "n_600",
+        "n_601",
+        "n_602",
+        "n_603",
+        "n_604",
+        "n_605",
+        "n_606"
+      ],
+      "edgeIds": [
+        "n_599->n_600",
+        "n_601->n_602",
+        "n_603->n_604",
+        "n_605->n_606"
+      ],
+      "sourceChunks": [
+        "substack-14_seg1"
+      ],
+      "representativeClaims": [
+        "thematic trades (5G, IoT, Work-From-Home) being pursued despite trend shifts → investor losses",
+        "rapid trend shifts → shiny and fast-moving things presenting false long-term investment promise",
+        "focusing on durable, investable, and market-moving trends → better investment outcomes",
+        "periodically stepping back to assess what's moving in markets → better investment decision-making"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-106",
+      "theme": "robotics / outperformance / companies / potential",
+      "nodeIds": [
+        "n_644",
+        "n_645",
+        "n_646",
+        "n_647",
+        "n_648",
+        "n_649",
+        "n_650",
+        "n_651"
+      ],
+      "edgeIds": [
+        "n_644->n_645",
+        "n_646->n_647",
+        "n_648->n_649",
+        "n_650->n_651"
+      ],
+      "sourceChunks": [
+        "substack-17_seg1"
+      ],
+      "representativeClaims": [
+        "renewed optimism surrounding automation → meaningful outperformance of robotics universe and narrowed robotics basket",
+        "constructive environment for bombed out companies → potential to capture narrative driven re-rating",
+        "durable inflection in robotics → narrative driven re-rating of cyclical companies",
+        "Teradyne's underappreciated upside to robotics → outperformance potential"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-109",
+      "theme": "investment / cyclical / inflections / markets",
+      "nodeIds": [
+        "n_673",
+        "n_674",
+        "n_675",
+        "n_676",
+        "n_677",
+        "n_678",
+        "n_679",
+        "n_680"
+      ],
+      "edgeIds": [
+        "n_673->n_674",
+        "n_675->n_676",
+        "n_677->n_678",
+        "n_679->n_680"
+      ],
+      "sourceChunks": [
+        "substack-19_seg0"
+      ],
+      "representativeClaims": [
+        "cyclical inflections in markets → quality of entry points for trading",
+        "rebound from crash/bust with depressed market sentiment → fertile hunting grounds for new investment themes",
+        "megatrends (secular shifts with transformative potential) → value as investment framework",
+        "positioning in robotics and automation megatrend → relevance to thematic investment basket"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-14",
+      "theme": "people / technology / risks / author",
+      "nodeIds": [
+        "n_126",
+        "n_127",
+        "n_128",
+        "n_129",
+        "n_130"
+      ],
+      "edgeIds": [
+        "n_126->n_127",
+        "n_128->n_126",
+        "n_129->n_130"
+      ],
+      "sourceChunks": [
+        "tweet-2025980800659792270"
+      ],
+      "representativeClaims": [
+        "author being wrong about their concerns → people discussing topics raised about technology risks",
+        "people becoming more proactive and aware of risks in technology → author being wrong about their concerns",
+        "people trying to prove or disprove the article's claims → addressing the risks inherent to technology"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-17",
+      "theme": "bearish / social / considering / scenarios",
+      "nodeIds": [
+        "n_135",
+        "n_136",
+        "n_137",
+        "n_138",
+        "n_139",
+        "n_140"
+      ],
+      "edgeIds": [
+        "n_135->n_136",
+        "n_137->n_138",
+        "n_139->n_140"
+      ],
+      "sourceChunks": [
+        "tweet-2025741964860092747"
+      ],
+      "representativeClaims": [
+        "considering bearish scenarios → social excommunication from twitterati",
+        "cultural norm against bearish thinking in America → suppression of bearish scenario consideration",
+        "being bullish for extended period (3 years) ⊣ social permission to consider bearish outcomes"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-26",
+      "theme": "risks / article / addressing / recognizing",
+      "nodeIds": [
+        "n_167",
+        "n_168",
+        "n_169",
+        "n_170",
+        "n_171",
+        "n_172"
+      ],
+      "edgeIds": [
+        "n_167->n_168",
+        "n_169->n_170",
+        "n_171->n_172"
+      ],
+      "sourceChunks": [
+        "tweet-2025675864390697186"
+      ],
+      "representativeClaims": [
+        "recognizing risks in the article → realizing the alternative",
+        "addressing risks proactively → preventing risks from escalating",
+        "article starting a conversation about risks → proactive risk addressing"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-33",
+      "theme": "work / macro / analysis / sammykoppelman",
+      "nodeIds": [
+        "n_197",
+        "n_198",
+        "n_199",
+        "n_200",
+        "n_201",
+        "n_202"
+      ],
+      "edgeIds": [
+        "n_197->n_198",
+        "n_199->n_200",
+        "n_201->n_202"
+      ],
+      "sourceChunks": [
+        "tweet-2025668402795131105"
+      ],
+      "representativeClaims": [
+        "SammyKoppelman's editing and proofreading → quality of the work",
+        "stevehou double checking macro analysis → accuracy of macro analysis",
+        "alapshah1 posing the initial question → development of ideas in the work"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-51",
+      "theme": "lab / grown / diamonds / buying",
+      "nodeIds": [
+        "n_246",
+        "n_247",
+        "n_248",
+        "n_249",
+        "n_250",
+        "n_251"
+      ],
+      "edgeIds": [
+        "n_246->n_247",
+        "n_248->n_249",
+        "n_250->n_251"
+      ],
+      "sourceChunks": [
+        "tweet-2022836774360236291"
+      ],
+      "representativeClaims": [
+        "economic wisdom of buying lab grown diamonds ⊣ should buy lab grown diamonds",
+        "women being able to tell the difference between lab grown and natural diamonds → relationship risk/negative outcome",
+        "buying lab grown diamonds instead of natural → women being able to tell the difference"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-53",
+      "theme": "yen / weakness / earnings / tailwinds",
+      "nodeIds": [
+        "n_254",
+        "n_255",
+        "n_256",
+        "n_257",
+        "n_258"
+      ],
+      "edgeIds": [
+        "n_254->n_255",
+        "n_256->n_257",
+        "n_258->n_257"
+      ],
+      "sourceChunks": [
+        "tweet-2022835752099348909"
+      ],
+      "representativeClaims": [
+        "yen weakness → earnings tailwinds for trading companies",
+        "equity stake in trading companies with earnings tailwinds from yen weakness → economic hedge for yen bond issuance",
+        "dividends from equity stake → economic hedge for yen bond issuance"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-59",
+      "theme": "dynamic / basket / ytd / active",
+      "nodeIds": [
+        "n_284",
+        "n_285",
+        "n_286",
+        "n_287",
+        "n_288",
+        "n_289"
+      ],
+      "edgeIds": [
+        "n_284->n_285",
+        "n_286->n_287",
+        "n_288->n_289"
+      ],
+      "sourceChunks": [
+        "tweet-2022287138075877871"
+      ],
+      "representativeClaims": [
+        "top 13 contributor positions → majority of Dynamic AI basket's YTD gains",
+        "active management of Dynamic AI basket → portfolio reaching all-time highs and +30% YTD returns",
+        "sharing every move and thesis with subscribers → transparency in strategy execution"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-68",
+      "theme": "future / promise / present / reality",
+      "nodeIds": [
+        "n_312",
+        "n_313",
+        "n_314",
+        "n_315",
+        "n_316",
+        "n_317"
+      ],
+      "edgeIds": [
+        "n_312->n_313",
+        "n_314->n_315",
+        "n_316->n_317"
+      ],
+      "sourceChunks": [
+        "tweet-2022150778970845320"
+      ],
+      "representativeClaims": [
+        "investors discounting future promise over present reality (or vice versa) → hype cycles in markets",
+        "simplicity in frameworks → framework effectiveness",
+        "unequal weighting of future promise vs present reality → market hype cycles"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-69",
+      "theme": "belief / bears / new / evidence",
+      "nodeIds": [
+        "n_318",
+        "n_319",
+        "n_320",
+        "n_321",
+        "n_322"
+      ],
+      "edgeIds": [
+        "n_318->n_319",
+        "n_318->n_320",
+        "n_321->n_322"
+      ],
+      "sourceChunks": [
+        "tweet-2022124483264618722"
+      ],
+      "representativeClaims": [
+        "belief that AI will eat the world → need to reprice everything",
+        "new evidence or developments regarding AI capabilities ⊣ bears' belief that AI is a scam and bubble",
+        "new evidence or developments regarding AI capabilities → bears' belief that AI will have transformative world-eating impact"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-84",
+      "theme": "ideas / removing / pressure / right",
+      "nodeIds": [
+        "n_444",
+        "n_445",
+        "n_446",
+        "n_447",
+        "n_448",
+        "n_449"
+      ],
+      "edgeIds": [
+        "n_444->n_445",
+        "n_446->n_447",
+        "n_448->n_449"
+      ],
+      "sourceChunks": [
+        "substack-5_seg1"
+      ],
+      "representativeClaims": [
+        "removing pressure to be right at the right time → ideas more closely approximate unpredictable nature of outcomes",
+        "maintaining a thematic watchlist of diverse ideas → minimizing risk of intellectual blind spots",
+        "including preparation ideas for specific scenarios → better readiness for eventuality"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-95",
+      "theme": "physical / world / screens / charts",
+      "nodeIds": [
+        "n_545",
+        "n_546",
+        "n_547",
+        "n_548",
+        "n_549",
+        "n_550"
+      ],
+      "edgeIds": [
+        "n_545->n_546",
+        "n_547->n_548",
+        "n_549->n_550"
+      ],
+      "sourceChunks": [
+        "substack-11_seg1"
+      ],
+      "representativeClaims": [
+        "relying on screens and charts to track AI supply chain → forgetting the physical world behind the numbers",
+        "physical infrastructure (chips, fiber, power) existing in the real world → necessity to step away from charts and witness it in person",
+        "screens making it easy to forget the physical world → risk of failing to appreciate the AI supply chain effort"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-105",
+      "theme": "breakthroughs / vla / models / improvements",
+      "nodeIds": [
+        "n_638",
+        "n_639",
+        "n_640",
+        "n_641",
+        "n_642",
+        "n_643"
+      ],
+      "edgeIds": [
+        "n_638->n_639",
+        "n_640->n_641",
+        "n_642->n_643"
+      ],
+      "sourceChunks": [
+        "substack-17_seg0"
+      ],
+      "representativeClaims": [
+        "breakthroughs in VLA models → improvements in robot sensing and perception capabilities",
+        "AI reshaping the digital landscape → next step of technology entering the physical world",
+        "heavy automotive exposure of robotics supply chain → poor performance of the cycle"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-110",
+      "theme": "growth / ouster / digital / technology",
+      "nodeIds": [
+        "n_681",
+        "n_682",
+        "n_683",
+        "n_684",
+        "n_685",
+        "n_686"
+      ],
+      "edgeIds": [
+        "n_681->n_682",
+        "n_683->n_684",
+        "n_685->n_686"
+      ],
+      "sourceChunks": [
+        "substack-19_seg1"
+      ],
+      "representativeClaims": [
+        "Ouster's digital technology integrating LiDAR onto CMOS chips → cost and performance benefits",
+        "customers transitioning from prototypes to commercialization → substantial volume growth",
+        "diversification strategy across automotive, industrial, robotics, and smart infrastructure → significant growth in all four verticals"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-18",
+      "theme": "knowing / how / read / book",
+      "nodeIds": [
+        "n_141",
+        "n_142",
+        "n_143",
+        "n_144"
+      ],
+      "edgeIds": [
+        "n_141->n_142",
+        "n_143->n_144"
+      ],
+      "sourceChunks": [
+        "tweet-2025736095955100043"
+      ],
+      "representativeClaims": [
+        "knowing how to read → writing a book",
+        "not knowing how to read → inability to write a book"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-21",
+      "theme": "people / taking / action / sooner",
+      "nodeIds": [
+        "n_149",
+        "n_150",
+        "n_151",
+        "n_152"
+      ],
+      "edgeIds": [
+        "n_149->n_150",
+        "n_151->n_152"
+      ],
+      "sourceChunks": [
+        "tweet-2025712242612687123"
+      ],
+      "representativeClaims": [
+        "aggressive timeline messaging → people considering taking action sooner",
+        "people taking action sooner rather than later → avoiding most of the worst outcomes"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-22",
+      "theme": "price / electricity / cost / approaching",
+      "nodeIds": [
+        "n_153",
+        "n_154",
+        "n_155",
+        "n_156"
+      ],
+      "edgeIds": [
+        "n_153->n_154",
+        "n_155->n_156"
+      ],
+      "sourceChunks": [
+        "tweet-2025711907022217573"
+      ],
+      "representativeClaims": [
+        "electricity cost → minimum viable price floor",
+        "approaching the limit/equilibrium state → price level relative to electricity cost"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-24",
+      "theme": "policy / covid / rapid / response",
+      "nodeIds": [
+        "n_159",
+        "n_160",
+        "n_161",
+        "n_162"
+      ],
+      "edgeIds": [
+        "n_159->n_160",
+        "n_161->n_162"
+      ],
+      "sourceChunks": [
+        "tweet-2025695737133125939"
+      ],
+      "representativeClaims": [
+        "historical prevalence of inadequate policy responses over rapid adequate ones → likelihood of inadequate COVID policy response",
+        "COVID being fundamentally different from gradual phenomena → need for rapid policy response"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-25",
+      "theme": "well / thought / out / scenario",
+      "nodeIds": [
+        "n_163",
+        "n_164",
+        "n_165",
+        "n_166"
+      ],
+      "edgeIds": [
+        "n_163->n_164",
+        "n_165->n_166"
+      ],
+      "sourceChunks": [
+        "tweet-2025677590267146695"
+      ],
+      "representativeClaims": [
+        "well thought out scenario → value of prediction",
+        "lack of pride in correctness → openness to disagreement"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-27",
+      "theme": "technological / reading / revolutions / financial",
+      "nodeIds": [
+        "n_173",
+        "n_174",
+        "n_175",
+        "n_176"
+      ],
+      "edgeIds": [
+        "n_173->n_174",
+        "n_175->n_176"
+      ],
+      "sourceChunks": [
+        "tweet-2025675271358095431"
+      ],
+      "representativeClaims": [
+        "technological advancement → following a consistent framework as it relates to public markets",
+        "reading 'Technological Revolutions and Financial Capital' by Perez → understanding the best bull/base case scenario"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-28",
+      "theme": "progress / rate / surprise / unexpected",
+      "nodeIds": [
+        "n_177",
+        "n_178",
+        "n_179",
+        "n_180"
+      ],
+      "edgeIds": [
+        "n_177->n_178",
+        "n_179->n_180"
+      ],
+      "sourceChunks": [
+        "tweet-2025672657203581022"
+      ],
+      "representativeClaims": [
+        "physical AI progress rate ⊣ AI progress rate",
+        "AI progress → surprise (unexpected outcomes)"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-29",
+      "theme": "content / people / makes / uncomfortable",
+      "nodeIds": [
+        "n_181",
+        "n_182",
+        "n_183",
+        "n_184"
+      ],
+      "edgeIds": [
+        "n_181->n_182",
+        "n_183->n_184"
+      ],
+      "sourceChunks": [
+        "tweet-2025671192506401135"
+      ],
+      "representativeClaims": [
+        "positive feedback → genuine appreciation",
+        "content that makes people uncomfortable → people criticizing/dismissing the content"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-30",
+      "theme": "content / ideas / containing / unconsidered",
+      "nodeIds": [
+        "n_185",
+        "n_186",
+        "n_187",
+        "n_188"
+      ],
+      "edgeIds": [
+        "n_185->n_186",
+        "n_187->n_188"
+      ],
+      "sourceChunks": [
+        "tweet-2025670636509462907"
+      ],
+      "representativeClaims": [
+        "content containing unconsidered ideas → value for readers",
+        "validity of ideas presented ⊣ negative reception or dismissal of content"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-31",
+      "theme": "writing / styles / certain / positive",
+      "nodeIds": [
+        "n_189",
+        "n_190",
+        "n_191",
+        "n_192"
+      ],
+      "edgeIds": [
+        "n_189->n_190",
+        "n_191->n_192"
+      ],
+      "sourceChunks": [
+        "tweet-2025669941307818108"
+      ],
+      "representativeClaims": [
+        "certain writing styles being reinforced as positive in AI models → those writing styles becoming prevalent in human-written text",
+        "AI models reinforcing certain writing styles as positive → challenges for human writers"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-32",
+      "theme": "piece / conversation / publishing / critique",
+      "nodeIds": [
+        "n_193",
+        "n_194",
+        "n_195",
+        "n_196"
+      ],
+      "edgeIds": [
+        "n_193->n_194",
+        "n_195->n_196"
+      ],
+      "sourceChunks": [
+        "tweet-2025668648270967050"
+      ],
+      "representativeClaims": [
+        "publishing a piece for critique → starting a conversation",
+        "someone writing a refutation → conversation about the published piece"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-38",
+      "theme": "glory / purchasing / buying / actually",
+      "nodeIds": [
+        "n_211",
+        "n_212",
+        "n_213"
+      ],
+      "edgeIds": [
+        "n_211->n_212",
+        "n_213->n_212"
+      ],
+      "sourceChunks": [
+        "tweet-2024974454019780671"
+      ],
+      "representativeClaims": [
+        "purchasing/buying glory ⊣ actually obtaining glory",
+        "earning glory through effort/merit → actually obtaining glory"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-41",
+      "theme": "directed / energy / weapon / dram",
+      "nodeIds": [
+        "n_218",
+        "n_219",
+        "n_220",
+        "n_221"
+      ],
+      "edgeIds": [
+        "n_218->n_219",
+        "n_220->n_221"
+      ],
+      "sourceChunks": [
+        "tweet-2023905392858726795"
+      ],
+      "representativeClaims": [
+        "directed energy weapon mounted to sub-sea vehicle → ability to retrieve 512kb DRAM stick",
+        "DRAM stick being hidden in TI-84 by insurgent forces → need for directed energy weapon retrieval method"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-45",
+      "theme": "stocks / thinking / terms / optical",
+      "nodeIds": [
+        "n_228",
+        "n_229",
+        "n_230",
+        "n_231"
+      ],
+      "edgeIds": [
+        "n_228->n_229",
+        "n_230->n_231"
+      ],
+      "sourceChunks": [
+        "tweet-2023566999012405435"
+      ],
+      "representativeClaims": [
+        "thinking in terms of current optical expensiveness of stocks → discomfort with buying stocks despite bullish future case",
+        "stopping thinking in terms of optical expensiveness → ability to overcome discomfort with buying expensive-looking stocks"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-46",
+      "theme": "valuation / basket / high / companies",
+      "nodeIds": [
+        "n_232",
+        "n_233",
+        "n_234",
+        "n_235"
+      ],
+      "edgeIds": [
+        "n_232->n_233",
+        "n_234->n_235"
+      ],
+      "sourceChunks": [
+        "tweet-2023565334272160201"
+      ],
+      "representativeClaims": [
+        "high valuation of AI basket companies → concern/worry",
+        "Minimax catching up to OpenAI or Anthropic → AI basket valuation justification"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-50",
+      "theme": "cancer / capex / spending / curing",
+      "nodeIds": [
+        "n_242",
+        "n_243",
+        "n_244",
+        "n_245"
+      ],
+      "edgeIds": [
+        "n_242->n_243",
+        "n_244->n_245"
+      ],
+      "sourceChunks": [
+        "tweet-2023164244460482697"
+      ],
+      "representativeClaims": [
+        "curing cancer through applied AI/ML for medical research → justifying capex spending on AI/ML",
+        "achieving cancer cure as sole outcome → capex spending being worthwhile"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-56",
+      "theme": "boyfriend / deletion / development / unlocking",
+      "nodeIds": [
+        "n_276",
+        "n_277",
+        "n_278",
+        "n_279"
+      ],
+      "edgeIds": [
+        "n_276->n_277",
+        "n_278->n_279"
+      ],
+      "sourceChunks": [
+        "tweet-2022466790157099351"
+      ],
+      "representativeClaims": [
+        "AI boyfriend deletion before Valentine's Day → unfathomable sadness in users",
+        "AI development → unlocking new forms of emotional suffering (AI boyfriend deletion)"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-61",
+      "theme": "chinese / foundational / covering / ecosystem",
+      "nodeIds": [
+        "n_292",
+        "n_293",
+        "n_294",
+        "n_295"
+      ],
+      "edgeIds": [
+        "n_292->n_293",
+        "n_294->n_295"
+      ],
+      "sourceChunks": [
+        "tweet-2022190417668915217"
+      ],
+      "representativeClaims": [
+        "covering the Chinese AI ecosystem since early period (when Cambricon was CNY60/share) → knowledge of foundational Chinese AI companies",
+        "having printed on foundational Chinese AI names → credibility/track record in identifying key players"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-66",
+      "theme": "rising / bar / negative / catalysts",
+      "nodeIds": [
+        "n_304",
+        "n_305",
+        "n_306",
+        "n_307"
+      ],
+      "edgeIds": [
+        "n_304->n_305",
+        "n_306->n_307"
+      ],
+      "sourceChunks": [
+        "tweet-2022153519558799417"
+      ],
+      "representativeClaims": [
+        "rising bar for negative catalysts ⊣ likelihood of derailment",
+        "past pattern of 'this time is different' being wrong → reluctance to claim exceptionality"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-67",
+      "theme": "obvious / negative / catalyst / present",
+      "nodeIds": [
+        "n_308",
+        "n_309",
+        "n_310",
+        "n_311"
+      ],
+      "edgeIds": [
+        "n_308->n_309",
+        "n_310->n_311"
+      ],
+      "sourceChunks": [
+        "tweet-2022153236900458512"
+      ],
+      "representativeClaims": [
+        "emergence of obvious negative catalyst → change in market/investment dynamics",
+        "absence of obvious negative catalyst in present → continued discounting of present in favor of future"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-74",
+      "theme": "sentiment / negative / inflection / stock",
+      "nodeIds": [
+        "n_331",
+        "n_332",
+        "n_333",
+        "n_334"
+      ],
+      "edgeIds": [
+        "n_331->n_332",
+        "n_333->n_334"
+      ],
+      "sourceChunks": [
+        "tweet-2022008888795746331"
+      ],
+      "representativeClaims": [
+        "negative sentiment inflection → stock performance (gets creamed)",
+        "high beta speculative nature → vulnerability to sentiment shifts"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-102",
+      "theme": "falling / long / yields / housing",
+      "nodeIds": [
+        "n_614",
+        "n_615",
+        "n_616",
+        "n_617"
+      ],
+      "edgeIds": [
+        "n_614->n_615",
+        "n_616->n_617"
+      ],
+      "sourceChunks": [
+        "substack-15_seg1"
+      ],
+      "representativeClaims": [
+        "Fading overreactions at key moments in rates and FX → Successful macro trading outcomes",
+        "Falling long yields → Housing market unlocks"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-2",
+      "theme": "economic / factors / problem / occurrence",
+      "nodeIds": [
+        "n_22",
+        "n_23"
+      ],
+      "edgeIds": [
+        "n_22->n_23"
+      ],
+      "sourceChunks": [
+        "article-citrini-2028gic-ghost-gdp_seg1"
+      ],
+      "representativeClaims": [
+        "economic factors ⊣ problem occurrence"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-10",
+      "theme": "past / naivety / poor / judgment",
+      "nodeIds": [
+        "n_118",
+        "n_119"
+      ],
+      "edgeIds": [
+        "n_118->n_119"
+      ],
+      "sourceChunks": [
+        "tweet-2027396118368129099"
+      ],
+      "representativeClaims": [
+        "past naivety/poor judgment → regret about past decision"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-11",
+      "theme": "selling / regret / missed / gains",
+      "nodeIds": [
+        "n_120",
+        "n_121"
+      ],
+      "edgeIds": [
+        "n_120->n_121"
+      ],
+      "sourceChunks": [
+        "tweet-2027394680497819998"
+      ],
+      "representativeClaims": [
+        "selling at $25 → regret/missed gains"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-12",
+      "theme": "holding / asset / position / need",
+      "nodeIds": [
+        "n_122",
+        "n_123"
+      ],
+      "edgeIds": [
+        "n_122->n_123"
+      ],
+      "sourceChunks": [
+        "tweet-2027394404407754862"
+      ],
+      "representativeClaims": [
+        "holding an asset/position ⊣ need to conduct equity research"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-13",
+      "theme": "removing / paywall / trades / 2026",
+      "nodeIds": [
+        "n_124",
+        "n_125"
+      ],
+      "edgeIds": [
+        "n_124->n_125"
+      ],
+      "sourceChunks": [
+        "tweet-2026754330129248257"
+      ],
+      "representativeClaims": [
+        "removing the paywall on 26 Trades for 2026 → increased accessibility to the annual year ahead report"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-15",
+      "theme": "taking / action / described / alap",
+      "nodeIds": [
+        "n_131",
+        "n_132"
+      ],
+      "edgeIds": [
+        "n_131->n_132"
+      ],
+      "sourceChunks": [
+        "tweet-2025978906142994478"
+      ],
+      "representativeClaims": [
+        "taking action described in Alap's piece → avoiding dystopian future from CitriniResearch article"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-16",
+      "theme": "sinning / against / bull / market",
+      "nodeIds": [
+        "n_133",
+        "n_134"
+      ],
+      "edgeIds": [
+        "n_133->n_134"
+      ],
+      "sourceChunks": [
+        "tweet-2025742247333925335"
+      ],
+      "representativeClaims": [
+        "sinning against the bull market → being crucified (facing severe criticism/punishment)"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-19",
+      "theme": "agentic / commerce / user / adoption",
+      "nodeIds": [
+        "n_145",
+        "n_146"
+      ],
+      "edgeIds": [
+        "n_145->n_146"
+      ],
+      "sourceChunks": [
+        "tweet-2025713996569919709"
+      ],
+      "representativeClaims": [
+        "agentic commerce ⊣ user adoption and distribution as a moat"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-20",
+      "theme": "intellectually / challenged / time / needed",
+      "nodeIds": [
+        "n_147",
+        "n_148"
+      ],
+      "edgeIds": [
+        "n_147->n_148"
+      ],
+      "sourceChunks": [
+        "tweet-2025712921175621987"
+      ],
+      "representativeClaims": [
+        "being intellectually challenged → time needed to accomplish tasks"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-23",
+      "theme": "constructive / addition / conversation / appreciation",
+      "nodeIds": [
+        "n_157",
+        "n_158"
+      ],
+      "edgeIds": [
+        "n_157->n_158"
+      ],
+      "sourceChunks": [
+        "tweet-2025696102884720667"
+      ],
+      "representativeClaims": [
+        "constructive addition to conversation → appreciation/positive regard"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-34",
+      "theme": "intellectual / laziness / dismissing / rigorously",
+      "nodeIds": [
+        "n_203",
+        "n_204"
+      ],
+      "edgeIds": [
+        "n_203->n_204"
+      ],
+      "sourceChunks": [
+        "tweet-2025668400396349476"
+      ],
+      "representativeClaims": [
+        "intellectual laziness → dismissing rigorously constructed scenarios outright"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-35",
+      "theme": "exceeded / expectation / down / highs",
+      "nodeIds": [
+        "n_205",
+        "n_206"
+      ],
+      "edgeIds": [
+        "n_205->n_206"
+      ],
+      "sourceChunks": [
+        "tweet-2025653614430023864"
+      ],
+      "representativeClaims": [
+        "AI exceeded every expectation → S&P down 38% from highs, unemployment at 10.2%, private credit unraveling, prime mortgages cracking"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-36",
+      "theme": "editing / phase / deleting / restoring",
+      "nodeIds": [
+        "n_207",
+        "n_208"
+      ],
+      "edgeIds": [
+        "n_207->n_208"
+      ],
+      "sourceChunks": [
+        "tweet-2025352029535641860"
+      ],
+      "representativeClaims": [
+        "being in the editing phase of deleting and restoring words → article completion delay"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-37",
+      "theme": "investment / korea / outperformance / ewy",
+      "nodeIds": [
+        "n_209",
+        "n_210"
+      ],
+      "edgeIds": [
+        "n_209->n_210"
+      ],
+      "sourceChunks": [
+        "tweet-2024979689651970299"
+      ],
+      "representativeClaims": [
+        "Korea investment outperformance (EWY +99.27% vs SPY +7.78%) → profitable investment returns"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-39",
+      "theme": "proximity / year / yield / closing",
+      "nodeIds": [
+        "n_214",
+        "n_215"
+      ],
+      "edgeIds": [
+        "n_214->n_215"
+      ],
+      "sourceChunks": [
+        "tweet-2024972509733322998"
+      ],
+      "representativeClaims": [
+        "proximity to 10 year yield closing print → receiving first merchandise item"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-40",
+      "theme": "merely / saying / positive / things",
+      "nodeIds": [
+        "n_216",
+        "n_217"
+      ],
+      "edgeIds": [
+        "n_216->n_217"
+      ],
+      "sourceChunks": [
+        "tweet-2024546632633614602"
+      ],
+      "representativeClaims": [
+        "merely saying positive things about portfolio and marks quality ⊣ achieving sufficient impact or results"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-42",
+      "theme": "something / unspecified / action / event",
+      "nodeIds": [
+        "n_222",
+        "n_223"
+      ],
+      "edgeIds": [
+        "n_222->n_223"
+      ],
+      "sourceChunks": [
+        "tweet-2023904727713395044"
+      ],
+      "representativeClaims": [
+        "something (unspecified action or event) → Native_0x will experience consequences"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-43",
+      "theme": "using / image / modern / warfare",
+      "nodeIds": [
+        "n_224",
+        "n_225"
+      ],
+      "edgeIds": [
+        "n_224->n_225"
+      ],
+      "sourceChunks": [
+        "tweet-2023904175696888175"
+      ],
+      "representativeClaims": [
+        "using this image for Modern Warfare update → receiving cease and desist letter from Activision"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-44",
+      "theme": "deepseek / open / source / making",
+      "nodeIds": [
+        "n_226",
+        "n_227"
+      ],
+      "edgeIds": [
+        "n_226->n_227"
+      ],
+      "sourceChunks": [
+        "tweet-2023576329300357191"
+      ],
+      "representativeClaims": [
+        "DeepSeek being open source → making it a compelling alternative despite close performance to western products"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-47",
+      "theme": "forcing / people / paying / product",
+      "nodeIds": [
+        "n_236",
+        "n_237"
+      ],
+      "edgeIds": [
+        "n_236->n_237"
+      ],
+      "sourceChunks": [
+        "tweet-2023562367234158726"
+      ],
+      "representativeClaims": [
+        "forcing people paying for the product to pay attention to it ⊣ within one's control"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-48",
+      "theme": "chinese / robots / adept / kung",
+      "nodeIds": [
+        "n_238",
+        "n_239"
+      ],
+      "edgeIds": [
+        "n_238->n_239"
+      ],
+      "sourceChunks": [
+        "tweet-2023459616688918971"
+      ],
+      "representativeClaims": [
+        "Chinese robots being adept at kung fu → US taking robotics seriously"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-49",
+      "theme": "private / equity / acquisition / quality",
+      "nodeIds": [
+        "n_240",
+        "n_241"
+      ],
+      "edgeIds": [
+        "n_240->n_241"
+      ],
+      "sourceChunks": [
+        "tweet-2023228847865405553"
+      ],
+      "representativeClaims": [
+        "private equity acquisition ⊣ quality/condition of acquired company"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-52",
+      "theme": "knowing / something / asking / question",
+      "nodeIds": [
+        "n_252",
+        "n_253"
+      ],
+      "edgeIds": [
+        "n_252->n_253"
+      ],
+      "sourceChunks": [
+        "tweet-2022836294942876157"
+      ],
+      "representativeClaims": [
+        "not knowing something → asking a question about it"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-57",
+      "theme": "having / lot / security / safety",
+      "nodeIds": [
+        "n_280",
+        "n_281"
+      ],
+      "edgeIds": [
+        "n_280->n_281"
+      ],
+      "sourceChunks": [
+        "tweet-2022344176063705558"
+      ],
+      "representativeClaims": [
+        "having a lot of security → safety/protection from threats"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-58",
+      "theme": "certain / corners / internet / insane",
+      "nodeIds": [
+        "n_282",
+        "n_283"
+      ],
+      "edgeIds": [
+        "n_282->n_283"
+      ],
+      "sourceChunks": [
+        "tweet-2022342525655433568"
+      ],
+      "representativeClaims": [
+        "certain corners of the internet → insane things occurring"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-60",
+      "theme": "current / time / day / early",
+      "nodeIds": [
+        "n_290",
+        "n_291"
+      ],
+      "edgeIds": [
+        "n_290->n_291"
+      ],
+      "sourceChunks": [
+        "tweet-2022193471201898845"
+      ],
+      "representativeClaims": [
+        "current time of day (early morning) → they are still asleep"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-62",
+      "theme": "logic / continued / functionality / success",
+      "nodeIds": [
+        "n_296",
+        "n_297"
+      ],
+      "edgeIds": [
+        "n_296->n_297"
+      ],
+      "sourceChunks": [
+        "tweet-2022188060910477397"
+      ],
+      "representativeClaims": [
+        "this logic → continued functionality/success"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-63",
+      "theme": "wisdom / worthy / admiration / respect",
+      "nodeIds": [
+        "n_298",
+        "n_299"
+      ],
+      "edgeIds": [
+        "n_298->n_299"
+      ],
+      "sourceChunks": [
+        "tweet-2022187655891685597"
+      ],
+      "representativeClaims": [
+        "wisdom → being worthy of admiration/respect"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-64",
+      "theme": "long / cell / tower / reits",
+      "nodeIds": [
+        "n_300",
+        "n_301"
+      ],
+      "edgeIds": [
+        "n_300->n_301"
+      ],
+      "sourceChunks": [
+        "tweet-2022155663204569317"
+      ],
+      "representativeClaims": [
+        "long cell tower REITs and short commercial/office REITs strategy → investment performance/returns"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-65",
+      "theme": "lack / rime / rational / institutional",
+      "nodeIds": [
+        "n_302",
+        "n_303"
+      ],
+      "edgeIds": [
+        "n_302->n_303"
+      ],
+      "sourceChunks": [
+        "tweet-2022154381672820974"
+      ],
+      "representativeClaims": [
+        "lack of RIME (Rational Institutional Momentum Equity) or fundamental reason → CHRW selloff"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-70",
+      "theme": "agents / participating / internet / forums",
+      "nodeIds": [
+        "n_323",
+        "n_324"
+      ],
+      "edgeIds": [
+        "n_323->n_324"
+      ],
+      "sourceChunks": [
+        "tweet-2022121648145793063"
+      ],
+      "representativeClaims": [
+        "AI agents participating in Internet forums → human activities being unsafe/compromised"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-71",
+      "theme": "portfolio / investing / cubes / instead",
+      "nodeIds": [
+        "n_325",
+        "n_326"
+      ],
+      "edgeIds": [
+        "n_325->n_326"
+      ],
+      "sourceChunks": [
+        "tweet-2022071548946133011"
+      ],
+      "representativeClaims": [
+        "investing in cubes (instead of current portfolio) → better portfolio performance"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-72",
+      "theme": "bonds / investment / attractiveness",
+      "nodeIds": [
+        "n_327",
+        "n_328"
+      ],
+      "edgeIds": [
+        "n_327->n_328"
+      ],
+      "sourceChunks": [
+        "tweet-2022052342049505351"
+      ],
+      "representativeClaims": [
+        "bonds → investment attractiveness"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-73",
+      "theme": "hyper / object / end / universe",
+      "nodeIds": [
+        "n_329",
+        "n_330"
+      ],
+      "edgeIds": [
+        "n_329->n_330"
+      ],
+      "sourceChunks": [
+        "tweet-2022030444238450922"
+      ],
+      "representativeClaims": [
+        "hyper object at the end of the universe reaching backwards through time to assemble itself → sorting things out"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-89",
+      "theme": "industry / health / improvement / investor",
+      "nodeIds": [
+        "n_490",
+        "n_491"
+      ],
+      "edgeIds": [
+        "n_490->n_491"
+      ],
+      "sourceChunks": [
+        "substack-8_seg2"
+      ],
+      "representativeClaims": [
+        "industry health improvement ⊣ investor sentiment"
+      ],
+      "claimCount": 1
+    }
+  ],
+  "synthesizedAt": "2026-03-05T04:04:59.598Z"
+}

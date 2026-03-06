@@ -1,0 +1,441 @@
+{
+  "personaId": "Jukan",
+  "topic": "Will the AI-driven memory supercycle sustain through 2027?",
+  "rootClaim": "Jukan-root",
+  "nodes": [
+    {
+      "id": "Jukan-root",
+      "claim": "The AI-driven memory supercycle will sustain through 2027, driven by persistent demand across HBM and broader memory categories, supported by technological advances and industry capacity expansion, despite near-term pricing pressures and supply chain constraints.",
+      "type": "root",
+      "baseScore": 0.5753333333333334,
+      "dialecticalStrength": 0.8841743086911287,
+      "grounding": [
+        "tweet-2028364899274084389",
+        "tweet-2029013728654704938",
+        "tweet-2028728438333616521",
+        "tweet-2028728179616292874",
+        "tweet-2028803497630835049",
+        "tweet-2028600072859201854",
+        "tweet-2027314509740970335",
+        "tweet-2028604501490589791",
+        "tweet-2027652218602524906",
+        "tweet-2028363932755452153"
+      ],
+      "personaId": "Jukan",
+      "depth": 0
+    },
+    {
+      "id": "Jukan-d1-0",
+      "claim": "AI-driven memory demand represents a structural shift that extends beyond HBM to all memory categories (DRAM, NAND), not a temporary spike",
+      "type": "pro",
+      "baseScore": 0.63,
+      "dialecticalStrength": 0.85994616726528,
+      "grounding": [
+        "tweet-2028364899274084389"
+      ],
+      "personaId": "Jukan",
+      "depth": 1
+    },
+    {
+      "id": "Jukan-assumption-0-0",
+      "claim": "AI inference deployment will scale at rates comparable to or exceeding training infrastructure buildout, driving sustained memory demand growth",
+      "type": "pro",
+      "baseScore": 0.7200000000000001,
+      "dialecticalStrength": 0.7200000000000001,
+      "grounding": [
+        "tweet-2028364899274084389",
+        "tweet-2028364899274084389",
+        "tweet-2028364899274084389"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-assumption-0-1",
+      "claim": "Memory intensity per compute unit in AI workloads will continue increasing faster than Moore's Law density improvements can offset",
+      "type": "pro",
+      "baseScore": 0.7200000000000001,
+      "dialecticalStrength": 0.7200000000000001,
+      "grounding": [
+        "tweet-2028364899274084389",
+        "tweet-2028364899274084389",
+        "tweet-2028364899274084389"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-assumption-0-2",
+      "claim": "The AI infrastructure buildout is in early innings (sub-20% penetration) with multi-year runway remaining before saturation",
+      "type": "pro",
+      "baseScore": 0.7200000000000001,
+      "dialecticalStrength": 0.7200000000000001,
+      "grounding": [
+        "tweet-2028364899274084389",
+        "tweet-2028364899274084389",
+        "tweet-2028364899274084389"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-d1-1",
+      "claim": "memory demand extension beyond HBM across the board, driven by AI-driven memory demand",
+      "type": "pro",
+      "baseScore": 0.5900000000000001,
+      "dialecticalStrength": 0.1182911760625,
+      "grounding": [
+        "tweet-2028364899274084389"
+      ],
+      "personaId": "Jukan",
+      "depth": 1
+    },
+    {
+      "id": "Jukan-d1-2",
+      "claim": "Samsung's next-generation DRAM technology (1c node with Stand It Vertical, Stack and Bond) positions them competitively for HBM4 despite current HBM3E challenges",
+      "type": "pro",
+      "baseScore": 0.5900000000000001,
+      "dialecticalStrength": 0.9721371554265088,
+      "grounding": [
+        "tweet-2029013728654704938"
+      ],
+      "personaId": "Jukan",
+      "depth": 1
+    },
+    {
+      "id": "Jukan-assumption-2-0",
+      "claim": "Process technology leadership at the base DRAM level translates directly into HBM competitiveness, making node transitions more important than current generation yield issues",
+      "type": "pro",
+      "baseScore": 0.6400000000000001,
+      "dialecticalStrength": 0.6400000000000001,
+      "grounding": [
+        "tweet-2029013728654704938",
+        "tweet-2029013728654704938",
+        "tweet-2029013728654704938"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-assumption-2-1",
+      "claim": "Samsung's HBM3E qualification delays are execution issues rather than fundamental technology gaps, and will not persist into the HBM4 generation",
+      "type": "pro",
+      "baseScore": 0.6400000000000001,
+      "dialecticalStrength": 0.6400000000000001,
+      "grounding": [
+        "tweet-2029013728654704938",
+        "tweet-2029013728654704938",
+        "tweet-2029013728654704938"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-assumption-2-2",
+      "claim": "Nvidia and other AI accelerator customers will dual-source or multi-source HBM to avoid supply concentration risk, ensuring Samsung can capture share even without being first to market",
+      "type": "pro",
+      "baseScore": 0.6400000000000001,
+      "dialecticalStrength": 0.6400000000000001,
+      "grounding": [
+        "tweet-2029013728654704938",
+        "tweet-2029013728654704938",
+        "tweet-2029013728654704938"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-d1-3",
+      "claim": "Nvidia lowering HBM4 required specs, driven by HBM4 supply issues",
+      "type": "con",
+      "baseScore": 0.63,
+      "dialecticalStrength": 0.38020499999999996,
+      "grounding": [
+        "tweet-2028728438333616521"
+      ],
+      "personaId": "Jukan",
+      "depth": 1
+    },
+    {
+      "id": "Jukan-d1-4",
+      "claim": "HBM stability and performance, driven by new packaging technology for HBM",
+      "type": "pro",
+      "baseScore": 0.61,
+      "dialecticalStrength": 0.9030841225,
+      "grounding": [
+        "tweet-2028728179616292874"
+      ],
+      "personaId": "Jukan",
+      "depth": 1
+    },
+    {
+      "id": "Jukan-d2-0",
+      "claim": "memory pricing cooling off, driven by hyperscalers complaining about being out of money",
+      "type": "con",
+      "baseScore": 0.4700000000000001,
+      "dialecticalStrength": 0.4700000000000001,
+      "grounding": [
+        "tweet-2028803497630835049"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-d2-1",
+      "claim": "US chip sales cap at 75k per Chinese buyer, driven by Nvidia H200 sales to China",
+      "type": "con",
+      "baseScore": 0.61,
+      "dialecticalStrength": 0.61,
+      "grounding": [
+        "tweet-2028600072859201854"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-d2-2",
+      "claim": "gap between US policy and market demand from China, driven by US limit being less than half of what Chinese clients sought",
+      "type": "con",
+      "baseScore": 0.5900000000000001,
+      "dialecticalStrength": 0.5900000000000001,
+      "grounding": [
+        "tweet-2028600072859201854"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-d2-3",
+      "claim": "DRAM price surge, driven by Samsung and SK Hynix raising DRAM prices in Q2",
+      "type": "pro",
+      "baseScore": 0.63,
+      "dialecticalStrength": 0.63,
+      "grounding": [
+        "tweet-2027314509740970335"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-d2-4",
+      "claim": "mass production timeline pushed to early next year, driven by unspecified delays or challenges at Samsung Taylor plant",
+      "type": "con",
+      "baseScore": 0.53,
+      "dialecticalStrength": 0.53,
+      "grounding": [
+        "tweet-2028604501490589791"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-d2-5",
+      "claim": "industry advancement (first of its kind), driven by Broadcom's SiP technology for AI data centers",
+      "type": "pro",
+      "baseScore": 0.5900000000000001,
+      "dialecticalStrength": 0.5900000000000001,
+      "grounding": [
+        "tweet-2027652218602524906"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-d2-6",
+      "claim": "public awareness of Samsung's DRAM advancement, driven by Samsung unveiling next-generation DRAM at ISSCC conference",
+      "type": "pro",
+      "baseScore": 0.4700000000000001,
+      "dialecticalStrength": 0.4700000000000001,
+      "grounding": [
+        "tweet-2029013728654704938"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-d2-7",
+      "claim": "performance jump in HBM4, driven by transformation in packaging technology",
+      "type": "pro",
+      "baseScore": 0.5900000000000001,
+      "dialecticalStrength": 0.5900000000000001,
+      "grounding": [
+        "tweet-2028728179616292874"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-d2-8",
+      "claim": "bottlenecks in PCB materials, driven by rising demand for AI servers",
+      "type": "con",
+      "baseScore": 0.63,
+      "dialecticalStrength": 0.63,
+      "grounding": [
+        "tweet-2028363932755452153"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    },
+    {
+      "id": "Jukan-d2-9",
+      "claim": "Broadcom becoming a next big HBM customer, driven by Broadcom's completion of SiP technology development with hybrid bonding",
+      "type": "pro",
+      "baseScore": 0.4700000000000001,
+      "dialecticalStrength": 0.4700000000000001,
+      "grounding": [
+        "tweet-2027652218602524906"
+      ],
+      "personaId": "Jukan",
+      "depth": 2
+    }
+  ],
+  "edges": [
+    {
+      "id": "Jukan-d1-0->Jukan-root",
+      "from": "Jukan-d1-0",
+      "to": "Jukan-root",
+      "type": "support",
+      "weight": 0.95
+    },
+    {
+      "id": "Jukan-assumption-0-0->Jukan-d1-0",
+      "from": "Jukan-assumption-0-0",
+      "to": "Jukan-d1-0",
+      "type": "support",
+      "weight": 0.7
+    },
+    {
+      "id": "Jukan-assumption-0-1->Jukan-d1-0",
+      "from": "Jukan-assumption-0-1",
+      "to": "Jukan-d1-0",
+      "type": "support",
+      "weight": 0.7
+    },
+    {
+      "id": "Jukan-assumption-0-2->Jukan-d1-0",
+      "from": "Jukan-assumption-0-2",
+      "to": "Jukan-d1-0",
+      "type": "support",
+      "weight": 0.7
+    },
+    {
+      "id": "Jukan-d1-1->Jukan-root",
+      "from": "Jukan-d1-1",
+      "to": "Jukan-root",
+      "type": "support",
+      "weight": 0.9
+    },
+    {
+      "id": "Jukan-d1-2->Jukan-root",
+      "from": "Jukan-d1-2",
+      "to": "Jukan-root",
+      "type": "support",
+      "weight": 0.85
+    },
+    {
+      "id": "Jukan-assumption-2-0->Jukan-d1-2",
+      "from": "Jukan-assumption-2-0",
+      "to": "Jukan-d1-2",
+      "type": "support",
+      "weight": 0.7
+    },
+    {
+      "id": "Jukan-assumption-2-1->Jukan-d1-2",
+      "from": "Jukan-assumption-2-1",
+      "to": "Jukan-d1-2",
+      "type": "support",
+      "weight": 0.7
+    },
+    {
+      "id": "Jukan-assumption-2-2->Jukan-d1-2",
+      "from": "Jukan-assumption-2-2",
+      "to": "Jukan-d1-2",
+      "type": "support",
+      "weight": 0.7
+    },
+    {
+      "id": "Jukan-d1-3->Jukan-root",
+      "from": "Jukan-d1-3",
+      "to": "Jukan-root",
+      "type": "attack",
+      "weight": 0.7
+    },
+    {
+      "id": "Jukan-d1-4->Jukan-root",
+      "from": "Jukan-d1-4",
+      "to": "Jukan-root",
+      "type": "support",
+      "weight": 0.85
+    },
+    {
+      "id": "Jukan-d2-0->Jukan-d1-1",
+      "from": "Jukan-d2-0",
+      "to": "Jukan-d1-1",
+      "type": "attack",
+      "weight": 0.75
+    },
+    {
+      "id": "Jukan-d2-1->Jukan-d1-3",
+      "from": "Jukan-d2-1",
+      "to": "Jukan-d1-3",
+      "type": "attack",
+      "weight": 0.65
+    },
+    {
+      "id": "Jukan-d2-2->Jukan-d1-1",
+      "from": "Jukan-d2-2",
+      "to": "Jukan-d1-1",
+      "type": "attack",
+      "weight": 0.7
+    },
+    {
+      "id": "Jukan-d2-3->Jukan-d1-0",
+      "from": "Jukan-d2-3",
+      "to": "Jukan-d1-0",
+      "type": "support",
+      "weight": 0.8
+    },
+    {
+      "id": "Jukan-d2-4->Jukan-d1-0",
+      "from": "Jukan-d2-4",
+      "to": "Jukan-d1-0",
+      "type": "attack",
+      "weight": 0.6
+    },
+    {
+      "id": "Jukan-d2-5->Jukan-d1-4",
+      "from": "Jukan-d2-5",
+      "to": "Jukan-d1-4",
+      "type": "support",
+      "weight": 0.85
+    },
+    {
+      "id": "Jukan-d2-6->Jukan-d1-2",
+      "from": "Jukan-d2-6",
+      "to": "Jukan-d1-2",
+      "type": "support",
+      "weight": 0.75
+    },
+    {
+      "id": "Jukan-d2-7->Jukan-d1-4",
+      "from": "Jukan-d2-7",
+      "to": "Jukan-d1-4",
+      "type": "support",
+      "weight": 0.85
+    },
+    {
+      "id": "Jukan-d2-8->Jukan-d1-1",
+      "from": "Jukan-d2-8",
+      "to": "Jukan-d1-1",
+      "type": "attack",
+      "weight": 0.75
+    },
+    {
+      "id": "Jukan-d2-9->Jukan-d1-2",
+      "from": "Jukan-d2-9",
+      "to": "Jukan-d1-2",
+      "type": "support",
+      "weight": 0.8
+    }
+  ]
+}

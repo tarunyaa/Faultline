@@ -1,0 +1,3492 @@
+{
+  "personaId": "Dylan Patel",
+  "personaName": "Dylan Patel",
+  "positions": [
+    {
+      "id": "pos-0",
+      "claim": "Post-training and reinforcement learning scaling will be the primary driver of AI capability gains in the near term, despite lacking an equivalent corpus to pre-training data",
+      "confidence": 0.88,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-109",
+        "cluster-108"
+      ],
+      "implicitAssumptions": [
+        "Synthetic task generation or human feedback can scale more efficiently than collecting additional pre-training data",
+        "The marginal returns from scaling pre-training compute have diminished relative to post-training compute",
+        "RL compute requirements grow sub-linearly compared to the capability gains they unlock"
+      ]
+    },
+    {
+      "id": "pos-1",
+      "claim": "Co-Packaged Optics (CPO) technology will become the critical bottleneck solution for AI networking, enabling bandwidth scaling beyond copper's physical limitations",
+      "confidence": 0.9,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-110",
+        "cluster-111"
+      ],
+      "implicitAssumptions": [
+        "AI model architectures will continue requiring dense all-to-all communication patterns that exceed two-rack domains",
+        "CPO manufacturing can achieve cost parity with traditional optical transceivers within the deployment timeline of next-generation AI clusters",
+        "The bandwidth requirements for AI training will grow faster than alternative solutions (like sparsity or new architectures) can compensate"
+      ]
+    },
+    {
+      "id": "pos-2",
+      "claim": "Datacenter power availability, not chip supply, will become the primary constraint on AI deployment by 2026, with grid capacity already exhausted in key markets",
+      "confidence": 0.92,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-112",
+        "cluster-113",
+        "cluster-90"
+      ],
+      "implicitAssumptions": [
+        "Utility-scale power infrastructure buildout timelines (3-7 years) are fundamentally incompatible with AI deployment urgency (6-18 months)",
+        "Onsite generation economics become favorable when speed-to-market advantages are factored into revenue calculations",
+        "Regulatory frameworks will permit widespread onsite generation deployment despite environmental and permitting concerns"
+      ]
+    },
+    {
+      "id": "pos-3",
+      "claim": "Apple's strategic partnership with TSMC, where Apple funds leading-edge node development through guaranteed volume, creates an insurmountable competitive moat for both companies",
+      "confidence": 0.85,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-106",
+        "cluster-107"
+      ],
+      "implicitAssumptions": [
+        "No other single customer can match Apple's combination of volume predictability and willingness to absorb early node risk",
+        "Process node leadership compounds over time because early access enables architectural advantages that persist across generations",
+        "TSMC's capacity allocation strategy permanently disadvantages competitors who cannot fund yield learning curves"
+      ]
+    },
+    {
+      "id": "pos-4",
+      "claim": "Memory (DRAM/HBM/NAND) supply constraints will persist and intensify because chipmakers cannot build capacity fast enough to meet AI-driven demand, reversing decades of Moore's Law cost declines",
+      "confidence": 0.93,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-99",
+        "cluster-104",
+        "cluster-8"
+      ],
+      "implicitAssumptions": [
+        "AI workload memory intensity grows faster than memory manufacturing capacity can scale, even with maximum capital deployment",
+        "The physics of memory scaling have hit fundamental limits that cannot be overcome with incremental engineering",
+        "Demand elasticity for AI compute is low enough that customers will pay dramatically higher memory prices rather than reduce deployment"
+      ]
+    },
+    {
+      "id": "pos-5",
+      "claim": "Anthropic will dramatically outgrow OpenAI in 2026 due to Claude Code's trajectory toward capturing 20%+ of all daily code commits",
+      "confidence": 0.75,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-100"
+      ],
+      "implicitAssumptions": [
+        "Code generation represents a winner-take-most market where workflow integration creates durable switching costs",
+        "OpenAI's distribution advantages (ChatGPT brand, Microsoft partnership) cannot overcome Claude's technical superiority in coding tasks",
+        "Developer tool revenue scales linearly or super-linearly with commit share, rather than being commoditized by competition"
+      ]
+    },
+    {
+      "id": "pos-6",
+      "claim": "Datacenter CPU demand will experience an unexpected resurgence in late 2025 driven by reinforcement learning and code generation workloads, reversing Intel's decline",
+      "confidence": 0.7,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-97",
+        "cluster-98"
+      ],
+      "implicitAssumptions": [
+        "RL and code execution workloads have fundamentally different compute characteristics that favor CPUs over GPUs for certain phases",
+        "The ratio of inference/RL compute to training compute will shift dramatically enough to materially impact CPU demand",
+        "Intel can execute competitively on process and architecture despite recent failures, given renewed market demand"
+      ]
+    },
+    {
+      "id": "pos-7",
+      "claim": "Nvidia must pursue extreme rack-scale co-design to maintain competitive advantage as rivals catch up on system-level integration",
+      "confidence": 0.82,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-93"
+      ],
+      "implicitAssumptions": [
+        "System-level optimization provides larger performance gains than chip-level improvements at current technology nodes",
+        "Nvidia's competitors are closing the gap on chip performance faster than Nvidia can extend leads through silicon alone",
+        "Customers will accept Nvidia's increased control over system design in exchange for performance benefits"
+      ]
+    },
+    {
+      "id": "pos-8",
+      "claim": "Hardware infrastructure characteristics (chip microarchitecture, system architecture) fundamentally determine the economics and scalability of AI software businesses",
+      "confidence": 0.87,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-118"
+      ],
+      "implicitAssumptions": [
+        "Software optimization cannot overcome hardware inefficiencies beyond a constant factor",
+        "AI software gross margins are more sensitive to infrastructure costs than to traditional software factors like sales efficiency or customer acquisition",
+        "Hardware architecture choices made today will lock in cost structures for multi-year periods due to software stack dependencies"
+      ]
+    },
+    {
+      "id": "pos-9",
+      "claim": "Chipmaking innovation is being held back by organizational inertia and fear-driven decision-making rather than fundamental technical limitations",
+      "confidence": 0.78,
+      "type": "value_judgment",
+      "groundingClusters": [
+        "cluster-124",
+        "cluster-127"
+      ],
+      "implicitAssumptions": [
+        "Alternative lithography approaches (like NIL) are technically viable but rejected due to institutional risk aversion rather than technical merit",
+        "The current trajectory of diminishing returns is a choice rather than a physical inevitability",
+        "Incumbent chipmakers' organizational structures systematically filter out high-risk, high-reward technical bets"
+      ]
+    },
+    {
+      "id": "pos-10",
+      "claim": "Frivolous litigation against semiconductor companies materially harms U.S. competitiveness in strategic technologies and should be reduced through legal reform",
+      "confidence": 0.8,
+      "type": "value_judgment",
+      "groundingClusters": [
+        "cluster-43",
+        "cluster-44"
+      ],
+      "implicitAssumptions": [
+        "Settlement costs ($100-500M range) represent meaningful opportunity costs that would otherwise fund strategic R&D or capacity expansion",
+        "The U.S. legal system's current balance between protecting rights and enabling frivolous suits is suboptimal for national strategic interests",
+        "AI tools will asymmetrically empower litigious actors more than defendants, worsening the problem over time"
+      ]
+    },
+    {
+      "id": "pos-11",
+      "claim": "Speed of datacenter deployment creates a durable competitive moat, making onsite power generation strategically valuable despite higher costs",
+      "confidence": 0.85,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-113",
+        "cluster-112"
+      ],
+      "implicitAssumptions": [
+        "First-mover advantages in AI model training or inference deployment compound over time rather than being easily replicated",
+        "The revenue differential from 6-month faster deployment exceeds the lifetime cost premium of onsite generation",
+        "Hyperscalers' willingness to abandon grid power signals a permanent shift rather than a temporary capacity crunch"
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "cluster-109",
+      "theme": "scaling / data / post-training / approach",
+      "nodeIds": [
+        "n_545",
+        "n_546",
+        "n_547",
+        "n_548",
+        "n_549",
+        "n_550",
+        "n_551",
+        "n_552",
+        "n_553",
+        "n_554",
+        "n_555",
+        "n_556",
+        "n_557",
+        "n_558"
+      ],
+      "edgeIds": [
+        "n_545->n_546",
+        "n_547->n_548",
+        "n_549->n_550",
+        "n_551->n_552",
+        "n_553->n_554",
+        "n_555->n_556",
+        "n_557->n_558"
+      ],
+      "sourceChunks": [
+        "substack-9_seg1"
+      ],
+      "representativeClaims": [
+        "OpenAI's progress with post-training on older base model → efficacy of post-training as a scaling approach",
+        "requirement for steady stream of tasks → scaling up RL",
+        "lack of equivalent RL corpus → difficulty in scaling RL",
+        "pre-training having entire internet as corpus → ease of obtaining training data for pre-training",
+        "RL data and tasks requiring manual construction → labor intensity of RL scaling"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-110",
+      "theme": "networking / cpo / technology / transceivers",
+      "nodeIds": [
+        "n_559",
+        "n_560",
+        "n_561",
+        "n_562",
+        "n_563",
+        "n_564",
+        "n_565",
+        "n_566",
+        "n_567",
+        "n_568",
+        "n_569",
+        "n_570"
+      ],
+      "edgeIds": [
+        "n_559->n_560",
+        "n_561->n_562",
+        "n_563->n_564",
+        "n_565->n_564",
+        "n_566->n_567",
+        "n_568->n_569",
+        "n_568->n_570"
+      ],
+      "sourceChunks": [
+        "substack-10_seg0"
+      ],
+      "representativeClaims": [
+        "heavy networking demands from AI workloads → need for CPO technology adoption",
+        "CPO technology → centrality to scale-up networking",
+        "CPO technology → bandwidth increases in scale-up networking for latter part of decade and beyond",
+        "AI networking bandwidth roadmap requirements (speed, range, density, reliability) → outpacing transceiver capabilities",
+        "relative cost-effectiveness of pluggable transceivers → transceivers remaining default path for connectivity"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-111",
+      "theme": "scaling / bandwidth / two / range",
+      "nodeIds": [
+        "n_571",
+        "n_572",
+        "n_573",
+        "n_574",
+        "n_575",
+        "n_576",
+        "n_577",
+        "n_578",
+        "n_579",
+        "n_580",
+        "n_581",
+        "n_582"
+      ],
+      "edgeIds": [
+        "n_571->n_572",
+        "n_573->n_574",
+        "n_575->n_576",
+        "n_575->n_577",
+        "n_575->n_578",
+        "n_579->n_580",
+        "n_581->n_582"
+      ],
+      "sourceChunks": [
+        "substack-10_seg1"
+      ],
+      "representativeClaims": [
+        "copper-based links limited to two meters range → scale-up domain world size limited to one or two racks",
+        "CPO technology adoption → ability to deliver same or better bandwidth density",
+        "CPO technology adoption → additional vectors for scaling bandwidth",
+        "CPO technology adoption → enabling larger scale-up domains",
+        "scaling bandwidth on copper through faster SerDes ⊣ speed and ease of scaling"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-93",
+      "theme": "rack / scale / extreme / co-design",
+      "nodeIds": [
+        "n_401",
+        "n_402",
+        "n_403",
+        "n_404",
+        "n_405",
+        "n_406",
+        "n_407",
+        "n_408",
+        "n_409",
+        "n_410",
+        "n_411",
+        "n_412"
+      ],
+      "edgeIds": [
+        "n_401->n_402",
+        "n_403->n_404",
+        "n_405->n_406",
+        "n_407->n_408",
+        "n_409->n_410",
+        "n_411->n_412"
+      ],
+      "sourceChunks": [
+        "substack-1_seg0"
+      ],
+      "representativeClaims": [
+        "extreme co-design approach → rack scale integration advancement to next level",
+        "Nvidia asserting more control over system and rack level design → Vera Rubin platform design",
+        "competition catching up on rack scale game → Nvidia's need to respond with extreme co-design supremacy",
+        "extreme co-design → treating rack system as single unit of compute and distributed accelerator",
+        "every component being pushed to the limit → rack scale integration and assembly becoming more challenging"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-97",
+      "theme": "intel / datacenter / cpu / hyperscalers",
+      "nodeIds": [
+        "n_433",
+        "n_434",
+        "n_435",
+        "n_436",
+        "n_437",
+        "n_438",
+        "n_439",
+        "n_440",
+        "n_441",
+        "n_442",
+        "n_443"
+      ],
+      "edgeIds": [
+        "n_433->n_434",
+        "n_434->n_435",
+        "n_436->n_437",
+        "n_438->n_439",
+        "n_440->n_441",
+        "n_442->n_443"
+      ],
+      "sourceChunks": [
+        "substack-3_seg0"
+      ],
+      "representativeClaims": [
+        "arrival and explosion of AI Training and Inference → shift of compute demands away from CPU",
+        "Intel's lackluster execution and uncompetitive performance to AMD → erosion of Intel's market share",
+        "shift of compute demands away from CPU → Intel's failure to ride datacenter buildout wave",
+        "hyperscalers rolling their own ARM-based datacenter CPUs → closure of addressable market for Intel",
+        "hyperscalers focusing on GPUs and datacenter infrastructure → server CPU revenue stagnation"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-106",
+      "theme": "apple / node / large / tsmc",
+      "nodeIds": [
+        "n_513",
+        "n_514",
+        "n_515",
+        "n_516",
+        "n_517",
+        "n_518",
+        "n_519",
+        "n_520",
+        "n_521",
+        "n_522",
+        "n_523",
+        "n_524"
+      ],
+      "edgeIds": [
+        "n_513->n_514",
+        "n_515->n_516",
+        "n_517->n_518",
+        "n_519->n_520",
+        "n_521->n_522",
+        "n_523->n_524"
+      ],
+      "sourceChunks": [
+        "substack-8_seg0"
+      ],
+      "representativeClaims": [
+        "Apple's large demand and deep pockets → funding TSMC's process node development",
+        "Apple filling TSMC's fabs with A8 chip orders → Morris Chang's commitment to building 20nm capacity",
+        "Apple funding the yield learning curve for major node transitions → Apple's dominance at node launches (>50% capacity)",
+        "Apple's $10 billion commitment and large orders → TSMC's successful 20nm node transition and continued growth",
+        "IDMs relying on single customer economics → inability to support process development and fab capex"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-107",
+      "theme": "apple / competitors / vertical / integration",
+      "nodeIds": [
+        "n_525",
+        "n_526",
+        "n_527",
+        "n_528",
+        "n_529",
+        "n_530",
+        "n_531",
+        "n_532",
+        "n_533",
+        "n_534"
+      ],
+      "edgeIds": [
+        "n_525->n_526",
+        "n_525->n_527",
+        "n_525->n_528",
+        "n_529->n_530",
+        "n_531->n_532",
+        "n_533->n_534"
+      ],
+      "sourceChunks": [
+        "substack-8_seg1"
+      ],
+      "representativeClaims": [
+        "Apple-TSMC partnership → propelling both companies to new heights",
+        "Apple-TSMC partnership → putting competitors in the dust",
+        "Apple-TSMC partnership → fueling the chipmaking industry",
+        "Apple building chip empire through acquisitions and 8,000+ engineers across 15 design centers → vertical integration success",
+        "vertical integration by Apple → competitors failing to replicate this model"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-112",
+      "theme": "grid / datacenter / deployment / industry",
+      "nodeIds": [
+        "n_583",
+        "n_584",
+        "n_585",
+        "n_586",
+        "n_587",
+        "n_588",
+        "n_589",
+        "n_590",
+        "n_591",
+        "n_592",
+        "n_593",
+        "n_594"
+      ],
+      "edgeIds": [
+        "n_583->n_584",
+        "n_585->n_586",
+        "n_587->n_588",
+        "n_589->n_590",
+        "n_591->n_592",
+        "n_593->n_594"
+      ],
+      "sourceChunks": [
+        "substack-11_seg0"
+      ],
+      "representativeClaims": [
+        "AI power demand growth (3GW to 28GW by 2026) → overwhelm America's supply chains",
+        "tens of gigawatts of datacenter load requests monthly in Texas → grid sold out",
+        "getting a 400 MW datacenter online six months earlier → billions in revenue generation",
+        "grid's multiyear transmission upgrades ⊣ AI infrastructure deployment timeline",
+        "economic value of AI datacenters ($10-12B per GW annually) → industry prioritizes deployment over grid constraints"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-33",
+      "theme": "accidental / silicon / wafer / production",
+      "nodeIds": [
+        "n_125",
+        "n_126",
+        "n_127",
+        "n_128",
+        "n_129",
+        "n_130",
+        "n_131",
+        "n_132"
+      ],
+      "edgeIds": [
+        "n_125->n_126",
+        "n_126->n_127",
+        "n_128->n_129",
+        "n_129->n_130",
+        "n_131->n_132"
+      ],
+      "sourceChunks": [
+        "tweet-2026839765476159707"
+      ],
+      "representativeClaims": [
+        "Fleming's accidental mold discovery → stopping bacterial chaos",
+        "stopping bacterial chaos → saving millions of lives",
+        "Czochralski's accidental pen-dip → creation of perfect atomic order",
+        "silicon wafer production → core material for chips worldwide",
+        "creation of perfect atomic order → enabling silicon wafer production"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-98",
+      "theme": "demand / datacenter / cpu / cpus",
+      "nodeIds": [
+        "n_444",
+        "n_445",
+        "n_446",
+        "n_447",
+        "n_448",
+        "n_449",
+        "n_450",
+        "n_451",
+        "n_452",
+        "n_453"
+      ],
+      "edgeIds": [
+        "n_444->n_445",
+        "n_446->n_447",
+        "n_448->n_449",
+        "n_450->n_451",
+        "n_452->n_453"
+      ],
+      "sourceChunks": [
+        "substack-3_seg1"
+      ],
+      "representativeClaims": [
+        "reinforcement learning and vibe coding demand → CPU demand",
+        "unexpected uptick in datacenter CPU demand in late 2025 → Intel increasing 2026 capex guidance on foundry tools",
+        "changing demand signals in latter part of 2025 → CPUs becoming relevant again in datacenter",
+        "AI model training and inference using CPUs more intensively → inflection point in role of CPUs in datacenter",
+        "new CPU demand → supply constraints in serving datacenter"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-99",
+      "theme": "memory / moore / law / scaling",
+      "nodeIds": [
+        "n_454",
+        "n_455",
+        "n_456",
+        "n_457",
+        "n_458",
+        "n_459",
+        "n_460",
+        "n_461",
+        "n_462",
+        "n_463"
+      ],
+      "edgeIds": [
+        "n_454->n_455",
+        "n_456->n_457",
+        "n_458->n_459",
+        "n_460->n_461",
+        "n_462->n_463"
+      ],
+      "sourceChunks": [
+        "substack-4_seg0"
+      ],
+      "representativeClaims": [
+        "transistor shrinking (Moore's Law scaling) → reduced cost per bit",
+        "memory prices increasing → market concern/attention",
+        "clever capacitor engineering → preserved sufficient charge for signal integrity",
+        "fab production and expansion analysis → accurate memory revenue, pricing, and margin forecasting",
+        "Moore's Law and Dennard scaling → DRAM commercial success since 1970s"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-100",
+      "theme": "claude / code / growth / anthropic",
+      "nodeIds": [
+        "n_464",
+        "n_465",
+        "n_466",
+        "n_467",
+        "n_468",
+        "n_469",
+        "n_470",
+        "n_471",
+        "n_472",
+        "n_473"
+      ],
+      "edgeIds": [
+        "n_464->n_465",
+        "n_466->n_467",
+        "n_468->n_469",
+        "n_470->n_471",
+        "n_472->n_473"
+      ],
+      "sourceChunks": [
+        "substack-5_seg0"
+      ],
+      "representativeClaims": [
+        "Claude Code's current trajectory of growth → Claude Code reaching 20%+ of all daily commits by end of 2026",
+        "Claude Code's capabilities and adoption → Exceptional revenue growth for Anthropic in 2026",
+        "Anthropic's revenue growth from Claude Code → Anthropic dramatically outgrowing OpenAI",
+        "Rise of Claude Code → AI becoming a new layer of intelligence on top of software",
+        "Claude Code being an inflection point for AI Agents → Future of how AI will function"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-104",
+      "theme": "nand / technology / scaling / moore",
+      "nodeIds": [
+        "n_496",
+        "n_497",
+        "n_498",
+        "n_499",
+        "n_500",
+        "n_501",
+        "n_502",
+        "n_503",
+        "n_504",
+        "n_505"
+      ],
+      "edgeIds": [
+        "n_496->n_497",
+        "n_498->n_499",
+        "n_500->n_501",
+        "n_502->n_503",
+        "n_504->n_505"
+      ],
+      "sourceChunks": [
+        "substack-7_seg0"
+      ],
+      "representativeClaims": [
+        "massive demand for advanced logic, DRAM, NAND → chipmakers unable to build capacity fast enough",
+        "rapid technology improvement in scaling, power consumption, chip cost slowing → Moore's Law becoming Moore's Wall",
+        "memory prices exploding → 3D NAND technology becoming relevant again",
+        "costs increasing while improvements asymptote and scaling runs out of room → feeling that Moore's Law has become Moore's Wall",
+        "innovations on the bench for next decade and beyond → semiconductor industry making naysayers look stupid in long run"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-108",
+      "theme": "scaling / compute / gains / capability",
+      "nodeIds": [
+        "n_535",
+        "n_536",
+        "n_537",
+        "n_538",
+        "n_539",
+        "n_540",
+        "n_541",
+        "n_542",
+        "n_543",
+        "n_544"
+      ],
+      "edgeIds": [
+        "n_535->n_536",
+        "n_537->n_538",
+        "n_539->n_540",
+        "n_541->n_542",
+        "n_543->n_544"
+      ],
+      "sourceChunks": [
+        "substack-9_seg0"
+      ],
+      "representativeClaims": [
+        "scaling RL compute → unlocking further AI capabilities",
+        "ramping RL compute → major capability gains",
+        "post-training and scaling up RL compute → gains in model performance",
+        "fixing pretraining problems → even more rapid progress",
+        "scaling up pre-training → significant capability gains"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-113",
+      "theme": "onsite / power / generation / gas",
+      "nodeIds": [
+        "n_595",
+        "n_596",
+        "n_597",
+        "n_598",
+        "n_599",
+        "n_600",
+        "n_601",
+        "n_602",
+        "n_603",
+        "n_604"
+      ],
+      "edgeIds": [
+        "n_595->n_596",
+        "n_597->n_598",
+        "n_599->n_600",
+        "n_601->n_602",
+        "n_603->n_604"
+      ],
+      "sourceChunks": [
+        "substack-11_seg1"
+      ],
+      "representativeClaims": [
+        "onsite power generation (gas turbines/engines) → speed of datacenter deployment",
+        "speed in datacenter deployment → competitive advantage (moat)",
+        "hyperscalers abandoning grid for onsite generation → market growth for onsite gas generation",
+        "xAI's onsite power strategy success → other hyperscalers/AI Labs adopting onsite power generation",
+        "AI Labs racing to build Gigawatt datacenters → need for onsite power solutions"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-118",
+      "theme": "infrastructure / software / hardware / costs",
+      "nodeIds": [
+        "n_635",
+        "n_636",
+        "n_637",
+        "n_638",
+        "n_639",
+        "n_640",
+        "n_641",
+        "n_642",
+        "n_643",
+        "n_644"
+      ],
+      "edgeIds": [
+        "n_635->n_636",
+        "n_637->n_638",
+        "n_639->n_640",
+        "n_641->n_642",
+        "n_643->n_644"
+      ],
+      "sourceChunks": [
+        "substack-14_seg0"
+      ],
+      "representativeClaims": [
+        "hardware infrastructure characteristics → Capex and Opex costs in AI software",
+        "chip microarchitecture and system architecture optimization → AI software development and scalability",
+        "hardware infrastructure impact on costs ⊣ gross margins in AI software",
+        "optimizing AI infrastructure → ability to deploy AI software effectively",
+        "Google selling TPUs physically to multiple firms ⊣ Nvidia's dominance in AI infrastructure"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-120",
+      "theme": "microsoft / openai / investments / pausing",
+      "nodeIds": [
+        "n_653",
+        "n_654",
+        "n_655",
+        "n_656",
+        "n_657",
+        "n_658",
+        "n_659",
+        "n_660",
+        "n_661",
+        "n_662"
+      ],
+      "edgeIds": [
+        "n_653->n_654",
+        "n_655->n_656",
+        "n_657->n_658",
+        "n_659->n_660",
+        "n_661->n_662"
+      ],
+      "sourceChunks": [
+        "substack-15_seg0"
+      ],
+      "representativeClaims": [
+        "Microsoft pausing datacenter construction and slowing OpenAI commitments ⊣ Microsoft's position in AI leadership",
+        "OpenAI diversifying compute contracts away from Microsoft to multiple providers ⊣ Microsoft's AI strategy effectiveness",
+        "newly announced OpenAI deal with Microsoft → Azure growth acceleration in upcoming quarters",
+        "Microsoft recognizing it was going down the wrong path → Microsoft dramatically shifting course and increasing AI investments",
+        "high demand for Accelerated Computing → Microsoft's need to increase AI investments"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-123",
+      "theme": "providers / coreweave / criteria / market",
+      "nodeIds": [
+        "n_679",
+        "n_680",
+        "n_681",
+        "n_682",
+        "n_683",
+        "n_684",
+        "n_685",
+        "n_686",
+        "n_687",
+        "n_688"
+      ],
+      "edgeIds": [
+        "n_679->n_680",
+        "n_681->n_682",
+        "n_683->n_684",
+        "n_685->n_686",
+        "n_687->n_688"
+      ],
+      "sourceChunks": [
+        "substack-16_seg1"
+      ],
+      "representativeClaims": [
+        "CoreWeave setting the bar for others → other providers following CoreWeave's example",
+        "CoreWeave's Platinum tier status and performance → ability to command premium pricing",
+        "interviewing over 140 end users of Neoclouds → quality of research and criteria development",
+        "expanding market view from 124 to 209 providers → more comprehensive coverage of the Neocloud market",
+        "releasing itemized criteria lists to providers → providers developing better offerings"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-124",
+      "theme": "inertia / practices / chipmaking / fear",
+      "nodeIds": [
+        "n_689",
+        "n_690",
+        "n_691",
+        "n_692",
+        "n_693",
+        "n_694",
+        "n_695",
+        "n_696",
+        "n_697",
+        "n_698"
+      ],
+      "edgeIds": [
+        "n_689->n_690",
+        "n_691->n_692",
+        "n_693->n_694",
+        "n_695->n_696",
+        "n_697->n_698"
+      ],
+      "sourceChunks": [
+        "substack-17_seg0"
+      ],
+      "representativeClaims": [
+        "decision-making driven by inertia and past practices → resistance to technical innovation in chipmaking",
+        "fear of regression → reluctance to change established practices",
+        "chipmakers iterating on existing technology despite diminishing returns → slower scaling and rapidly increasing costs",
+        "inertia and fear of regression in chipmaking industry → industry ripe for disruption",
+        "high profitability of existing tools and fabs → reduced incentive to pursue economically uncertain innovations"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-127",
+      "theme": "nil / advanced / canon / technology",
+      "nodeIds": [
+        "n_709",
+        "n_710",
+        "n_711",
+        "n_712",
+        "n_713",
+        "n_714",
+        "n_715",
+        "n_716",
+        "n_717",
+        "n_718"
+      ],
+      "edgeIds": [
+        "n_709->n_710",
+        "n_711->n_712",
+        "n_713->n_714",
+        "n_715->n_716",
+        "n_717->n_718"
+      ],
+      "sourceChunks": [
+        "substack-18_seg1"
+      ],
+      "representativeClaims": [
+        "stacking 50-100 layers with patterning, etch, and deposition techniques → complete chip construction",
+        "Canon acquiring Molecular Imprints Inc. in 2014 → Canon positioning NIL as alternative to ASML's EUV",
+        "NIL technique invention in 1996 and commercialization in 2001 → establishment of advanced commercial NIL technology venture",
+        "EV Group explicitly aiming for less advanced applications → EV Group not being a competitor in advanced NIL technology",
+        "Nanonex having fewer than 100 tools mostly in academic labs → Nanonex being less commercially advanced than Canon's NIL offering"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-8",
+      "theme": "usage / chips / cost / declines",
+      "nodeIds": [
+        "n_24",
+        "n_25",
+        "n_26",
+        "n_27",
+        "n_28",
+        "n_29",
+        "n_30"
+      ],
+      "edgeIds": [
+        "n_24->n_25",
+        "n_25->n_26",
+        "n_27->n_28",
+        "n_29->n_30"
+      ],
+      "sourceChunks": [
+        "tweet-2028530968655495678"
+      ],
+      "representativeClaims": [
+        "chips becoming more efficient → cost per token declines",
+        "cost per token declines → AI usage expands",
+        "AI usage expansion (larger models, longer context, more queries, new applications) → chip-level demand",
+        "efficiency improvements and cost declines in AI chips → offsetting net chip demand reduction through increased usage"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-43",
+      "theme": "frivolous / litigation / rent / seeking",
+      "nodeIds": [
+        "n_174",
+        "n_175",
+        "n_176",
+        "n_177",
+        "n_178",
+        "n_179",
+        "n_180",
+        "n_181"
+      ],
+      "edgeIds": [
+        "n_174->n_175",
+        "n_176->n_177",
+        "n_178->n_179",
+        "n_180->n_181"
+      ],
+      "sourceChunks": [
+        "tweet-2026719189864513978"
+      ],
+      "representativeClaims": [
+        "frivolous, rent seeking litigation ⊣ U.S. competitiveness in strategic technologies",
+        "reducing frivolous, rent seeking litigation → U.S. competitiveness in strategic technologies like AI supply chain",
+        "AI tools → empowerment of litigious actors",
+        "AI tools trivializing nitpicking on complex rules → increased frivolous litigation"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-44",
+      "theme": "lawsuits / micron / settlement / costs",
+      "nodeIds": [
+        "n_182",
+        "n_183",
+        "n_184",
+        "n_185",
+        "n_186",
+        "n_187",
+        "n_188",
+        "n_189"
+      ],
+      "edgeIds": [
+        "n_182->n_183",
+        "n_184->n_185",
+        "n_186->n_187",
+        "n_188->n_189"
+      ],
+      "sourceChunks": [
+        "tweet-2026719188883001850"
+      ],
+      "representativeClaims": [
+        "lawsuits against Micron → settlement costs",
+        "lawsuits being frivolous → lawsuits should be thrown out",
+        "settlement costs of $100-500M → Micron's project budget impact",
+        "actions by 6 concerned citizens → delay of entire project"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-75",
+      "theme": "wide / expert / parallelism / scale",
+      "nodeIds": [
+        "n_311",
+        "n_312",
+        "n_313",
+        "n_314",
+        "n_315",
+        "n_316"
+      ],
+      "edgeIds": [
+        "n_311->n_312",
+        "n_311->n_313",
+        "n_314->n_312",
+        "n_315->n_316"
+      ],
+      "sourceChunks": [
+        "tweet-2024908161405026551"
+      ],
+      "representativeClaims": [
+        "Wide Expert Parallelism with disaggregated architecture superiority → adoption by frontier labs",
+        "Wide Expert Parallelism with large scale up world size → performance in mid-range interactivity serving scenarios",
+        "Wide Expert Parallelism with large scale up world size → balancing economics and speed tradeoffs",
+        "clustering multiple 8-way boxes together with scale outs ⊣ performance in mid-range interactivity serving scenarios"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-90",
+      "theme": "datacenter / power / electricity / load",
+      "nodeIds": [
+        "n_383",
+        "n_384",
+        "n_385",
+        "n_386",
+        "n_387",
+        "n_388",
+        "n_389",
+        "n_390"
+      ],
+      "edgeIds": [
+        "n_383->n_384",
+        "n_385->n_386",
+        "n_387->n_388",
+        "n_389->n_390"
+      ],
+      "sourceChunks": [
+        "substack-0_seg0"
+      ],
+      "representativeClaims": [
+        "~20% jump in residential electricity rates in New Jersey in June 2025 → datacenter load growth becoming a topic of concern in 2025 New Jersey elections",
+        "300MW Nebius AI Datacenter for Microsoft having >85% self-generated power → the datacenter not being responsible for residential electricity rate increases",
+        "datacenter load growth and impact on power prices being broadly misunderstood → public misconceptions about AI datacenters and electricity costs",
+        "making a laughable/unfounded claim → finger-pointing at the 300MW Nebius AI Datacenter without considering its self-generated power"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-91",
+      "theme": "electricity / household / pjm / increases",
+      "nodeIds": [
+        "n_391",
+        "n_392",
+        "n_393",
+        "n_394",
+        "n_395",
+        "n_396",
+        "n_397",
+        "n_398"
+      ],
+      "edgeIds": [
+        "n_391->n_392",
+        "n_393->n_394",
+        "n_395->n_396",
+        "n_397->n_398"
+      ],
+      "sourceChunks": [
+        "substack-0_seg1"
+      ],
+      "representativeClaims": [
+        "poor market design in PJM → 15% increase in household electricity bills",
+        "government policy → household electricity price increases in PJM",
+        "BRA capacity auction mechanism → most of the 15% electricity bill increase in PJM",
+        "2025/26 BRA auction increasing 9.3x over prior year → household electricity bill increases"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-94",
+      "theme": "complete / integrated / silicon / holistic",
+      "nodeIds": [
+        "n_413",
+        "n_414",
+        "n_415",
+        "n_416",
+        "n_417",
+        "n_418",
+        "n_419",
+        "n_420"
+      ],
+      "edgeIds": [
+        "n_413->n_414",
+        "n_415->n_416",
+        "n_417->n_418",
+        "n_419->n_420"
+      ],
+      "sourceChunks": [
+        "substack-1_seg1"
+      ],
+      "representativeClaims": [
+        "best-in-class accelerator, switch, NIC, networking switch, and purpose-designed CPU → no competitors have such complete integrated silicon offerings",
+        "holistic design with modular approach → integration efficiency and throughput",
+        "complete suite of integrated silicon products across all major components → competitive advantage over other players",
+        "extreme co-design supremacy → Nvidia's competitiveness"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-101",
+      "theme": "anthropic / openai / compute / revenue",
+      "nodeIds": [
+        "n_474",
+        "n_475",
+        "n_476",
+        "n_477",
+        "n_478",
+        "n_479",
+        "n_480",
+        "n_481"
+      ],
+      "edgeIds": [
+        "n_474->n_475",
+        "n_476->n_477",
+        "n_478->n_479",
+        "n_480->n_481"
+      ],
+      "sourceChunks": [
+        "substack-5_seg1"
+      ],
+      "representativeClaims": [
+        "more compute capacity → more revenue",
+        "data center delays at Sam's AI lab → CapEx guidance miss",
+        "detailed economic modeling of Anthropic's compute and revenue → ability to forecast ARR growth and compare to OpenAI",
+        "Anthropic's quarterly ARR additions overtaking OpenAI's → Anthropic adding power equivalent to OpenAI in three years"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-102",
+      "theme": "water / datacenter / usage / cooling",
+      "nodeIds": [
+        "n_482",
+        "n_483",
+        "n_484",
+        "n_485",
+        "n_486",
+        "n_487",
+        "n_488",
+        "n_489"
+      ],
+      "edgeIds": [
+        "n_482->n_483",
+        "n_484->n_485",
+        "n_486->n_487",
+        "n_488->n_489"
+      ],
+      "sourceChunks": [
+        "substack-6_seg0"
+      ],
+      "representativeClaims": [
+        "ignoring key variables (cooling architecture, power source, location, water scarcity) → datacenter water usage numbers being misleading",
+        "taking datacenter water consumption at face value without perspective → overstated debate about datacenter water usage",
+        "cooling architecture choices → datacenter water usage levels",
+        "lack of comparison to other everyday industries → misleading perception of datacenter water consumption significance"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-105",
+      "theme": "memory / supply / density / process",
+      "nodeIds": [
+        "n_506",
+        "n_507",
+        "n_508",
+        "n_509",
+        "n_510",
+        "n_511",
+        "n_512"
+      ],
+      "edgeIds": [
+        "n_506->n_507",
+        "n_508->n_509",
+        "n_509->n_510",
+        "n_511->n_512"
+      ],
+      "sourceChunks": [
+        "substack-7_seg1"
+      ],
+      "representativeClaims": [
+        "lack of cleanroom space for building new capacity → memory producers limited to upgrading existing lines",
+        "demand spiking for memory → supply constraint in memory production",
+        "memory producers limited to upgrading existing lines → supply constrained by density of upgraded process",
+        "higher density 3D NAND process (3xx-layer) → greater memory yield per wafer"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-114",
+      "theme": "datacenter / ramp / competitive / huge",
+      "nodeIds": [
+        "n_605",
+        "n_606",
+        "n_607",
+        "n_608",
+        "n_609",
+        "n_610",
+        "n_611",
+        "n_612"
+      ],
+      "edgeIds": [
+        "n_605->n_606",
+        "n_607->n_608",
+        "n_609->n_610",
+        "n_611->n_612"
+      ],
+      "sourceChunks": [
+        "substack-12_seg0"
+      ],
+      "representativeClaims": [
+        "huge ramp in datacenter and accelerator deployment → AWS revenue acceleration",
+        "Trainium2 ramp for internal Bedrock and Anthropic workloads → huge ramp in datacenter utilization",
+        "Trainium3 step-function improvement in chip and architecture → competitive progress in AI accelerators",
+        "Amazon's longest and broadest history of custom silicon in datacenter → competitive position in AI"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-115",
+      "theme": "design / tco / optimizing / per",
+      "nodeIds": [
+        "n_613",
+        "n_614",
+        "n_615",
+        "n_616",
+        "n_617",
+        "n_618",
+        "n_619",
+        "n_620"
+      ],
+      "edgeIds": [
+        "n_613->n_614",
+        "n_615->n_616",
+        "n_617->n_618",
+        "n_619->n_620"
+      ],
+      "sourceChunks": [
+        "substack-12_seg1"
+      ],
+      "representativeClaims": [
+        "AWS hardware design strategy → optimizing performance per total cost of ownership (perf per TCO)",
+        "ability to work with multiple partners on custom silicon and manage supply chain → maximizing operational flexibility",
+        "following 'Amazon Basics' approach optimizing for perf per TCO → systems and networking design choices",
+        "design choices (bandwidth scale, cooling method selection) → providing best TCO for client and datacenter"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-117",
+      "theme": "semiconductor / manufacturing / onshore / spending",
+      "nodeIds": [
+        "n_627",
+        "n_628",
+        "n_629",
+        "n_630",
+        "n_631",
+        "n_632",
+        "n_633",
+        "n_634"
+      ],
+      "edgeIds": [
+        "n_627->n_628",
+        "n_629->n_630",
+        "n_631->n_632",
+        "n_633->n_634"
+      ],
+      "sourceChunks": [
+        "substack-13_seg1"
+      ],
+      "representativeClaims": [
+        "spending only tens of billions of dollars in subsidy for onshore semiconductor manufacturing ⊣ achieving sufficient onshore semiconductor manufacturing capacity",
+        "insufficient subsidy spending on onshore semiconductor manufacturing → exercise in futility",
+        "clustering effect in Hsinchu Science Park → making it the semiconductor epicenter of the world",
+        "fabs operating in high volume → ability to answer questions about semiconductor manufacturing economics"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-119",
+      "theme": "need / infrastructure / deploy / scale",
+      "nodeIds": [
+        "n_645",
+        "n_646",
+        "n_647",
+        "n_648",
+        "n_649",
+        "n_650",
+        "n_651",
+        "n_652"
+      ],
+      "edgeIds": [
+        "n_645->n_646",
+        "n_647->n_648",
+        "n_649->n_650",
+        "n_651->n_652"
+      ],
+      "sourceChunks": [
+        "substack-14_seg1"
+      ],
+      "representativeClaims": [
+        "advantage in infrastructure → ability to deploy and scale AI applications",
+        "need to deploy AI at scale → need to double number of datacenters",
+        "need for doubled datacenter capacity → groundwork for TPU chip development",
+        "different computing and software paradigms → different infrastructure optimization strategies between Google and Amazon"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-121",
+      "theme": "microsoft / openai / accelerated / growth",
+      "nodeIds": [
+        "n_663",
+        "n_664",
+        "n_665",
+        "n_666",
+        "n_667",
+        "n_668",
+        "n_669",
+        "n_670"
+      ],
+      "edgeIds": [
+        "n_663->n_664",
+        "n_665->n_666",
+        "n_667->n_668",
+        "n_669->n_670"
+      ],
+      "sourceChunks": [
+        "substack-15_seg1"
+      ],
+      "representativeClaims": [
+        "Microsoft actively pursuing near-term capacity through multiple channels (self-build, leasing, Neocloud, etc.) → accelerated near-term capacity growth",
+        "Microsoft's participation in every part of the AI Token Economic Stack → accelerated growth and continued trend",
+        "Microsoft's access to OpenAI's Custom Chip IP → Microsoft's competitive positioning in AI hardware",
+        "OpenAI's ASIC trajectory looking better than Microsoft Maia → Microsoft may end up using OpenAI's chip to serve OpenAI mode"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-122",
+      "theme": "gpu / clustermax / significant / changes",
+      "nodeIds": [
+        "n_671",
+        "n_672",
+        "n_673",
+        "n_674",
+        "n_675",
+        "n_676",
+        "n_677",
+        "n_678"
+      ],
+      "edgeIds": [
+        "n_671->n_672",
+        "n_673->n_674",
+        "n_675->n_676",
+        "n_677->n_678"
+      ],
+      "sourceChunks": [
+        "substack-16_seg0"
+      ],
+      "representativeClaims": [
+        "arrival of new GPU models (H200, B200, MI325X, MI355X, GB200 NVL72, GB300 NVL72) at scale → significant changes in GPU cloud industry",
+        "GPU clouds (Neoclouds) → AI boom",
+        "significant industry changes since ClusterMAX 1.0 → need for ClusterMAX update",
+        "ClusterMAX rating system being comprehensive and technical → buyers trusting it as independent third party guide"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-129",
+      "theme": "high / manufacturing / cost / western",
+      "nodeIds": [
+        "n_725",
+        "n_726",
+        "n_727",
+        "n_728",
+        "n_729",
+        "n_730",
+        "n_731",
+        "n_732"
+      ],
+      "edgeIds": [
+        "n_725->n_726",
+        "n_727->n_728",
+        "n_729->n_730",
+        "n_731->n_732"
+      ],
+      "sourceChunks": [
+        "substack-19_seg1"
+      ],
+      "representativeClaims": [
+        "high volume manufacturing at low cost capability → high profit margins",
+        "China's manufacturing supremacy → broader product portfolio and faster product release cadence",
+        "substantial cost advantage relative to Western peers → Unitree competitive position",
+        "partial vertical integration → Western deployments success"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-2",
+      "theme": "optimizations / amd / performance / mori",
+      "nodeIds": [
+        "n_4",
+        "n_5",
+        "n_6",
+        "n_7",
+        "n_8"
+      ],
+      "edgeIds": [
+        "n_4->n_5",
+        "n_6->n_5",
+        "n_7->n_8"
+      ],
+      "sourceChunks": [
+        "tweet-2028953697388994787"
+      ],
+      "representativeClaims": [
+        "optimizations in AMD's MoRI inference communication library → AMD performance improvement",
+        "better kernels → AMD performance improvement",
+        "optimizations for MoE dispatch, MoE combine, kvcache transfer comms → performance gains available to SGLang users"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-4",
+      "theme": "datacenters / electric / bills / american",
+      "nodeIds": [
+        "n_12",
+        "n_13",
+        "n_14",
+        "n_15",
+        "n_16"
+      ],
+      "edgeIds": [
+        "n_12->n_13",
+        "n_14->n_15",
+        "n_16->n_15"
+      ],
+      "sourceChunks": [
+        "tweet-2028855587568800030"
+      ],
+      "representativeClaims": [
+        "capacity price growth (9.3x) → power prices",
+        "PJM's poor market design → power prices",
+        "AI datacenters → electric bills of American households"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-13",
+      "theme": "profitability / project / irrs / measure",
+      "nodeIds": [
+        "n_45",
+        "n_46",
+        "n_47",
+        "n_48",
+        "n_49",
+        "n_50"
+      ],
+      "edgeIds": [
+        "n_45->n_46",
+        "n_47->n_48",
+        "n_49->n_50"
+      ],
+      "sourceChunks": [
+        "tweet-2027841118902292851"
+      ],
+      "representativeClaims": [
+        "focusing on project IRRs as a measure of deal profitability → avoiding depreciation policy debate",
+        "IRR focus on timing of cash flows only → agnosticism to depreciation policies",
+        "using project IRRs as profitability measure → better deal profitability assessment"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-18",
+      "theme": "depreciation / year / remaining / constant",
+      "nodeIds": [
+        "n_66",
+        "n_67",
+        "n_68",
+        "n_69",
+        "n_70",
+        "n_71"
+      ],
+      "edgeIds": [
+        "n_66->n_67",
+        "n_68->n_69",
+        "n_70->n_71"
+      ],
+      "sourceChunks": [
+        "tweet-2027841109486145713"
+      ],
+      "representativeClaims": [
+        "6-year depreciation schedule adoption by hyperscalers and Neoclouds → depreciation expense remaining constant in year 6",
+        "straight-line depreciation calculation method → depreciation remaining the same across all years of asset life",
+        "revenues being considerably lower in year 6 while depreciation remains constant → business case profitability deterioration in year 6"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-19",
+      "theme": "gpu / rental / contract / economics",
+      "nodeIds": [
+        "n_72",
+        "n_73",
+        "n_74",
+        "n_75",
+        "n_76",
+        "n_77"
+      ],
+      "edgeIds": [
+        "n_72->n_73",
+        "n_74->n_75",
+        "n_76->n_77"
+      ],
+      "sourceChunks": [
+        "tweet-2027841107707760676"
+      ],
+      "representativeClaims": [
+        "5-year GPU rental contract expiration → unit economics change",
+        "contract rolloff after 5 years → EBIT margins decrease",
+        "focus on early-contract EBIT margins in modeling → incomplete understanding of long-term GPU cluster rental economics"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-23",
+      "theme": "claude / code / adoption / commits",
+      "nodeIds": [
+        "n_86",
+        "n_87",
+        "n_88",
+        "n_89",
+        "n_90",
+        "n_91"
+      ],
+      "edgeIds": [
+        "n_86->n_87",
+        "n_88->n_89",
+        "n_90->n_91"
+      ],
+      "sourceChunks": [
+        "tweet-2027443723362042308"
+      ],
+      "representativeClaims": [
+        "Claude Code adoption → percentage of GitHub public commits",
+        "AI advancement (Claude Code) → consumption of software development",
+        "current trajectory of Claude Code adoption → Claude Code will reach 20%+ of daily commits by end of 2026"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-24",
+      "theme": "trends / hyperscaler / capex / wfe",
+      "nodeIds": [
+        "n_92",
+        "n_93",
+        "n_94",
+        "n_95",
+        "n_96"
+      ],
+      "edgeIds": [
+        "n_92->n_93",
+        "n_94->n_95",
+        "n_94->n_96"
+      ],
+      "sourceChunks": [
+        "tweet-2027383448692826189"
+      ],
+      "representativeClaims": [
+        "hyperscaler capex → WFE suppliers benefit",
+        "granular data on equipment ecosystem trends → investors' ability to track specific trends",
+        "granular data on equipment ecosystem trends → investment value creation"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-28",
+      "theme": "rotation / earnings / semis / software",
+      "nodeIds": [
+        "n_105",
+        "n_106",
+        "n_107",
+        "n_108",
+        "n_109"
+      ],
+      "edgeIds": [
+        "n_105->n_106",
+        "n_105->n_107",
+        "n_108->n_109"
+      ],
+      "sourceChunks": [
+        "tweet-2027133408376144009"
+      ],
+      "representativeClaims": [
+        "divergence in relative stock performance between semis and software → sector rotation from semis to software",
+        "big unwind (market rotation) → NVDA down despite strong earnings",
+        "big unwind (market rotation) → CRM up despite mediocre earnings"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-31",
+      "theme": "per / increases / chips / migrating",
+      "nodeIds": [
+        "n_116",
+        "n_117",
+        "n_118",
+        "n_119",
+        "n_120"
+      ],
+      "edgeIds": [
+        "n_116->n_117",
+        "n_116->n_118",
+        "n_119->n_120"
+      ],
+      "sourceChunks": [
+        "tweet-2027021127634071875"
+      ],
+      "representativeClaims": [
+        "chips migrating to advanced nodes → photomask count per design increases",
+        "chips migrating to advanced nodes → cost per mask increases",
+        "identifying suppliers leveraged to structural shifts in chip manufacturing → generating alpha (investment returns)"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-34",
+      "theme": "seed / crystal / silicon / pulling",
+      "nodeIds": [
+        "n_133",
+        "n_134",
+        "n_135",
+        "n_136",
+        "n_137",
+        "n_138"
+      ],
+      "edgeIds": [
+        "n_133->n_134",
+        "n_135->n_136",
+        "n_137->n_138"
+      ],
+      "sourceChunks": [
+        "tweet-2026839764150649219"
+      ],
+      "representativeClaims": [
+        "slowly pulling and rotating the seed crystal → molten silicon solidifies around it",
+        "molten silicon solidifies around seed crystal → mimics perfect atomic structure",
+        "seed crystal pulling and rotation process → formation of ultra-pure silicon boules"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-35",
+      "theme": "czochralski / technique / semiconductor / crystal",
+      "nodeIds": [
+        "n_139",
+        "n_140",
+        "n_141",
+        "n_142",
+        "n_143",
+        "n_144"
+      ],
+      "edgeIds": [
+        "n_139->n_140",
+        "n_141->n_142",
+        "n_143->n_144"
+      ],
+      "sourceChunks": [
+        "tweet-2026839762791706972"
+      ],
+      "representativeClaims": [
+        "Czochralski's simple pen-dip technique → ability to create semiconductor crystals",
+        "adapting Czochralski's technique to germanium and silicon → development of practical semiconductor manufacturing",
+        "using a seed crystal instead of a pen → improved control in crystal growth process"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-36",
+      "theme": "impure / material / build / jumbled",
+      "nodeIds": [
+        "n_145",
+        "n_146",
+        "n_147",
+        "n_148",
+        "n_149",
+        "n_150"
+      ],
+      "edgeIds": [
+        "n_145->n_146",
+        "n_147->n_148",
+        "n_149->n_150"
+      ],
+      "sourceChunks": [
+        "tweet-2026839761499889795"
+      ],
+      "representativeClaims": [
+        "jumbled, impure semiconductor material ⊣ ability to build reliable circuits",
+        "growing strategic importance of semiconductors post WWII → scientists at Bell Labs attempting to build transistors",
+        "electrons bouncing in impure material ⊣ circuit reliability"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-37",
+      "theme": "structure / internal / fault / lines",
+      "nodeIds": [
+        "n_151",
+        "n_152",
+        "n_153",
+        "n_154",
+        "n_155",
+        "n_156"
+      ],
+      "edgeIds": [
+        "n_151->n_152",
+        "n_153->n_154",
+        "n_155->n_156"
+      ],
+      "sourceChunks": [
+        "tweet-2026839760174489825"
+      ],
+      "representativeClaims": [
+        "Czochralski's accidental discovery → creation of single crystal",
+        "polycrystalline structure (jumbled, chaotic atoms) → presence of internal fault lines",
+        "single crystal structure (every atom perfectly aligned) → absence of internal fault lines"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-41",
+      "theme": "revenue / nvidia / 13b / exceeding",
+      "nodeIds": [
+        "n_167",
+        "n_168",
+        "n_169",
+        "n_170",
+        "n_171"
+      ],
+      "edgeIds": [
+        "n_167->n_168",
+        "n_169->n_170",
+        "n_171->n_168"
+      ],
+      "sourceChunks": [
+        "tweet-2026777525741887761"
+      ],
+      "representativeClaims": [
+        "Nvidia's Q4 revenue of $68.13B exceeding estimates of $65.91B → earnings results being staggering",
+        "73% year-over-year revenue growth in Q4 → earnings results being staggering",
+        "Data center revenue of $62.3B (91% of total Q4 revenue) → strong overall quarterly performance"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-45",
+      "theme": "environmental / fabs / built / operated",
+      "nodeIds": [
+        "n_190",
+        "n_191",
+        "n_192",
+        "n_193",
+        "n_194"
+      ],
+      "edgeIds": [
+        "n_190->n_191",
+        "n_192->n_193",
+        "n_194->n_192"
+      ],
+      "sourceChunks": [
+        "tweet-2026719187960320469"
+      ],
+      "representativeClaims": [
+        "fabs not built and operated safely → environmental harm",
+        "rent seeking behavior → last-minute injunctions",
+        "last-minute injunctions ⊣ legitimate environmental concern"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-47",
+      "theme": "lawsuit / plaintiffs / halt / project",
+      "nodeIds": [
+        "n_197",
+        "n_198",
+        "n_199",
+        "n_200",
+        "n_201",
+        "n_202"
+      ],
+      "edgeIds": [
+        "n_197->n_198",
+        "n_199->n_200",
+        "n_201->n_202"
+      ],
+      "sourceChunks": [
+        "tweet-2026719184780980266"
+      ],
+      "representativeClaims": [
+        "workers rights group recruiting door-to-door in NY → lawsuit origin (not grassroots)",
+        "6 plaintiffs signing on to lawsuit → potential to halt the project",
+        "small number of plaintiffs (just 6) → sufficient legal standing to halt project"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-50",
+      "theme": "1200 / groundbreaking / competitors / project",
+      "nodeIds": [
+        "n_211",
+        "n_212",
+        "n_213",
+        "n_214",
+        "n_215",
+        "n_216"
+      ],
+      "edgeIds": [
+        "n_211->n_212",
+        "n_213->n_214",
+        "n_215->n_216"
+      ],
+      "sourceChunks": [
+        "tweet-2026719181568176605"
+      ],
+      "representativeClaims": [
+        "extended project timeline (1200 days to groundbreaking) → project being characterized as absurd/problematic",
+        "1200 day delay between announcement and groundbreaking → competitive disadvantage relative to overseas competitors",
+        "starting at the same time as competitors → expectation of comparable fab completion timelines"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-53",
+      "theme": "software / mi355x / b200 / limitations",
+      "nodeIds": [
+        "n_223",
+        "n_224",
+        "n_225",
+        "n_226",
+        "n_227",
+        "n_228"
+      ],
+      "edgeIds": [
+        "n_223->n_224",
+        "n_225->n_226",
+        "n_227->n_228"
+      ],
+      "sourceChunks": [
+        "tweet-2026477441871446402"
+      ],
+      "representativeClaims": [
+        "MI355X software limitations in SOTA disagg+FP4 configurations → MI355X performance gap behind B200",
+        "AMD moving faster on software development → achieving parity with B200 in production-grade serving setups",
+        "software capabilities/execution speed → competitive moat in AI accelerators"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-56",
+      "theme": "mi355x / b200 / performance / workloads",
+      "nodeIds": [
+        "n_233",
+        "n_234",
+        "n_235",
+        "n_236",
+        "n_237",
+        "n_238"
+      ],
+      "edgeIds": [
+        "n_233->n_234",
+        "n_235->n_236",
+        "n_237->n_238"
+      ],
+      "sourceChunks": [
+        "tweet-2026477435298914341"
+      ],
+      "representativeClaims": [
+        "MI355X chip performance on DeepSeek R1 FP8 disaggregated inference workloads → competitive positioning against B200",
+        "MI355X matching or beating B200 in total throughput on specific workloads → MI355X being extremely competitive with B200 chip-to-chip",
+        "InferenceX results demonstrating MI355X performance → establishment of MI355X competitiveness with B200"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-59",
+      "theme": "pentagon / dpa / maxxing / dario",
+      "nodeIds": [
+        "n_245",
+        "n_246",
+        "n_247",
+        "n_248",
+        "n_249"
+      ],
+      "edgeIds": [
+        "n_245->n_246",
+        "n_247->n_248",
+        "n_247->n_249"
+      ],
+      "sourceChunks": [
+        "tweet-2026384282407837877"
+      ],
+      "representativeClaims": [
+        "Pentagon DPA Maxxing → Dario's cortisol levels",
+        "Hegseth Frame Mog → dropping alignment thesis",
+        "Hegseth Frame Mog → building WarClaude"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-60",
+      "theme": "memory / korea-to-china / shipments / early",
+      "nodeIds": [
+        "n_250",
+        "n_251",
+        "n_252",
+        "n_253",
+        "n_254",
+        "n_255"
+      ],
+      "edgeIds": [
+        "n_250->n_251",
+        "n_252->n_253",
+        "n_254->n_255"
+      ],
+      "sourceChunks": [
+        "tweet-2026296284030677283"
+      ],
+      "representativeClaims": [
+        "tracking Korea-to-China memory shipments monthly → investor positioning to identify early inflections in global memory market",
+        "Korea-to-China memory shipments → identification of early inflections in global memory dynamics",
+        "Korean memory manufacturers exercising pricing power → Korea-to-China memory shipment dynamics reflect this pricing power"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-68",
+      "theme": "rules / reliability / processes / yet",
+      "nodeIds": [
+        "n_278",
+        "n_279",
+        "n_280",
+        "n_281",
+        "n_282",
+        "n_283"
+      ],
+      "edgeIds": [
+        "n_278->n_279",
+        "n_280->n_281",
+        "n_282->n_283"
+      ],
+      "sourceChunks": [
+        "tweet-2025631831219916840"
+      ],
+      "representativeClaims": [
+        "conference calls about these reliability processes → stress for participants",
+        "rules not yet written for reliability standards → need for ERCOT and PJM to develop new processes",
+        "rules remaining unwritten → projects being in workshop stage"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-73",
+      "theme": "drill / bit / drilling / aspect",
+      "nodeIds": [
+        "n_299",
+        "n_300",
+        "n_301",
+        "n_302",
+        "n_303",
+        "n_304"
+      ],
+      "edgeIds": [
+        "n_299->n_300",
+        "n_301->n_302",
+        "n_303->n_304"
+      ],
+      "sourceChunks": [
+        "tweet-2024978690514329990"
+      ],
+      "representativeClaims": [
+        "drilling aspect ratios increasing from 8-10x to 12-14x → boards becoming thicker and harder",
+        "higher drilling aspect ratios (12-14x) → requirements for drill bit rigidity, precision, and wear resistance",
+        "drill bit lifespan collapse → increased requirements around drill bit rigidity, precision, and wear resistance"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-74",
+      "theme": "pcb / layer / increase / count",
+      "nodeIds": [
+        "n_305",
+        "n_306",
+        "n_307",
+        "n_308",
+        "n_309",
+        "n_310"
+      ],
+      "edgeIds": [
+        "n_305->n_306",
+        "n_307->n_308",
+        "n_309->n_310"
+      ],
+      "sourceChunks": [
+        "tweet-2024978689369297308"
+      ],
+      "representativeClaims": [
+        "increase in PCB layer count from 8-24 to 28-46 layers in AI server designs → material usage",
+        "increase in PCB layer count → demand for high-end PCB drilling ecosystem",
+        "stepping up layer counts in AI server designs → exponential growth (in PCB drilling ecosystem/material usage)"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-78",
+      "theme": "precise / profiles / acceleration / development",
+      "nodeIds": [
+        "n_325",
+        "n_326",
+        "n_327",
+        "n_328",
+        "n_329",
+        "n_330"
+      ],
+      "edgeIds": [
+        "n_325->n_326",
+        "n_327->n_328",
+        "n_329->n_330"
+      ],
+      "sourceChunks": [
+        "tweet-2024484245809316124"
+      ],
+      "representativeClaims": [
+        "Sym3 Z Magnum delivering precise profiles for denser arrays and taller stacks → acceleration of DRAM development (4F2 and HBM)",
+        "precise profiles for denser arrays → DRAM development acceleration",
+        "precise profiles for taller stacks → HBM development acceleration"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-79",
+      "theme": "pvt2 / control / technology / pulsed",
+      "nodeIds": [
+        "n_331",
+        "n_332",
+        "n_333",
+        "n_334",
+        "n_335",
+        "n_336"
+      ],
+      "edgeIds": [
+        "n_331->n_332",
+        "n_333->n_334",
+        "n_335->n_336"
+      ],
+      "sourceChunks": [
+        "tweet-2024484244320374887"
+      ],
+      "representativeClaims": [
+        "PVT2 Technology → generational leap in control capability",
+        "PVT2 (Pulsed Voltage Technology second generation) → control over high-aspect-ratio challenges",
+        "PVT2 (compared to traditional tools) → improved control"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-80",
+      "theme": "extreme / precision / semiconductor / manufacturing",
+      "nodeIds": [
+        "n_337",
+        "n_338",
+        "n_339",
+        "n_340",
+        "n_341",
+        "n_342"
+      ],
+      "edgeIds": [
+        "n_337->n_338",
+        "n_339->n_340",
+        "n_341->n_342"
+      ],
+      "sourceChunks": [
+        "tweet-2024484242822979618"
+      ],
+      "representativeClaims": [
+        "semiconductor advances toward 2nm and Angstrom eras → demand for extreme precision manufacturing",
+        "vertical 3D architecture of Gate-All-Around (GAA) transistors → need for extreme precision in semiconductor manufacturing",
+        "extreme precision in etching (via Centris Sym3 Z Magnum system) → transistor speed and power efficiency"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-83",
+      "theme": "confidence / mass / production / 2026",
+      "nodeIds": [
+        "n_349",
+        "n_350",
+        "n_351",
+        "n_352",
+        "n_353",
+        "n_354"
+      ],
+      "edgeIds": [
+        "n_349->n_350",
+        "n_351->n_352",
+        "n_353->n_354"
+      ],
+      "sourceChunks": [
+        "tweet-2024211756592353455"
+      ],
+      "representativeClaims": [
+        "true confidence in mass production tokens in H2 2026 → willingness to accept polar dip challenge",
+        "confidence in the prediction → mass production tokens being produced in H2 2026 on MI455X racks",
+        "lack of genuine confidence in H2 2026 mass production → unwillingness to accept polar dip challenge"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-84",
+      "theme": "lake / 18a / intel / performance",
+      "nodeIds": [
+        "n_355",
+        "n_356",
+        "n_357",
+        "n_358",
+        "n_359",
+        "n_360"
+      ],
+      "edgeIds": [
+        "n_355->n_356",
+        "n_357->n_358",
+        "n_359->n_360"
+      ],
+      "sourceChunks": [
+        "tweet-2024210656476745799"
+      ],
+      "representativeClaims": [
+        "Intel missing their performance targets → Intel's 18A performance falling short of 2-year-old comparisons",
+        "Panther Lake on 18A having 5-10% higher IPC than previous generation ⊣ significant efficiency improvement vs Lunar Lake on TSMC N3B",
+        "Intel's failure to meet 18A performance expectations → Panther Lake's modest efficiency gains despite IPC improvements"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-85",
+      "theme": "lake / skus / cpu / purchase",
+      "nodeIds": [
+        "n_361",
+        "n_362",
+        "n_363",
+        "n_364",
+        "n_365",
+        "n_366"
+      ],
+      "edgeIds": [
+        "n_361->n_362",
+        "n_363->n_364",
+        "n_365->n_366"
+      ],
+      "sourceChunks": [
+        "tweet-2024210295057760734"
+      ],
+      "representativeClaims": [
+        "Panther Lake SKUs without -H suffix having half the CPU cores → purchase recommendation against these SKUs",
+        "Lunar Lake offering same CPU performance and battery life at lower price → Lunar Lake being a better purchase choice",
+        "16-core models being over 50% faster at same power → superiority of 16-core models for performance-conscious buyers"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-95",
+      "theme": "across / inference / benchmark / continuous",
+      "nodeIds": [
+        "n_421",
+        "n_422",
+        "n_423",
+        "n_424",
+        "n_425",
+        "n_426"
+      ],
+      "edgeIds": [
+        "n_421->n_422",
+        "n_423->n_424",
+        "n_425->n_426"
+      ],
+      "sourceChunks": [
+        "substack-2_seg0"
+      ],
+      "representativeClaims": [
+        "continuous testing across hundreds of chips and frameworks → setting new standard for AI inference performance and economics",
+        "utilizing close to 1000 frontier GPUs across all SKUs → comprehensive benchmark coverage",
+        "moving beyond static, point-in-time benchmarks → improved inference benchmark quality"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-96",
+      "theme": "production / disaggregated / serving / wide",
+      "nodeIds": [
+        "n_427",
+        "n_428",
+        "n_429",
+        "n_430",
+        "n_431",
+        "n_432"
+      ],
+      "edgeIds": [
+        "n_427->n_428",
+        "n_429->n_430",
+        "n_431->n_432"
+      ],
+      "sourceChunks": [
+        "substack-2_seg1"
+      ],
+      "representativeClaims": [
+        "open-source Apache 2.0 release model → ability to move at rapid speed matching AI software ecosystem advancement",
+        "production deployment at Frontier AI Labs and advanced API providers → disaggregated serving with wide expert parallelism",
+        "relevance to production systems at major AI companies → focus on disaggregated serving with wide expert parallelism in InferenceX"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-103",
+      "theme": "water / datacenter / accounting / difficulty",
+      "nodeIds": [
+        "n_490",
+        "n_491",
+        "n_492",
+        "n_493",
+        "n_494",
+        "n_495"
+      ],
+      "edgeIds": [
+        "n_490->n_491",
+        "n_492->n_493",
+        "n_494->n_495"
+      ],
+      "sourceChunks": [
+        "substack-6_seg1"
+      ],
+      "representativeClaims": [
+        "lack of standard for water accounting → difficulty in comparing datacenter water usage",
+        "nuances in water accounting methodology → difficulty assessing 'datacenters are choking the world' headline",
+        "contributing a different angle to the datacenter water debate → comparing datacenter water footprint to burger production"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-116",
+      "theme": "tsmc / semiconductor / drive / on-shore",
+      "nodeIds": [
+        "n_621",
+        "n_622",
+        "n_623",
+        "n_624",
+        "n_625",
+        "n_626"
+      ],
+      "edgeIds": [
+        "n_621->n_622",
+        "n_623->n_624",
+        "n_625->n_626"
+      ],
+      "sourceChunks": [
+        "substack-13_seg0"
+      ],
+      "representativeClaims": [
+        "Drive to on-shore advanced semiconductor manufacturing → Creation of three TSMC overseas ventures (U.S., Japan, Germany)",
+        "TSMC overseas fab projects operating for five years → These projects yielding wafers",
+        "TSMC's importance to global semiconductor supply → U.S. and other governments' drive to on-shore advanced semiconductor manufacturing"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-125",
+      "theme": "lack / incentive / incumbents / change",
+      "nodeIds": [
+        "n_699",
+        "n_700",
+        "n_701",
+        "n_702",
+        "n_703",
+        "n_704"
+      ],
+      "edgeIds": [
+        "n_699->n_700",
+        "n_701->n_702",
+        "n_703->n_704"
+      ],
+      "sourceChunks": [
+        "substack-17_seg1"
+      ],
+      "representativeClaims": [
+        "long wavelength (DUV and above) techniques kept scaling → no need to overcome XRL challenges",
+        "lack of incentive for incumbents to change → opening for innovators",
+        "X-ray lithography tool invention → reduce cost of advanced logic wafers"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-128",
+      "theme": "quadrupeds / new / market / robotics",
+      "nodeIds": [
+        "n_719",
+        "n_720",
+        "n_721",
+        "n_722",
+        "n_723",
+        "n_724"
+      ],
+      "edgeIds": [
+        "n_719->n_720",
+        "n_721->n_722",
+        "n_723->n_724"
+      ],
+      "sourceChunks": [
+        "substack-19_seg0"
+      ],
+      "representativeClaims": [
+        "Level 2 Autonomy in quadrupeds coming online → new market opportunities for robotics",
+        "startup ecosystem leveraging new AI model architectures → augmentation of hardware and software enabling multiple applications",
+        "understanding the quadrupeds market and ecosystem → ability to glimpse the future of autonomous robotics"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-3",
+      "theme": "amd / open / sourcing / gemmologist",
+      "nodeIds": [
+        "n_9",
+        "n_10",
+        "n_11"
+      ],
+      "edgeIds": [
+        "n_9->n_10",
+        "n_10->n_11"
+      ],
+      "sourceChunks": [
+        "tweet-2028886238644556103"
+      ],
+      "representativeClaims": [
+        "AMD open sourcing gemmologist/gemm SOL modelling code → developers knowing how optimized AMD kernels are",
+        "developers knowing how optimized AMD kernels are → kernel optimization improvements"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-5",
+      "theme": "subscribing / chipbook / ability / monitor",
+      "nodeIds": [
+        "n_17",
+        "n_18",
+        "n_35"
+      ],
+      "edgeIds": [
+        "n_17->n_18",
+        "n_17->n_35"
+      ],
+      "sourceChunks": [
+        "tweet-2028833183739900009",
+        "tweet-2028470630132122087"
+      ],
+      "representativeClaims": [
+        "subscribing to ChipBook → ability to monitor ABF substrate related investments",
+        "subscribing to ChipBook → being up to date on latest Auto Supply chain data"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-6",
+      "theme": "substrate / taiwan / production / data",
+      "nodeIds": [
+        "n_19",
+        "n_20",
+        "n_21"
+      ],
+      "edgeIds": [
+        "n_19->n_20",
+        "n_19->n_21"
+      ],
+      "sourceChunks": [
+        "tweet-2028833182619951452"
+      ],
+      "representativeClaims": [
+        "Taiwan production data → insight into durability of ABF substrate market expansion",
+        "Taiwan production data → understanding of current demand relative to prior substrate cycles"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-9",
+      "theme": "compute / efficiency / gains / new",
+      "nodeIds": [
+        "n_31",
+        "n_32",
+        "n_33",
+        "n_34"
+      ],
+      "edgeIds": [
+        "n_31->n_32",
+        "n_33->n_34"
+      ],
+      "sourceChunks": [
+        "tweet-2028530967095152739"
+      ],
+      "representativeClaims": [
+        "each new generation (Hopper, Blackwell, Rubin) → compute efficiency gains",
+        "peak FLOPs rising much faster than TDP increases → substantial gains in compute efficiency"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-10",
+      "theme": "ability / granular-level / data / analysis",
+      "nodeIds": [
+        "n_36",
+        "n_37",
+        "n_38"
+      ],
+      "edgeIds": [
+        "n_36->n_37",
+        "n_36->n_38"
+      ],
+      "sourceChunks": [
+        "tweet-2028470628680937580"
+      ],
+      "representativeClaims": [
+        "granular-level data analysis → ability to pinpoint decline in EV imports concentration",
+        "granular-level data analysis → ability to identify where Hybrid Vehicle import growth is accelerating"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-11",
+      "theme": "pivot / full / evs / hevs",
+      "nodeIds": [
+        "n_39",
+        "n_40",
+        "n_41",
+        "n_42"
+      ],
+      "edgeIds": [
+        "n_39->n_40",
+        "n_41->n_42"
+      ],
+      "sourceChunks": [
+        "tweet-2028470627166761349"
+      ],
+      "representativeClaims": [
+        "US auto import data → highlights the ongoing pivot from full EVs to HEVs",
+        "pivot from full EVs to Hybrid Electric Vehicles (HEVs) → read-through implications for auto suppliers and supply chain partners"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-14",
+      "theme": "profitability / using / year / depreciation",
+      "nodeIds": [
+        "n_51",
+        "n_52",
+        "n_53",
+        "n_54"
+      ],
+      "edgeIds": [
+        "n_51->n_52",
+        "n_53->n_54"
+      ],
+      "sourceChunks": [
+        "tweet-2027841117182693753"
+      ],
+      "representativeClaims": [
+        "using 6 year depreciation period → overstating profitability in near term",
+        "transparent economics and available information → ability to accurately assess true profitability"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-15",
+      "theme": "ebit / corporate / project / margin",
+      "nodeIds": [
+        "n_55",
+        "n_56",
+        "n_57",
+        "n_58"
+      ],
+      "edgeIds": [
+        "n_55->n_56",
+        "n_57->n_58"
+      ],
+      "sourceChunks": [
+        "tweet-2027841115559501826"
+      ],
+      "representativeClaims": [
+        "additional SG+A and engineering costs at Hyperscaler or Neocloud ⊣ corporate EBIT margins",
+        "project EBIT margin calculation including only limited overhead directly related to cluster operation → project EBIT margin being higher than corporate EBIT margin"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-16",
+      "theme": "including / full / six-year / lifecycle",
+      "nodeIds": [
+        "n_59",
+        "n_60",
+        "n_61"
+      ],
+      "edgeIds": [
+        "n_59->n_60",
+        "n_61->n_60"
+      ],
+      "sourceChunks": [
+        "tweet-2027841113692991665"
+      ],
+      "representativeClaims": [
+        "including full six-year lifecycle costs ⊣ project EBIT margin",
+        "focusing only on initial 5-year contract period → project EBIT margin"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-17",
+      "theme": "rental / realized / price / project",
+      "nodeIds": [
+        "n_62",
+        "n_63",
+        "n_64",
+        "n_65"
+      ],
+      "edgeIds": [
+        "n_62->n_63",
+        "n_64->n_65"
+      ],
+      "sourceChunks": [
+        "tweet-2027841111524577396"
+      ],
+      "representativeClaims": [
+        "realized rental price of $3.10/hr → project EBIT margin in high 30%",
+        "5-year rental contract for GB300 NVL72 → lifecycle economics outcomes"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-21",
+      "theme": "community / comprehensive / llm / inference",
+      "nodeIds": [
+        "n_80",
+        "n_81",
+        "n_82",
+        "n_83"
+      ],
+      "edgeIds": [
+        "n_80->n_81",
+        "n_82->n_83"
+      ],
+      "sourceChunks": [
+        "tweet-2027504070865371589"
+      ],
+      "representativeClaims": [
+        "open-source design → providing ML community with comprehensive LLM inference benchmark",
+        "comprehensive and truthful LLM inference benchmark → value to ML community"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-26",
+      "theme": "quick / unwind / widening / gap",
+      "nodeIds": [
+        "n_99",
+        "n_100",
+        "n_101",
+        "n_102"
+      ],
+      "edgeIds": [
+        "n_99->n_100",
+        "n_101->n_102"
+      ],
+      "sourceChunks": [
+        "tweet-2027133412020994175"
+      ],
+      "representativeClaims": [
+        "widening gap between AI and Semiconductors performance → quick unwind (market correction)",
+        "comparative pain/divergence between AI and Semis → quick unwind makes sense"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-29",
+      "theme": "intelligence / fast / mode / opus",
+      "nodeIds": [
+        "n_110",
+        "n_111",
+        "n_112",
+        "n_113"
+      ],
+      "edgeIds": [
+        "n_110->n_111",
+        "n_112->n_113"
+      ],
+      "sourceChunks": [
+        "tweet-2027081514865807496"
+      ],
+      "representativeClaims": [
+        "Fast mode in Opus 4.6 → increased intelligence",
+        "greater intelligence → completing SAT in shorter time while achieving same score"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-32",
+      "theme": "moment / absentmindedness / pole / german",
+      "nodeIds": [
+        "n_121",
+        "n_122",
+        "n_123",
+        "n_124"
+      ],
+      "edgeIds": [
+        "n_121->n_122",
+        "n_123->n_124"
+      ],
+      "sourceChunks": [
+        "tweet-2026839766776332331"
+      ],
+      "representativeClaims": [
+        "a moment of absentmindedness by a Pole in a German lab over a century ago → modern boules weighing hundreds of pounds grown with mind-boggling precision and being the purest substance ever manufactured",
+        "not being afraid (taking risks/embracing accidents) → positive outcomes and breakthroughs"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-39",
+      "theme": "accidental / discovery / industry / contamination",
+      "nodeIds": [
+        "n_159",
+        "n_160",
+        "n_161",
+        "n_162"
+      ],
+      "edgeIds": [
+        "n_159->n_160",
+        "n_161->n_162"
+      ],
+      "sourceChunks": [
+        "tweet-2026839757599252968"
+      ],
+      "representativeClaims": [
+        "accidental discovery/contamination event → life-saving modern medicine development",
+        "semiconductor industry's accidental discovery moment → significant industry advancement (implied parallel to penicillin)"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-40",
+      "theme": "demand / strategic / securing / inventory",
+      "nodeIds": [
+        "n_163",
+        "n_164",
+        "n_165",
+        "n_166"
+      ],
+      "edgeIds": [
+        "n_163->n_164",
+        "n_165->n_166"
+      ],
+      "sourceChunks": [
+        "tweet-2026777768659222899"
+      ],
+      "representativeClaims": [
+        "strategic securing of inventory and capacity → ability to meet demand beyond the next period",
+        "supply commitments ($95.2 billion) → meeting future demand"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-48",
+      "theme": "local / opposition / rapid / development",
+      "nodeIds": [
+        "n_203",
+        "n_204",
+        "n_205",
+        "n_206"
+      ],
+      "edgeIds": [
+        "n_203->n_204",
+        "n_205->n_206"
+      ],
+      "sourceChunks": [
+        "tweet-2026719183816347746"
+      ],
+      "representativeClaims": [
+        "framing opposition as NIMBY parody → delegitimization of local concerns",
+        "rapid development/bulldozing into an area → local community opposition"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-49",
+      "theme": "process / rushed / 612 / days",
+      "nodeIds": [
+        "n_207",
+        "n_208",
+        "n_209",
+        "n_210"
+      ],
+      "edgeIds": [
+        "n_207->n_208",
+        "n_209->n_210"
+      ],
+      "sourceChunks": [
+        "tweet-2026719182927053273"
+      ],
+      "representativeClaims": [
+        "Micron being hit with legal challenge hours before groundbreaking → lawsuit calling the process 'unnecessarily rushed'",
+        "612 days spent on environmental impact study with 45 day public input period ⊣ process being rushed"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-51",
+      "theme": "lawsuit / delay / megafab / concerned",
+      "nodeIds": [
+        "n_217",
+        "n_218",
+        "n_219",
+        "n_220"
+      ],
+      "edgeIds": [
+        "n_217->n_218",
+        "n_219->n_220"
+      ],
+      "sourceChunks": [
+        "tweet-2026719180284666046"
+      ],
+      "representativeClaims": [
+        "lawsuit by concerned citizens → delay of Micron's $100B megafab in NY",
+        "frivolous nature of lawsuit → risk of megafab delay"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-57",
+      "theme": "amd / revenue / gigawatts / systems",
+      "nodeIds": [
+        "n_239",
+        "n_240",
+        "n_241",
+        "n_242"
+      ],
+      "edgeIds": [
+        "n_239->n_240",
+        "n_241->n_242"
+      ],
+      "sourceChunks": [
+        "tweet-2026417620061213081"
+      ],
+      "representativeClaims": [
+        "6 Gigawatts of AMD systems over 5 years from Meta deal → AMD revenue generation",
+        "1st GW delivery starting 2H26 → AMD revenue realization timeline"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-61",
+      "theme": "ancestral / homeland / adding / land",
+      "nodeIds": [
+        "n_256",
+        "n_257",
+        "n_258",
+        "n_259"
+      ],
+      "edgeIds": [
+        "n_256->n_257",
+        "n_258->n_259"
+      ],
+      "sourceChunks": [
+        "tweet-2026160971081777419"
+      ],
+      "representativeClaims": [
+        "occupation of unceded Ramaytush ancestral homeland → Anthropic's San Francisco headquarters location",
+        "adding land acknowledgment to website and Claude Code onboarding → appropriate recognition of indigenous ancestral homeland"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-63",
+      "theme": "selective / deposition / contact / resistance",
+      "nodeIds": [
+        "n_262",
+        "n_263",
+        "n_264",
+        "n_265"
+      ],
+      "edgeIds": [
+        "n_262->n_263",
+        "n_264->n_265"
+      ],
+      "sourceChunks": [
+        "tweet-2026054525665092003"
+      ],
+      "representativeClaims": [
+        "selective monocrystalline molybdenum deposition → critical contact resistance reduction",
+        "Spectral system's selective deposition capability → up to 15% contact resistance reduction"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-64",
+      "theme": "contacts / metal / increasingly / thin",
+      "nodeIds": [
+        "n_266",
+        "n_267",
+        "n_268",
+        "n_269"
+      ],
+      "edgeIds": [
+        "n_266->n_267",
+        "n_268->n_269"
+      ],
+      "sourceChunks": [
+        "tweet-2026054524176040239"
+      ],
+      "representativeClaims": [
+        "process nodes scaling below 2nm → metal contacts become increasingly thin",
+        "metal contacts becoming increasingly thin → electrical resistance in contacts rises significantly"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-67",
+      "theme": "china / localization / advanced / packaging",
+      "nodeIds": [
+        "n_274",
+        "n_275",
+        "n_276",
+        "n_277"
+      ],
+      "edgeIds": [
+        "n_274->n_275",
+        "n_276->n_277"
+      ],
+      "sourceChunks": [
+        "tweet-2025933776748990571"
+      ],
+      "representativeClaims": [
+        "BESI Q4 orders book details → evidence of Advanced Packaging as next step in China localization",
+        "China localization of semiconductor supply chain → Advanced Packaging adoption"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-69",
+      "theme": "datacenter / grid / drops / off",
+      "nodeIds": [
+        "n_284",
+        "n_285",
+        "n_286",
+        "n_287"
+      ],
+      "edgeIds": [
+        "n_284->n_285",
+        "n_286->n_287"
+      ],
+      "sourceChunks": [
+        "tweet-2025631829831692678"
+      ],
+      "representativeClaims": [
+        "datacenter drops off grid during peak times ⊣ need for new transmission or generation capacity",
+        "demand response agreement allowing datacenter grid drop-off → datacenter ability to secure faster interconnection"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-70",
+      "theme": "clusters / utility / incentive / requirement",
+      "nodeIds": [
+        "n_288",
+        "n_289",
+        "n_290",
+        "n_291"
+      ],
+      "edgeIds": [
+        "n_288->n_289",
+        "n_290->n_291"
+      ],
+      "sourceChunks": [
+        "tweet-2025631828766249004"
+      ],
+      "representativeClaims": [
+        "AI clusters generating $12M/MW annually revenue with 20% EBIT margin → utility incentive requirement of $0.35/kWh (5-10x datacenter electricity price)",
+        "high utility incentive requirement ($0.35/kWh) → demand response economic viability for AI clusters"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-71",
+      "theme": "strain / electric / grid / compute",
+      "nodeIds": [
+        "n_292",
+        "n_293",
+        "n_294",
+        "n_295"
+      ],
+      "edgeIds": [
+        "n_292->n_293",
+        "n_294->n_295"
+      ],
+      "sourceChunks": [
+        "tweet-2025631826925011454"
+      ],
+      "representativeClaims": [
+        "AI compute clusters reducing workloads during peak times ⊣ strain on electric grid",
+        "reduced strain on electric grid ⊣ need for new generators"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-72",
+      "theme": "pcb / drill / bits / back-drilling",
+      "nodeIds": [
+        "n_296",
+        "n_297",
+        "n_298"
+      ],
+      "edgeIds": [
+        "n_296->n_297",
+        "n_297->n_298"
+      ],
+      "sourceChunks": [
+        "tweet-2024978691441184841"
+      ],
+      "representativeClaims": [
+        "high demand for drill bits, back-drilling machines, and PCB support plates → shortage of drill bits, back-drilling machines, and PCB support plates",
+        "shortage of drill bits, back-drilling machines, and PCB support plates → business benefits for Taiwanese and global PCB equipment manufacturers"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-76",
+      "theme": "hyperscaler / capex / ramping / wfe",
+      "nodeIds": [
+        "n_317",
+        "n_318",
+        "n_319",
+        "n_320"
+      ],
+      "edgeIds": [
+        "n_317->n_318",
+        "n_319->n_320"
+      ],
+      "sourceChunks": [
+        "tweet-2024846842643534054"
+      ],
+      "representativeClaims": [
+        "Hyperscaler capex ramping → WFE moves to center stage",
+        "Hyperscaler capex increases → Etch equipment imports increase"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-77",
+      "theme": "sym3 / family / broad / adoption",
+      "nodeIds": [
+        "n_321",
+        "n_322",
+        "n_323",
+        "n_324"
+      ],
+      "edgeIds": [
+        "n_321->n_322",
+        "n_323->n_324"
+      ],
+      "sourceChunks": [
+        "tweet-2024484247487053965"
+      ],
+      "representativeClaims": [
+        "broad adoption of Sym3 Z family → Sym3 Z family achieving POR status in 2nm logic manufacturing",
+        "combining PVT2 with advanced source technology → elimination of [unspecified issue]"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-82",
+      "theme": "adoption / deployment / negative / audience",
+      "nodeIds": [
+        "n_345",
+        "n_346",
+        "n_347",
+        "n_348"
+      ],
+      "edgeIds": [
+        "n_345->n_346",
+        "n_347->n_348"
+      ],
+      "sourceChunks": [
+        "tweet-2024242613209960499"
+      ],
+      "representativeClaims": [
+        "AI adoption/deployment → negative audience reception (boos at comedy clubs)",
+        "early stage of AI integration into entertainment → expectation of increasing backlash/criticism"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-86",
+      "theme": "intel / mediatek / product / announced",
+      "nodeIds": [
+        "n_367",
+        "n_368",
+        "n_369",
+        "n_370"
+      ],
+      "edgeIds": [
+        "n_367->n_368",
+        "n_369->n_370"
+      ],
+      "sourceChunks": [
+        "tweet-2024182383675650318"
+      ],
+      "representativeClaims": [
+        "No updates on Mediatek Intel 16 product by Feb 2026 → Uncertainty about Intel 16 adoption success",
+        "Mediatek announced as lead Intel 16 customer (Jul 2022) → Expected Intel 16 product development progress"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-87",
+      "theme": "intel / 18a / manufacturing / readiness",
+      "nodeIds": [
+        "n_371",
+        "n_372",
+        "n_373",
+        "n_374"
+      ],
+      "edgeIds": [
+        "n_371->n_372",
+        "n_373->n_374"
+      ],
+      "sourceChunks": [
+        "tweet-2024182381301690808"
+      ],
+      "representativeClaims": [
+        "Intel 18A manufacturing readiness validation → Intel 18A development and power-on of Panther Lake and Clearwater Forest",
+        "switching from high-NA EUV to low-NA EUV → acceleration of Intel 18A manufacturing readiness timeline"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-88",
+      "theme": "20a / roadmap / intel / pat",
+      "nodeIds": [
+        "n_375",
+        "n_376",
+        "n_377",
+        "n_378"
+      ],
+      "edgeIds": [
+        "n_375->n_376",
+        "n_377->n_378"
+      ],
+      "sourceChunks": [
+        "tweet-2024182379015770170"
+      ],
+      "representativeClaims": [
+        "Intel 20A roadmap failure → 20A cancellation in Sep 2024",
+        "Pat Gelsinger's 5 nodes 4 years roadmap → Intel 20A announcement with Nanosheet and PowerVia"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-89",
+      "theme": "7nm / schedule / delay / process",
+      "nodeIds": [
+        "n_379",
+        "n_380",
+        "n_381",
+        "n_382"
+      ],
+      "edgeIds": [
+        "n_379->n_380",
+        "n_381->n_382"
+      ],
+      "sourceChunks": [
+        "tweet-2024182376834781271"
+      ],
+      "representativeClaims": [
+        "7nm process broken → schedule delay",
+        "1 year schedule delay on Intel 7nm → move Ponte Vecchio to TSMC 5nm"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-126",
+      "theme": "euv / nil / clickbait / appeal",
+      "nodeIds": [
+        "n_705",
+        "n_706",
+        "n_707",
+        "n_708"
+      ],
+      "edgeIds": [
+        "n_705->n_706",
+        "n_707->n_708"
+      ],
+      "sourceChunks": [
+        "substack-18_seg0"
+      ],
+      "representativeClaims": [
+        "clickbait appeal → headlines about nanoimprint lithography disrupting EUV",
+        "serious issues for NIL without clear way forward ⊣ NIL matching or exceeding EUV capabilities in practice"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-0",
+      "theme": "dinosaurs / dying / extinction / ability",
+      "nodeIds": [
+        "n_0",
+        "n_1"
+      ],
+      "edgeIds": [
+        "n_0->n_1"
+      ],
+      "sourceChunks": [
+        "tweet-2029029214347833714"
+      ],
+      "representativeClaims": [
+        "dinosaurs dying (extinction) → ability to render dinosaurs (in modern technology/media)"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-1",
+      "theme": "transition / tsmc / 4nm / 3nm",
+      "nodeIds": [
+        "n_2",
+        "n_3"
+      ],
+      "edgeIds": [
+        "n_2->n_3"
+      ],
+      "sourceChunks": [
+        "tweet-2028976904561180873"
+      ],
+      "representativeClaims": [
+        "transition from TSMC 4nm to 3nm process → GPU die area increase"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-7",
+      "theme": "extreme / register / pressure / hopper",
+      "nodeIds": [
+        "n_22",
+        "n_23"
+      ],
+      "edgeIds": [
+        "n_22->n_23"
+      ],
+      "sourceChunks": [
+        "tweet-2028591299050217709"
+      ],
+      "representativeClaims": [
+        "extreme register pressure on Hopper → motivation to include Tensor Memory (TMEM) in Blackwell"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-12",
+      "theme": "detailed / business / case / analysis",
+      "nodeIds": [
+        "n_43",
+        "n_44"
+      ],
+      "edgeIds": [
+        "n_43->n_44"
+      ],
+      "sourceChunks": [
+        "tweet-2027841120391336314"
+      ],
+      "representativeClaims": [
+        "detailed business case analysis and TCO details for accelerators → informed decision-making on accelerator selection"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-20",
+      "theme": "claude / capabilities / ability / build",
+      "nodeIds": [
+        "n_78",
+        "n_79"
+      ],
+      "edgeIds": [
+        "n_78->n_79"
+      ],
+      "sourceChunks": [
+        "tweet-2027564581430718731"
+      ],
+      "representativeClaims": [
+        "Claude AI capabilities → ability to build entire RTS game in one week"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-22",
+      "theme": "inferencex / running / 100k / inference",
+      "nodeIds": [
+        "n_84",
+        "n_85"
+      ],
+      "edgeIds": [
+        "n_84->n_85"
+      ],
+      "sourceChunks": [
+        "tweet-2027504069519012200"
+      ],
+      "representativeClaims": [
+        "InferenceX running over 100k inference benchmarks since September 2025 → accumulation of 1,369,711 GPU-minutes of runtime"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-25",
+      "theme": "disney-openai / deal / gemini / market",
+      "nodeIds": [
+        "n_97",
+        "n_98"
+      ],
+      "edgeIds": [
+        "n_97->n_98"
+      ],
+      "sourceChunks": [
+        "tweet-2027202177677045822"
+      ],
+      "representativeClaims": [
+        "Disney-OpenAI Deal ⊣ Gemini's market position"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-27",
+      "theme": "markets / fat-tailed / ability / accommodate",
+      "nodeIds": [
+        "n_103",
+        "n_104"
+      ],
+      "edgeIds": [
+        "n_103->n_104"
+      ],
+      "sourceChunks": [
+        "tweet-2027133410062246340"
+      ],
+      "representativeClaims": [
+        "markets being fat-tailed → ability to accommodate extreme statistical events"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-30",
+      "theme": "subscribing / chipbook / help / idea",
+      "nodeIds": [
+        "n_114",
+        "n_115"
+      ],
+      "edgeIds": [
+        "n_114->n_115"
+      ],
+      "sourceChunks": [
+        "tweet-2027021128955199525",
+        "tweet-2026658730096332988"
+      ],
+      "representativeClaims": [
+        "subscribing to the ChipBook → help with idea generation of key enabling supply chain companies"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-38",
+      "theme": "cluttered / intense / lab / environment",
+      "nodeIds": [
+        "n_157",
+        "n_158"
+      ],
+      "edgeIds": [
+        "n_157->n_158"
+      ],
+      "sourceChunks": [
+        "tweet-2026839758853345407"
+      ],
+      "representativeClaims": [
+        "cluttered, intense lab environment with random objects → serendipitous discovery or accident"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-42",
+      "theme": "compute / seamless / cableless / tray",
+      "nodeIds": [
+        "n_172",
+        "n_173"
+      ],
+      "edgeIds": [
+        "n_172->n_173"
+      ],
+      "sourceChunks": [
+        "tweet-2026730248939938285"
+      ],
+      "representativeClaims": [
+        "Seamless Cableless Compute Tray Design → compute efficiency/simplification"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-46",
+      "theme": "group / lacking / prior / meetings",
+      "nodeIds": [
+        "n_195",
+        "n_196"
+      ],
+      "edgeIds": [
+        "n_195->n_196"
+      ],
+      "sourceChunks": [
+        "tweet-2026719186093769045"
+      ],
+      "representativeClaims": [
+        "group lacking prior meetings, votes, or member familiarity ⊣ credibility/legitimacy of the lawsuit"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-52",
+      "theme": "server / capacity / expansion / growth",
+      "nodeIds": [
+        "n_221",
+        "n_222"
+      ],
+      "edgeIds": [
+        "n_221->n_222"
+      ],
+      "sourceChunks": [
+        "tweet-2026658728871620679"
+      ],
+      "representativeClaims": [
+        "server capacity expansion → growth in liquid cooling systems suppliers"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-54",
+      "theme": "sglang / mi355x / deepseek / fp8",
+      "nodeIds": [
+        "n_229",
+        "n_230"
+      ],
+      "edgeIds": [
+        "n_229->n_230"
+      ],
+      "sourceChunks": [
+        "tweet-2026477439631712307"
+      ],
+      "representativeClaims": [
+        "MI355X on DeepSeek R1 FP8 single node SGLang scenarios → competitive or superior performance versus B200 SGLang on total throughput"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-55",
+      "theme": "mi355x / serving / deepseek / fp8",
+      "nodeIds": [
+        "n_231",
+        "n_232"
+      ],
+      "edgeIds": [
+        "n_231->n_232"
+      ],
+      "sourceChunks": [
+        "tweet-2026477437446447458"
+      ],
+      "representativeClaims": [
+        "MI355X serving DeepSeek R1 FP8 disagg → cost-effectiveness compared to B200 SGLang"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-58",
+      "theme": "mi450x / pricing / negotiations / customers",
+      "nodeIds": [
+        "n_243",
+        "n_244"
+      ],
+      "edgeIds": [
+        "n_243->n_244"
+      ],
+      "sourceChunks": [
+        "tweet-2026386771429224643"
+      ],
+      "representativeClaims": [
+        "MI450X pricing negotiations with customers → difficulty/challenge for AMD account executives"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-62",
+      "theme": "demand / increase / chip / shortage",
+      "nodeIds": [
+        "n_260",
+        "n_261"
+      ],
+      "edgeIds": [
+        "n_260->n_261"
+      ],
+      "sourceChunks": [
+        "tweet-2026114966785327315"
+      ],
+      "representativeClaims": [
+        "AI demand increase → chip shortage fears"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-65",
+      "theme": "gb200 / nvl72 / performance / advantage",
+      "nodeIds": [
+        "n_270",
+        "n_271"
+      ],
+      "edgeIds": [
+        "n_270->n_271"
+      ],
+      "sourceChunks": [
+        "tweet-2025996357996093706"
+      ],
+      "representativeClaims": [
+        "GB200 NVL72 performance advantage over H100 → need to use logarithmic scale for TCO per million tokens visualization"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-66",
+      "theme": "signing / chipbook / staying / informed",
+      "nodeIds": [
+        "n_272",
+        "n_273"
+      ],
+      "edgeIds": [
+        "n_272->n_273"
+      ],
+      "sourceChunks": [
+        "tweet-2025933778074440047"
+      ],
+      "representativeClaims": [
+        "signing up for ChipBook → staying informed on Advanced Packaging developments"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-81",
+      "theme": "faster / elegant / solutions / competitive",
+      "nodeIds": [
+        "n_343",
+        "n_344"
+      ],
+      "edgeIds": [
+        "n_343->n_344"
+      ],
+      "sourceChunks": [
+        "tweet-2024302964697919513"
+      ],
+      "representativeClaims": [
+        "faster, elegant solutions → competitive advantage"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-92",
+      "theme": "simulation-driven / increase / reflection / actual",
+      "nodeIds": [
+        "n_399",
+        "n_400"
+      ],
+      "edgeIds": [
+        "n_399->n_400"
+      ],
+      "sourceChunks": [
+        "substack-0_seg2"
+      ],
+      "representativeClaims": [
+        "simulation-driven increase ⊣ reflection of actual conditions"
+      ],
+      "claimCount": 1
+    }
+  ],
+  "synthesizedAt": "2026-03-05T04:05:42.483Z"
+}

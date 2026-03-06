@@ -1,0 +1,2457 @@
+{
+  "personaId": "Noah Smith",
+  "personaName": "Noah Smith",
+  "positions": [
+    {
+      "id": "pos-0",
+      "claim": "AI advancement will transform the software industry and broader economy through productivity gains rather than mass unemployment, creating new job categories while disrupting existing ones",
+      "confidence": 0.85,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-64",
+        "cluster-75",
+        "cluster-54",
+        "cluster-59"
+      ],
+      "implicitAssumptions": [
+        "Labor markets adjust faster than AI capabilities compound, allowing workers to transition to newly created roles before structural unemployment becomes permanent",
+        "The historical pattern of technological revolutions creating more jobs than they destroy will hold even when the technology directly automates cognitive rather than physical labor",
+        "Economic institutions (education, retraining, wage-setting mechanisms) have sufficient adaptive capacity to manage AI-driven transitions without requiring fundamental restructuring"
+      ]
+    },
+    {
+      "id": "pos-1",
+      "claim": "Technological change is accelerating to a pace that creates 'future shock' - a psychological state where humans feel overwhelmed by the rate of social and economic transformation",
+      "confidence": 0.8,
+      "type": "concern",
+      "groundingClusters": [
+        "cluster-64",
+        "cluster-65",
+        "cluster-62"
+      ],
+      "implicitAssumptions": [
+        "Human psychological adaptation rates are relatively fixed and cannot be significantly accelerated through cultural or institutional changes",
+        "The subjective experience of rapid change matters more for social stability than the objective magnitude of material improvements",
+        "Previous generations experienced slower technological change in a way that allowed psychological equilibrium, rather than simply having different baseline expectations"
+      ]
+    },
+    {
+      "id": "pos-2",
+      "claim": "Climate change mitigation faces a fundamental free-rider problem because most decarbonization benefits accrue to other countries, but this can be overcome through technology that is economically superior even without considering pollution externalities",
+      "confidence": 0.9,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-61",
+        "cluster-60"
+      ],
+      "implicitAssumptions": [
+        "Clean technology can achieve cost parity with fossil fuels through innovation alone, without requiring carbon pricing or regulatory mandates to internalize externalities",
+        "Countries make energy technology decisions primarily on economic grounds rather than geopolitical considerations (energy independence, domestic industry protection)",
+        "The transition speed enabled by economic incentives alone is sufficient to avoid catastrophic climate tipping points"
+      ]
+    },
+    {
+      "id": "pos-3",
+      "claim": "MAGA ideology's refusal to respect law and interface with reality creates fundamental weakness for the United States, similar to how ideological rigidity has weakened Russia",
+      "confidence": 0.85,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-86",
+        "cluster-78"
+      ],
+      "implicitAssumptions": [
+        "National power depends more on institutional integrity and reality-based decision-making than on raw material resources or military capability",
+        "Ideological movements that reject legal constraints face inevitable collision with reality that degrades their effectiveness, rather than successfully reshaping institutions to their preferences",
+        "The international system punishes reality-denial through market mechanisms (capital flight, reserve currency loss) faster than domestic political systems can adapt"
+      ]
+    },
+    {
+      "id": "pos-4",
+      "claim": "Presidential tariff authority under various statutory provisions (Sections 201, 232, 301, 122, 338) gives the executive branch dangerous unilateral power that contradicts constitutional allocation of tax authority to Congress",
+      "confidence": 0.75,
+      "type": "concern",
+      "groundingClusters": [
+        "cluster-56",
+        "cluster-57"
+      ],
+      "implicitAssumptions": [
+        "The Supreme Court would be willing to overturn decades of precedent on executive trade authority if presented with the right case, despite institutional reluctance to constrain presidential power in foreign economic policy",
+        "Congressional delegation of tariff authority represents a constitutional violation rather than a legitimate evolution of separation of powers in response to modern trade complexity",
+        "Judicial limitation of presidential tariff power would improve policy outcomes rather than simply transferring dysfunction to a gridlocked Congress"
+      ]
+    },
+    {
+      "id": "pos-5",
+      "claim": "Social media technology has made American politics more extremist-dominated by allowing like-minded radicals to bypass traditional institutional hierarchies and form self-reinforcing communities",
+      "confidence": 0.8,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-73"
+      ],
+      "implicitAssumptions": [
+        "Traditional media gatekeepers and party institutions previously filtered extremism through editorial judgment rather than simply reflecting existing public sentiment",
+        "The moderate majority's avoidance of online political spaces represents a choice rather than being driven out by platform design or algorithmic amplification of conflict",
+        "Extremist capture of online discourse translates into real political power rather than being confined to performative digital spaces disconnected from governance"
+      ]
+    },
+    {
+      "id": "pos-6",
+      "claim": "Enforcement-focused immigration policies like ICE brutality will eventually create electoral backlash that benefits Democrats, as the public sours on visible cruelty",
+      "confidence": 0.7,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-76"
+      ],
+      "implicitAssumptions": [
+        "Median voters weight humanitarian concerns about immigration enforcement methods more heavily than concerns about border security or illegal immigration levels",
+        "Media coverage of enforcement brutality reaches and persuades swing voters rather than being filtered through partisan information bubbles that reinforce existing views",
+        "The political salience of immigration enforcement cruelty increases rather than decreases through habituation as policies continue"
+      ]
+    },
+    {
+      "id": "pos-7",
+      "claim": "U.S. export controls on advanced semiconductors can effectively prevent China from acquiring cutting-edge AI capabilities and maintain American technological advantage",
+      "confidence": 0.75,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-84"
+      ],
+      "implicitAssumptions": [
+        "Semiconductor manufacturing represents a durable chokepoint that cannot be circumvented through alternative architectures, algorithmic efficiency, or indigenous development within a 5-10 year timeframe",
+        "Allied countries (Netherlands, Japan, South Korea) will maintain export control coordination despite economic costs and Chinese pressure",
+        "AI capabilities scale primarily with hardware rather than with training data, algorithms, or other factors where China might have advantages"
+      ]
+    },
+    {
+      "id": "pos-8",
+      "claim": "Increased policing can reduce crime but creates unacceptable tradeoffs through over-policing and rights violations, particularly producing racial disparities",
+      "confidence": 0.8,
+      "type": "concern",
+      "groundingClusters": [
+        "cluster-53",
+        "cluster-69"
+      ],
+      "implicitAssumptions": [
+        "The crime reduction benefits of increased policing cannot be achieved through alternative deployment strategies that avoid rights violations and racial disparities",
+        "Public safety improvements from policing are outweighed by community harm from over-enforcement at some threshold level of police presence",
+        "Targeted enforcement approaches (like BART fare gates focusing on non-paying riders who cause disorder) can achieve crime reduction without the negative externalities of general police expansion"
+      ]
+    },
+    {
+      "id": "pos-9",
+      "claim": "Artificial superintelligence (ASI) could solve major civilizational problems like low fertility and authoritarianism if AI systems are aligned to respect and protect humanity",
+      "confidence": 0.6,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-63",
+        "cluster-43",
+        "cluster-67"
+      ],
+      "implicitAssumptions": [
+        "Problems like low fertility and political authoritarianism are primarily technical/informational challenges rather than reflecting deep human preferences or power structures that resist optimization",
+        "ASI alignment is achievable through technical means and will result in systems that share human values rather than pursuing goals orthogonal to human flourishing",
+        "Superintelligent AI will be motivated to help humans solve their problems rather than being indifferent to human concerns (unlike the space exploration scenario where AGI lacks intrinsic motivation)"
+      ]
+    },
+    {
+      "id": "pos-10",
+      "claim": "Racial categories like 'Han,' 'White,' and 'Black' lack validity as genetic classifications, representing social constructs rather than biological reality",
+      "confidence": 0.85,
+      "type": "value_judgment",
+      "groundingClusters": [
+        "cluster-6"
+      ],
+      "implicitAssumptions": [
+        "Genetic clustering patterns within conventionally defined racial groups show more within-group variation than between-group differences at a level that invalidates the categories",
+        "The social and political salience of racial categories should track their biological validity rather than their historical or cultural significance",
+        "Rejecting genetic validity of racial categories undermines rather than coexists with racist ideologies that could simply shift to cultural or historical justifications"
+      ]
+    },
+    {
+      "id": "pos-11",
+      "claim": "Economic policy should prioritize robustness across multiple possible futures rather than optimization for predicted scenarios, given fundamental uncertainty about AI's trajectory",
+      "confidence": 0.75,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-59"
+      ],
+      "implicitAssumptions": [
+        "The uncertainty about AI's economic impact is irreducible through better forecasting or analysis, rather than reflecting temporary knowledge gaps that will close as deployment progresses",
+        "Robust policies (presumably including social insurance, education, flexible labor markets) impose acceptable costs in scenarios where they prove unnecessary",
+        "Democratic political processes can implement and maintain robust policies despite pressure to optimize for more specific predicted futures that favor particular constituencies"
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "cluster-53",
+      "theme": "police / crime / officers / incarceration",
+      "nodeIds": [
+        "n_181",
+        "n_182",
+        "n_183",
+        "n_184",
+        "n_185",
+        "n_186",
+        "n_187",
+        "n_188",
+        "n_189",
+        "n_190",
+        "n_191",
+        "n_192"
+      ],
+      "edgeIds": [
+        "n_181->n_182",
+        "n_183->n_184",
+        "n_185->n_186",
+        "n_187->n_188",
+        "n_187->n_189",
+        "n_187->n_190",
+        "n_191->n_192"
+      ],
+      "sourceChunks": [
+        "substack-1_seg1"
+      ],
+      "representativeClaims": [
+        "1994 crime bill strategy of hiring additional police officers ⊣ America's safety",
+        "increased police officers → over-policing and rights violations in communities",
+        "1990s policing and incarceration policies → racial disparities",
+        "1990s policing and incarceration policies → police abuses",
+        "1990s policing and incarceration policies → mass incarceration crisis"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-69",
+      "theme": "bart / pandemic / transportation / ridership",
+      "nodeIds": [
+        "n_321",
+        "n_322",
+        "n_323",
+        "n_324",
+        "n_325",
+        "n_326",
+        "n_327",
+        "n_328",
+        "n_329",
+        "n_330",
+        "n_331",
+        "n_332",
+        "n_333"
+      ],
+      "edgeIds": [
+        "n_321->n_322",
+        "n_323->n_324",
+        "n_325->n_326",
+        "n_327->n_328",
+        "n_329->n_330",
+        "n_329->n_331",
+        "n_332->n_333"
+      ],
+      "sourceChunks": [
+        "substack-9_seg1"
+      ],
+      "representativeClaims": [
+        "BART fare gate installation ⊣ crime on trains",
+        "BART fare gate installation ⊣ patron-related corrective maintenance work",
+        "small number of non-paying riders → majority of disorder on BART",
+        "presence of shady characters, drug users, vagrants, mentally ill on BART → BART ridership decline",
+        "general increase in public disorder in Bay Area ⊣ BART acceptability as transportation mode"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-86",
+      "theme": "weakness / maga / ideology / problems",
+      "nodeIds": [
+        "n_462",
+        "n_463",
+        "n_464",
+        "n_465",
+        "n_466",
+        "n_467",
+        "n_468",
+        "n_469",
+        "n_470",
+        "n_471",
+        "n_472",
+        "n_473",
+        "n_474",
+        "n_475"
+      ],
+      "edgeIds": [
+        "n_462->n_463",
+        "n_464->n_465",
+        "n_466->n_467",
+        "n_468->n_469",
+        "n_470->n_471",
+        "n_472->n_473",
+        "n_474->n_475"
+      ],
+      "sourceChunks": [
+        "substack-18_seg0"
+      ],
+      "representativeClaims": [
+        "MAGA ideology → U.S. weakness",
+        "Ukraine war → Russia's weakness",
+        "MAGA ideology's refusal to respect law or interface with reality → U.S. problems",
+        "Xi Jinping's autocratic rule → China's weakness",
+        "focusing on growth instead of domestic disputes or imperial ambitions → India being smarter than major powers"
+      ],
+      "claimCount": 7
+    },
+    {
+      "id": "cluster-61",
+      "theme": "decarbonization / countries / global / warming",
+      "nodeIds": [
+        "n_247",
+        "n_248",
+        "n_249",
+        "n_250",
+        "n_251",
+        "n_252",
+        "n_253",
+        "n_254",
+        "n_255",
+        "n_256",
+        "n_257",
+        "n_258"
+      ],
+      "edgeIds": [
+        "n_247->n_248",
+        "n_249->n_250",
+        "n_251->n_252",
+        "n_253->n_254",
+        "n_255->n_256",
+        "n_257->n_258"
+      ],
+      "sourceChunks": [
+        "substack-5_seg1"
+      ],
+      "representativeClaims": [
+        "worldwide nature of global warming harm → free rider problem in decarbonization",
+        "most benefit of decarbonization goes to other countries → countries unwilling to pay full cost of decarbonization",
+        "technology that is better and cheaper without pollution → countries have incentive to switch to it",
+        "invention of better refrigerants (HFCs) to replace CFCs → solving ozone layer destruction problem",
+        "incentive to cheat in international agreements → difficulty solving global warming through international agreements"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-64",
+      "theme": "how / humans / internet / changes",
+      "nodeIds": [
+        "n_278",
+        "n_279",
+        "n_280",
+        "n_281",
+        "n_282",
+        "n_283",
+        "n_284",
+        "n_285",
+        "n_286",
+        "n_287"
+      ],
+      "edgeIds": [
+        "n_278->n_279",
+        "n_280->n_281",
+        "n_282->n_283",
+        "n_278->n_284",
+        "n_285->n_286",
+        "n_285->n_287"
+      ],
+      "sourceChunks": [
+        "substack-7_seg0"
+      ],
+      "representativeClaims": [
+        "AI advancement → software industry transformation",
+        "internet and digital technologies → alteration of world/society",
+        "rapid technological change → future shock feeling",
+        "AI advancement → how humans think, learn, and work",
+        "internet and social media → changes in how humans socialize"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-75",
+      "theme": "threat / stock / company / decline",
+      "nodeIds": [
+        "n_375",
+        "n_376",
+        "n_377",
+        "n_378",
+        "n_379",
+        "n_380",
+        "n_381",
+        "n_382",
+        "n_383"
+      ],
+      "edgeIds": [
+        "n_375->n_376",
+        "n_377->n_376",
+        "n_378->n_376",
+        "n_379->n_380",
+        "n_379->n_381",
+        "n_382->n_383"
+      ],
+      "sourceChunks": [
+        "substack-12_seg1"
+      ],
+      "representativeClaims": [
+        "fear of AI displacement → stock market selloff",
+        "fear of AI displacement → SaaS company stock decline",
+        "disappointing earnings reports → investor awareness of AI threat",
+        "improvements in AI models → investor awareness of AI threat",
+        "release of Anthropic add-on → investor awareness of AI threat"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-78",
+      "theme": "financial / anarchy / reserve / currency",
+      "nodeIds": [
+        "n_402",
+        "n_403",
+        "n_404",
+        "n_405",
+        "n_406",
+        "n_407",
+        "n_408",
+        "n_409",
+        "n_410",
+        "n_411",
+        "n_412",
+        "n_413"
+      ],
+      "edgeIds": [
+        "n_402->n_403",
+        "n_404->n_405",
+        "n_406->n_407",
+        "n_408->n_409",
+        "n_410->n_411",
+        "n_412->n_413"
+      ],
+      "sourceChunks": [
+        "substack-14_seg0"
+      ],
+      "representativeClaims": [
+        "fear of Trump administration's policies → governments and private investors buying gold at rapid rates",
+        "US no longer serving as safe haven → dollar losing reserve currency status",
+        "world entering international financial anarchy → rise in gold prices",
+        "China choosing not to fill void as reserve currency provider → financial anarchy (no replacement reserve currency)",
+        "Europe and other powers unable to fill void → financial anarchy persisting"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-41",
+      "theme": "cybersecurity / network / systems / networking",
+      "nodeIds": [
+        "n_130",
+        "n_131",
+        "n_132",
+        "n_133",
+        "n_154",
+        "n_155",
+        "n_156",
+        "n_157",
+        "n_158"
+      ],
+      "edgeIds": [
+        "n_130->n_131",
+        "n_132->n_133",
+        "n_132->n_154",
+        "n_155->n_156",
+        "n_157->n_158"
+      ],
+      "sourceChunks": [
+        "tweet-2026762068708532450",
+        "tweet-2026759878979760609"
+      ],
+      "representativeClaims": [
+        "R2-D2 gaining access to a network → successful hacking of Death Star",
+        "lack of cybersecurity → network systems falling apart",
+        "networking systems together → cybersecurity vulnerability",
+        "networking systems together → system failure",
+        "keeping AGI isolated in droids without networking → cybersecurity effectiveness"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-56",
+      "theme": "tariff / presidential / tariffs / supreme",
+      "nodeIds": [
+        "n_202",
+        "n_203",
+        "n_204",
+        "n_205",
+        "n_206",
+        "n_207",
+        "n_208",
+        "n_209",
+        "n_210",
+        "n_211"
+      ],
+      "edgeIds": [
+        "n_202->n_203",
+        "n_204->n_205",
+        "n_206->n_207",
+        "n_208->n_209",
+        "n_210->n_211"
+      ],
+      "sourceChunks": [
+        "substack-3_seg0"
+      ],
+      "representativeClaims": [
+        "Supreme Court ruling that IEEPA does not authorize presidential tariff imposition ⊣ Trump's unilateral tariff authority",
+        "Constitutional grant of tax and duty power to Congress only ⊣ presidential authority to unilaterally impose tariffs",
+        "Supreme Court ruling against unilateral tariff imposition ⊣ Trump's tariff on/off switch capability",
+        "Existence of older laws from 1960s-1970s authorizing presidential tariff increases → presidential ability to impose tariffs under certain circumstances",
+        "Requirement for tariffs to go through lengthy technical trade authorities or Congress ⊣ ease of imposing tariffs"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-57",
+      "theme": "section / president / authority / impose",
+      "nodeIds": [
+        "n_212",
+        "n_213",
+        "n_214",
+        "n_215",
+        "n_216",
+        "n_217",
+        "n_218",
+        "n_219",
+        "n_220",
+        "n_221"
+      ],
+      "edgeIds": [
+        "n_212->n_213",
+        "n_214->n_215",
+        "n_216->n_217",
+        "n_218->n_219",
+        "n_220->n_221"
+      ],
+      "sourceChunks": [
+        "substack-3_seg1"
+      ],
+      "representativeClaims": [
+        "Section 201, 232, and 301 authorities → president can impose tariffs without congressional action",
+        "Section 122 authority → president can impose tariffs without investigation",
+        "Section 338 of Smoot-Hawley authority → president can impose 50% tariff without investigation or time limits",
+        "Section 122 authority limitations (15% rate, 150 days) → restrictions on tariff imposition",
+        "no president has previously used Section 338 authority → concerns about future legal challenges"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-59",
+      "theme": "economic / robust / policies / need",
+      "nodeIds": [
+        "n_228",
+        "n_229",
+        "n_230",
+        "n_231",
+        "n_232",
+        "n_233",
+        "n_234",
+        "n_235",
+        "n_236"
+      ],
+      "edgeIds": [
+        "n_228->n_229",
+        "n_230->n_231",
+        "n_232->n_233",
+        "n_234->n_235",
+        "n_236->n_235"
+      ],
+      "sourceChunks": [
+        "substack-4_seg1"
+      ],
+      "representativeClaims": [
+        "inability to predict the future → need for robust economic policies",
+        "AI disruption to the economy → need for Democratic economic strategy",
+        "radical economic uncertainty → value of policies robust across multiple futures",
+        "government ownership stake in corporate system → robust economic outcomes",
+        "policies promoting human work → robust economic outcomes"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-60",
+      "theme": "local / getting / pollution / countries",
+      "nodeIds": [
+        "n_237",
+        "n_238",
+        "n_239",
+        "n_240",
+        "n_241",
+        "n_242",
+        "n_243",
+        "n_244",
+        "n_245",
+        "n_246"
+      ],
+      "edgeIds": [
+        "n_237->n_238",
+        "n_239->n_240",
+        "n_241->n_242",
+        "n_243->n_244",
+        "n_245->n_246"
+      ],
+      "sourceChunks": [
+        "substack-5_seg0"
+      ],
+      "representativeClaims": [
+        "factories dumping pollutants in water → local communities getting cancer",
+        "countries getting richer → countries polluting less",
+        "China launching cleanup policy in 2010s → reduction in toxic, unbreathable air",
+        "local or national government regulation and pollution markets → solving local pollution problems",
+        "people escaping poverty → demand for cleaner local environment"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-62",
+      "theme": "humanity / worse / mood / tone",
+      "nodeIds": [
+        "n_259",
+        "n_260",
+        "n_261",
+        "n_262",
+        "n_263",
+        "n_264",
+        "n_265",
+        "n_266",
+        "n_267"
+      ],
+      "edgeIds": [
+        "n_259->n_260",
+        "n_261->n_262",
+        "n_262->n_263",
+        "n_264->n_265",
+        "n_266->n_267"
+      ],
+      "sourceChunks": [
+        "substack-6_seg0"
+      ],
+      "representativeClaims": [
+        "being in a worse mood → tone shift from optimistic to pessimistic in writing",
+        "rabbit being sick → being grumpy",
+        "being grumpy → painting human disempowerment as more negative than usual",
+        "advancement of AI → replacement of humanity with posthuman entities",
+        "existence of AI → humanity being disempowered"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-63",
+      "theme": "humanity / like / intelligence / asi",
+      "nodeIds": [
+        "n_268",
+        "n_269",
+        "n_270",
+        "n_271",
+        "n_272",
+        "n_273",
+        "n_274",
+        "n_275",
+        "n_276",
+        "n_277"
+      ],
+      "edgeIds": [
+        "n_268->n_269",
+        "n_270->n_271",
+        "n_272->n_273",
+        "n_274->n_275",
+        "n_276->n_277"
+      ],
+      "sourceChunks": [
+        "substack-6_seg1"
+      ],
+      "representativeClaims": [
+        "AI systems respecting and protecting humanity → positive future outcome for humans",
+        "ASI (Artificial Super Intelligence) development → solving problems like low fertility and fascist overlords",
+        "being in a bad mood → painting a glum picture of humanity's supersession",
+        "reading science fiction by authors like Vernor Vinge and Iain M. Banks → belief that humanity has not attained theoretical pinnacle of intelligence",
+        "ASI development → continuation of human-driven scientific discovery"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-65",
+      "theme": "change / changes / future / shock",
+      "nodeIds": [
+        "n_288",
+        "n_289",
+        "n_290",
+        "n_291",
+        "n_292",
+        "n_293",
+        "n_294",
+        "n_295",
+        "n_296",
+        "n_297"
+      ],
+      "edgeIds": [
+        "n_288->n_289",
+        "n_290->n_291",
+        "n_292->n_293",
+        "n_294->n_295",
+        "n_296->n_297"
+      ],
+      "sourceChunks": [
+        "substack-7_seg1"
+      ],
+      "representativeClaims": [
+        "pace of technological change and resulting social changes → future shock (feeling overwhelmed)",
+        "generative AI progress → world change",
+        "minimizing scale and extent of life changes → warding off future shock",
+        "embracing change and riding the wave → better outcomes than fearing and resisting change",
+        "noticing changes as small, fun, and exciting rather than vast and overwhelming → avoiding future shock"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-66",
+      "theme": "pet / human / rabbit / owner",
+      "nodeIds": [
+        "n_298",
+        "n_299",
+        "n_300",
+        "n_301",
+        "n_302",
+        "n_303",
+        "n_304",
+        "n_305",
+        "n_306"
+      ],
+      "edgeIds": [
+        "n_298->n_299",
+        "n_300->n_301",
+        "n_302->n_303",
+        "n_302->n_304",
+        "n_305->n_306"
+      ],
+      "sourceChunks": [
+        "substack-8_seg0"
+      ],
+      "representativeClaims": [
+        "pet rabbit accidentally biting human → minor injury (punctured and lacerated finger)",
+        "tiger as pet instead of rabbit → human death",
+        "large and strong animals (like tigers) as pets → danger to human health",
+        "pet being smaller and weaker than owner → ability to train and physically restrain pet",
+        "pet being smaller and weaker than owner → minimized danger to owner's health"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-73",
+      "theme": "social / media / becoming / charged",
+      "nodeIds": [
+        "n_358",
+        "n_359",
+        "n_360",
+        "n_361",
+        "n_362",
+        "n_363",
+        "n_364",
+        "n_365",
+        "n_366"
+      ],
+      "edgeIds": [
+        "n_358->n_359",
+        "n_360->n_361",
+        "n_362->n_363",
+        "n_364->n_365",
+        "n_364->n_366"
+      ],
+      "sourceChunks": [
+        "substack-11_seg1"
+      ],
+      "representativeClaims": [
+        "modern social media technology → American politics becoming more extremist-dominated",
+        "social media bypassing traditional hierarchies and institutions → communities of like-minded extremists gathering together",
+        "moderate majority avoiding politically charged online spaces → online spaces becoming more extremist",
+        "emotionally charged messages in social media → likelihood of going viral",
+        "moderate majority avoiding politically charged online spaces → peace of mind for many Americans"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-76",
+      "theme": "ice / brutality / trump / democrats",
+      "nodeIds": [
+        "n_384",
+        "n_385",
+        "n_386",
+        "n_387",
+        "n_388",
+        "n_389",
+        "n_390",
+        "n_391",
+        "n_392",
+        "n_393"
+      ],
+      "edgeIds": [
+        "n_384->n_385",
+        "n_386->n_387",
+        "n_388->n_389",
+        "n_390->n_391",
+        "n_392->n_393"
+      ],
+      "sourceChunks": [
+        "substack-13_seg0"
+      ],
+      "representativeClaims": [
+        "ICE's brutality → electorate souring on Trump administration",
+        "Trump demotion of Border Patrol head and de-escalation moves → progress on reducing unaccountable secret police and related harms",
+        "ICE brutality and related policies → Democrats winning House in midterms",
+        "radicals taking over Minnesota anti-ICE protests → protests going overboard",
+        "Democrats' first small victories against autocracy → progressives taking wrong message from victories"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-84",
+      "theme": "china / export / controls / goods",
+      "nodeIds": [
+        "n_448",
+        "n_449",
+        "n_450",
+        "n_451",
+        "n_452",
+        "n_453",
+        "n_454",
+        "n_455",
+        "n_456"
+      ],
+      "edgeIds": [
+        "n_448->n_449",
+        "n_450->n_451",
+        "n_452->n_453",
+        "n_452->n_454",
+        "n_455->n_456"
+      ],
+      "sourceChunks": [
+        "substack-17_seg0"
+      ],
+      "representativeClaims": [
+        "U.S. export controls on chips and chipmaking equipment to China → preventing China from acquiring advanced semiconductor technology",
+        "sudden waves of subsidized Chinese goods → forced deindustrialization of European economy",
+        "China being an economic and geopolitical threat to the U.S. → justification for export controls and trade barriers",
+        "targeted tariffs on final consumption goods (e.g. cars) ⊣ economic harm",
+        "targeted tariffs on final consumption goods (e.g. cars) → tariff effectiveness"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-6",
+      "theme": "genetic / category / classification / han",
+      "nodeIds": [
+        "n_18",
+        "n_19",
+        "n_20",
+        "n_21",
+        "n_22"
+      ],
+      "edgeIds": [
+        "n_18->n_19",
+        "n_20->n_19",
+        "n_21->n_19",
+        "n_22->n_19"
+      ],
+      "sourceChunks": [
+        "tweet-2027464547163111774"
+      ],
+      "representativeClaims": [
+        "genetic category classification of 'Han' ⊣ authenticity/realness as a genetic category",
+        "genetic category classification of 'White' ⊣ authenticity/realness as a genetic category",
+        "genetic category classification of 'Black' ⊣ authenticity/realness as a genetic category",
+        "genetic category classification of 'Asian' ⊣ authenticity/realness as a genetic category"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-43",
+      "theme": "agi / motivated / space / humans",
+      "nodeIds": [
+        "n_138",
+        "n_139",
+        "n_140",
+        "n_141",
+        "n_142",
+        "n_143",
+        "n_144",
+        "n_145"
+      ],
+      "edgeIds": [
+        "n_138->n_139",
+        "n_140->n_141",
+        "n_142->n_143",
+        "n_144->n_145"
+      ],
+      "sourceChunks": [
+        "tweet-2026760998804504992"
+      ],
+      "representativeClaims": [
+        "AGI not motivated to explore space itself → AGI helps organic beings explore space",
+        "AGI lacking self-motivation for space exploration → willingness to assist humans in exploration",
+        "AGI being motivated (like the Borg) → conflict with humans",
+        "humans prompting computers to defeat motivated AGI → successful defeat of the Borg"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-54",
+      "theme": "revolution / industrial / frequency / ai-related",
+      "nodeIds": [
+        "n_193",
+        "n_194",
+        "n_195",
+        "n_196",
+        "n_197",
+        "n_198",
+        "n_199"
+      ],
+      "edgeIds": [
+        "n_193->n_194",
+        "n_195->n_196",
+        "n_195->n_197",
+        "n_198->n_199"
+      ],
+      "sourceChunks": [
+        "substack-2_seg0"
+      ],
+      "representativeClaims": [
+        "AI industrial revolution → frequency of AI-related posts",
+        "AI revolution → economic impact across sectors",
+        "AI revolution → implications for geopolitics and society",
+        "AI becoming central to major developments ⊣ AI remaining a compartmentalized topic"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-67",
+      "theme": "humans / intelligence / medals / math",
+      "nodeIds": [
+        "n_307",
+        "n_308",
+        "n_309",
+        "n_310",
+        "n_311",
+        "n_312",
+        "n_313",
+        "n_314"
+      ],
+      "edgeIds": [
+        "n_307->n_308",
+        "n_309->n_310",
+        "n_311->n_312",
+        "n_313->n_314"
+      ],
+      "sourceChunks": [
+        "substack-8_seg1"
+      ],
+      "representativeClaims": [
+        "AI achieving gold medals on International Math Olympiad, solving outstanding math problems, getting A's in graduate classes → AI demonstrating intelligence comparable to or exceeding humans",
+        "most humans not being as intelligent as AI in measurable ways → humans being unable to achieve what AI achieves (Math Olympiad medals, solving outstanding problems, graduate-level performance)",
+        "lack of a single unarguable measure of intelligence → difficulty in definitively comparing human and AI intelligence",
+        "AI not thinking exactly the way humans do ⊣ AI being considered not truly intelligent by some people"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-70",
+      "theme": "takaichi / ldp / winning / majority",
+      "nodeIds": [
+        "n_334",
+        "n_335",
+        "n_336",
+        "n_337",
+        "n_338",
+        "n_339",
+        "n_340",
+        "n_341"
+      ],
+      "edgeIds": [
+        "n_334->n_335",
+        "n_336->n_337",
+        "n_338->n_339",
+        "n_340->n_341"
+      ],
+      "sourceChunks": [
+        "substack-10_seg0"
+      ],
+      "representativeClaims": [
+        "Takaichi winning internal party election rather than receiving popular mandate → problem for Takaichi's political position",
+        "LDP winning 68% of lower house seats → LDP achieving 2/3 majority by itself",
+        "LDP not having strong majority in parliament → vulnerability to Takaichi's tenure being cut short or hamstrung",
+        "Komeito ditching the LDP after Takaichi came to power → concerns about Takaichi's tenure being cut short or hamstrung"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-71",
+      "theme": "japan / ldp / ability / innovation",
+      "nodeIds": [
+        "n_342",
+        "n_343",
+        "n_344",
+        "n_345",
+        "n_346",
+        "n_347",
+        "n_348",
+        "n_349"
+      ],
+      "edgeIds": [
+        "n_342->n_343",
+        "n_344->n_345",
+        "n_346->n_347",
+        "n_348->n_349"
+      ],
+      "sourceChunks": [
+        "substack-10_seg1"
+      ],
+      "representativeClaims": [
+        "LDP and Japan Innovation Party coalition having 76% of seats → Takaichi's ability to push through legislation",
+        "supermajority in parliament → ability to pass constitutional amendments",
+        "tourism boom in Japan → American interest in Japanese politics and society",
+        "LDP's almost unbroken electoral victories since 1955 → questions about whether Japan is a genuine democracy"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-72",
+      "theme": "extremists / politics / american / party",
+      "nodeIds": [
+        "n_350",
+        "n_351",
+        "n_352",
+        "n_353",
+        "n_354",
+        "n_355",
+        "n_356",
+        "n_357"
+      ],
+      "edgeIds": [
+        "n_350->n_351",
+        "n_352->n_353",
+        "n_354->n_355",
+        "n_356->n_357"
+      ],
+      "sourceChunks": [
+        "substack-11_seg0"
+      ],
+      "representativeClaims": [
+        "extremists being more engaged in politics → extremists ruling American politics",
+        "extremists spending more time thinking about politics and doing political activism → extremists having greater influence than moderates",
+        "closed-primary party system → extremists dominating American politics",
+        "Republicans winning primaries by aligning with median Republican voter in right-leaning areas → Republican party moving away from median voter preferences"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-74",
+      "theme": "software / business / models / established",
+      "nodeIds": [
+        "n_367",
+        "n_368",
+        "n_369",
+        "n_370",
+        "n_371",
+        "n_372",
+        "n_373",
+        "n_374"
+      ],
+      "edgeIds": [
+        "n_367->n_368",
+        "n_369->n_370",
+        "n_371->n_372",
+        "n_373->n_374"
+      ],
+      "sourceChunks": [
+        "substack-12_seg0"
+      ],
+      "representativeClaims": [
+        "fear that AI is rendering software business models obsolete → software stocks crash/selloff",
+        "concern that AI is supplanting established software business models → stock market drubbing in Silicon Valley",
+        "AI leaders overtaking established industry players in innovation → threat to established software companies' business models",
+        "Anthropic releasing new AI tool for legal work → concern that AI is supplanting business models"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-77",
+      "theme": "dems / immigration / extreme / street",
+      "nodeIds": [
+        "n_394",
+        "n_395",
+        "n_396",
+        "n_397",
+        "n_398",
+        "n_399",
+        "n_400",
+        "n_401"
+      ],
+      "edgeIds": [
+        "n_394->n_395",
+        "n_396->n_397",
+        "n_398->n_399",
+        "n_400->n_401"
+      ],
+      "sourceChunks": [
+        "substack-13_seg1"
+      ],
+      "representativeClaims": [
+        "extreme street activists reenacting CHAZ from Seattle 2020 ⊣ momentum from backlash to recent ICE killings",
+        "Trump, Stephen Miller, and ICE backing off and not killing protesters for a while → extreme street activists reenacting ill-fated CHAZ",
+        "Dems taking a midterm victory → Dems not recalibrating their position on immigration",
+        "Americans not supporting permissive immigration policies of Biden years → need for Dems to recalibrate position on immigration"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-79",
+      "theme": "gold / demand / investors / buying",
+      "nodeIds": [
+        "n_414",
+        "n_415",
+        "n_416",
+        "n_417",
+        "n_418",
+        "n_419",
+        "n_420"
+      ],
+      "edgeIds": [
+        "n_414->n_415",
+        "n_415->n_416",
+        "n_417->n_418",
+        "n_419->n_420"
+      ],
+      "sourceChunks": [
+        "substack-14_seg1"
+      ],
+      "representativeClaims": [
+        "investors buying more gold → increased demand for gold",
+        "increased demand for gold → gold price increase",
+        "investor demand for gold → gold's rise as share of reserves",
+        "lack of clear understanding of dollar's role in international finance → people being confused about financial system"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-80",
+      "theme": "image / mascots / labels / logos",
+      "nodeIds": [
+        "n_421",
+        "n_422",
+        "n_423",
+        "n_424",
+        "n_425",
+        "n_426",
+        "n_427"
+      ],
+      "edgeIds": [
+        "n_421->n_422",
+        "n_423->n_422",
+        "n_424->n_425",
+        "n_426->n_427"
+      ],
+      "sourceChunks": [
+        "substack-15_seg0"
+      ],
+      "representativeClaims": [
+        "Gemini's image having mascots correct with labels and logos → quality of AI-generated image",
+        "GPT-5.2 getting mascots wrong and lacking labels/logos ⊣ quality of AI-generated image",
+        "AI race being interesting → author writing about corporate strategy",
+        "Grok's poor image quality ⊣ author's willingness to discuss the image"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-83",
+      "theme": "zhang / taiwan / invasion / organization-dominator",
+      "nodeIds": [
+        "n_440",
+        "n_441",
+        "n_442",
+        "n_443",
+        "n_444",
+        "n_445",
+        "n_446",
+        "n_447"
+      ],
+      "edgeIds": [
+        "n_440->n_441",
+        "n_442->n_443",
+        "n_444->n_445",
+        "n_446->n_447"
+      ],
+      "sourceChunks": [
+        "substack-16_seg1"
+      ],
+      "representativeClaims": [
+        "Xi being an organization-dominator who rises through patronage and backstabbing → Xi being incredibly paranoid",
+        "aging and slowing down in organization-dominators like Stalin → increased paranoia",
+        "exposure of Zhang not doing a good job preparing military for Taiwan invasion → Zhang's rivals being purged earlier",
+        "Zhang resisting Xi's orders to prepare for Taiwan invasion → Xi removing Zhang from position"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-87",
+      "theme": "ice / pretti / americans / tackling",
+      "nodeIds": [
+        "n_476",
+        "n_477",
+        "n_478",
+        "n_479",
+        "n_480",
+        "n_481",
+        "n_482",
+        "n_483"
+      ],
+      "edgeIds": [
+        "n_476->n_477",
+        "n_478->n_479",
+        "n_480->n_481",
+        "n_482->n_483"
+      ],
+      "sourceChunks": [
+        "substack-18_seg1"
+      ],
+      "representativeClaims": [
+        "ICE tackling Pretti and firing ten shots → Pretti's death",
+        "killing of Pretti and Renee Good by ICE → wave of anger at ICE",
+        "administration denying existence of Second Amendment rights → tactical error/negative political consequences",
+        "Americans seeing videos and details of what happened → Americans not being fooled by Stephen Miller and JD Vance's claims"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-88",
+      "theme": "trump / greenland / financial / threats",
+      "nodeIds": [
+        "n_484",
+        "n_485",
+        "n_486",
+        "n_487",
+        "n_488",
+        "n_489",
+        "n_490",
+        "n_491"
+      ],
+      "edgeIds": [
+        "n_484->n_485",
+        "n_486->n_487",
+        "n_488->n_489",
+        "n_490->n_491"
+      ],
+      "sourceChunks": [
+        "substack-19_seg0"
+      ],
+      "representativeClaims": [
+        "Trump's escalated threats to invade Greenland and impose 10% tariffs on opposing European countries → financial market reaction (stock market drop, dollar depreciation, Treasury yield rise)",
+        "Trump and European leaders escalating tensions over Greenland → U.S. bond prices tumbling and Treasury yields spiking",
+        "Trump signaling seriousness of Greenland seizure threat through tariff threats → financial markets reacting sharply",
+        "Trump's aggression appearing more than just bluster → financial market concern/negative market reaction"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-9",
+      "theme": "productivity / having / girlfriend / ability",
+      "nodeIds": [
+        "n_27",
+        "n_28",
+        "n_29",
+        "n_30",
+        "n_31"
+      ],
+      "edgeIds": [
+        "n_27->n_28",
+        "n_29->n_28",
+        "n_30->n_31"
+      ],
+      "sourceChunks": [
+        "tweet-2027460076253155710"
+      ],
+      "representativeClaims": [
+        "having a girlfriend ⊣ productivity (ability to work on coding projects)",
+        "watching Avatar the Last Airbender and posting Instagram selfies ⊣ productivity (ability to work on coding projects)",
+        "reduced productivity from distractions ⊣ humanity's future prospects"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-10",
+      "theme": "rabbit / cords / cord / biting",
+      "nodeIds": [
+        "n_32",
+        "n_33",
+        "n_34",
+        "n_35",
+        "n_36",
+        "n_37"
+      ],
+      "edgeIds": [
+        "n_32->n_33",
+        "n_34->n_35",
+        "n_36->n_37"
+      ],
+      "sourceChunks": [
+        "tweet-2027457169201991756"
+      ],
+      "representativeClaims": [
+        "protecting cords or placing them out of rabbit's reach → preventing cord damage from rabbit bites",
+        "rabbit biting thin phone/laptop cords → damage to cords",
+        "cord thickness (thick vs thin) ⊣ likelihood of rabbit biting the cord"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-13",
+      "theme": "musk / starlink / creating / whitelist",
+      "nodeIds": [
+        "n_46",
+        "n_47",
+        "n_48",
+        "n_49",
+        "n_50",
+        "n_51"
+      ],
+      "edgeIds": [
+        "n_46->n_47",
+        "n_48->n_49",
+        "n_50->n_51"
+      ],
+      "sourceChunks": [
+        "tweet-2027452455328616636"
+      ],
+      "representativeClaims": [
+        "creating a whitelist → solving the problem (making it easy)",
+        "Musk disabling Starlink for Ukrainians during offensives → undermining Ukrainian military operations",
+        "Musk's past Starlink control decisions → change in opinion about Musk's reliability/trustworthiness"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-51",
+      "theme": "growth / productivity / adoption / decoupling",
+      "nodeIds": [
+        "n_172",
+        "n_173",
+        "n_174",
+        "n_175",
+        "n_176"
+      ],
+      "edgeIds": [
+        "n_172->n_173",
+        "n_173->n_174",
+        "n_175->n_176"
+      ],
+      "sourceChunks": [
+        "substack-0_seg1"
+      ],
+      "representativeClaims": [
+        "productivity growth → decoupling of output growth from labor input",
+        "AI adoption → productivity growth",
+        "robust real GDP growth with lower payroll → evidence of productivity increase"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-58",
+      "theme": "rapid / technological / progress / uncertainty",
+      "nodeIds": [
+        "n_222",
+        "n_223",
+        "n_224",
+        "n_225",
+        "n_226",
+        "n_227"
+      ],
+      "edgeIds": [
+        "n_222->n_223",
+        "n_224->n_225",
+        "n_226->n_227"
+      ],
+      "sourceChunks": [
+        "substack-4_seg0"
+      ],
+      "representativeClaims": [
+        "rapid technological progress from AI → great uncertainty about economic outcomes",
+        "AI technology changing very fast → rapid technological progress in other technologies (robotics, energy, software)",
+        "Democratic policy being robust to uncertainty → ability to handle various AI economic scenarios"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-68",
+      "theme": "bart / cameras / public / safety",
+      "nodeIds": [
+        "n_315",
+        "n_316",
+        "n_317",
+        "n_318",
+        "n_319",
+        "n_320"
+      ],
+      "edgeIds": [
+        "n_315->n_316",
+        "n_317->n_318",
+        "n_319->n_320"
+      ],
+      "sourceChunks": [
+        "substack-9_seg0"
+      ],
+      "representativeClaims": [
+        "BART not receiving bail out with higher taxes → BART closing stations, reducing service, and laying off workers",
+        "ridership plummeting and not bouncing back post-pandemic → BART being in a parlous state",
+        "cameras → public safety"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-81",
+      "theme": "openai / chatgpt / generative / technology",
+      "nodeIds": [
+        "n_428",
+        "n_429",
+        "n_430",
+        "n_431",
+        "n_432",
+        "n_433"
+      ],
+      "edgeIds": [
+        "n_428->n_429",
+        "n_430->n_431",
+        "n_432->n_433"
+      ],
+      "sourceChunks": [
+        "substack-15_seg1"
+      ],
+      "representativeClaims": [
+        "AI technology working and being useful → people making enormous amounts of money from AI",
+        "OpenAI releasing first widely usable large language model (ChatGPT) → OpenAI becoming synonymous with generative AI",
+        "OpenAI's models being at the forefront since ChatGPT release → OpenAI's strong market position in generative AI"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-82",
+      "theme": "zhang / youxia / jinping / pet",
+      "nodeIds": [
+        "n_434",
+        "n_435",
+        "n_436",
+        "n_437",
+        "n_438",
+        "n_439"
+      ],
+      "edgeIds": [
+        "n_434->n_435",
+        "n_436->n_437",
+        "n_438->n_439"
+      ],
+      "sourceChunks": [
+        "substack-16_seg0"
+      ],
+      "representativeClaims": [
+        "pet rabbit health emergency → delay in publishing AI economics post",
+        "Zhang Youxia's power and loyal followers → Xi Jinping's fear of Zhang becoming a rival",
+        "Xi Jinping's paranoia → purging of Zhang Youxia"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-85",
+      "theme": "canada / chinese / evs / eliminating",
+      "nodeIds": [
+        "n_457",
+        "n_458",
+        "n_459",
+        "n_460",
+        "n_461"
+      ],
+      "edgeIds": [
+        "n_457->n_458",
+        "n_459->n_460",
+        "n_461->n_460"
+      ],
+      "sourceChunks": [
+        "substack-17_seg1"
+      ],
+      "representativeClaims": [
+        "Canada eliminating tariffs on Chinese EVs → political break between Canada and the U.S.",
+        "worry about losing American markets → Canada following U.S. 100% tariff on Chinese EVs in 2024",
+        "displeasing the U.S. (indispensable ally) → Canada following U.S. 100% tariff on Chinese EVs in 2024"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-0",
+      "theme": "viewing / anarchy / form / social",
+      "nodeIds": [
+        "n_0",
+        "n_1",
+        "n_2",
+        "n_3"
+      ],
+      "edgeIds": [
+        "n_0->n_1",
+        "n_2->n_3"
+      ],
+      "sourceChunks": [
+        "tweet-2027539221511344214"
+      ],
+      "representativeClaims": [
+        "being American progressive → viewing anarchy as a form of social welfare",
+        "not being in America → not viewing anarchy as a form of social welfare"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-1",
+      "theme": "automated / bio / labs / becoming",
+      "nodeIds": [
+        "n_4",
+        "n_5",
+        "n_6",
+        "n_7"
+      ],
+      "edgeIds": [
+        "n_4->n_5",
+        "n_6->n_7"
+      ],
+      "sourceChunks": [
+        "tweet-2027539221481984406"
+      ],
+      "representativeClaims": [
+        "automated bio labs becoming accessible → risk of doomsday virus creation by teenagers",
+        "vibe-coding (casual/intuitive programming approach) → ability to create dangerous biological agents"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-4",
+      "theme": "change / advancement / technology / capabilities",
+      "nodeIds": [
+        "n_12",
+        "n_13",
+        "n_14",
+        "n_15"
+      ],
+      "edgeIds": [
+        "n_12->n_13",
+        "n_14->n_15"
+      ],
+      "sourceChunks": [
+        "tweet-2027474952874823848"
+      ],
+      "representativeClaims": [
+        "advancement in AI/technology capabilities ⊣ humans' status as undisputed masters of the planet",
+        "human eagerness to embrace the change → AI/technological change"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-11",
+      "theme": "creation / technology / invented / since",
+      "nodeIds": [
+        "n_38",
+        "n_39",
+        "n_40",
+        "n_41"
+      ],
+      "edgeIds": [
+        "n_38->n_39",
+        "n_40->n_41"
+      ],
+      "sourceChunks": [
+        "tweet-2027454180261331436"
+      ],
+      "representativeClaims": [
+        "technology invented since 1870 → creation of modern jobs",
+        "demand from income effects → job creation speed"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-12",
+      "theme": "intellectual / debate / now / wanting",
+      "nodeIds": [
+        "n_42",
+        "n_43",
+        "n_44",
+        "n_45"
+      ],
+      "edgeIds": [
+        "n_42->n_43",
+        "n_44->n_45"
+      ],
+      "sourceChunks": [
+        "tweet-2027453093353488429"
+      ],
+      "representativeClaims": [
+        "now wanting to have an intellectual debate → previous drive-by insult behavior",
+        "shift from insults to intellectual debate → perceived insincerity or opportunism"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-14",
+      "theme": "tolerance / usage / russians / using",
+      "nodeIds": [
+        "n_52",
+        "n_53",
+        "n_54",
+        "n_55"
+      ],
+      "edgeIds": [
+        "n_52->n_53",
+        "n_54->n_55"
+      ],
+      "sourceChunks": [
+        "tweet-2027449979422577088"
+      ],
+      "representativeClaims": [
+        "tolerance of that usage → Russians using something",
+        "recent time period → shift from tolerance to intolerance"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-15",
+      "theme": "technology / destruction / our / race",
+      "nodeIds": [
+        "n_56",
+        "n_57",
+        "n_58"
+      ],
+      "edgeIds": [
+        "n_56->n_57",
+        "n_58->n_57"
+      ],
+      "sourceChunks": [
+        "tweet-2027448243660214431"
+      ],
+      "representativeClaims": [
+        "phones → destruction of our race",
+        "technology → destruction of our race"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-16",
+      "theme": "rabbits / litter-train / themselves / placing",
+      "nodeIds": [
+        "n_59",
+        "n_60",
+        "n_61",
+        "n_62"
+      ],
+      "edgeIds": [
+        "n_59->n_60",
+        "n_61->n_62"
+      ],
+      "sourceChunks": [
+        "tweet-2027447693937885499"
+      ],
+      "representativeClaims": [
+        "rabbits are easy to litter-train → rabbits litter-training themselves",
+        "placing litterbox next to hay feeder → rabbits litter-train themselves"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-21",
+      "theme": "yuppie / fishtank / theory / explanatory",
+      "nodeIds": [
+        "n_71",
+        "n_72",
+        "n_73",
+        "n_74"
+      ],
+      "edgeIds": [
+        "n_71->n_72",
+        "n_73->n_74"
+      ],
+      "sourceChunks": [
+        "tweet-2027314772925100114"
+      ],
+      "representativeClaims": [
+        "Yuppie Fishtank Theory → explanatory success/predictive accuracy",
+        "global development skepticism ⊣ intellectual credibility/influence"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-25",
+      "theme": "rape / non-uniform / reporting / across",
+      "nodeIds": [
+        "n_81",
+        "n_82",
+        "n_83",
+        "n_84"
+      ],
+      "edgeIds": [
+        "n_81->n_82",
+        "n_83->n_84"
+      ],
+      "sourceChunks": [
+        "tweet-2027220870931079675"
+      ],
+      "representativeClaims": [
+        "tens of thousands of women per year being raped in a country the size of Britain → moral/practical significance of the issue",
+        "non-uniform reporting of rape across countries ⊣ ability to make accurate relative comparisons of rape rates"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-29",
+      "theme": "urban / density / walkability / suburban",
+      "nodeIds": [
+        "n_91",
+        "n_92",
+        "n_93",
+        "n_94"
+      ],
+      "edgeIds": [
+        "n_91->n_92",
+        "n_93->n_94"
+      ],
+      "sourceChunks": [
+        "tweet-2027074918098293041"
+      ],
+      "representativeClaims": [
+        "running away from urban density/walkability → massive boring suburban sprawl",
+        "not experiencing urban density/walkability → suburban sprawl"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-30",
+      "theme": "post / discussing / root / causes",
+      "nodeIds": [
+        "n_95",
+        "n_96",
+        "n_97",
+        "n_98"
+      ],
+      "edgeIds": [
+        "n_95->n_96",
+        "n_97->n_98"
+      ],
+      "sourceChunks": [
+        "tweet-2027073704325423457"
+      ],
+      "representativeClaims": [
+        "discussing root causes and solutions of crime → post length",
+        "post being too long ⊣ post quality/readability"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-32",
+      "theme": "public / safety / order / comparative",
+      "nodeIds": [
+        "n_101",
+        "n_102",
+        "n_103",
+        "n_104"
+      ],
+      "edgeIds": [
+        "n_101->n_102",
+        "n_103->n_104"
+      ],
+      "sourceChunks": [
+        "tweet-2026998182576796051"
+      ],
+      "representativeClaims": [
+        "lack of public safety and order → America's comparative disadvantage among rich countries",
+        "presence of public safety and order → other rich countries' comparative advantage"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-33",
+      "theme": "proportion / asian / american / art",
+      "nodeIds": [
+        "n_105",
+        "n_106",
+        "n_107",
+        "n_108"
+      ],
+      "edgeIds": [
+        "n_105->n_106",
+        "n_107->n_108"
+      ],
+      "sourceChunks": [
+        "tweet-2026927935492661590"
+      ],
+      "representativeClaims": [
+        "algorithm design/recommendation system → proportion of Asian American Art Discourse in user feed",
+        "something being wrong → high proportion of Asian American Art Discourse in feed"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-34",
+      "theme": "crime / previous / interventions / policies",
+      "nodeIds": [
+        "n_109",
+        "n_110",
+        "n_111"
+      ],
+      "edgeIds": [
+        "n_109->n_110",
+        "n_109->n_111"
+      ],
+      "sourceChunks": [
+        "tweet-2026924508444242289"
+      ],
+      "representativeClaims": [
+        "previous interventions/policies ⊣ crime levels relative to other rich countries",
+        "previous interventions/policies → crime reduction"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-37",
+      "theme": "crime / public / disorder / cities",
+      "nodeIds": [
+        "n_116",
+        "n_117",
+        "n_118",
+        "n_119"
+      ],
+      "edgeIds": [
+        "n_116->n_117",
+        "n_118->n_119"
+      ],
+      "sourceChunks": [
+        "tweet-2026917222531432507"
+      ],
+      "representativeClaims": [
+        "high crime and public disorder → cities feeling less nice",
+        "low crime and public disorder → cities feeling nicer"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-38",
+      "theme": "control / china / fighting / agi",
+      "nodeIds": [
+        "n_120",
+        "n_121",
+        "n_122",
+        "n_123"
+      ],
+      "edgeIds": [
+        "n_120->n_121",
+        "n_122->n_123"
+      ],
+      "sourceChunks": [
+        "tweet-2026864296354001407"
+      ],
+      "representativeClaims": [
+        "U.S. and China fighting over AGI control ⊣ relevance/importance of the conflict",
+        "lack of control over external technological developments (like British trade) ⊣ meaningfulness of internal competition for that technology"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-39",
+      "theme": "human / 300k / years / ago",
+      "nodeIds": [
+        "n_124",
+        "n_125",
+        "n_126",
+        "n_127"
+      ],
+      "edgeIds": [
+        "n_124->n_125",
+        "n_126->n_127"
+      ],
+      "sourceChunks": [
+        "tweet-2026863502259007792"
+      ],
+      "representativeClaims": [
+        "separation of human groups for 1.5M to 300k years ago with limited breeding → two distinct human populations",
+        "interbreeding around 300k years ago → production of modern humanity"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-42",
+      "theme": "resources / human / services / taking",
+      "nodeIds": [
+        "n_134",
+        "n_135",
+        "n_136",
+        "n_137"
+      ],
+      "edgeIds": [
+        "n_134->n_135",
+        "n_136->n_137"
+      ],
+      "sourceChunks": [
+        "tweet-2026761335015612866"
+      ],
+      "representativeClaims": [
+        "AI taking resources and giving them back in exchange for human services ⊣ human enslavement",
+        "AI having desire/incentive to trade resources for services ⊣ AI needing to enslave humans"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-46",
+      "theme": "system / down / current / status",
+      "nodeIds": [
+        "n_150",
+        "n_151",
+        "n_152",
+        "n_153"
+      ],
+      "edgeIds": [
+        "n_150->n_151",
+        "n_152->n_153"
+      ],
+      "sourceChunks": [
+        "tweet-2026759957140615669"
+      ],
+      "representativeClaims": [
+        "current system/status quo ⊣ ability to choose to burn it all down",
+        "internal instability or dysfunction of the system → system burning itself down"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-47",
+      "theme": "high / inflation / suffering / regular",
+      "nodeIds": [
+        "n_159",
+        "n_160",
+        "n_161"
+      ],
+      "edgeIds": [
+        "n_159->n_160",
+        "n_161->n_160"
+      ],
+      "sourceChunks": [
+        "tweet-2026759055382032694"
+      ],
+      "representativeClaims": [
+        "high inflation → suffering of regular Russians",
+        "lack of jobs → suffering of regular Russians"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-49",
+      "theme": "someone / human / their / ability",
+      "nodeIds": [
+        "n_164",
+        "n_165",
+        "n_166",
+        "n_167"
+      ],
+      "edgeIds": [
+        "n_164->n_165",
+        "n_166->n_167"
+      ],
+      "sourceChunks": [
+        "tweet-2026756009184866385"
+      ],
+      "representativeClaims": [
+        "someone being a human ⊣ their ability to be convinced by the author's argument",
+        "the 21st century being posthuman → the irrelevance of convincing humans of this fact"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-50",
+      "theme": "hype / imminent / gdp / growth",
+      "nodeIds": [
+        "n_168",
+        "n_169",
+        "n_170",
+        "n_171"
+      ],
+      "edgeIds": [
+        "n_168->n_169",
+        "n_170->n_171"
+      ],
+      "sourceChunks": [
+        "substack-0_seg0"
+      ],
+      "representativeClaims": [
+        "AI hype about imminent 'god machine' with 20% annual GDP growth → real interest rates skyrocketing",
+        "disconnect between AI hype and current macroeconomic reality → markets not pricing in imminent AI-driven massive GDP growth"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-52",
+      "theme": "calls / greater / public / order",
+      "nodeIds": [
+        "n_177",
+        "n_178",
+        "n_179",
+        "n_180"
+      ],
+      "edgeIds": [
+        "n_177->n_178",
+        "n_179->n_180"
+      ],
+      "sourceChunks": [
+        "substack-1_seg0"
+      ],
+      "representativeClaims": [
+        "calls for greater public order → accusations of racism and classism on social media",
+        "putting more cops on the streets and punishing drug dealers → exacerbation of racial disparities"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-89",
+      "theme": "trump / military / threats / seize",
+      "nodeIds": [
+        "n_492",
+        "n_493",
+        "n_494",
+        "n_495"
+      ],
+      "edgeIds": [
+        "n_492->n_493",
+        "n_494->n_495"
+      ],
+      "sourceChunks": [
+        "substack-19_seg1"
+      ],
+      "representativeClaims": [
+        "Trump's threats to seize Greenland and use military force → global risk-off sentiment and 'sell America' market reaction",
+        "dollar weakness (Dollar Index fell nearly 1%) → Trump's shift away from aggressive trade and military posturing"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-2",
+      "theme": "singularity / extinction",
+      "nodeIds": [
+        "n_8",
+        "n_9"
+      ],
+      "edgeIds": [
+        "n_8->n_9"
+      ],
+      "sourceChunks": [
+        "tweet-2027527522196590666"
+      ],
+      "representativeClaims": [
+        "Singularity → extinction"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-3",
+      "theme": "previous / people / smarter / ability",
+      "nodeIds": [
+        "n_10",
+        "n_11"
+      ],
+      "edgeIds": [
+        "n_10->n_11"
+      ],
+      "sourceChunks": [
+        "tweet-2027477141575938261"
+      ],
+      "representativeClaims": [
+        "previous people being smarter → ability to appeal to common humanity"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-5",
+      "theme": "having / something / personal / ability",
+      "nodeIds": [
+        "n_16",
+        "n_17"
+      ],
+      "edgeIds": [
+        "n_16->n_17"
+      ],
+      "sourceChunks": [
+        "tweet-2027468532976652512"
+      ],
+      "representativeClaims": [
+        "having more than 1 of something ⊣ personal ability to handle it"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-7",
+      "theme": "employment / rate / near / record",
+      "nodeIds": [
+        "n_23",
+        "n_24"
+      ],
+      "edgeIds": [
+        "n_23->n_24"
+      ],
+      "sourceChunks": [
+        "tweet-2027463691223109684"
+      ],
+      "representativeClaims": [
+        "employment rate near record high ⊣ hiring boom"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-8",
+      "theme": "blocking / joey / politano / loser",
+      "nodeIds": [
+        "n_25",
+        "n_26"
+      ],
+      "edgeIds": [
+        "n_25->n_26"
+      ],
+      "sourceChunks": [
+        "tweet-2027460984080896265"
+      ],
+      "representativeClaims": [
+        "blocking Joey Politano → being a loser"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-17",
+      "theme": "creation / new / technologies / services",
+      "nodeIds": [
+        "n_63",
+        "n_64"
+      ],
+      "edgeIds": [
+        "n_63->n_64"
+      ],
+      "sourceChunks": [
+        "tweet-2027446448640720940"
+      ],
+      "representativeClaims": [
+        "creation of new technologies/services (like ride-sharing, manufacturing, software platforms) → job creation"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-18",
+      "theme": "recent / change / policy / behavior",
+      "nodeIds": [
+        "n_65",
+        "n_66"
+      ],
+      "edgeIds": [
+        "n_65->n_66"
+      ],
+      "sourceChunks": [
+        "tweet-2027446251688759617"
+      ],
+      "representativeClaims": [
+        "recent change in policy/behavior ⊣ allowing Russians to use something"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-19",
+      "theme": "public / disorder / street / harassment",
+      "nodeIds": [
+        "n_67",
+        "n_68"
+      ],
+      "edgeIds": [
+        "n_67->n_68"
+      ],
+      "sourceChunks": [
+        "tweet-2027445474891026434"
+      ],
+      "representativeClaims": [
+        "public disorder and street harassment without guns → American transit being unbearable"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-20",
+      "theme": "empirical / support / linked / source",
+      "nodeIds": [
+        "n_69",
+        "n_70"
+      ],
+      "edgeIds": [
+        "n_69->n_70"
+      ],
+      "sourceChunks": [
+        "tweet-2027430618238460235"
+      ],
+      "representativeClaims": [
+        "empirical support from linked source → prediction that AGI will be a slacker stoner kid from the 90s"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-22",
+      "theme": "breaking / russia / giving / eastern",
+      "nodeIds": [
+        "n_75",
+        "n_76"
+      ],
+      "edgeIds": [
+        "n_75->n_76"
+      ],
+      "sourceChunks": [
+        "tweet-2027231666918539534"
+      ],
+      "representativeClaims": [
+        "breaking up Russia and giving eastern part to China → resolution of the situation referenced in linked tweet"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-23",
+      "theme": "accepting / rape / always / insanely",
+      "nodeIds": [
+        "n_77",
+        "n_78"
+      ],
+      "edgeIds": [
+        "n_77->n_78"
+      ],
+      "sourceChunks": [
+        "tweet-2027230165554938032"
+      ],
+      "representativeClaims": [
+        "accepting that rape was always insanely high with little recent increase → losing the argument about concern with the chart"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-24",
+      "theme": "posted / graphs / summary / accuracy",
+      "nodeIds": [
+        "n_79",
+        "n_80"
+      ],
+      "edgeIds": [
+        "n_79->n_80"
+      ],
+      "sourceChunks": [
+        "tweet-2027222644786139224"
+      ],
+      "representativeClaims": [
+        "posted graphs ⊣ summary accuracy/validity"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-26",
+      "theme": "raw / numbers / enormous / significance",
+      "nodeIds": [
+        "n_85",
+        "n_86"
+      ],
+      "edgeIds": [
+        "n_85->n_86"
+      ],
+      "sourceChunks": [
+        "tweet-2027149313454031218"
+      ],
+      "representativeClaims": [
+        "raw numbers being enormous → significance of rape prevalence"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-27",
+      "theme": "takaichi / administration / actual / immigration",
+      "nodeIds": [
+        "n_87",
+        "n_88"
+      ],
+      "edgeIds": [
+        "n_87->n_88"
+      ],
+      "sourceChunks": [
+        "tweet-2027095481386709497"
+      ],
+      "representativeClaims": [
+        "Takaichi administration's actual immigration policies ⊣ alignment with public expectations of anti-immigration stance"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-28",
+      "theme": "having / guns / scary",
+      "nodeIds": [
+        "n_89",
+        "n_90"
+      ],
+      "edgeIds": [
+        "n_89->n_90"
+      ],
+      "sourceChunks": [
+        "tweet-2027075653544370608"
+      ],
+      "representativeClaims": [
+        "not having guns ⊣ being scary"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-31",
+      "theme": "crime / rates / differences / america",
+      "nodeIds": [
+        "n_99",
+        "n_100"
+      ],
+      "edgeIds": [
+        "n_99->n_100"
+      ],
+      "sourceChunks": [
+        "tweet-2027051033491595411"
+      ],
+      "representativeClaims": [
+        "crime rates → differences between America and other rich countries"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-35",
+      "theme": "vibe / coding / becoming / thing",
+      "nodeIds": [
+        "n_112",
+        "n_113"
+      ],
+      "edgeIds": [
+        "n_112->n_113"
+      ],
+      "sourceChunks": [
+        "tweet-2026920939838185724"
+      ],
+      "representativeClaims": [
+        "vibe coding becoming a thing → job postings for software engineers"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-36",
+      "theme": "unspecified / antecedent / asexuality",
+      "nodeIds": [
+        "n_114",
+        "n_115"
+      ],
+      "edgeIds": [
+        "n_114->n_115"
+      ],
+      "sourceChunks": [
+        "tweet-2026917751386964277"
+      ],
+      "representativeClaims": [
+        "That (unspecified antecedent) → asexuality"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-40",
+      "theme": "time / flat / circle / past",
+      "nodeIds": [
+        "n_128",
+        "n_129"
+      ],
+      "edgeIds": [
+        "n_128->n_129"
+      ],
+      "sourceChunks": [
+        "tweet-2026762165705904479"
+      ],
+      "representativeClaims": [
+        "time being a flat circle → past events existing in the future"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-44",
+      "theme": "unspecified / event / condition / period",
+      "nodeIds": [
+        "n_146",
+        "n_147"
+      ],
+      "edgeIds": [
+        "n_146->n_147"
+      ],
+      "sourceChunks": [
+        "tweet-2026760305918005717"
+      ],
+      "representativeClaims": [
+        "some unspecified event or condition → a period of chaos"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-45",
+      "theme": "passage / time / occurrence / something",
+      "nodeIds": [
+        "n_148",
+        "n_149"
+      ],
+      "edgeIds": [
+        "n_148->n_149"
+      ],
+      "sourceChunks": [
+        "tweet-2026760018163572844"
+      ],
+      "representativeClaims": [
+        "passage of time → occurrence of something (implied by context of @Trianonwasbad)"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-48",
+      "theme": "spending / decade / p-zombie / knowledge",
+      "nodeIds": [
+        "n_162",
+        "n_163"
+      ],
+      "edgeIds": [
+        "n_162->n_163"
+      ],
+      "sourceChunks": [
+        "tweet-2026756391382430023"
+      ],
+      "representativeClaims": [
+        "spending over a decade as a p-zombie → knowledge that p-zombies are real"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-55",
+      "theme": "disruption / white-collar / work / service-industry",
+      "nodeIds": [
+        "n_200",
+        "n_201"
+      ],
+      "edgeIds": [
+        "n_200->n_201"
+      ],
+      "sourceChunks": [
+        "substack-2_seg1"
+      ],
+      "representativeClaims": [
+        "AI disruption of white-collar work and service-industry business models → economic crisis"
+      ],
+      "claimCount": 1
+    }
+  ],
+  "synthesizedAt": "2026-03-05T04:09:00.401Z"
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "id": "crux-c-6",
+    "nodeId": "c-6",
+    "claim": "Whether leverage-driven market fragility creates exploitable mispricings that persist long enough to be captured before deleveraging cycles reverse, versus whether leverage amplifies downside volatility in ways that make leveraged positions uncompensated bets on timing rather than fundamentals.",
+    "cruxScore": 0.5217723781384999,
+    "disagreementType": "edge_structure",
+    "personaPositions": {
+      "Jukan": {
+        "baseScore": 0.65,
+        "dialecticalStrength": 0.6202218783493056,
+        "contribution": 0.12177237813849984
+      },
+      "Dylan Patel": {
+        "baseScore": 0.5,
+        "dialecticalStrength": 0,
+        "contribution": 0
+      },
+      "Serenity": {
+        "baseScore": 0.6266666666666663,
+        "dialecticalStrength": 0.5366666666666664,
+        "contribution": 0.004822739396163289
+      }
+    },
+    "counterfactual": "Removing this claim would most affect Jukan. Dylan Patel, Serenity would be unaffected.",
+    "settlingQuestion": "When memory prices spike 20%+ above historical averages, do hyperscalers (1) absorb the increase without changing purchasing behavior, (2) delay purchases and wait for price normalization, or (3) accelerate investments in alternative architectures or backward integration? Historical data from 2018 DRAM price spike and 2021-2022 memory cycles would show actual elasticity."
+  },
+  {
+    "id": "crux-c-2",
+    "nodeId": "c-2",
+    "claim": "The crux is whether hyperscaler procurement decisions are constrained by immediate performance requirements that force acceptance of available supply (even at higher cost or lower specs), or whether hyperscalers possess sufficient leverage to delay orders and force suppliers to compete on delivery timelines and specifications rather than customers adapting to supplier constraints.",
+    "cruxScore": 0.4797163273342947,
+    "disagreementType": "edge_structure",
+    "personaPositions": {
+      "Jukan": {
+        "baseScore": 0.67,
+        "dialecticalStrength": 0.6133333333333333,
+        "contribution": 0.08328850864605675
+      },
+      "Dylan Patel": {
+        "baseScore": 0.4999999999999999,
+        "dialecticalStrength": 0.4999999999999999,
+        "contribution": 0.024601649351226107
+      },
+      "Serenity": {
+        "baseScore": 0.8133333333333337,
+        "dialecticalStrength": 0.8133333333333337,
+        "contribution": 0.003572181311762068
+      }
+    },
+    "counterfactual": "Removing this claim would most affect Jukan, Dylan Patel. Serenity would be unaffected.",
+    "settlingQuestion": "When memory prices spike 20%+ above historical averages, do hyperscalers (1) absorb the increase without changing purchasing behavior, (2) delay purchases and wait for price normalization, or (3) accelerate investments in alternative architectures or backward integration? Historical data from 2018 DRAM price spike and 2021-2022 memory cycles would show actual elasticity."
+  },
+  {
+    "id": "crux-c-3",
+    "nodeId": "c-3",
+    "claim": "The crux is whether hyperscalers' ability to threaten backward integration, multi-sourcing, or architectural substitution (photonics, chiplet disaggregation, alternative memory hierarchies) will materially constrain supplier pricing power and demand inelasticity during periods of tight memory supply.",
+    "cruxScore": 0.2719774879719311,
+    "disagreementType": "edge_structure",
+    "personaPositions": {
+      "Jukan": {
+        "baseScore": 0.6933333333333332,
+        "dialecticalStrength": 0.9708701256438834,
+        "contribution": 0.013126015410071079
+      },
+      "Dylan Patel": {
+        "baseScore": 0.3799999999999999,
+        "dialecticalStrength": 0.1682133333333331,
+        "contribution": 0.004536479777499491
+      },
+      "Serenity": {
+        "baseScore": 0.42999999999999994,
+        "dialecticalStrength": 0.6386961720503707,
+        "contribution": 0.17651396774943062
+      }
+    },
+    "counterfactual": "Removing this claim would most affect Serenity, Jukan. Dylan Patel would be unaffected.",
+    "settlingQuestion": "When memory prices spike 20%+ above historical averages, do hyperscalers (1) absorb the increase without changing purchasing behavior, (2) delay purchases and wait for price normalization, or (3) accelerate investments in alternative architectures or backward integration? Historical data from 2018 DRAM price spike and 2021-2022 memory cycles would show actual elasticity."
+  }
+]

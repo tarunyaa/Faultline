@@ -1,0 +1,54 @@
+[
+  {
+    "id": "crux-c-10",
+    "nodeId": "c-10",
+    "claim": "The crux is whether customers facing DRAM price increases will accept higher costs as a fixed input expense versus whether they possess sufficient leverage (through multi-sourcing threats, architectural substitution, or purchase deferral) to prevent suppliers from sustaining price elevation.",
+    "cruxScore": 0.42662523681139,
+    "disagreementType": "edge_structure",
+    "personaPositions": {
+      "Jukan": {
+        "baseScore": 0.5433333333333328,
+        "dialecticalStrength": 0.5433333333333328,
+        "contribution": 0.0008481104367781267
+      },
+      "Dylan Patel": {
+        "baseScore": 0.5,
+        "dialecticalStrength": 0,
+        "contribution": 0
+      },
+      "Serenity": {
+        "baseScore": 0.61,
+        "dialecticalStrength": 0.61,
+        "contribution": 0.026625236811389952
+      }
+    },
+    "counterfactual": "Removing this claim would most affect Serenity. Jukan, Dylan Patel would be unaffected.",
+    "settlingQuestion": "When memory prices spike 20%+ above historical averages, do hyperscalers (1) absorb the increase without changing purchasing behavior, (2) delay purchases and wait for price normalization, or (3) accelerate investments in alternative architectures or backward integration? Historical data from 2018 DRAM price spike and 2021-2022 memory cycles would show actual elasticity."
+  },
+  {
+    "id": "crux-c-2",
+    "nodeId": "c-2",
+    "claim": "The crux is whether memory supply constraints are determined by physical fab construction timelines (which create hard bottlenecks independent of demand) versus algorithmic/architectural choices in how workloads utilize memory (which can be optimized faster than supply can respond).",
+    "cruxScore": 0.21876208884605733,
+    "disagreementType": "edge_structure",
+    "personaPositions": {
+      "Jukan": {
+        "baseScore": 0.5566666666666671,
+        "dialecticalStrength": 0.6333333333333329,
+        "contribution": 0.0020465792098187663
+      },
+      "Dylan Patel": {
+        "baseScore": 0.3899999999999998,
+        "dialecticalStrength": 0.7915103874999995,
+        "contribution": 0.11876208884605732
+      },
+      "Serenity": {
+        "baseScore": 0.5,
+        "dialecticalStrength": 0,
+        "contribution": 0
+      }
+    },
+    "counterfactual": "Removing this claim would most affect Dylan Patel. Jukan, Serenity would be unaffected.",
+    "settlingQuestion": "Over the next 3 years, will memory manufacturers' capex spending (as % of revenue) increase materially, and will capacity utilization rates trend toward equilibrium or remain persistently above 85%?"
+  }
+]

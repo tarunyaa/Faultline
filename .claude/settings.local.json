@@ -76,7 +76,11 @@
       "WebFetch(domain:proceedings.kr.org)",
       "Bash(node:*)",
       "WebFetch(domain:journals.sagepub.com)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(python3:*)",
+      "Bash(python:*)",
+      "Bash(cp:*)",
+      "Bash(.venv/Scripts/python.exe:*)"
     ]
   }
 }

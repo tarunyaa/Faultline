@@ -1,0 +1,20 @@
+{
+  "rootStrengthDelta": {
+    "Jukan": 0.02293753788535713,
+    "Dylan Patel": 0.019390787211727267,
+    "Serenity": 0.025652154134434557
+  },
+  "stanceDivergence": 0.0025108025860403616,
+  "beliefRevisionCost": {
+    "Jukan": 0.028266666666666787,
+    "Dylan Patel": 0.09966666666666694,
+    "Serenity": 0.05733333333333353
+  },
+  "cruxLocalizationRate": 0.08333333333333333,
+  "argumentCoverage": 0.6545454545454545,
+  "counterfactualSensitivity": 0.12177237813849984,
+  "decisionFlipScore": {
+    "flipped": true,
+    "explanation": "If leverage creates uncompensated timing bets rather than exploitable mispricings, Serenity's explicit caution against leverage strategies becomes the dominant framework, and all three analysts' conclusions would need to be reframed around avoiding leveraged exposure rather than sector selection. This would shift the investment thesis from 'which semiconductors to buy' to 'how to structure positions to avoid leverage-amplified downside,' fundamentally altering the actionability of their recommendations."
+  }
+}

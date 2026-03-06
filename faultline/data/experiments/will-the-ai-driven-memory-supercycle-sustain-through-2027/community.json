@@ -1,0 +1,636 @@
+{
+  "topic": "Will the AI-driven memory supercycle sustain through 2027?",
+  "personas": [
+    "Jukan",
+    "Dylan Patel",
+    "Serenity"
+  ],
+  "nodes": [
+    {
+      "id": "c-0",
+      "claim": "The AI-driven memory supercycle will sustain through 2027, driven by persistent demand across HBM and broader memory categories, supported by technological advances and industry capacity expansion, despite near-term pricing pressures and supply chain constraints.",
+      "mergedFrom": [
+        "Jukan-root"
+      ],
+      "baseScores": {
+        "Jukan": 0.5753333333333334
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-1",
+      "claim": "AI-driven memory demand represents a structural shift that extends beyond HBM to all memory categories (DRAM, NAND), not a temporary spike",
+      "mergedFrom": [
+        "Jukan-d1-0",
+        "Jukan-d1-1",
+        "Dylan Patel-d1-2",
+        "Serenity-d1-0",
+        "Serenity-assumption-0-0"
+      ],
+      "baseScores": {
+        "Jukan": 0.45999999999999996,
+        "Dylan Patel": 0.2499999999999999,
+        "Serenity": 0.76
+      },
+      "communityStrength": 0,
+      "variance": 0.04380000000000001,
+      "classification": "consensus"
+    },
+    {
+      "id": "c-2",
+      "claim": "Whether memory/compute intensity growth can be offset by efficiency improvements. A says intensity grows faster than Moore's Law can offset; B says efficiency gains offset demand pressures",
+      "mergedFrom": [
+        "Jukan-assumption-0-0",
+        "Jukan-assumption-0-1",
+        "Jukan-d2-0",
+        "Dylan Patel-d1-1",
+        "Dylan Patel-d1-3"
+      ],
+      "baseScores": {
+        "Jukan": 0.5566666666666671,
+        "Dylan Patel": 0.3899999999999998
+      },
+      "communityStrength": 0,
+      "variance": 0.006944444444444497,
+      "classification": "crux"
+    },
+    {
+      "id": "c-3",
+      "claim": "The AI infrastructure buildout is in early innings (sub-20% penetration) with multi-year runway remaining before saturation",
+      "mergedFrom": [
+        "Jukan-assumption-0-2"
+      ],
+      "baseScores": {
+        "Jukan": 0.6333333333333329
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-4",
+      "claim": "Process technology leadership at base node level driving competitive advantage in advanced products (HBM vs GPU)",
+      "mergedFrom": [
+        "Jukan-d1-2",
+        "Jukan-assumption-2-0",
+        "Jukan-assumption-2-1",
+        "Dylan Patel-d1-0",
+        "Serenity-d2-1"
+      ],
+      "baseScores": {
+        "Jukan": 0.5533333333333329,
+        "Dylan Patel": 0.8300000000000003,
+        "Serenity": 0.5700000000000001
+      },
+      "communityStrength": 0,
+      "variance": 0.01604691358024697,
+      "classification": "consensus"
+    },
+    {
+      "id": "c-5",
+      "claim": "Nvidia and other AI accelerator customers will dual-source or multi-source HBM to avoid supply concentration risk, ensuring Samsung can capture share even without being first to market",
+      "mergedFrom": [
+        "Jukan-assumption-2-2"
+      ],
+      "baseScores": {
+        "Jukan": 0.5533333333333329
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-6",
+      "claim": "HBM technology transitions and specification adjustments in response to supply/demand dynamics",
+      "mergedFrom": [
+        "Jukan-d1-3",
+        "Serenity-assumption-0-2"
+      ],
+      "baseScores": {
+        "Jukan": 0.7600000000000001,
+        "Serenity": 0.76
+      },
+      "communityStrength": 0,
+      "variance": 6.162975822039155e-33,
+      "classification": "consensus"
+    },
+    {
+      "id": "c-7",
+      "claim": "HBM stability and performance, driven by new packaging technology for HBM",
+      "mergedFrom": [
+        "Jukan-d1-4"
+      ],
+      "baseScores": {
+        "Jukan": 0.47999999999999987
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-8",
+      "claim": "US chip sales cap at 75k per Chinese buyer, driven by Nvidia H200 sales to China",
+      "mergedFrom": [
+        "Jukan-d2-1"
+      ],
+      "baseScores": {
+        "Jukan": 0.5233333333333328
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-9",
+      "claim": "gap between US policy and market demand from China, driven by US limit being less than half of what Chinese clients sought",
+      "mergedFrom": [
+        "Jukan-d2-2"
+      ],
+      "baseScores": {
+        "Jukan": 0.6766666666666673
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-10",
+      "claim": "DRAM pricing trends - A claims price surge while B implies pricing pressure/cooling",
+      "mergedFrom": [
+        "Jukan-d2-3",
+        "Serenity-d2-0"
+      ],
+      "baseScores": {
+        "Jukan": 0.5433333333333328,
+        "Serenity": 0.61
+      },
+      "communityStrength": 0,
+      "variance": 0.001111111111111129,
+      "classification": "crux"
+    },
+    {
+      "id": "c-11",
+      "claim": "mass production timeline pushed to early next year, driven by unspecified delays or challenges at Samsung Taylor plant",
+      "mergedFrom": [
+        "Jukan-d2-4"
+      ],
+      "baseScores": {
+        "Jukan": 0.6166666666666673
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-12",
+      "claim": "industry advancement (first of its kind), driven by Broadcom's SiP technology for AI data centers",
+      "mergedFrom": [
+        "Jukan-d2-5"
+      ],
+      "baseScores": {
+        "Jukan": 0.5033333333333329
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-13",
+      "claim": "public awareness of Samsung's DRAM advancement, driven by Samsung unveiling next-generation DRAM at ISSCC conference",
+      "mergedFrom": [
+        "Jukan-d2-6"
+      ],
+      "baseScores": {
+        "Jukan": 0.3833333333333336
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-14",
+      "claim": "performance jump in HBM4, driven by transformation in packaging technology",
+      "mergedFrom": [
+        "Jukan-d2-7"
+      ],
+      "baseScores": {
+        "Jukan": 0.5033333333333329
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-15",
+      "claim": "bottlenecks in PCB materials, driven by rising demand for AI servers",
+      "mergedFrom": [
+        "Jukan-d2-8",
+        "Dylan Patel-d2-0",
+        "Serenity-assumption-0-1"
+      ],
+      "baseScores": {
+        "Jukan": 0.7166666666666672,
+        "Dylan Patel": 0.46999999999999925,
+        "Serenity": 0.76
+      },
+      "communityStrength": 0,
+      "variance": 0.016313580246913695,
+      "classification": "consensus"
+    },
+    {
+      "id": "c-16",
+      "claim": "Broadcom becoming a next big HBM customer, driven by Broadcom's completion of SiP technology development with hybrid bonding",
+      "mergedFrom": [
+        "Jukan-d2-9"
+      ],
+      "baseScores": {
+        "Jukan": 0.3833333333333336
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-17",
+      "claim": "The AI-driven memory supercycle will sustain through 2027 because continuous efficiency gains and cost declines in each new chip generation will offset saturation pressures and maintain strong hyperscaler demand and capex growth.",
+      "mergedFrom": [
+        "Dylan Patel-root"
+      ],
+      "baseScores": {
+        "Dylan Patel": 0.6000000000000001
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-18",
+      "claim": "substantial gains in compute efficiency, driven by peak FLOPs rising much faster than TDP increases",
+      "mergedFrom": [
+        "Dylan Patel-d1-4"
+      ],
+      "baseScores": {
+        "Dylan Patel": 0.3699999999999998
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-19",
+      "claim": "competitive advantage over other players, driven by complete suite of integrated silicon products across all major components",
+      "mergedFrom": [
+        "Dylan Patel-d2-1"
+      ],
+      "baseScores": {
+        "Dylan Patel": 0.4499999999999994
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-20",
+      "claim": "TSMC's successful 20nm node transition and continued growth, driven by Apple's $10 billion commitment and large orders",
+      "mergedFrom": [
+        "Dylan Patel-d2-2"
+      ],
+      "baseScores": {
+        "Dylan Patel": 0.770000000000001
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-21",
+      "claim": "The AI-driven memory supercycle will sustain through 2027 because structural AI demand fundamentals remain strong despite near-term volatility and margin pressures.",
+      "mergedFrom": [
+        "Serenity-root"
+      ],
+      "baseScores": {
+        "Serenity": 0.5599999999999999
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-22",
+      "claim": "actual crash, driven by structural memory demand decreasing",
+      "mergedFrom": [
+        "Serenity-d1-1"
+      ],
+      "baseScores": {
+        "Serenity": 0.5900000000000001
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-23",
+      "claim": "actual crash, driven by hyperscalers projecting less capex",
+      "mergedFrom": [
+        "Serenity-d1-2"
+      ],
+      "baseScores": {
+        "Serenity": 0.5900000000000001
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-24",
+      "claim": "potential for double (100% return), driven by 3% movement with slight vega expansion",
+      "mergedFrom": [
+        "Serenity-d1-3"
+      ],
+      "baseScores": {
+        "Serenity": 0.4700000000000001
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-25",
+      "claim": "short term price drop, driven by war",
+      "mergedFrom": [
+        "Serenity-d1-4"
+      ],
+      "baseScores": {
+        "Serenity": 0.5900000000000001
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    },
+    {
+      "id": "c-26",
+      "claim": "demand for Lite Semiconductors ($LITE) components, driven by Google's $180B capex allocation to TPU program",
+      "mergedFrom": [
+        "Serenity-d2-2"
+      ],
+      "baseScores": {
+        "Serenity": 0.51
+      },
+      "communityStrength": 0,
+      "variance": 0,
+      "classification": "neutral"
+    }
+  ],
+  "edges": [
+    {
+      "id": "ce-0",
+      "from": "c-1",
+      "to": "c-0",
+      "type": "support",
+      "weight": 0.95
+    },
+    {
+      "id": "ce-1",
+      "from": "c-2",
+      "to": "c-1",
+      "type": "support",
+      "weight": 0.7
+    },
+    {
+      "id": "ce-2",
+      "from": "c-3",
+      "to": "c-1",
+      "type": "support",
+      "weight": 0.7
+    },
+    {
+      "id": "ce-3",
+      "from": "c-4",
+      "to": "c-0",
+      "type": "support",
+      "weight": 0.85
+    },
+    {
+      "id": "ce-4",
+      "from": "c-5",
+      "to": "c-4",
+      "type": "support",
+      "weight": 0.7
+    },
+    {
+      "id": "ce-5",
+      "from": "c-6",
+      "to": "c-0",
+      "type": "attack",
+      "weight": 0.7
+    },
+    {
+      "id": "ce-6",
+      "from": "c-7",
+      "to": "c-0",
+      "type": "support",
+      "weight": 0.85
+    },
+    {
+      "id": "ce-7",
+      "from": "c-2",
+      "to": "c-1",
+      "type": "attack",
+      "weight": 0.75
+    },
+    {
+      "id": "ce-8",
+      "from": "c-8",
+      "to": "c-6",
+      "type": "attack",
+      "weight": 0.65
+    },
+    {
+      "id": "ce-9",
+      "from": "c-9",
+      "to": "c-1",
+      "type": "attack",
+      "weight": 0.7
+    },
+    {
+      "id": "ce-10",
+      "from": "c-10",
+      "to": "c-1",
+      "type": "support",
+      "weight": 0.8
+    },
+    {
+      "id": "ce-11",
+      "from": "c-11",
+      "to": "c-1",
+      "type": "attack",
+      "weight": 0.6
+    },
+    {
+      "id": "ce-12",
+      "from": "c-12",
+      "to": "c-7",
+      "type": "support",
+      "weight": 0.85
+    },
+    {
+      "id": "ce-13",
+      "from": "c-13",
+      "to": "c-4",
+      "type": "support",
+      "weight": 0.75
+    },
+    {
+      "id": "ce-14",
+      "from": "c-14",
+      "to": "c-7",
+      "type": "support",
+      "weight": 0.85
+    },
+    {
+      "id": "ce-15",
+      "from": "c-15",
+      "to": "c-1",
+      "type": "attack",
+      "weight": 0.75
+    },
+    {
+      "id": "ce-16",
+      "from": "c-16",
+      "to": "c-4",
+      "type": "support",
+      "weight": 0.8
+    },
+    {
+      "id": "ce-17",
+      "from": "c-4",
+      "to": "c-17",
+      "type": "attack",
+      "weight": 0.7
+    },
+    {
+      "id": "ce-18",
+      "from": "c-2",
+      "to": "c-17",
+      "type": "support",
+      "weight": 0.95
+    },
+    {
+      "id": "ce-19",
+      "from": "c-1",
+      "to": "c-17",
+      "type": "support",
+      "weight": 0.85
+    },
+    {
+      "id": "ce-20",
+      "from": "c-18",
+      "to": "c-17",
+      "type": "support",
+      "weight": 0.9
+    },
+    {
+      "id": "ce-21",
+      "from": "c-15",
+      "to": "c-2",
+      "type": "support",
+      "weight": 0.95
+    },
+    {
+      "id": "ce-22",
+      "from": "c-19",
+      "to": "c-2",
+      "type": "support",
+      "weight": 0.85
+    },
+    {
+      "id": "ce-23",
+      "from": "c-20",
+      "to": "c-4",
+      "type": "support",
+      "weight": 0.8
+    },
+    {
+      "id": "ce-24",
+      "from": "c-1",
+      "to": "c-21",
+      "type": "support",
+      "weight": 0.75
+    },
+    {
+      "id": "ce-25",
+      "from": "c-15",
+      "to": "c-1",
+      "type": "support",
+      "weight": 0.7
+    },
+    {
+      "id": "ce-26",
+      "from": "c-6",
+      "to": "c-1",
+      "type": "support",
+      "weight": 0.7
+    },
+    {
+      "id": "ce-27",
+      "from": "c-22",
+      "to": "c-21",
+      "type": "attack",
+      "weight": 0.85
+    },
+    {
+      "id": "ce-28",
+      "from": "c-23",
+      "to": "c-21",
+      "type": "attack",
+      "weight": 0.85
+    },
+    {
+      "id": "ce-29",
+      "from": "c-24",
+      "to": "c-21",
+      "type": "support",
+      "weight": 0.75
+    },
+    {
+      "id": "ce-30",
+      "from": "c-25",
+      "to": "c-21",
+      "type": "attack",
+      "weight": 0.85
+    },
+    {
+      "id": "ce-31",
+      "from": "c-10",
+      "to": "c-22",
+      "type": "support",
+      "weight": 0.9
+    },
+    {
+      "id": "ce-32",
+      "from": "c-4",
+      "to": "c-1",
+      "type": "support",
+      "weight": 0.8
+    },
+    {
+      "id": "ce-33",
+      "from": "c-26",
+      "to": "c-1",
+      "type": "support",
+      "weight": 0.85
+    }
+  ],
+  "cruxNodes": [
+    "c-2",
+    "c-10"
+  ],
+  "consensusNodes": [
+    "c-1",
+    "c-4",
+    "c-6",
+    "c-15"
+  ]
+}

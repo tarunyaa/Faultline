@@ -136,6 +136,17 @@ When implementing new features, ALWAYS follow this process:
 4. **Plan Before Implementing** — Use EnterPlanMode for non-trivial features. Get user sign-off before writing code.
 5. **Implement** — Only after approval. Stick to scope. No surprise additions.
 
+### Implementation Plan Hygiene
+
+Implementation plans (`docs/` markdown files) must be **living documents that reflect current state only**:
+
+- **No process history** — Don't record "we initially thought X but then discovered Y." Just state Y.
+- **No contradictions** — If a decision changes, update ALL references. Don't leave old information alongside corrections.
+- **No redundancy** — Each fact appears once. Don't repeat setup instructions, architecture diagrams, or decisions in multiple sections.
+- **Prune aggressively** — Remove completed phases, resolved questions, and rejected alternatives. The plan should always answer "what's left to do" not "what happened."
+- **A documentation subagent must update the plan at each milestone** — removing completed work, correcting anything that changed during implementation, and keeping the document concise.
+- **Concise by default** — Prefer tables over prose. Prefer file lists over explanations of what files do. If it can be said in 1 line, don't use 5.
+
 ## Prompt Engineering Rules
 
 The LLM prompt architecture is **layered and intentional**. Before modifying any prompt-related code, understand the full stack:
@@ -171,6 +182,15 @@ User Prompt Layer (per-call instructions)
 5. **Don't add ad-hoc prompt patches** — if detection/generation isn't working well, understand WHY before adding more prompt text
 6. **Keep prompt functions pure** — they return strings, they don't make LLM calls (orchestrators do that)
 7. **Temperature conventions**: generation = 0.85, analysis/detection = 0.2, crux exchange = 0.75
+
+## "Argument" Debate Type Independence Rule
+
+The `argument` debate type is a **clean-slate implementation** based on the ARGORA paper. When building it:
+- Do NOT copy patterns from `dialogue` or `graph` just because they exist there
+- Do NOT add persona loading, speech roles, crux rooms, or other dialogue/graph features unless explicitly requested
+- Only adopt a feature from dialogue/graph if the user specifically says to include it in argument
+- ARGORA auto-generates its own domain experts — no personality agents (Jukan, Elon, etc.)
+- Follow the ARGORA paper's design, not Faultline's existing debate conventions
 
 ## What NOT to Do
 

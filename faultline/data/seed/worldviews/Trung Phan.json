@@ -1,0 +1,2398 @@
+{
+  "personaId": "Trung Phan",
+  "personaName": "Trung Phan",
+  "positions": [
+    {
+      "id": "pos-0",
+      "claim": "Scarcity and shared cultural moments are the primary drivers of media asset value in the internet age, not content quality or production values",
+      "confidence": 0.9,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-88",
+        "cluster-89",
+        "cluster-64",
+        "cluster-63"
+      ],
+      "implicitAssumptions": [
+        "Abundance of content has permanently destroyed the ability to monetize quality alone",
+        "Synchronous consumption (everyone watching at the same time) creates more economic value than asynchronous consumption regardless of total audience size",
+        "Network effects from shared viewing experiences compound faster than improvements in content production technology"
+      ]
+    },
+    {
+      "id": "pos-1",
+      "claim": "AI will cause rapid, chaotic economic disruption including 10%+ unemployment and 40% S&P 500 drawdowns within a measurable timeframe",
+      "confidence": 0.65,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-57",
+        "cluster-61",
+        "cluster-25"
+      ],
+      "implicitAssumptions": [
+        "AI capabilities will improve faster than labor markets can retrain or reallocate workers",
+        "Professional services work (tax planning, wealth management) has lower defensibility against automation than physical or creative work",
+        "Market pricing mechanisms will anticipate AI displacement before it fully materializes in employment data"
+      ]
+    },
+    {
+      "id": "pos-2",
+      "claim": "External metrics from technology platforms (followers, likes, portfolio performance, step counts) have become the primary drivers of daily emotional states and decision-making for most people",
+      "confidence": 0.85,
+      "type": "concern",
+      "groundingClusters": [
+        "cluster-65",
+        "cluster-66"
+      ],
+      "implicitAssumptions": [
+        "Quantified feedback loops are more psychologically powerful than qualitative self-assessment",
+        "The immediacy and frequency of metric updates matters more than the underlying reality they measure",
+        "People lack effective cognitive defenses against gamified metric systems even when aware of their manipulative design"
+      ]
+    },
+    {
+      "id": "pos-3",
+      "claim": "Compounding returns over multi-decade timeframes are the only reliable path to exceptional investment performance, not timing or stock picking",
+      "confidence": 0.95,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-67"
+      ],
+      "implicitAssumptions": [
+        "The psychological difficulty of maintaining discipline over 60 years is a greater barrier than analytical skill in achieving market-beating returns",
+        "Market inefficiencies that enable outperformance persist across decades rather than being arbitraged away",
+        "The difference between 19.9% and 10.4% annual returns compounds to such extreme wealth that no other investment strategy justifies consideration"
+      ]
+    },
+    {
+      "id": "pos-4",
+      "claim": "AI-generated content will overwhelm and degrade platform quality faster than platforms can develop effective filtering mechanisms",
+      "confidence": 0.75,
+      "type": "concern",
+      "groundingClusters": [
+        "cluster-40",
+        "cluster-71"
+      ],
+      "implicitAssumptions": [
+        "The cost of generating AI content decreases faster than the cost of detecting and filtering it",
+        "False positive rates in AI detection are economically more damaging to platforms than false negatives",
+        "User-generated content platforms have structural incentives that prevent them from aggressively filtering AI content even when technically capable"
+      ]
+    },
+    {
+      "id": "pos-5",
+      "claim": "Dream-adjacent work (jobs close to but not exactly your ambition) is more dangerous to long-term achievement than completely unrelated work",
+      "confidence": 0.8,
+      "type": "value_judgment",
+      "groundingClusters": [
+        "cluster-85"
+      ],
+      "implicitAssumptions": [
+        "Psychological satisfaction from proximity to a dream provides enough dopamine to suppress the discomfort that drives action",
+        "The social identity benefits of dream-adjacent work (telling people you work at a video store when you want to make films) create false progress signals",
+        "Complete disconnection from a dream maintains higher psychological tension than partial connection"
+      ]
+    },
+    {
+      "id": "pos-6",
+      "claim": "Aggressive marketing spend (12% of revenue) in performance channels like TikTok and Instagram is the primary driver of hypergrowth in consumer product categories",
+      "confidence": 0.85,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-92",
+        "cluster-93"
+      ],
+      "implicitAssumptions": [
+        "Influencer-driven product discovery has higher conversion rates than traditional advertising despite appearing less targeted",
+        "Consumer product categories can support 24x revenue growth primarily through marketing rather than product innovation",
+        "Instagram's hyper-targeting algorithms are effective enough to justify premium ad spend even for commodity-like products"
+      ]
+    },
+    {
+      "id": "pos-7",
+      "claim": "Short-form video formatting (30-second clips with sensory overlays) is the only viable distribution mechanism for classic cultural content to reach younger audiences",
+      "confidence": 0.7,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-37"
+      ],
+      "implicitAssumptions": [
+        "Gen-Z attention patterns are fundamentally different from previous generations rather than just expressing age-typical preferences",
+        "Cultural literacy can be effectively transmitted through decontextualized clips rather than requiring full narrative experiences",
+        "The format of content delivery matters more than the intrinsic quality or cultural significance of the content itself"
+      ]
+    },
+    {
+      "id": "pos-8",
+      "claim": "Streaming TV shows systematically decline in quality after strong starts, making it rational to refuse watching new shows regardless of initial reviews",
+      "confidence": 0.75,
+      "type": "value_judgment",
+      "groundingClusters": [
+        "cluster-69"
+      ],
+      "implicitAssumptions": [
+        "Streaming business models create structural incentives for shows to prioritize subscriber acquisition over narrative coherence",
+        "The time cost of watching a show that deteriorates is higher than the opportunity cost of missing a rare show that maintains quality",
+        "Pattern recognition from past viewing experiences is a more reliable quality signal than critical reviews or social recommendations"
+      ]
+    },
+    {
+      "id": "pos-9",
+      "claim": "Market reactions to AI capability announcements are driven more by investor anxiety about professional services displacement than by rational assessment of economic impact",
+      "confidence": 0.8,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-58",
+        "cluster-61"
+      ],
+      "implicitAssumptions": [
+        "Professional services workers are overrepresented in investment decision-making relative to their share of the economy",
+        "Markets price AI risk through sector rotation rather than through systematic repricing of all labor-exposed equities",
+        "The speed of market reactions to AI news exceeds the speed at which AI capabilities actually deploy in enterprise settings"
+      ]
+    },
+    {
+      "id": "pos-10",
+      "claim": "AI systems will fail at customer-facing tasks requiring contextual judgment (like drive-thru orders) before they fail at professional knowledge work",
+      "confidence": 0.7,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-14"
+      ],
+      "implicitAssumptions": [
+        "Edge cases and adversarial inputs are more common in consumer-facing applications than in professional settings",
+        "The reputational cost of visible AI failures in consumer settings exceeds the cost savings from automation",
+        "Professional knowledge work has more structured inputs that are easier for AI to handle than unstructured consumer interactions"
+      ]
+    },
+    {
+      "id": "pos-11",
+      "claim": "Exposure to creator content (60-second motivational clips, creative process documentaries) directly triggers behavioral urges that shape daily actions",
+      "confidence": 0.85,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-70"
+      ],
+      "implicitAssumptions": [
+        "Parasocial relationships with creators generate stronger behavioral modeling than in-person relationships",
+        "The emotional intensity of short-form content creates more durable behavioral changes than long-form content despite less information transfer",
+        "Seeing evidence of others' extreme discipline or creativity triggers imitation more effectively than abstract advice or instruction"
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "cluster-67",
+      "theme": "investment / compounding / berkshire / hathaway",
+      "nodeIds": [
+        "n_242",
+        "n_243",
+        "n_244",
+        "n_245",
+        "n_246",
+        "n_247",
+        "n_248",
+        "n_249",
+        "n_250",
+        "n_251",
+        "n_252",
+        "n_253",
+        "n_254",
+        "n_255",
+        "n_256",
+        "n_257",
+        "n_258",
+        "n_259"
+      ],
+      "edgeIds": [
+        "n_242->n_243",
+        "n_244->n_245",
+        "n_246->n_247",
+        "n_248->n_249",
+        "n_250->n_251",
+        "n_252->n_253",
+        "n_254->n_255",
+        "n_256->n_257",
+        "n_258->n_243",
+        "n_259->n_243"
+      ],
+      "sourceChunks": [
+        "substack-5_seg0",
+        "substack-5_seg1"
+      ],
+      "representativeClaims": [
+        "Warren Buffett's investment approach over 60 years → 19.9% annual compounding at Berkshire Hathaway",
+        "Berkshire Hathaway's compounding rate (19.9% vs S&P 500's 10.4%) → outperformance of the market",
+        "tide going out → revealing who is swimming naked (exposed/unprepared)",
+        "time in the market → investment returns",
+        "others being fearful → should be greedy (buy)"
+      ],
+      "claimCount": 10
+    },
+    {
+      "id": "cluster-63",
+      "theme": "deal / fox / bearly / no-logging",
+      "nodeIds": [
+        "n_211",
+        "n_212",
+        "n_213",
+        "n_214",
+        "n_215",
+        "n_216",
+        "n_217",
+        "n_304",
+        "n_305",
+        "n_306",
+        "n_307",
+        "n_308",
+        "n_309"
+      ],
+      "edgeIds": [
+        "n_211->n_212",
+        "n_211->n_213",
+        "n_214->n_215",
+        "n_216->n_217",
+        "n_304->n_305",
+        "n_306->n_307",
+        "n_308->n_215",
+        "n_309->n_217"
+      ],
+      "sourceChunks": [
+        "substack-3_seg0",
+        "substack-10_seg0"
+      ],
+      "representativeClaims": [
+        "NFL's $1.6B deal with Fox in 1993 → league's economics and broadcasting standards",
+        "Bearly AI's default no-logging policy and encryption → user privacy protection",
+        "NFL's $1.6B deal with Fox in 1993 → Fox becoming America's 4th major TV network",
+        "some AI providers keeping chat logs indefinitely → user privacy concerns",
+        "Bearly AI's no-logging policy and encryption → user privacy protection"
+      ],
+      "claimCount": 8
+    },
+    {
+      "id": "cluster-88",
+      "theme": "games / shared / event / status",
+      "nodeIds": [
+        "n_369",
+        "n_370",
+        "n_371",
+        "n_372",
+        "n_373",
+        "n_374",
+        "n_375",
+        "n_376",
+        "n_377"
+      ],
+      "edgeIds": [
+        "n_369->n_370",
+        "n_370->n_371",
+        "n_372->n_373",
+        "n_374->n_375",
+        "n_374->n_376",
+        "n_377->n_374"
+      ],
+      "sourceChunks": [
+        "substack-16_seg0"
+      ],
+      "representativeClaims": [
+        "only 17 weekly regular-season games per team → game scarcity",
+        "game scarcity → shared event status (everyone knows everyone else is watching)",
+        "limited number of games and shared event nature → NFL being a perfect media asset in the age of the internet",
+        "NFL's perfect media asset status → high revenue ($23B in 2024)",
+        "NFL's perfect media asset status → high average franchise value ($7B)"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-65",
+      "theme": "step / portfolio / followers / belief",
+      "nodeIds": [
+        "n_224",
+        "n_225",
+        "n_226",
+        "n_227",
+        "n_228",
+        "n_229",
+        "n_230",
+        "n_231",
+        "n_232",
+        "n_233"
+      ],
+      "edgeIds": [
+        "n_224->n_225",
+        "n_226->n_227",
+        "n_228->n_229",
+        "n_230->n_231",
+        "n_232->n_233"
+      ],
+      "sourceChunks": [
+        "substack-4_seg0"
+      ],
+      "representativeClaims": [
+        "app metrics (sleep score, step count, portfolio performance, social followers, prediction payouts) → user values and behavior",
+        "stock portfolio down 3% → self-criticism and regret about investment decisions",
+        "gaining 478 followers and 10,901 likes on X → belief that people love your takes",
+        "correctly predicting weather outcome and earning $17 on Kalshi → belief in personal intelligence",
+        "hitting weekly step goal on Apple Watch → feeling better"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-89",
+      "theme": "time / appeal / nfl / replays",
+      "nodeIds": [
+        "n_378",
+        "n_379",
+        "n_380",
+        "n_381",
+        "n_382",
+        "n_383",
+        "n_384",
+        "n_385",
+        "n_386"
+      ],
+      "edgeIds": [
+        "n_378->n_379",
+        "n_380->n_379",
+        "n_381->n_382",
+        "n_383->n_384",
+        "n_385->n_386"
+      ],
+      "sourceChunks": [
+        "substack-16_seg1"
+      ],
+      "representativeClaims": [
+        "snap-by-snap gameplay structure → time for replays and color commentary",
+        "smaller time commitment relative to other leagues → appeal/watchability of NFL",
+        "individual games being higher stakes → appeal/watchability of NFL",
+        "replays and color commentary explaining plays → drawing people into NFL lore",
+        "game being very strategic → appeal to Madden players"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-92",
+      "theme": "kitchen / product / air / fryer",
+      "nodeIds": [
+        "n_395",
+        "n_396",
+        "n_397",
+        "n_398",
+        "n_399",
+        "n_400",
+        "n_401",
+        "n_402",
+        "n_403",
+        "n_404"
+      ],
+      "edgeIds": [
+        "n_395->n_396",
+        "n_397->n_398",
+        "n_399->n_400",
+        "n_401->n_402",
+        "n_403->n_404"
+      ],
+      "sourceChunks": [
+        "substack-18_seg0"
+      ],
+      "representativeClaims": [
+        "Ninja Air Fryer use → reheating leftovers effectively",
+        "Instagram hyper-targeted ads → wife purchasing kitchen products",
+        "Air Fryer product performance → meeting consumer hype",
+        "kitchen product purchases → many delicious meals",
+        "Sous Vide cooking method → quality of steaks"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-40",
+      "theme": "ai-generated / content / pinterest / platform",
+      "nodeIds": [
+        "n_132",
+        "n_133",
+        "n_134",
+        "n_135",
+        "n_136",
+        "n_137",
+        "n_138",
+        "n_139"
+      ],
+      "edgeIds": [
+        "n_132->n_133",
+        "n_134->n_135",
+        "n_136->n_137",
+        "n_138->n_139"
+      ],
+      "sourceChunks": [
+        "tweet-2026710584549618161"
+      ],
+      "representativeClaims": [
+        "AI-generated content on Pinterest → platform vulnerability",
+        "AI filters flagging false positives → power user dissatisfaction",
+        "inadequate AI filter quality → Pinterest's vulnerability to AI slop",
+        "AI-generated content being problematic for the platform → user expectation for human-curated image grids"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-57",
+      "theme": "rapid / improvements / models / chaos",
+      "nodeIds": [
+        "n_180",
+        "n_181",
+        "n_182",
+        "n_183",
+        "n_184"
+      ],
+      "edgeIds": [
+        "n_180->n_181",
+        "n_180->n_182",
+        "n_180->n_183",
+        "n_180->n_184"
+      ],
+      "sourceChunks": [
+        "substack-0_seg0"
+      ],
+      "representativeClaims": [
+        "rapid improvements in AI models → chaos in the economy",
+        "rapid improvements in AI models → unemployment levels rise above 10%",
+        "rapid improvements in AI models → S&P 500 sells off ~40% from all-time highs",
+        "rapid improvements in AI models → private market credit tanks"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-60",
+      "theme": "agi / alphago / move / demonstration",
+      "nodeIds": [
+        "n_193",
+        "n_194",
+        "n_195",
+        "n_196",
+        "n_197",
+        "n_198",
+        "n_199",
+        "n_200"
+      ],
+      "edgeIds": [
+        "n_193->n_194",
+        "n_195->n_196",
+        "n_197->n_198",
+        "n_199->n_200"
+      ],
+      "sourceChunks": [
+        "substack-1_seg1"
+      ],
+      "representativeClaims": [
+        "AlphaGo's non-intuitive move 37 → demonstration of machine creativity",
+        "AlphaGo's move 37 demonstration of creativity → Lee Sedol's shock reaction",
+        "definition clarity of AGI → ability to determine when AGI is achieved",
+        "high bar for AGI definition → lower probability of near-term AGI achievement"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-66",
+      "theme": "metrics / external / emotional / lives",
+      "nodeIds": [
+        "n_234",
+        "n_235",
+        "n_236",
+        "n_237",
+        "n_238",
+        "n_239",
+        "n_240",
+        "n_241"
+      ],
+      "edgeIds": [
+        "n_234->n_235",
+        "n_236->n_237",
+        "n_238->n_239",
+        "n_240->n_241"
+      ],
+      "sourceChunks": [
+        "substack-4_seg1"
+      ],
+      "representativeClaims": [
+        "external metrics from tech apps (fantasy rankings, streak notifications) → emotional state and central nervous system activation",
+        "external metrics triggering emotional responses → daily decision-making and thought patterns",
+        "metrics being easily trackable and goal-setting tools → accomplishing tasks deemed important in lives",
+        "designing lives around external metrics → achieving goals and task completion"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-70",
+      "theme": "seeing / urge / miyazaki / david",
+      "nodeIds": [
+        "n_268",
+        "n_269",
+        "n_270",
+        "n_271",
+        "n_272",
+        "n_273",
+        "n_274",
+        "n_275"
+      ],
+      "edgeIds": [
+        "n_268->n_269",
+        "n_270->n_271",
+        "n_272->n_273",
+        "n_274->n_275"
+      ],
+      "sourceChunks": [
+        "substack-7_seg0"
+      ],
+      "representativeClaims": [
+        "seeing David Goggins 60-second clips → urge to do a 10km run",
+        "seeing Hayao Miyazaki talk about creative work → urge to write",
+        "Miyazaki's direction of 20+ animated classics and Studio Ghibli's success → status as one of film's towering giants",
+        "Arakawa being the sole person filming the project → quality/credibility of the documentary artifact"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-73",
+      "theme": "cameron / avatar / filmography / aliens",
+      "nodeIds": [
+        "n_286",
+        "n_287",
+        "n_288",
+        "n_289",
+        "n_290",
+        "n_291",
+        "n_292",
+        "n_293"
+      ],
+      "edgeIds": [
+        "n_286->n_287",
+        "n_288->n_289",
+        "n_290->n_291",
+        "n_292->n_293"
+      ],
+      "sourceChunks": [
+        "substack-8_seg1"
+      ],
+      "representativeClaims": [
+        "Cameron's filmography (Terminator, Aliens, The Abyss, T2, True Lies, Titanic) → quotability/memorability in everyday contexts",
+        "Avatar's focus on Na'vi and Pandora worldbuilding → contrast with rest of Cameron's filmography",
+        "Aliens and T2 being among the best action films ever → author's appreciation for Cameron's work",
+        "series of great Avatar sequels/films → author's plan to watch Avatar: Fire and Ash in theatre"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-83",
+      "theme": "jewel / changi / airport / reputation",
+      "nodeIds": [
+        "n_341",
+        "n_342",
+        "n_343",
+        "n_344",
+        "n_345",
+        "n_346",
+        "n_347",
+        "n_348"
+      ],
+      "edgeIds": [
+        "n_341->n_342",
+        "n_343->n_344",
+        "n_345->n_346",
+        "n_347->n_348"
+      ],
+      "sourceChunks": [
+        "substack-13_seg1"
+      ],
+      "representativeClaims": [
+        "Jewel's extensive greenery (100,000 shrubs, 3,000 trees, world's largest indoor waterfall) → Living up to Singapore's green oasis reputation",
+        "Changi Airport's reputation improvement → Jewel addition to Changi Airport",
+        "Overcoming initial wariness about the hype → Actually visiting Jewel",
+        "Moshe Safdie's design of Jewel → Jewel being an impressive structure"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-85",
+      "theme": "video / store / filmmaking / job",
+      "nodeIds": [
+        "n_353",
+        "n_354",
+        "n_355",
+        "n_356",
+        "n_357",
+        "n_358",
+        "n_359",
+        "n_360"
+      ],
+      "edgeIds": [
+        "n_353->n_354",
+        "n_355->n_356",
+        "n_357->n_358",
+        "n_359->n_360"
+      ],
+      "sourceChunks": [
+        "substack-14_seg1"
+      ],
+      "representativeClaims": [
+        "working at video store job ⊣ fire and ambition to make films",
+        "getting caught up in video store life → falling asleep on filmmaking ambitions",
+        "video store job being dream-adjacent (close to filmmaking dream) → ability to stay engaged despite not pursuing primary dream",
+        "getting to watch movies all day at video store → maintaining connection to filmmaking passion"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-93",
+      "theme": "categories / revenue / growth / annual",
+      "nodeIds": [
+        "n_405",
+        "n_406",
+        "n_407",
+        "n_408",
+        "n_409",
+        "n_410",
+        "n_411",
+        "n_412"
+      ],
+      "edgeIds": [
+        "n_405->n_406",
+        "n_407->n_408",
+        "n_409->n_410",
+        "n_411->n_412"
+      ],
+      "sourceChunks": [
+        "substack-18_seg1"
+      ],
+      "representativeClaims": [
+        "SharkNinja operating in 37 categories with brand portfolio (Shark and Ninja) → revenue growth to $6B projected in 2025",
+        "entering over 20 categories in past 5 years → revenue growth (24x from $250m to $6B)",
+        "revenue growth and market success → $700m annual spending on ads (12% of sales) with influencers on TikTok and Instagram",
+        "$400m annual R&D spending (7% of sales) → ability to enter new product categories and drive innovation"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-8",
+      "theme": "bidding / war / netflix / paramount",
+      "nodeIds": [
+        "n_28",
+        "n_29",
+        "n_30",
+        "n_31",
+        "n_32",
+        "n_33"
+      ],
+      "edgeIds": [
+        "n_28->n_29",
+        "n_30->n_31",
+        "n_32->n_33"
+      ],
+      "sourceChunks": [
+        "tweet-2027390978173399546"
+      ],
+      "representativeClaims": [
+        "bidding war between Netflix and Paramount over 4 months with 10+ bids → increase in company value from $50B to $110B",
+        "David Zaslav's management/actions during the acquisition process → personal receipt of $567M golden parachute payout",
+        "Warner Bros tanking to $20B valuation → enabling a bidding war between Netflix and Paramount"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-14",
+      "theme": "drive-thru / performance / operating / windows",
+      "nodeIds": [
+        "n_46",
+        "n_47",
+        "n_48",
+        "n_49",
+        "n_50",
+        "n_51"
+      ],
+      "edgeIds": [
+        "n_46->n_47",
+        "n_48->n_49",
+        "n_50->n_51"
+      ],
+      "sourceChunks": [
+        "tweet-2027204516601598374"
+      ],
+      "representativeClaims": [
+        "AI operating drive-thru windows ⊣ performance quality",
+        "someone ordering 18,000 cups of water through Taco Bell drive-thru AI → breaking the AI system",
+        "poor performance and exploitability of drive-thru AI → fast food chains restricting AI to employee-only interactions"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-23",
+      "theme": "bid / netflix / paramount / share",
+      "nodeIds": [
+        "n_72",
+        "n_73",
+        "n_74",
+        "n_75",
+        "n_76",
+        "n_77"
+      ],
+      "edgeIds": [
+        "n_72->n_73",
+        "n_74->n_75",
+        "n_76->n_77"
+      ],
+      "sourceChunks": [
+        "tweet-2027149280818208950"
+      ],
+      "representativeClaims": [
+        "Paramount's $31/share bid ($81B) → Warner Bros board considers bid superior",
+        "Netflix bid being lower ($27.75/share, $72B) → Paramount bid deemed superior to Netflix offer",
+        "Netflix having 4 days to counter → Netflix can potentially match or exceed Paramount's offer"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-25",
+      "theme": "agent / use / case / adoption",
+      "nodeIds": [
+        "n_82",
+        "n_83",
+        "n_84",
+        "n_85"
+      ],
+      "edgeIds": [
+        "n_82->n_83",
+        "n_82->n_84",
+        "n_82->n_85"
+      ],
+      "sourceChunks": [
+        "tweet-2027100659397677493"
+      ],
+      "representativeClaims": [
+        "AI agent use case adoption → capital expenditure (CapEx)",
+        "AI agent use case adoption → DRAM prices",
+        "AI agent use case adoption → electricity bills"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-37",
+      "theme": "godfather / gen-z / films / classic",
+      "nodeIds": [
+        "n_120",
+        "n_121",
+        "n_122",
+        "n_123",
+        "n_124",
+        "n_125"
+      ],
+      "edgeIds": [
+        "n_120->n_121",
+        "n_122->n_123",
+        "n_124->n_125"
+      ],
+      "sourceChunks": [
+        "tweet-2026740676797542622"
+      ],
+      "representativeClaims": [
+        "cutting Godfather films into 30-second clips with mobile game and sensory footage → Gen-Z learning about Godfather classics",
+        "formatting Godfather scenes for TikTok, Reels and Shorts → Gen-Z engagement with classic films",
+        "content being in short-form video format optimized for social platforms → accessibility of classic cinema to Gen-Z"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-58",
+      "theme": "xyz / stocks / prefacing / content",
+      "nodeIds": [
+        "n_185",
+        "n_186",
+        "n_187",
+        "n_188",
+        "n_189",
+        "n_190"
+      ],
+      "edgeIds": [
+        "n_185->n_186",
+        "n_187->n_188",
+        "n_189->n_190"
+      ],
+      "sourceChunks": [
+        "substack-0_seg1"
+      ],
+      "representativeClaims": [
+        "prefacing content with 'this isn't [XYZ]' → people perceiving it as [XYZ]",
+        "Citrini article singling out specific stocks → those stocks declining on Monday",
+        "deep uncertainty and confusion in markets → market reacting strongly to economically implausible scenario"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-61",
+      "theme": "replacing / professional / services / market",
+      "nodeIds": [
+        "n_201",
+        "n_202",
+        "n_203",
+        "n_204",
+        "n_205",
+        "n_206"
+      ],
+      "edgeIds": [
+        "n_201->n_202",
+        "n_203->n_204",
+        "n_205->n_206"
+      ],
+      "sourceChunks": [
+        "substack-2_seg1"
+      ],
+      "representativeClaims": [
+        "news about AI plugins replacing professional services work → stock market sell-off ($285B market cap loss)",
+        "Altruist releasing AI tax-planning tool → multi-billion dollar sell-off in wealth management firms",
+        "investor anxiety about AI replacing professional services → market overreaction/panic selling"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-64",
+      "theme": "broadcast / rights / fox / cbs",
+      "nodeIds": [
+        "n_218",
+        "n_219",
+        "n_220",
+        "n_221",
+        "n_222",
+        "n_223"
+      ],
+      "edgeIds": [
+        "n_218->n_219",
+        "n_220->n_221",
+        "n_222->n_223"
+      ],
+      "sourceChunks": [
+        "substack-3_seg1"
+      ],
+      "representativeClaims": [
+        "Fox offering $1.6B for NFC broadcast rights (massive increase from CBS's $265m annually) → ability to compete with ABC, NBC, and CBS",
+        "NFL being a cultural juggernaut → Murdoch's desire to acquire broadcast rights",
+        "securing 49ers vs Cowboys game and marquee matchups → Fox bid viability"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-69",
+      "theme": "shows / new / watch / streaming",
+      "nodeIds": [
+        "n_262",
+        "n_263",
+        "n_264",
+        "n_265",
+        "n_266",
+        "n_267"
+      ],
+      "edgeIds": [
+        "n_262->n_263",
+        "n_264->n_265",
+        "n_266->n_267"
+      ],
+      "sourceChunks": [
+        "substack-6_seg1"
+      ],
+      "representativeClaims": [
+        "being told repeatedly that new shows are must-watch ⊣ willingness to watch new streaming TV shows",
+        "storylines becoming circular or lacking narrative sense → show quality deterioration",
+        "past experience of shows starting strong then declining in quality → refusal to watch new streaming TV shows"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-71",
+      "theme": "miyazaki / ai-generated / images / ghibli",
+      "nodeIds": [
+        "n_276",
+        "n_277",
+        "n_278",
+        "n_279",
+        "n_280",
+        "n_281"
+      ],
+      "edgeIds": [
+        "n_276->n_277",
+        "n_278->n_279",
+        "n_280->n_281"
+      ],
+      "sourceChunks": [
+        "substack-7_seg1"
+      ],
+      "representativeClaims": [
+        "studying Arakawa's documentary and Alpert's book about Miyazaki → gaining insights on Miyazaki's career and lessons on creativity",
+        "ChatGPT image generator launch and AI-generated Ghibli-influenced anime images → internet discourse about Ghibli IP being used without permission",
+        "convergence of AI-generated Ghibli images, IP concerns, and 40th anniversary timing → opportune moment to revisit Miyazaki documentaries and books"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-75",
+      "theme": "dishoom / catterton / investment / new",
+      "nodeIds": [
+        "n_298",
+        "n_299",
+        "n_300",
+        "n_301",
+        "n_302",
+        "n_303"
+      ],
+      "edgeIds": [
+        "n_298->n_299",
+        "n_300->n_301",
+        "n_302->n_303"
+      ],
+      "sourceChunks": [
+        "substack-9_seg1"
+      ],
+      "representativeClaims": [
+        "Dishoom opening in New York City in 2026 → Americans experiencing Dishoom",
+        "Dishoom's food quality and dining experience → L Catterton's investment decision",
+        "L Catterton's investment in Dishoom → Dishoom's expansion to New York City in 2026"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-76",
+      "theme": "paramount / sheridan / yellowstone / success",
+      "nodeIds": [
+        "n_310",
+        "n_311",
+        "n_312",
+        "n_313",
+        "n_314",
+        "n_315"
+      ],
+      "edgeIds": [
+        "n_310->n_311",
+        "n_312->n_313",
+        "n_314->n_315"
+      ],
+      "sourceChunks": [
+        "substack-10_seg1"
+      ],
+      "representativeClaims": [
+        "Yellowstone's success as largest scripted show → generation of $2.9B revenue and ~$700M profit for Paramount",
+        "Sheridan's creative output (Yellowstone, 1883, Mayor of Kingstown, etc.) → Paramount's financial success and platform growth",
+        "Paramount+ launch in 2021 with Sheridan's shows → platform growth and subscriber value"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-77",
+      "theme": "simplot / understanding / commodity / markets",
+      "nodeIds": [
+        "n_316",
+        "n_317",
+        "n_318",
+        "n_319",
+        "n_320",
+        "n_321"
+      ],
+      "edgeIds": [
+        "n_316->n_317",
+        "n_318->n_319",
+        "n_320->n_321"
+      ],
+      "sourceChunks": [
+        "substack-11_seg0"
+      ],
+      "representativeClaims": [
+        "Simplot's potato farming business pivot to semiconductors → building of $220B+ Micron Technology firm",
+        "J.R. Simplot's understanding of commodity markets → ability to spot opportunity in DRAM semiconductor segment",
+        "portfolio misallocation to animal-themed NFTs and parlays during COVID → missing out on Nvidia gains"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-82",
+      "theme": "changi / airport / best / world",
+      "nodeIds": [
+        "n_336",
+        "n_337",
+        "n_338",
+        "n_339",
+        "n_340"
+      ],
+      "edgeIds": [
+        "n_336->n_337",
+        "n_338->n_337",
+        "n_339->n_340"
+      ],
+      "sourceChunks": [
+        "substack-13_seg0"
+      ],
+      "representativeClaims": [
+        "frequent mentions of Changi Airport in travel blogs → awareness that Changi Airport is cited as the best airport in the world",
+        "incredible architecture at Changi Airport → Changi Airport being considered the best airport in the world",
+        "abundance of shops and food options at Changi Airport → Changi Airport being considered the best airport in the world"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-87",
+      "theme": "iphone / apple / leaky / ship",
+      "nodeIds": [
+        "n_363",
+        "n_364",
+        "n_365",
+        "n_366",
+        "n_367",
+        "n_368"
+      ],
+      "edgeIds": [
+        "n_363->n_364",
+        "n_365->n_366",
+        "n_367->n_368"
+      ],
+      "sourceChunks": [
+        "substack-15_seg1"
+      ],
+      "representativeClaims": [
+        "Apple being a leaky ship with past iPhone launches → advance knowledge of iPhone specs and design",
+        "A19 Pro chip being a major upgrade → potential to do cool AI stuff",
+        "limitation of AI capabilities on iPhone 17 → Apple Intelligence sucking"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-95",
+      "theme": "south / park / signing / development",
+      "nodeIds": [
+        "n_415",
+        "n_416",
+        "n_417",
+        "n_418",
+        "n_419",
+        "n_420"
+      ],
+      "edgeIds": [
+        "n_415->n_416",
+        "n_417->n_418",
+        "n_419->n_420"
+      ],
+      "sourceChunks": [
+        "substack-19_seg1"
+      ],
+      "representativeClaims": [
+        "signing development deal with Paramount and exclusive streaming agreement with Paramount+ → hitting financial milestone",
+        "South Park's willingness to be equal-opportunity offenders and troll anyone/anything → ability to tap into or set cultural zeitgeist",
+        "Parker and Stone remaining as original creative team writing and producing → South Park maintaining relevance unlike other long-running animated shows"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-1",
+      "theme": "design / agency / creating / max",
+      "nodeIds": [
+        "n_2",
+        "n_3",
+        "n_4",
+        "n_5"
+      ],
+      "edgeIds": [
+        "n_2->n_3",
+        "n_4->n_5"
+      ],
+      "sourceChunks": [
+        "tweet-2027530011700543771"
+      ],
+      "representativeClaims": [
+        "design agency creating 6 Max logos over 4 years → receiving $100M in compensation",
+        "Paramount-Warner Bros merger deal → design agency being a major financial winner"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-3",
+      "theme": "benefits / journey / using / tools",
+      "nodeIds": [
+        "n_8",
+        "n_9",
+        "n_10",
+        "n_11"
+      ],
+      "edgeIds": [
+        "n_8->n_9",
+        "n_10->n_11"
+      ],
+      "sourceChunks": [
+        "tweet-2027474959044645119"
+      ],
+      "representativeClaims": [
+        "using AI tools (helicopter drop analogy) → missing benefits of the journey itself",
+        "skipping the process/journey → loss of learning or developmental benefits"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-4",
+      "theme": "junior / co-author / rating / confidence",
+      "nodeIds": [
+        "n_12",
+        "n_13",
+        "n_14",
+        "n_15"
+      ],
+      "edgeIds": [
+        "n_12->n_13",
+        "n_14->n_15"
+      ],
+      "sourceChunks": [
+        "tweet-2027474663564353630"
+      ],
+      "representativeClaims": [
+        "AI reaching trusted junior co-author benchmark → Terrence Tao's hope for improvements in AI capabilities",
+        "AI rating its confidence in answers → AI utility as junior co-author on technical math papers"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-5",
+      "theme": "need / hit / market / cap",
+      "nodeIds": [
+        "n_16",
+        "n_17",
+        "n_18",
+        "n_19"
+      ],
+      "edgeIds": [
+        "n_16->n_17",
+        "n_18->n_19"
+      ],
+      "sourceChunks": [
+        "tweet-2027437205598474336"
+      ],
+      "representativeClaims": [
+        "need to hit $1T market cap → AMD giving warrants to OpenAI and Meta",
+        "Nvidia's growing massive cash pile → need to deploy capital"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-6",
+      "theme": "becoming / physical / large / remote",
+      "nodeIds": [
+        "n_20",
+        "n_21",
+        "n_22",
+        "n_23"
+      ],
+      "edgeIds": [
+        "n_20->n_21",
+        "n_22->n_23"
+      ],
+      "sourceChunks": [
+        "tweet-2027417190203547928"
+      ],
+      "representativeClaims": [
+        "remote work and distributed teams becoming standard → physical office headquarters and large headcount becoming unnecessary",
+        "technological advancement and automation by 2031 → reduced need for large physical workforce at Fortune 500 companies"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-7",
+      "theme": "godfather / robert / evans / involvement",
+      "nodeIds": [
+        "n_24",
+        "n_25",
+        "n_26",
+        "n_27"
+      ],
+      "edgeIds": [
+        "n_24->n_25",
+        "n_26->n_27"
+      ],
+      "sourceChunks": [
+        "tweet-2027405173686145215"
+      ],
+      "representativeClaims": [
+        "multiple potential failure points in Godfather's production → The Godfather could have failed",
+        "Robert Evans' involvement → The Godfather getting made"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-9",
+      "theme": "warner / david / zaslav / bidding",
+      "nodeIds": [
+        "n_34",
+        "n_35",
+        "n_36",
+        "n_37"
+      ],
+      "edgeIds": [
+        "n_34->n_35",
+        "n_36->n_37"
+      ],
+      "sourceChunks": [
+        "tweet-2027248766567456774"
+      ],
+      "representativeClaims": [
+        "David Zaslav's bidding war strategy → Warner Bros. stock price increase",
+        "IP mash-up of Paramount and Warner franchises → entertainment value/commercial success"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-21",
+      "theme": "mass / white-collar / unemployment / non-technical",
+      "nodeIds": [
+        "n_64",
+        "n_65",
+        "n_66",
+        "n_67"
+      ],
+      "edgeIds": [
+        "n_64->n_65",
+        "n_66->n_67"
+      ],
+      "sourceChunks": [
+        "tweet-2027153153058300177"
+      ],
+      "representativeClaims": [
+        "Block laying off 40% of its workforce → evidence supporting prediction of mass white-collar unemployment",
+        "non-technical workers (grandma) being able to code Doordash or Visa replacements → mass white-collar unemployment"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-22",
+      "theme": "media / openai / data / centre",
+      "nodeIds": [
+        "n_68",
+        "n_69",
+        "n_70",
+        "n_71"
+      ],
+      "edgeIds": [
+        "n_68->n_69",
+        "n_70->n_71"
+      ],
+      "sourceChunks": [
+        "tweet-2027151379647824252"
+      ],
+      "representativeClaims": [
+        "OpenAI data centre orders → Nvidia stock surge",
+        "corporate consolidation across media/tech companies → complexity of media ownership structures"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-24",
+      "theme": "price / home / appreciating / 10x",
+      "nodeIds": [
+        "n_78",
+        "n_79",
+        "n_80",
+        "n_81"
+      ],
+      "edgeIds": [
+        "n_78->n_79",
+        "n_80->n_81"
+      ],
+      "sourceChunks": [
+        "tweet-2027109801508167728"
+      ],
+      "representativeClaims": [
+        "home appreciating 10x in past 20 years ⊣ expectation of higher selling price",
+        "receiving bid 1% lower than asking price → boomers' disappointment/frustration"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-26",
+      "theme": "multimodal / chatbot / improvement / existing",
+      "nodeIds": [
+        "n_86",
+        "n_87",
+        "n_88",
+        "n_89"
+      ],
+      "edgeIds": [
+        "n_86->n_87",
+        "n_88->n_89"
+      ],
+      "sourceChunks": [
+        "tweet-2027072063954182511"
+      ],
+      "representativeClaims": [
+        "human laziness → willingness to use new tools despite marginal improvements",
+        "multimodal chatbot improvement over existing DIY YouTube videos ⊣ adoption by most people"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-29",
+      "theme": "career / trades / pursuing / software",
+      "nodeIds": [
+        "n_94",
+        "n_95",
+        "n_96",
+        "n_97"
+      ],
+      "edgeIds": [
+        "n_94->n_95",
+        "n_96->n_97"
+      ],
+      "sourceChunks": [
+        "tweet-2027057057044803922"
+      ],
+      "representativeClaims": [
+        "following advice to 'learn how to code' ⊣ better career outcomes than skilled trades",
+        "pursuing software engineering career ⊣ financial/professional success relative to trades"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-30",
+      "theme": "author / claude / trade / behalf",
+      "nodeIds": [
+        "n_98",
+        "n_99",
+        "n_100",
+        "n_101"
+      ],
+      "edgeIds": [
+        "n_98->n_99",
+        "n_100->n_101"
+      ],
+      "sourceChunks": [
+        "tweet-2026823937750085867"
+      ],
+      "representativeClaims": [
+        "unredacting text → ability to have Claude trade on behalf of author",
+        "having Claude trade on author's behalf → achieving author's trading goals"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-31",
+      "theme": "trading / lawsuit / jane / street",
+      "nodeIds": [
+        "n_102",
+        "n_103",
+        "n_104",
+        "n_105"
+      ],
+      "edgeIds": [
+        "n_102->n_103",
+        "n_104->n_105"
+      ],
+      "sourceChunks": [
+        "tweet-2026805315640111346"
+      ],
+      "representativeClaims": [
+        "need to protect Jane Street's trading techniques → redaction of lawsuit documents",
+        "Terraform Labs bankruptcy and $40B implosion → filing of insider trading lawsuit against Jane Street"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-32",
+      "theme": "in-house / custom / hardware / apple",
+      "nodeIds": [
+        "n_106",
+        "n_107",
+        "n_108",
+        "n_109"
+      ],
+      "edgeIds": [
+        "n_106->n_107",
+        "n_108->n_109"
+      ],
+      "sourceChunks": [
+        "tweet-2026802418223296639"
+      ],
+      "representativeClaims": [
+        "Apple acquiring PA Semi and starting in-house custom chip business → hardware sales increase",
+        "in-house custom chips → hardware capabilities/features enabled"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-34",
+      "theme": "nvidia / acquisition / mellanox / 2019",
+      "nodeIds": [
+        "n_112",
+        "n_113",
+        "n_114",
+        "n_115"
+      ],
+      "edgeIds": [
+        "n_112->n_113",
+        "n_114->n_115"
+      ],
+      "sourceChunks": [
+        "tweet-2026778783685161370"
+      ],
+      "representativeClaims": [
+        "Nvidia's acquisition of Mellanox → ranking among greatest tech acquisitions ever",
+        "Nvidia's acquisition of Mellanox for $7B in 2019 → generation of $11B+ quarterly Networking revenue"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-38",
+      "theme": "claude / similar / tool / ability",
+      "nodeIds": [
+        "n_126",
+        "n_127",
+        "n_128",
+        "n_129"
+      ],
+      "edgeIds": [
+        "n_126->n_127",
+        "n_128->n_129"
+      ],
+      "sourceChunks": [
+        "tweet-2026728165247430998"
+      ],
+      "representativeClaims": [
+        "Claude AI (or similar AI tool) → ability to appear productive/at desk while not actually working",
+        "Claude AI compared to mouse jiggler → scale/magnitude of deceptive productivity appearance"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-46",
+      "theme": "creative / director / noodling / single",
+      "nodeIds": [
+        "n_150",
+        "n_151",
+        "n_152",
+        "n_153"
+      ],
+      "edgeIds": [
+        "n_150->n_151",
+        "n_152->n_153"
+      ],
+      "sourceChunks": [
+        "tweet-2026385303251071219"
+      ],
+      "representativeClaims": [
+        "Hayao Miyazaki's entire career → creative lessons",
+        "director noodling on a single idea for decades → love stories (creative output)"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-52",
+      "theme": "quentin / directing / project / turning",
+      "nodeIds": [
+        "n_164",
+        "n_165",
+        "n_166",
+        "n_167"
+      ],
+      "edgeIds": [
+        "n_164->n_165",
+        "n_166->n_167"
+      ],
+      "sourceChunks": [
+        "tweet-2026360066111324526"
+      ],
+      "representativeClaims": [
+        "Quentin not directing → turning down the project",
+        "Quentin directing → accepting/doing the project"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-55",
+      "theme": "need / ask / permission / riff",
+      "nodeIds": [
+        "n_172",
+        "n_173",
+        "n_174",
+        "n_175"
+      ],
+      "edgeIds": [
+        "n_172->n_173",
+        "n_174->n_175"
+      ],
+      "sourceChunks": [
+        "tweet-2026354687306510574"
+      ],
+      "representativeClaims": [
+        "need to ask permission for a riff on original → not being an official poster",
+        "absence of em dashes → positive outcome (implied by 'at least')"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-56",
+      "theme": "heat / sequel / confirmed / happening",
+      "nodeIds": [
+        "n_176",
+        "n_177",
+        "n_178",
+        "n_179"
+      ],
+      "edgeIds": [
+        "n_176->n_177",
+        "n_178->n_179"
+      ],
+      "sourceChunks": [
+        "tweet-2026352729073852504"
+      ],
+      "representativeClaims": [
+        "Heat 2 sequel happening → Michael Mann directing Heat 2",
+        "Heat 2 sequel is confirmed/real → confirmed casting of Leonardo DiCaprio, Christian Bale, and Adam Driver"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-62",
+      "theme": "saas / firm / valuations / market",
+      "nodeIds": [
+        "n_207",
+        "n_208",
+        "n_209",
+        "n_210"
+      ],
+      "edgeIds": [
+        "n_207->n_208",
+        "n_209->n_210"
+      ],
+      "sourceChunks": [
+        "substack-2_seg2"
+      ],
+      "representativeClaims": [
+        "market downturn since start of year ⊣ B2B SaaS firm valuations",
+        "software tools becoming commoditized/easily codable ⊣ SaaS firm valuations"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-72",
+      "theme": "cultural / impact / high / box",
+      "nodeIds": [
+        "n_282",
+        "n_283",
+        "n_284",
+        "n_285"
+      ],
+      "edgeIds": [
+        "n_282->n_283",
+        "n_284->n_285"
+      ],
+      "sourceChunks": [
+        "substack-8_seg0"
+      ],
+      "representativeClaims": [
+        "lack of quotable lines and memorable characters → low cultural impact",
+        "high box office revenue ⊣ cultural impact"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-74",
+      "theme": "business / gamifying / payment / experience",
+      "nodeIds": [
+        "n_294",
+        "n_295",
+        "n_296",
+        "n_297"
+      ],
+      "edgeIds": [
+        "n_294->n_295",
+        "n_296->n_297"
+      ],
+      "sourceChunks": [
+        "substack-9_seg0"
+      ],
+      "representativeClaims": [
+        "gamifying the payment experience → business traction and success",
+        "Harvard MBA and Bain consulting background → ability to launch successful business"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-78",
+      "theme": "investing / micron / technology / stake",
+      "nodeIds": [
+        "n_322",
+        "n_323",
+        "n_324",
+        "n_325"
+      ],
+      "edgeIds": [
+        "n_322->n_323",
+        "n_324->n_325"
+      ],
+      "sourceChunks": [
+        "substack-11_seg1"
+      ],
+      "representativeClaims": [
+        "investing $1m into Micron Technology for a 40% stake in 1980 → becoming a billionaire from memory chips",
+        "Simplot's career pivot into semiconductors → widespread media coverage in the 1990s"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-79",
+      "theme": "watching / paul / thomas / anderson",
+      "nodeIds": [
+        "n_326",
+        "n_327",
+        "n_328",
+        "n_329"
+      ],
+      "edgeIds": [
+        "n_326->n_327",
+        "n_328->n_329"
+      ],
+      "sourceChunks": [
+        "substack-12_seg0"
+      ],
+      "representativeClaims": [
+        "watching Paul Thomas Anderson's One Battle After Another → feeling compelled to write a newsletter",
+        "suffering from chronic recency bias → tendency to overvalue recent experiences"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-80",
+      "theme": "pta / one / battle / another",
+      "nodeIds": [
+        "n_330",
+        "n_331",
+        "n_332",
+        "n_333"
+      ],
+      "edgeIds": [
+        "n_330->n_331",
+        "n_332->n_333"
+      ],
+      "sourceChunks": [
+        "substack-12_seg1"
+      ],
+      "representativeClaims": [
+        "it being PTA's highest budget film → One Battle After Another receiving $140m budget",
+        "PTA spending two decades working on the idea → One Battle After Another being a true passion project"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-84",
+      "theme": "tarantino / podcast / appearing / church",
+      "nodeIds": [
+        "n_349",
+        "n_350",
+        "n_351",
+        "n_352"
+      ],
+      "edgeIds": [
+        "n_349->n_350",
+        "n_351->n_352"
+      ],
+      "sourceChunks": [
+        "substack-14_seg0"
+      ],
+      "representativeClaims": [
+        "Tarantino appearing on The Church of Tarantino Podcast → podcast episode being meta/notable",
+        "Tarantino's 30+ year career → having great insights to share"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-90",
+      "theme": "costco / opening / new / warehouse",
+      "nodeIds": [
+        "n_387",
+        "n_388",
+        "n_389",
+        "n_390"
+      ],
+      "edgeIds": [
+        "n_387->n_388",
+        "n_389->n_390"
+      ],
+      "sourceChunks": [
+        "substack-17_seg0"
+      ],
+      "representativeClaims": [
+        "Costco opening new warehouse in Okinawa → extreme customer demand (5-hour car line, 3.5-hour wait)",
+        "Japan's cultural characteristics ⊣ organized pandemonium inside the store"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-91",
+      "theme": "japan / difficulty / costco / foreign",
+      "nodeIds": [
+        "n_391",
+        "n_392",
+        "n_393",
+        "n_394"
+      ],
+      "edgeIds": [
+        "n_391->n_392",
+        "n_393->n_394"
+      ],
+      "sourceChunks": [
+        "substack-17_seg1"
+      ],
+      "representativeClaims": [
+        "difficulty for foreign grocers to break into Japan → impressiveness of Costco's footprint in Japan",
+        "market difficulty in Japan (body slamming other retailers) → Costco's success being noteworthy"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-0",
+      "theme": "ai-generated / logos / cost / savings",
+      "nodeIds": [
+        "n_0",
+        "n_1"
+      ],
+      "edgeIds": [
+        "n_0->n_1"
+      ],
+      "sourceChunks": [
+        "tweet-2027531693201232300"
+      ],
+      "representativeClaims": [
+        "AI-generated logos → cost savings for Paramount"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-2",
+      "theme": "pulling / out / heat / scene",
+      "nodeIds": [
+        "n_6",
+        "n_7"
+      ],
+      "edgeIds": [
+        "n_6->n_7"
+      ],
+      "sourceChunks": [
+        "tweet-2027513104410808504"
+      ],
+      "representativeClaims": [
+        "pulling out a Heat scene → willingness to try watching it"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-10",
+      "theme": "paramount / max / achieving / scale",
+      "nodeIds": [
+        "n_38",
+        "n_39"
+      ],
+      "edgeIds": [
+        "n_38->n_39"
+      ],
+      "sourceChunks": [
+        "tweet-2027238554578063821"
+      ],
+      "representativeClaims": [
+        "Paramount+ / Max achieving scale → ability to compete as a streamer"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-11",
+      "theme": "chick-fil-a / operational / approach / drive-thru",
+      "nodeIds": [
+        "n_40",
+        "n_41"
+      ],
+      "edgeIds": [
+        "n_40->n_41"
+      ],
+      "sourceChunks": [
+        "tweet-2027237279413231803"
+      ],
+      "representativeClaims": [
+        "Chick-fil-A's operational approach → drive-thru efficiency"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-12",
+      "theme": "paramount / taking / 60b / debt",
+      "nodeIds": [
+        "n_42",
+        "n_43"
+      ],
+      "edgeIds": [
+        "n_42->n_43"
+      ],
+      "sourceChunks": [
+        "tweet-2027211024311717915"
+      ],
+      "representativeClaims": [
+        "Paramount taking on $60B of debt after outbidding Netflix and buying Warner Bros for $81B → financial risk/vulnerability"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-13",
+      "theme": "piece / citrini / functioning / thought",
+      "nodeIds": [
+        "n_44",
+        "n_45"
+      ],
+      "edgeIds": [
+        "n_44->n_45"
+      ],
+      "sourceChunks": [
+        "tweet-2027210140739641555"
+      ],
+      "representativeClaims": [
+        "Citrini's piece functioning as thought experiment → value/importance of the piece"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-15",
+      "theme": "timing / completely / unrelated / lack",
+      "nodeIds": [
+        "n_52",
+        "n_53"
+      ],
+      "edgeIds": [
+        "n_52->n_53"
+      ],
+      "sourceChunks": [
+        "tweet-2027202237991362589"
+      ],
+      "representativeClaims": [
+        "timing being completely unrelated → lack of anticipation of timing"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-16",
+      "theme": "valuable / contract / clause / 1997",
+      "nodeIds": [
+        "n_54",
+        "n_55"
+      ],
+      "edgeIds": [
+        "n_54->n_55"
+      ],
+      "sourceChunks": [
+        "tweet-2027165653799764152"
+      ],
+      "representativeClaims": [
+        "valuable contract clause in 1997 TV deal → South Park creators becoming billionaires"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-17",
+      "theme": "netflix / nflx / countering / criticism",
+      "nodeIds": [
+        "n_56",
+        "n_57"
+      ],
+      "edgeIds": [
+        "n_56->n_57"
+      ],
+      "sourceChunks": [
+        "tweet-2027163087657394336"
+      ],
+      "representativeClaims": [
+        "Netflix (NFLX) not countering criticism → shareholder dissatisfaction"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-18",
+      "theme": "craziness / event / happening / within",
+      "nodeIds": [
+        "n_58",
+        "n_59"
+      ],
+      "edgeIds": [
+        "n_58->n_59"
+      ],
+      "sourceChunks": [
+        "tweet-2027162695510974510"
+      ],
+      "representativeClaims": [
+        "craziness of event happening within a week → uncertainty about how situation will play out"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-19",
+      "theme": "product / great / auntie / ability",
+      "nodeIds": [
+        "n_60",
+        "n_61"
+      ],
+      "edgeIds": [
+        "n_60->n_61"
+      ],
+      "sourceChunks": [
+        "tweet-2027162415213973891"
+      ],
+      "representativeClaims": [
+        "great auntie's ability to vibe code the product → whether the product works/is viable"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-20",
+      "theme": "block / time / passage / couple",
+      "nodeIds": [
+        "n_62",
+        "n_63"
+      ],
+      "edgeIds": [
+        "n_62->n_63"
+      ],
+      "sourceChunks": [
+        "tweet-2027160591803297891"
+      ],
+      "representativeClaims": [
+        "time passage (couple years without following Block) → uncertainty about Block's current downsizing trajectory"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-27",
+      "theme": "ability / make / quality / meme-able",
+      "nodeIds": [
+        "n_90",
+        "n_91"
+      ],
+      "edgeIds": [
+        "n_90->n_91"
+      ],
+      "sourceChunks": [
+        "tweet-2027059924841480687"
+      ],
+      "representativeClaims": [
+        "ability to make WW quality meme-able dialogue → AGI arrival/recognition"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-28",
+      "theme": "having / moment / captured / video",
+      "nodeIds": [
+        "n_92",
+        "n_93"
+      ],
+      "edgeIds": [
+        "n_92->n_93"
+      ],
+      "sourceChunks": [
+        "tweet-2027057124174627156"
+      ],
+      "representativeClaims": [
+        "having a moment captured on video → personal gladness/satisfaction"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-33",
+      "theme": "revenue / growth / performance / remarkable",
+      "nodeIds": [
+        "n_110",
+        "n_111"
+      ],
+      "edgeIds": [
+        "n_110->n_111"
+      ],
+      "sourceChunks": [
+        "tweet-2026793630443385233"
+      ],
+      "representativeClaims": [
+        "Q4 revenue growth → revenue performance being remarkable/exceptional"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-35",
+      "theme": "nolan / interviewing / mann / deniro",
+      "nodeIds": [
+        "n_116",
+        "n_117"
+      ],
+      "edgeIds": [
+        "n_116->n_117"
+      ],
+      "sourceChunks": [
+        "tweet-2026745641238659290"
+      ],
+      "representativeClaims": [
+        "Nolan interviewing Mann, Deniro and Pacino → incredible watch experience"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-36",
+      "theme": "gen-z / meeting / where / they",
+      "nodeIds": [
+        "n_118",
+        "n_119"
+      ],
+      "edgeIds": [
+        "n_118->n_119"
+      ],
+      "sourceChunks": [
+        "tweet-2026740992389558276"
+      ],
+      "representativeClaims": [
+        "meeting Gen-Z where they are → effective communication/engagement with Gen-Z"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-39",
+      "theme": "using / particular / hack / technique",
+      "nodeIds": [
+        "n_130",
+        "n_131"
+      ],
+      "edgeIds": [
+        "n_130->n_131"
+      ],
+      "sourceChunks": [
+        "tweet-2026719562704789748"
+      ],
+      "representativeClaims": [
+        "using a particular hack/technique → utility in future posts"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-41",
+      "theme": "film / unreal / impressive / appreciation",
+      "nodeIds": [
+        "n_140",
+        "n_141"
+      ],
+      "edgeIds": [
+        "n_140->n_141"
+      ],
+      "sourceChunks": [
+        "tweet-2026704269429321838"
+      ],
+      "representativeClaims": [
+        "the film being unreal/impressive → appreciation/positive regard"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-42",
+      "theme": "viral / doomer / write-ups / control",
+      "nodeIds": [
+        "n_142",
+        "n_143"
+      ],
+      "edgeIds": [
+        "n_142->n_143"
+      ],
+      "sourceChunks": [
+        "tweet-2026436729046184088"
+      ],
+      "representativeClaims": [
+        "viral AI doomer write-ups ⊣ control (moderation/reasonableness)"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-43",
+      "theme": "deal / closing / following / jason",
+      "nodeIds": [
+        "n_144",
+        "n_145"
+      ],
+      "edgeIds": [
+        "n_144->n_145"
+      ],
+      "sourceChunks": [
+        "tweet-2026426619490086981"
+      ],
+      "representativeClaims": [
+        "deal closing → following Jason Levin's timeline closely"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-44",
+      "theme": "stripe / paypal / acquisition / full",
+      "nodeIds": [
+        "n_146",
+        "n_147"
+      ],
+      "edgeIds": [
+        "n_146->n_147"
+      ],
+      "sourceChunks": [
+        "tweet-2026417742568652912"
+      ],
+      "representativeClaims": [
+        "Stripe acquisition by PayPal → full circle narrative (PayPal founders invested in Stripe, now PayPal acquires it)"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-45",
+      "theme": "amazon / potential / regulatory / blowback",
+      "nodeIds": [
+        "n_148",
+        "n_149"
+      ],
+      "edgeIds": [
+        "n_148->n_149"
+      ],
+      "sourceChunks": [
+        "tweet-2026412722905285005"
+      ],
+      "representativeClaims": [
+        "Amazon's potential ⊣ regulatory blowback against Amazon"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-47",
+      "theme": "story / judd / kilmer / love",
+      "nodeIds": [
+        "n_154",
+        "n_155"
+      ],
+      "edgeIds": [
+        "n_154->n_155"
+      ],
+      "sourceChunks": [
+        "tweet-2026383921471275489"
+      ],
+      "representativeClaims": [
+        "Judd Kilmer love story → being an all-time great story"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-48",
+      "theme": "mann / running / back / positive",
+      "nodeIds": [
+        "n_156",
+        "n_157"
+      ],
+      "edgeIds": [
+        "n_156->n_157"
+      ],
+      "sourceChunks": [
+        "tweet-2026383201707635157"
+      ],
+      "representativeClaims": [
+        "Mann running it back → positive outcome/relief"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-49",
+      "theme": "memes / tremendous",
+      "nodeIds": [
+        "n_158",
+        "n_159"
+      ],
+      "edgeIds": [
+        "n_158->n_159"
+      ],
+      "sourceChunks": [
+        "tweet-2026369624762364237"
+      ],
+      "representativeClaims": [
+        "memes → being tremendous"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-50",
+      "theme": "mann / spending / years / story",
+      "nodeIds": [
+        "n_160",
+        "n_161"
+      ],
+      "edgeIds": [
+        "n_160->n_161"
+      ],
+      "sourceChunks": [
+        "tweet-2026368849214578867"
+      ],
+      "representativeClaims": [
+        "Mann spending 50+ years with this story → quality/credibility of the work"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-51",
+      "theme": "coupon / mistakes / redemption / value",
+      "nodeIds": [
+        "n_162",
+        "n_163"
+      ],
+      "edgeIds": [
+        "n_162->n_163"
+      ],
+      "sourceChunks": [
+        "tweet-2026368631303811134"
+      ],
+      "representativeClaims": [
+        "no mistakes in coupon redemption → coupon value/usefulness"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-53",
+      "theme": "de-aging / technology / effect / film",
+      "nodeIds": [
+        "n_168",
+        "n_169"
+      ],
+      "edgeIds": [
+        "n_168->n_169"
+      ],
+      "sourceChunks": [
+        "tweet-2026359906715201703"
+      ],
+      "representativeClaims": [
+        "de-aging technology/effect in film ⊣ quality of viewing experience"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-54",
+      "theme": "butler / cast / young / kilmer",
+      "nodeIds": [
+        "n_170",
+        "n_171"
+      ],
+      "edgeIds": [
+        "n_170->n_171"
+      ],
+      "sourceChunks": [
+        "tweet-2026358844612604177"
+      ],
+      "representativeClaims": [
+        "Butler cast as young Kilmer → casting choice appropriateness"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-59",
+      "theme": "agi / here / major / labs",
+      "nodeIds": [
+        "n_191",
+        "n_192"
+      ],
+      "edgeIds": [
+        "n_191->n_192"
+      ],
+      "sourceChunks": [
+        "substack-1_seg0"
+      ],
+      "representativeClaims": [
+        "AGI is here → major AI labs pivoting away from Slack"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-68",
+      "theme": "drinking / sugar-free / red / bulls",
+      "nodeIds": [
+        "n_260",
+        "n_261"
+      ],
+      "edgeIds": [
+        "n_260->n_261"
+      ],
+      "sourceChunks": [
+        "substack-6_seg0"
+      ],
+      "representativeClaims": [
+        "drinking 3 sugar-free Red Bulls and an Iced Coffee from McDonald's → getting on a writing roll"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-81",
+      "theme": "leo / benicio / appearing / new",
+      "nodeIds": [
+        "n_334",
+        "n_335"
+      ],
+      "edgeIds": [
+        "n_334->n_335"
+      ],
+      "sourceChunks": [
+        "substack-12_seg2"
+      ],
+      "representativeClaims": [
+        "Leo and Benicio appearing on the New Heights podcast → author's awareness of the film's Fall release"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-86",
+      "theme": "apple / having / done / enough",
+      "nodeIds": [
+        "n_361",
+        "n_362"
+      ],
+      "edgeIds": [
+        "n_361->n_362"
+      ],
+      "sourceChunks": [
+        "substack-15_seg0"
+      ],
+      "representativeClaims": [
+        "Apple having done enough this year → Apple delivering two new form factors (Foldable in 2026, All-Glass in 2027), new device (AR glasses), and Apple Intelligence"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-94",
+      "theme": "matt / stone / trey / parker",
+      "nodeIds": [
+        "n_413",
+        "n_414"
+      ],
+      "edgeIds": [
+        "n_413->n_414"
+      ],
+      "sourceChunks": [
+        "substack-19_seg0"
+      ],
+      "representativeClaims": [
+        "Matt Stone and Trey Parker's South Park creation and business success → achieving billionaire status ($1.2B each)"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-96",
+      "theme": "bottomless / supply / creativity / success",
+      "nodeIds": [
+        "n_421",
+        "n_422"
+      ],
+      "edgeIds": [
+        "n_421->n_422"
+      ],
+      "sourceChunks": [
+        "substack-19_seg2"
+      ],
+      "representativeClaims": [
+        "bottomless supply of creativity → success"
+      ],
+      "claimCount": 1
+    }
+  ],
+  "synthesizedAt": "2026-03-05T04:10:34.701Z"
+}

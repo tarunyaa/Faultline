@@ -1,0 +1,2371 @@
+{
+  "personaId": "Serenity",
+  "personaName": "Serenity",
+  "positions": [
+    {
+      "id": "pos-0",
+      "claim": "Fundamental analysis of supply chains and financial metrics is the only valid basis for investment decisions, while technical analysis and chart patterns are actively harmful to decision quality",
+      "confidence": 0.95,
+      "type": "value_judgment",
+      "groundingClusters": [
+        "cluster-2",
+        "cluster-0"
+      ],
+      "implicitAssumptions": [
+        "Price movements reflect information asymmetries that can be exploited through superior fundamental research rather than being efficient aggregations of available information",
+        "Chart patterns and technical signals do not contain any predictive information about future price movements that isn't already captured in fundamental analysis",
+        "The time horizon for fundamental analysis to be validated by price action is sufficiently short that opportunity cost from ignoring technical momentum is negligible"
+      ]
+    },
+    {
+      "id": "pos-1",
+      "claim": "Memory demand from AI infrastructure represents a structural, insatiable demand that will persist through at least 2028, creating a multi-year supercycle for memory suppliers",
+      "confidence": 0.95,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-1",
+        "cluster-13",
+        "cluster-69"
+      ],
+      "implicitAssumptions": [
+        "AI model training and inference scaling laws will continue to demand exponentially increasing memory capacity faster than manufacturing capacity can expand",
+        "Hyperscaler capital allocation to AI infrastructure will remain prioritized over other uses even if early AI product revenues disappoint",
+        "Memory technology transitions (HBM generations, new architectures) will not create temporary demand destruction as customers wait for next-generation products"
+      ]
+    },
+    {
+      "id": "pos-2",
+      "claim": "Photonics represents a new architectural paradigm for AI that will create multi-year investment opportunities comparable to the memory supercycle",
+      "confidence": 0.9,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-21",
+        "cluster-24",
+        "cluster-28",
+        "cluster-32"
+      ],
+      "implicitAssumptions": [
+        "Current electrical interconnect technology faces fundamental physical limitations that cannot be solved through incremental engineering improvements",
+        "NVDA's $4B investment signals a validated technological transition rather than exploratory R&D or strategic hedging",
+        "The photonics supply chain has sufficient concentration and barriers to entry that early movers will capture sustained monopolistic returns"
+      ]
+    },
+    {
+      "id": "pos-3",
+      "claim": "Identifying upstream suppliers in complex supply chains (2-3 levels removed from end products) provides systematic alpha because most investors stop at obvious tier-1 suppliers",
+      "confidence": 0.9,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-29",
+        "cluster-33",
+        "cluster-24"
+      ],
+      "implicitAssumptions": [
+        "Bill-of-materials analysis and supply chain mapping are sufficiently difficult or time-consuming that they create durable information advantages",
+        "Upstream suppliers capture disproportionate value relative to their revenue contribution when bottlenecks emerge in scaling production",
+        "Public disclosure requirements and investor relations practices leave exploitable information gaps about tier-2 and tier-3 supplier relationships"
+      ]
+    },
+    {
+      "id": "pos-4",
+      "claim": "Monopoly or near-monopoly market positions in critical AI infrastructure components justify significantly higher valuations and provide the best risk-adjusted returns",
+      "confidence": 0.9,
+      "type": "value_judgment",
+      "groundingClusters": [
+        "cluster-9",
+        "cluster-12",
+        "cluster-32",
+        "cluster-35"
+      ],
+      "implicitAssumptions": [
+        "Regulatory or antitrust intervention will not materially constrain pricing power or force technology licensing in AI infrastructure markets",
+        "Customer concentration risk (hyperscalers) does not offset monopoly supplier power because hyperscalers cannot credibly threaten backward integration or multi-sourcing",
+        "Monopoly positions in narrow technical niches are defensible for multi-year periods despite high returns attracting well-funded competition"
+      ]
+    },
+    {
+      "id": "pos-5",
+      "claim": "High volatility environments (7-10% daily moves, 90%+ IV) create systematic opportunities to profit from options mispricing, particularly through vega exposure in calls",
+      "confidence": 0.85,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-22",
+        "cluster-23",
+        "cluster-87"
+      ],
+      "implicitAssumptions": [
+        "Options market makers systematically misprice volatility in newly-listed leveraged instruments or concentrated markets rather than efficiently incorporating all available information",
+        "Realized volatility will exceed implied volatility over the holding period despite IV already being elevated (90%+)",
+        "Liquidity conditions (wide spreads) represent temporary mispricing opportunities rather than rational compensation for execution risk and adverse selection"
+      ]
+    },
+    {
+      "id": "pos-6",
+      "claim": "Leveraged instruments (3x ETFs) and leverage during market downturns create unacceptable risk and should be avoided",
+      "confidence": 0.85,
+      "type": "concern",
+      "groundingClusters": [
+        "cluster-8",
+        "cluster-23"
+      ],
+      "implicitAssumptions": [
+        "Volatility decay in leveraged instruments outweighs any potential benefits from amplified exposure during high-conviction opportunities",
+        "Market timing ability is insufficient to reliably avoid the catastrophic scenarios where leverage causes permanent capital loss",
+        "The psychological and portfolio management challenges of managing leveraged positions during drawdowns override any theoretical edge from fundamental analysis"
+      ]
+    },
+    {
+      "id": "pos-7",
+      "claim": "Geopolitical events (wars, defense spending) create short-term price volatility but the long-term investment case for defense technology companies depends on sustained program adoption and TAM expansion",
+      "confidence": 0.8,
+      "type": "thesis",
+      "groundingClusters": [
+        "cluster-8",
+        "cluster-17",
+        "cluster-19"
+      ],
+      "implicitAssumptions": [
+        "Defense procurement cycles and technology adoption timelines are sufficiently long that short-term conflict resolution does not materially impact multi-year revenue trajectories",
+        "Successful battlefield demonstration of technologies like laser defense systems creates irreversible demand for procurement even if the immediate conflict ends",
+        "Government budget allocation to defense technology persists independently of specific conflict catalysts once strategic value is demonstrated"
+      ]
+    },
+    {
+      "id": "pos-8",
+      "claim": "Near-term financial metrics (current profitability, legacy business drag, capex cycles) should be discounted when valuing companies positioned for structural demand inflections in 2027-2028",
+      "confidence": 0.85,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-75",
+        "cluster-12",
+        "cluster-35"
+      ],
+      "implicitAssumptions": [
+        "Market participants systematically over-weight near-term earnings in valuation models relative to high-probability future inflections that are 2-3 years out",
+        "Companies can successfully execute massive capex buildouts and operational transitions without material execution risk or cost overruns",
+        "The timing of demand inflections (late 2027-2028) is predictable enough to justify holding through extended periods of poor near-term fundamentals"
+      ]
+    },
+    {
+      "id": "pos-9",
+      "claim": "Market commentary focused on price action, charts, or sentiment without discussing specific operational metrics, catalysts, or governance changes lacks analytical credibility",
+      "confidence": 0.9,
+      "type": "value_judgment",
+      "groundingClusters": [
+        "cluster-0",
+        "cluster-2"
+      ],
+      "implicitAssumptions": [
+        "Narrative and sentiment analysis provides no incremental information beyond what can be derived from operational and financial fundamentals",
+        "Market participants who focus on price action are systematically wrong or uninformed rather than processing different information sets",
+        "Governance changes and operational metrics are always knowable and analyzable with sufficient research effort"
+      ]
+    },
+    {
+      "id": "pos-10",
+      "claim": "Cost increases in energy and raw materials will be successfully passed through to hyperscalers who will continue battling for allocation rather than reducing demand",
+      "confidence": 0.8,
+      "type": "assumption",
+      "groundingClusters": [
+        "cluster-15",
+        "cluster-13",
+        "cluster-69"
+      ],
+      "implicitAssumptions": [
+        "Hyperscaler demand for AI infrastructure is price-inelastic within the range of plausible cost increases from energy and materials",
+        "Competition among hyperscalers for strategic positioning in AI creates a prisoner's dilemma that prevents coordinated demand reduction",
+        "Supply constraints are severe enough that suppliers maintain pricing power even as input costs rise"
+      ]
+    },
+    {
+      "id": "pos-11",
+      "claim": "Portfolio concentration in top momentum sectors (Photonics, Memory, Power, Defense) and individual stock selection within those sectors is superior to diversification across broader technology categories",
+      "confidence": 0.9,
+      "type": "value_judgment",
+      "groundingClusters": [
+        "cluster-28",
+        "cluster-36"
+      ],
+      "implicitAssumptions": [
+        "Sector rotation risk is lower than stock-specific risk within validated high-momentum sectors experiencing structural demand shifts",
+        "The ability to identify which sectors will have sustained momentum is more reliable than the ability to predict individual stock performance within random sectors",
+        "Correlation within these sectors during drawdowns will not eliminate the benefits of individual stock selection"
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "id": "cluster-2",
+      "theme": "fundamentals / technical / analysis / sentiment",
+      "nodeIds": [
+        "n_12",
+        "n_13",
+        "n_14",
+        "n_21",
+        "n_22",
+        "n_23",
+        "n_24",
+        "n_25"
+      ],
+      "edgeIds": [
+        "n_12->n_13",
+        "n_14->n_13",
+        "n_21->n_13",
+        "n_22->n_23",
+        "n_24->n_23",
+        "n_25->n_13"
+      ],
+      "sourceChunks": [
+        "tweet-2028935994310050041",
+        "tweet-2028912096713511401"
+      ],
+      "representativeClaims": [
+        "fundamentals → investment decision quality",
+        "stock price/charts ⊣ investment decision quality",
+        "technical analysis/charting ⊣ investment decision quality",
+        "monitoring USDC supply, interest rates, and Clarity Act → understanding $CRCL fundamentals",
+        "sentiment and technical analysis predictions ⊣ understanding $CRCL fundamentals"
+      ],
+      "claimCount": 6
+    },
+    {
+      "id": "cluster-8",
+      "theme": "market / mispricing / war / short",
+      "nodeIds": [
+        "n_38",
+        "n_39",
+        "n_40",
+        "n_41",
+        "n_64",
+        "n_65",
+        "n_66",
+        "n_67",
+        "n_68"
+      ],
+      "edgeIds": [
+        "n_38->n_39",
+        "n_40->n_41",
+        "n_64->n_41",
+        "n_65->n_66",
+        "n_67->n_68"
+      ],
+      "sourceChunks": [
+        "tweet-2028855576063799611",
+        "tweet-2028798611069583361"
+      ],
+      "representativeClaims": [
+        "using leverage during market downturns → financial risk/losses",
+        "3x leveraged instruments → financial risk/losses",
+        "war → short term price drop",
+        "market makers mispricing IV at 32% → arbitrage opportunity exists",
+        "stock moving up and down 7-13% daily → evidence of IV mispricing"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-9",
+      "theme": "stocks / going / down / day",
+      "nodeIds": [
+        "n_42",
+        "n_43",
+        "n_44",
+        "n_45",
+        "n_46",
+        "n_47",
+        "n_48",
+        "n_49"
+      ],
+      "edgeIds": [
+        "n_42->n_43",
+        "n_44->n_45",
+        "n_46->n_47",
+        "n_48->n_47",
+        "n_49->n_47"
+      ],
+      "sourceChunks": [
+        "tweet-2028813150544699902"
+      ],
+      "representativeClaims": [
+        "stocks going up and down 20% a day → adrenaline rush",
+        "CPO approaching → re-rating wait period",
+        "genuine singular monopoly status → investment attractiveness",
+        "duopoly market structure (like AXT/Sumitomo) ⊣ investment attractiveness",
+        "western supply chain presence → investment attractiveness"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-87",
+      "theme": "jan / 2028 / wide / spreads",
+      "nodeIds": [
+        "n_405",
+        "n_406",
+        "n_407",
+        "n_408",
+        "n_409",
+        "n_410",
+        "n_411",
+        "n_412"
+      ],
+      "edgeIds": [
+        "n_405->n_406",
+        "n_407->n_408",
+        "n_409->n_408",
+        "n_410->n_409",
+        "n_411->n_412"
+      ],
+      "sourceChunks": [
+        "tweet-2028103094689800264"
+      ],
+      "representativeClaims": [
+        "Jan 2028 option chain overpricing relative to Dec 2027 ⊣ value proposition of Jan 2028 options",
+        "wide spreads ⊣ profitability of initial fill",
+        "entry point timing (buying at intraday dips) → trading outcomes",
+        "IV levels → trading outcomes",
+        "market makers elevating strikes at market open → IV levels"
+      ],
+      "claimCount": 5
+    },
+    {
+      "id": "cluster-17",
+      "theme": "war / dragging / lasr / stock",
+      "nodeIds": [
+        "n_87",
+        "n_88",
+        "n_89",
+        "n_90",
+        "n_91"
+      ],
+      "edgeIds": [
+        "n_87->n_88",
+        "n_89->n_88",
+        "n_90->n_91",
+        "n_90->n_88"
+      ],
+      "sourceChunks": [
+        "tweet-2028770236762304778"
+      ],
+      "representativeClaims": [
+        "war dragging on → $LASR stock performance",
+        "sudden peacetime ⊣ defense sector exposure",
+        "Israel's Iron Beam continuing to intercept missiles → $LASR stock performance",
+        "sudden peacetime ⊣ $LASR stock performance"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-21",
+      "theme": "photonics / new / architectural / paradigm",
+      "nodeIds": [
+        "n_107",
+        "n_108",
+        "n_109",
+        "n_110",
+        "n_111",
+        "n_112",
+        "n_113",
+        "n_114"
+      ],
+      "edgeIds": [
+        "n_107->n_108",
+        "n_109->n_110",
+        "n_111->n_112",
+        "n_113->n_114"
+      ],
+      "sourceChunks": [
+        "tweet-2028746246706319787"
+      ],
+      "representativeClaims": [
+        "NVDA's $4B investment in COHR and LITE → Scaling up of photonics companies",
+        "Photonics as new architectural paradigm for AI → Photonics stocks price appreciation",
+        "Photonics becoming new architectural paradigm for AI → Long-term investment opportunity (next few years)",
+        "CPO (Coherent Pluggable Optics) expected ramp in 2028 → Photonics stocks going up 10% a day"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-22",
+      "theme": "volatility / high / call / price",
+      "nodeIds": [
+        "n_115",
+        "n_116",
+        "n_117",
+        "n_118",
+        "n_119",
+        "n_120",
+        "n_121"
+      ],
+      "edgeIds": [
+        "n_115->n_116",
+        "n_117->n_116",
+        "n_118->n_119",
+        "n_120->n_121"
+      ],
+      "sourceChunks": [
+        "tweet-2028742780537991631"
+      ],
+      "representativeClaims": [
+        "high volatility (7-10% daily moves) → call option value from vega expansion",
+        "underlying price decline → call option value from vega expansion",
+        "high implied volatility (93% IV) relative to comparable stocks → call options benefit despite price movement",
+        "extreme volatility event in $EWY → market makers will increase attention/adjust pricing"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-29",
+      "theme": "suppliers / investment / finding / upstream",
+      "nodeIds": [
+        "n_152",
+        "n_153",
+        "n_154",
+        "n_155",
+        "n_156",
+        "n_157",
+        "n_158",
+        "n_159"
+      ],
+      "edgeIds": [
+        "n_152->n_153",
+        "n_154->n_155",
+        "n_156->n_157",
+        "n_158->n_159"
+      ],
+      "sourceChunks": [
+        "tweet-2028534277865103776"
+      ],
+      "representativeClaims": [
+        "finding upstream suppliers in supply chain → investment opportunity identification",
+        "most people stopping at obvious suppliers → missing upstream investment opportunities",
+        "$LITE being large part of $GOOGL TPU BOM → stock price increase",
+        "investigating epiwafer suppliers → finding earlier-stage investment opportunities"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-64",
+      "theme": "restructuring / iqe / risk / pricing",
+      "nodeIds": [
+        "n_296",
+        "n_297",
+        "n_298",
+        "n_299",
+        "n_300",
+        "n_301",
+        "n_302"
+      ],
+      "edgeIds": [
+        "n_296->n_297",
+        "n_298->n_299",
+        "n_300->n_301",
+        "n_302->n_301"
+      ],
+      "sourceChunks": [
+        "tweet-2028425020146672018"
+      ],
+      "representativeClaims": [
+        "restructuring at $IQE → investment risk",
+        "inherent restructuring risk at $IQE ⊣ suitability for recommendation to others",
+        "$LITE pricing relative to fundamentals → upside potential",
+        "$COHR pricing relative to fundamentals → upside potential"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-69",
+      "theme": "memory / hyperscaler / investment / analysis",
+      "nodeIds": [
+        "n_324",
+        "n_325",
+        "n_326",
+        "n_327",
+        "n_328",
+        "n_329",
+        "n_330",
+        "n_331"
+      ],
+      "edgeIds": [
+        "n_324->n_325",
+        "n_326->n_327",
+        "n_328->n_329",
+        "n_330->n_331"
+      ],
+      "sourceChunks": [
+        "tweet-2028393757872447758"
+      ],
+      "representativeClaims": [
+        "overnight trading → price movements magnitude",
+        "tracking memory hikes and hyperscaler projections → better investment analysis",
+        "hyperscaler memory demand → energy costs",
+        "macro factors ⊣ investment analysis quality"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-75",
+      "theme": "valuation / late / 2027-2028 / ramp",
+      "nodeIds": [
+        "n_351",
+        "n_352",
+        "n_353",
+        "n_354",
+        "n_355",
+        "n_356",
+        "n_357",
+        "n_358"
+      ],
+      "edgeIds": [
+        "n_351->n_352",
+        "n_353->n_354",
+        "n_355->n_356",
+        "n_357->n_358"
+      ],
+      "sourceChunks": [
+        "tweet-2028205384675250373"
+      ],
+      "representativeClaims": [
+        "legacy drag from smartphones and other businesses ⊣ company valuation/profitability in near term",
+        "massive capex cycle to prepare for late 2027-2028 ramp ⊣ near-term financial performance",
+        "1.4B euro market cap valuation → investment opportunity attractiveness",
+        "markets frontrunning the late 2027-2028 ramp early → timing decision to invest now vs wait until early next year"
+      ],
+      "claimCount": 4
+    },
+    {
+      "id": "cluster-0",
+      "theme": "korea / stock / doomposting / bubble",
+      "nodeIds": [
+        "n_0",
+        "n_1",
+        "n_2",
+        "n_3",
+        "n_4",
+        "n_5"
+      ],
+      "edgeIds": [
+        "n_0->n_1",
+        "n_2->n_3",
+        "n_4->n_5"
+      ],
+      "sourceChunks": [
+        "tweet-2029094535289311261"
+      ],
+      "representativeClaims": [
+        "failure to discuss actual catalysts, operational income, governance changes, or metrics ⊣ quality of analysis on X regarding Korea stock",
+        "lack of explanation for why stock price rises ⊣ credibility of doomposting claims about Korea being a bubble",
+        "chart going up continuously → people doomposting that Korea is a bubble"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-1",
+      "theme": "ewy / chart / showing / continuous",
+      "nodeIds": [
+        "n_6",
+        "n_7",
+        "n_8",
+        "n_9",
+        "n_10",
+        "n_11"
+      ],
+      "edgeIds": [
+        "n_6->n_7",
+        "n_8->n_9",
+        "n_10->n_11"
+      ],
+      "sourceChunks": [
+        "tweet-2029088341258584454"
+      ],
+      "representativeClaims": [
+        "EWY concentration in Samsung and SK Hynix ⊣ EWY's representativeness of Korean economy",
+        "memory demand being a black hole (insatiable/growing) → SNDK ability to take multi-year preorders",
+        "chart showing continuous upward movement ⊣ sustainability of KOSPI price increases"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-12",
+      "theme": "soitec / 2-3x / returns / shin-etsu",
+      "nodeIds": [
+        "n_58",
+        "n_59",
+        "n_60",
+        "n_61",
+        "n_62",
+        "n_63"
+      ],
+      "edgeIds": [
+        "n_58->n_59",
+        "n_60->n_61",
+        "n_62->n_63"
+      ],
+      "sourceChunks": [
+        "tweet-2028810725398053326"
+      ],
+      "representativeClaims": [
+        "Soitec's monopoly over CPO for substrates → Soitec stock potential for 2-3x returns",
+        "patience to wait a year → ability to realize 2-3x returns on Soitec",
+        "Shin-Etsu licensing Soitec's technology ⊣ Shin-Etsu's competitive position relative to Soitec"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-13",
+      "theme": "structural / memory / demand / decreasing",
+      "nodeIds": [
+        "n_69",
+        "n_70",
+        "n_71",
+        "n_72"
+      ],
+      "edgeIds": [
+        "n_69->n_70",
+        "n_71->n_70",
+        "n_72->n_70"
+      ],
+      "sourceChunks": [
+        "tweet-2028790889964011644"
+      ],
+      "representativeClaims": [
+        "increased opex costs that get passed on ⊣ actual crash",
+        "structural memory demand decreasing → actual crash",
+        "hyperscalers projecting less capex → actual crash"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-15",
+      "theme": "increased / costs / hyperscalers / pricing",
+      "nodeIds": [
+        "n_77",
+        "n_78",
+        "n_79",
+        "n_80",
+        "n_81",
+        "n_82"
+      ],
+      "edgeIds": [
+        "n_77->n_78",
+        "n_79->n_80",
+        "n_81->n_82"
+      ],
+      "sourceChunks": [
+        "tweet-2028789983432036438"
+      ],
+      "representativeClaims": [
+        "market pricing → increased costs (crude, LNG)",
+        "markets pricing increased costs → markets missing cost pass-through to hyperscalers",
+        "increased costs passed to hyperscalers → hyperscalers battling for allocation"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-18",
+      "theme": "earnings / march / visibility / actualized",
+      "nodeIds": [
+        "n_92",
+        "n_93",
+        "n_94",
+        "n_95",
+        "n_96"
+      ],
+      "edgeIds": [
+        "n_92->n_93",
+        "n_94->n_95",
+        "n_96->n_95"
+      ],
+      "sourceChunks": [
+        "tweet-2028769319598096432"
+      ],
+      "representativeClaims": [
+        "earnings in March → visibility into actualized demand",
+        "AI agents being popular → $RPI revenue",
+        "isolated hardware for orchestration being needed → $RPI revenue"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-19",
+      "theme": "tam / america / golden / dome",
+      "nodeIds": [
+        "n_97",
+        "n_98",
+        "n_99",
+        "n_100",
+        "n_101",
+        "n_102"
+      ],
+      "edgeIds": [
+        "n_97->n_98",
+        "n_99->n_100",
+        "n_101->n_102"
+      ],
+      "sourceChunks": [
+        "tweet-2028767576357228608"
+      ],
+      "representativeClaims": [
+        "America's Golden Dome laser defense → $LASR total addressable market (TAM)",
+        "reusable rockets technology → infinite space TAM",
+        "lack of Energy Directed Weapon exposure → investment opportunity missed"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-23",
+      "theme": "volatility / leveraged / instruments / mispriced",
+      "nodeIds": [
+        "n_122",
+        "n_123",
+        "n_124",
+        "n_125",
+        "n_126",
+        "n_127"
+      ],
+      "edgeIds": [
+        "n_122->n_123",
+        "n_124->n_125",
+        "n_126->n_127"
+      ],
+      "sourceChunks": [
+        "tweet-2028737716544802841"
+      ],
+      "representativeClaims": [
+        "new leveraged instruments on $EWY and KOSPI → extreme volatility",
+        "mispriced volatility in leveraged instruments → profit opportunity",
+        "market consisting of basically two stocks → mispriced volatility"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-24",
+      "theme": "axti / photonics / supply / chain",
+      "nodeIds": [
+        "n_128",
+        "n_129",
+        "n_130",
+        "n_131",
+        "n_132",
+        "n_133"
+      ],
+      "edgeIds": [
+        "n_128->n_129",
+        "n_130->n_131",
+        "n_132->n_133"
+      ],
+      "sourceChunks": [
+        "tweet-2028589072269422944"
+      ],
+      "representativeClaims": [
+        "photonics criticality for AI buildout → AXTI supply chain control value",
+        "AXTI controls supply chain needed for AI buildout for photonics → AXTI stock price appreciation to $20B+ market cap",
+        "NVDA demonstrated criticality of photonics for next few years → AXTI's ability to command significant price increases"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-28",
+      "theme": "top / sectors / photonics / investment",
+      "nodeIds": [
+        "n_146",
+        "n_147",
+        "n_148",
+        "n_149",
+        "n_150",
+        "n_151"
+      ],
+      "edgeIds": [
+        "n_146->n_147",
+        "n_148->n_149",
+        "n_150->n_151"
+      ],
+      "sourceChunks": [
+        "tweet-2028536305030988011"
+      ],
+      "representativeClaims": [
+        "being in top momentum sectors (Photonics, Memory, Power, Defense) → investment returns",
+        "being in sectors like advanced packaging or thermal ⊣ severe bottleneck or returns comparable to top 4 sectors",
+        "$AAOI and $AXTI being top photonic plays → suitability as investment choices in photonics sector"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-32",
+      "theme": "investment / preference / transceiver / boom",
+      "nodeIds": [
+        "n_168",
+        "n_169",
+        "n_170",
+        "n_171",
+        "n_172",
+        "n_173"
+      ],
+      "edgeIds": [
+        "n_168->n_169",
+        "n_170->n_171",
+        "n_172->n_173"
+      ],
+      "sourceChunks": [
+        "tweet-2028530994148766102"
+      ],
+      "representativeClaims": [
+        "transceiver boom → investment appeal of Innolight and Eoptolink",
+        "being a monopoly like AXTI → investment preference",
+        "not being monopolies → Serenity's preference to invest in Western supply instead"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-33",
+      "theme": "allocation / tpu / program / demand",
+      "nodeIds": [
+        "n_174",
+        "n_175",
+        "n_176",
+        "n_177",
+        "n_178",
+        "n_179"
+      ],
+      "edgeIds": [
+        "n_174->n_175",
+        "n_176->n_177",
+        "n_178->n_179"
+      ],
+      "sourceChunks": [
+        "tweet-2028529465962414375"
+      ],
+      "representativeClaims": [
+        "Google's $180B capex allocation to TPU program → demand for Lite Semiconductors ($LITE) components",
+        "TPU program BOM requirements (8-12% allocation) → upstream materials demand from $AXTI or epiwafers from $IQE",
+        "mapping where all the spend goes → portfolio performance"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-35",
+      "theme": "aaoi / lite / growth / axti",
+      "nodeIds": [
+        "n_184",
+        "n_185",
+        "n_186",
+        "n_187",
+        "n_188",
+        "n_189"
+      ],
+      "edgeIds": [
+        "n_184->n_185",
+        "n_186->n_187",
+        "n_188->n_189"
+      ],
+      "sourceChunks": [
+        "tweet-2028524172121719168"
+      ],
+      "representativeClaims": [
+        "$AAOI trading at 1/10th the valuation of $LITE → $AAOI being undervalued relative to growth",
+        "$AXTI being bottleneck of AI industry for many years → investment attractiveness despite small market cap",
+        "$AAOI leapfrogging $LITE's 2026 revenue + growth by mid-2027 → $AAOI having significant upside potential"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-36",
+      "theme": "owning / top / individual / stock",
+      "nodeIds": [
+        "n_190",
+        "n_191",
+        "n_192",
+        "n_193",
+        "n_194",
+        "n_195"
+      ],
+      "edgeIds": [
+        "n_190->n_191",
+        "n_192->n_193",
+        "n_194->n_195"
+      ],
+      "sourceChunks": [
+        "tweet-2028520248891392461"
+      ],
+      "representativeClaims": [
+        "owning top individual stock performers (AXTI, AAOI, SNDK, SK Hynix, Nittobo, Macronix, Unimicron) → triple digit returns in 2 months",
+        "owning top individual stock performers → 501.38% year-to-date returns",
+        "luck → owning every single top individual stock performer this year"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-38",
+      "theme": "upstream / suppliers / lite / companies",
+      "nodeIds": [
+        "n_200",
+        "n_201",
+        "n_202",
+        "n_203",
+        "n_204",
+        "n_205"
+      ],
+      "edgeIds": [
+        "n_200->n_201",
+        "n_202->n_203",
+        "n_204->n_205"
+      ],
+      "sourceChunks": [
+        "tweet-2028511702288085093"
+      ],
+      "representativeClaims": [
+        "$NVDA $2B deal announcement → rush to buy $LITE at $54B market cap",
+        "discovery of upstream bottlenecks and suppliers to Lumentum ⊣ $LITE stock price/valuation",
+        "companies like $AXTI and $IQE being upstream suppliers with growth potential → these companies have a long way to go (in terms of growth/upside)"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-42",
+      "theme": "lasr / value / iron / beam",
+      "nodeIds": [
+        "n_217",
+        "n_218",
+        "n_219",
+        "n_220",
+        "n_221",
+        "n_222"
+      ],
+      "edgeIds": [
+        "n_217->n_218",
+        "n_219->n_220",
+        "n_221->n_222"
+      ],
+      "sourceChunks": [
+        "tweet-2028497913979302109"
+      ],
+      "representativeClaims": [
+        "$LASR being laser engine for Rafael's Iron Beam → $LASR investment relevance/value",
+        "Iron Beam live demonstration being wildly successful → $LASR stock value/investment appeal",
+        "Two-hop relation to NLight ⊣ market understanding of $LASR value"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-51",
+      "theme": "bullish / tailwind / optical / networking",
+      "nodeIds": [
+        "n_244",
+        "n_245",
+        "n_246",
+        "n_247"
+      ],
+      "edgeIds": [
+        "n_244->n_245",
+        "n_244->n_246",
+        "n_244->n_247"
+      ],
+      "sourceChunks": [
+        "tweet-2028465538444427584"
+      ],
+      "representativeClaims": [
+        "NVDA's $2 billion investment in COHR for advanced laser and optical networking products → bullish tailwind for AXTI (substrate provider)",
+        "NVDA's $2 billion investment in COHR for advanced laser and optical networking products → bullish tailwind for optical networking companies like AAOI",
+        "NVDA's $2 billion investment in COHR for advanced laser and optical networking products → bullish tailwind for the entire photonics supply chain"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-54",
+      "theme": "laser / weapons / deployment / modern",
+      "nodeIds": [
+        "n_254",
+        "n_255",
+        "n_256",
+        "n_257",
+        "n_258",
+        "n_259"
+      ],
+      "edgeIds": [
+        "n_254->n_255",
+        "n_256->n_257",
+        "n_258->n_259"
+      ],
+      "sourceChunks": [
+        "tweet-2028459615214879032"
+      ],
+      "representativeClaims": [
+        "belief that laser weapons deployment was further in the future → decision not to invest in $LASR stock",
+        "modern warfare technology advancement (lasers shooting down targets) → timeline expectations for laser weapons deployment",
+        "actual live deployment of laser weapons in modern warfare → surprise/recalibration of timeline expectations"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-59",
+      "theme": "rockets / lasr / hezbollah / israel",
+      "nodeIds": [
+        "n_276",
+        "n_277",
+        "n_278",
+        "n_279",
+        "n_280",
+        "n_281"
+      ],
+      "edgeIds": [
+        "n_276->n_277",
+        "n_278->n_279",
+        "n_280->n_281"
+      ],
+      "sourceChunks": [
+        "tweet-2028455727996752242"
+      ],
+      "representativeClaims": [
+        "Hezbollah fired rockets into Israel → $LASR (Nlight) laser engine shot down rockets",
+        "US/Israel vs. Iran conflict → $LASR Energy Directed Weapons validation and beneficiary status",
+        "Iron Beam successfully intercepted Hezbollah rockets → $LASR becomes largest beneficiary from the conflict"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-65",
+      "theme": "trading / aaoi / revenue / ramp",
+      "nodeIds": [
+        "n_303",
+        "n_304",
+        "n_305",
+        "n_306",
+        "n_307",
+        "n_308"
+      ],
+      "edgeIds": [
+        "n_303->n_304",
+        "n_305->n_306",
+        "n_307->n_308"
+      ],
+      "sourceChunks": [
+        "tweet-2028417664247578749"
+      ],
+      "representativeClaims": [
+        "investment thesis for $AAOI → 1-year trading timeframe",
+        "CPO product release → end of favorable trading window for $AAOI",
+        "revenue ramp timing until late 2027 → stock price trajectory becoming vertical"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-67",
+      "theme": "market / iran / uae / kuwait",
+      "nodeIds": [
+        "n_312",
+        "n_313",
+        "n_314",
+        "n_315",
+        "n_316",
+        "n_317"
+      ],
+      "edgeIds": [
+        "n_312->n_313",
+        "n_314->n_315",
+        "n_316->n_317"
+      ],
+      "sourceChunks": [
+        "tweet-2028405114076328344"
+      ],
+      "representativeClaims": [
+        "Iran hitting UAE/Kuwait infrastructure → total stock market halt in UAE/Kuwait",
+        "geopolitical/military conflict (Iran strikes) → financial market disruption",
+        "being Israel → resilience to market halts from regional conflict"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-68",
+      "theme": "stock / iran / war / israel",
+      "nodeIds": [
+        "n_318",
+        "n_319",
+        "n_320",
+        "n_321",
+        "n_322",
+        "n_323"
+      ],
+      "edgeIds": [
+        "n_318->n_319",
+        "n_320->n_321",
+        "n_322->n_323"
+      ],
+      "sourceChunks": [
+        "tweet-2028404466937159754"
+      ],
+      "representativeClaims": [
+        "defense sector's large weighting in Israel stock exchange → Israeli stock market response to Iran war",
+        "Iran war implications ⊣ Israel's existential discount factor on correlated stocks",
+        "removal of existential discount factor ⊣ stock valuations of $NBIS, $ETOR, $VLN"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-74",
+      "theme": "event / now / timing / halving",
+      "nodeIds": [
+        "n_345",
+        "n_346",
+        "n_347",
+        "n_348",
+        "n_349",
+        "n_350"
+      ],
+      "edgeIds": [
+        "n_345->n_346",
+        "n_347->n_348",
+        "n_349->n_350"
+      ],
+      "sourceChunks": [
+        "tweet-2028207954584035601"
+      ],
+      "representativeClaims": [
+        "timing being too early relative to 2028 Bitcoin halving → decision against front-running the halving now",
+        "event happening 2 years in the future → justification for not taking positions now",
+        "6-8 months advance timing before event → optimal entry point for positioning"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-76",
+      "theme": "soitec / cpo / sloif / value",
+      "nodeIds": [
+        "n_359",
+        "n_360",
+        "n_361",
+        "n_362",
+        "n_363",
+        "n_364"
+      ],
+      "edgeIds": [
+        "n_359->n_360",
+        "n_361->n_362",
+        "n_363->n_364"
+      ],
+      "sourceChunks": [
+        "tweet-2028203665430057068"
+      ],
+      "representativeClaims": [
+        "800g/1.6T and CPO technology requirements → necessity of $AXTI and Soitec solutions",
+        "Soitec ($SLOIF) value/performance → CPO (Coherent Pluggable Optics) inflection point late 2027-2028",
+        "Soitec's monopoly position in silicon photonics mirrors → Soitec being tethered to CPO growth"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-82",
+      "theme": "xlu / position / price / strike",
+      "nodeIds": [
+        "n_377",
+        "n_378",
+        "n_379",
+        "n_380",
+        "n_381"
+      ],
+      "edgeIds": [
+        "n_377->n_378",
+        "n_379->n_378",
+        "n_380->n_381"
+      ],
+      "sourceChunks": [
+        "tweet-2028114549417844809"
+      ],
+      "representativeClaims": [
+        "$XLU price continuing to go up → not losing money on the position",
+        "IV on a strike being around 14-16% → good entry point for $XLU position",
+        "$XLU price correction occurring → good entry point for $XLU position"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-83",
+      "theme": "nbis / favorable / investment / composed",
+      "nodeIds": [
+        "n_382",
+        "n_383",
+        "n_384",
+        "n_385",
+        "n_386",
+        "n_387"
+      ],
+      "edgeIds": [
+        "n_382->n_383",
+        "n_384->n_385",
+        "n_386->n_387"
+      ],
+      "sourceChunks": [
+        "tweet-2028112194949513586"
+      ],
+      "representativeClaims": [
+        "NBIS being composed of 5 different companies each scaling triple digits y/y → NBIS being nuanced and favorable as a Neocloud investment",
+        "robotaxi division working with Uber → NBIS being a favorable investment",
+        "Clickhouse's capabilities/status → higher valuations"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-84",
+      "theme": "endless / dilution / nbis / continuing",
+      "nodeIds": [
+        "n_388",
+        "n_389",
+        "n_390",
+        "n_391",
+        "n_392",
+        "n_393"
+      ],
+      "edgeIds": [
+        "n_388->n_389",
+        "n_390->n_391",
+        "n_392->n_393"
+      ],
+      "sourceChunks": [
+        "tweet-2028111150613959097"
+      ],
+      "representativeClaims": [
+        "continuing GPU offerings without pivoting to pure colo → endless dilution for investors",
+        "superior management at $NBIS → personal trust in $NBIS over $IREN",
+        "endless dilution to monetize 3GW capacity → negative investor returns"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-85",
+      "theme": "ability / profit / crwv / past",
+      "nodeIds": [
+        "n_394",
+        "n_395",
+        "n_396",
+        "n_397",
+        "n_398",
+        "n_399"
+      ],
+      "edgeIds": [
+        "n_394->n_395",
+        "n_396->n_397",
+        "n_398->n_399"
+      ],
+      "sourceChunks": [
+        "tweet-2028109409948508531"
+      ],
+      "representativeClaims": [
+        "$CRWV down ~28% in the past month → past bullish prediction about $CRWV did not age well",
+        "red flags in Coreweave or $CRCL at $200 → ability to profit by playing the opposite direction",
+        "being a long investor or swing trader → ability to be a successful bear (profit from downturns)"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-86",
+      "theme": "inference / usage / long-term / directional",
+      "nodeIds": [
+        "n_400",
+        "n_401",
+        "n_402",
+        "n_403",
+        "n_404"
+      ],
+      "edgeIds": [
+        "n_400->n_401",
+        "n_402->n_401",
+        "n_403->n_404"
+      ],
+      "sourceChunks": [
+        "tweet-2028103810615595491"
+      ],
+      "representativeClaims": [
+        "AI inference usage → long-term directional upward price movement",
+        "rate cuts → long-term directional upward price movement",
+        "10.42% 1M return already achieved → waiting for better entry point is prudent"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-91",
+      "theme": "power / grid / utilities / strong",
+      "nodeIds": [
+        "n_423",
+        "n_424",
+        "n_425",
+        "n_426",
+        "n_427",
+        "n_428"
+      ],
+      "edgeIds": [
+        "n_423->n_424",
+        "n_425->n_426",
+        "n_427->n_428"
+      ],
+      "sourceChunks": [
+        "tweet-2028097416273293518"
+      ],
+      "representativeClaims": [
+        "investment in grid/power utilities ETF ($XLU) → financial returns (up ~100%+ in one week)",
+        "strong power/grid infrastructure → US dominance in AI",
+        "increased AI demand → power/grid utilities sector growth"
+      ],
+      "claimCount": 3
+    },
+    {
+      "id": "cluster-3",
+      "theme": "post / seeing / blondesnmoney / spitting",
+      "nodeIds": [
+        "n_15",
+        "n_16",
+        "n_17",
+        "n_18"
+      ],
+      "edgeIds": [
+        "n_15->n_16",
+        "n_17->n_18"
+      ],
+      "sourceChunks": [
+        "tweet-2028916795881800007"
+      ],
+      "representativeClaims": [
+        "seeing the @blondesnmoney post → spitting out drink in public",
+        "not expecting the post on timeline → surprised reaction to the post"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-5",
+      "theme": "asset / near / cost / averaging",
+      "nodeIds": [
+        "n_26",
+        "n_27",
+        "n_28",
+        "n_29"
+      ],
+      "edgeIds": [
+        "n_26->n_27",
+        "n_28->n_29"
+      ],
+      "sourceChunks": [
+        "tweet-2028902147136602124"
+      ],
+      "representativeClaims": [
+        "asset price near all-time highs → value of learning cost averaging strategy",
+        "implementing cost averaging (increasing position on 8% drops, further on 15% drops) → better investment outcomes when asset is near ATHs"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-6",
+      "theme": "leverage / high / aehr / leaps",
+      "nodeIds": [
+        "n_30",
+        "n_31",
+        "n_32",
+        "n_33"
+      ],
+      "edgeIds": [
+        "n_30->n_31",
+        "n_32->n_33"
+      ],
+      "sourceChunks": [
+        "tweet-2028898532657381755"
+      ],
+      "representativeClaims": [
+        "high IV on $AEHR leaps ⊣ suitability as leverage strategy",
+        "using shares with slight margin → achieving desired leverage exposure"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-7",
+      "theme": "order / orders / inflection / point",
+      "nodeIds": [
+        "n_34",
+        "n_35",
+        "n_36",
+        "n_37"
+      ],
+      "edgeIds": [
+        "n_34->n_35",
+        "n_36->n_37"
+      ],
+      "sourceChunks": [
+        "tweet-2028893030330318868"
+      ],
+      "representativeClaims": [
+        "receiving multiple orders ($14M order + follow-up order) → approaching inflection point from speculative small cap to mass order ramp",
+        "customers/hyperscalers placing orders → mass order ramp and company inflection point"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-10",
+      "theme": "axti / miles / bottleneck / current",
+      "nodeIds": [
+        "n_50",
+        "n_51",
+        "n_52",
+        "n_53"
+      ],
+      "edgeIds": [
+        "n_50->n_51",
+        "n_52->n_53"
+      ],
+      "sourceChunks": [
+        "tweet-2028811480439943673"
+      ],
+      "representativeClaims": [
+        "$AXTI miles being a current bottleneck → preference for $AXTI miles",
+        "$AXTI miles remaining a bottleneck for photonics-related applications → continued value/utility of $AXTI miles"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-11",
+      "theme": "soitec / stock / price / markets",
+      "nodeIds": [
+        "n_54",
+        "n_55",
+        "n_56",
+        "n_57"
+      ],
+      "edgeIds": [
+        "n_54->n_55",
+        "n_56->n_57"
+      ],
+      "sourceChunks": [
+        "tweet-2028811288651162043"
+      ],
+      "representativeClaims": [
+        "markets pricing in CPO (Corporate Power Purchase Agreements) → Soitec stock price appreciation / reduced wait pain",
+        "NVDA investing in COHR and LITE → Soitec stock price movement / market catalyst"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-14",
+      "theme": "fundamentals / focusing / trading / off",
+      "nodeIds": [
+        "n_73",
+        "n_74",
+        "n_75",
+        "n_76"
+      ],
+      "edgeIds": [
+        "n_73->n_74",
+        "n_75->n_76"
+      ],
+      "sourceChunks": [
+        "tweet-2028790166081671390"
+      ],
+      "representativeClaims": [
+        "focusing on fundamentals ⊣ trading off emotions",
+        "caring about fundamentals ⊣ emotional decision-making"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-16",
+      "theme": "buying / opportunity / investor / misunderstanding",
+      "nodeIds": [
+        "n_83",
+        "n_84",
+        "n_85",
+        "n_86"
+      ],
+      "edgeIds": [
+        "n_83->n_84",
+        "n_85->n_86"
+      ],
+      "sourceChunks": [
+        "tweet-2028786845861990895"
+      ],
+      "representativeClaims": [
+        "AI fundamentally changing demand for semiconductors → Samsung/SK Hynix being a buying opportunity",
+        "investor misunderstanding that 2026 is not 2022 (Ukraine-Russia conflicts) → $EWY / KOSPI crash being a buying opportunity"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-20",
+      "theme": "optical / transceiver / boom / stock",
+      "nodeIds": [
+        "n_103",
+        "n_104",
+        "n_105",
+        "n_106"
+      ],
+      "edgeIds": [
+        "n_103->n_104",
+        "n_105->n_106"
+      ],
+      "sourceChunks": [
+        "tweet-2028754498710290457"
+      ],
+      "representativeClaims": [
+        "optical transceiver boom signaled from $AAOI earnings → stock price increases for IQE and Landmark",
+        "optical transceiver boom → photonics epiwafer fab stock performance"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-25",
+      "theme": "photonics / nvidia / funneling / players",
+      "nodeIds": [
+        "n_134",
+        "n_135",
+        "n_136",
+        "n_137"
+      ],
+      "edgeIds": [
+        "n_134->n_135",
+        "n_136->n_137"
+      ],
+      "sourceChunks": [
+        "tweet-2028581366510870627"
+      ],
+      "representativeClaims": [
+        "Nvidia funneling $4B into photonics players ($LITE and $COHR) → $AXTI stock price increase to $46.7",
+        "controlling materials (in photonics sector) → investment opportunity/profitability"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-26",
+      "theme": "pepemoonboy / help / getting / started",
+      "nodeIds": [
+        "n_138",
+        "n_139",
+        "n_140",
+        "n_141"
+      ],
+      "edgeIds": [
+        "n_138->n_139",
+        "n_140->n_141"
+      ],
+      "sourceChunks": [
+        "tweet-2028575575984742557"
+      ],
+      "representativeClaims": [
+        "pepemoonboy's help getting started on X → Serenity's appreciation",
+        "being humble → underestimating one's own contributions"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-27",
+      "theme": "catalyst / far / enough / future",
+      "nodeIds": [
+        "n_142",
+        "n_143",
+        "n_144",
+        "n_145"
+      ],
+      "edgeIds": [
+        "n_142->n_143",
+        "n_144->n_145"
+      ],
+      "sourceChunks": [
+        "tweet-2028537514747912643"
+      ],
+      "representativeClaims": [
+        "catalyst being far enough in the future → ability to aim for long term capital gains tax treatment",
+        "Greenland peace deal ⊣ defense stocks like $ONDS performance"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-30",
+      "theme": "stock / price / increase / 16x",
+      "nodeIds": [
+        "n_160",
+        "n_161",
+        "n_162",
+        "n_163"
+      ],
+      "edgeIds": [
+        "n_160->n_161",
+        "n_162->n_163"
+      ],
+      "sourceChunks": [
+        "tweet-2028532170114170991"
+      ],
+      "representativeClaims": [
+        "$PL stock price increase to $27.2 (16x from $1.7) → investment returns beating $AXTI",
+        "lack of belief in geospatial intelligence → not investing in $PL at $1.7"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-31",
+      "theme": "serenity / 143 / ytd / return",
+      "nodeIds": [
+        "n_164",
+        "n_165",
+        "n_166",
+        "n_167"
+      ],
+      "edgeIds": [
+        "n_164->n_165",
+        "n_166->n_167"
+      ],
+      "sourceChunks": [
+        "tweet-2028531427202265211"
+      ],
+      "representativeClaims": [
+        "143.5% YTD return → achievement worthy of congratulations",
+        "Ren_aramb's interaction with Serenity's posts → Serenity's gratitude"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-34",
+      "theme": "posts / people / interesting / reading",
+      "nodeIds": [
+        "n_180",
+        "n_181",
+        "n_182",
+        "n_183"
+      ],
+      "edgeIds": [
+        "n_180->n_181",
+        "n_182->n_183"
+      ],
+      "sourceChunks": [
+        "tweet-2028524822570102812"
+      ],
+      "representativeClaims": [
+        "posts being interesting → people reading the posts",
+        "posting TA drawings and breakdowns → other people finding content insightful"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-37",
+      "theme": "axti / stock / price / increase",
+      "nodeIds": [
+        "n_196",
+        "n_197",
+        "n_198",
+        "n_199"
+      ],
+      "edgeIds": [
+        "n_196->n_197",
+        "n_198->n_199"
+      ],
+      "sourceChunks": [
+        "tweet-2028514640976834995"
+      ],
+      "representativeClaims": [
+        "small bottlenecks in AI industry → investment opportunity (gold mining)",
+        "$AXTI stock price increase to 4x from intraday low → Serenity's post about $AXTI"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-39",
+      "theme": "energy / directed / weapons / technology",
+      "nodeIds": [
+        "n_206",
+        "n_207",
+        "n_208"
+      ],
+      "edgeIds": [
+        "n_206->n_207",
+        "n_207->n_208"
+      ],
+      "sourceChunks": [
+        "tweet-2028508633294864551"
+      ],
+      "representativeClaims": [
+        "energy directed weapons technology working in Israel → $LASR becoming a huge part of energy directed weapons in the Golden Dome",
+        "$LASR becoming a huge part of energy directed weapons in the Golden Dome → scale of energy directed weapons deployment"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-40",
+      "theme": "sharing / discoveries / along / way",
+      "nodeIds": [
+        "n_209",
+        "n_210",
+        "n_211",
+        "n_212"
+      ],
+      "edgeIds": [
+        "n_209->n_210",
+        "n_211->n_212"
+      ],
+      "sourceChunks": [
+        "tweet-2028505755918434597"
+      ],
+      "representativeClaims": [
+        "$LASR having cool features/properties → worth sharing/recommending",
+        "sharing discoveries along the way → providing value to others"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-41",
+      "theme": "iron / beam / nlight / supplier",
+      "nodeIds": [
+        "n_213",
+        "n_214",
+        "n_215",
+        "n_216"
+      ],
+      "edgeIds": [
+        "n_213->n_214",
+        "n_215->n_216"
+      ],
+      "sourceChunks": [
+        "tweet-2028505568319791188"
+      ],
+      "representativeClaims": [
+        "Nlight being a supplier/subcontractor to Iron Beam → deep engagement with current and future Iron Beam products",
+        "shipping components toward Iron Beam program in second half of 2024 → acceleration of component shipments"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-46",
+      "theme": "thesis / prediction / accuracy / nvda",
+      "nodeIds": [
+        "n_229",
+        "n_230",
+        "n_231",
+        "n_232"
+      ],
+      "edgeIds": [
+        "n_229->n_230",
+        "n_231->n_232"
+      ],
+      "sourceChunks": [
+        "tweet-2028472234101334515"
+      ],
+      "representativeClaims": [
+        "thesis prediction accuracy → NVDA investing in LITE and COHR",
+        "AAOI performance this year → thesis prediction validation"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-49",
+      "theme": "lite / iqe / nvda / investing",
+      "nodeIds": [
+        "n_237",
+        "n_238",
+        "n_239"
+      ],
+      "edgeIds": [
+        "n_237->n_238",
+        "n_237->n_239"
+      ],
+      "sourceChunks": [
+        "tweet-2028466744642469898"
+      ],
+      "representativeClaims": [
+        "NVDA investing $2B into LITE → IQE benefits (as massive LITE supplier/epiwafer foundry)",
+        "NVDA investing $2B into LITE → IQE stock price up 28%"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-50",
+      "theme": "stocks / like / 20-40 / daily",
+      "nodeIds": [
+        "n_240",
+        "n_241",
+        "n_242",
+        "n_243"
+      ],
+      "edgeIds": [
+        "n_240->n_241",
+        "n_242->n_243"
+      ],
+      "sourceChunks": [
+        "tweet-2028466487707754904"
+      ],
+      "representativeClaims": [
+        "20-40% daily gains → stocks like $AAOI and $IQE being selected as picks",
+        "stocks like $AXTI and $LITE doubling in value → taking a rest period (price consolidation)"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-52",
+      "theme": "nvda / investment / photonics / iqe",
+      "nodeIds": [
+        "n_248",
+        "n_249",
+        "n_250",
+        "n_251"
+      ],
+      "edgeIds": [
+        "n_248->n_249",
+        "n_250->n_251"
+      ],
+      "sourceChunks": [
+        "tweet-2028464631195574674"
+      ],
+      "representativeClaims": [
+        "NVDA's $2 billion investment in Lumentum's R&D and U.S. fabrication facility → tailwind for photonics stocks",
+        "IQE being a known LITE supplier → IQE's 28% rise makes sense given NVDA's investment in photonics"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-55",
+      "theme": "lasr / contracts / flowing / biggest",
+      "nodeIds": [
+        "n_260",
+        "n_261",
+        "n_262",
+        "n_263"
+      ],
+      "edgeIds": [
+        "n_260->n_261",
+        "n_262->n_263"
+      ],
+      "sourceChunks": [
+        "tweet-2028458236316381685"
+      ],
+      "representativeClaims": [
+        "LASR's biggest validation for first usage of Laser Weapons shooting down targets → ton of contracts flowing into LASR",
+        "LASR expansion → contracts flowing into LASR"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-56",
+      "theme": "laser / weapons / super / cool",
+      "nodeIds": [
+        "n_264",
+        "n_265",
+        "n_266",
+        "n_267"
+      ],
+      "edgeIds": [
+        "n_264->n_265",
+        "n_266->n_267"
+      ],
+      "sourceChunks": [
+        "tweet-2028457705095184603"
+      ],
+      "representativeClaims": [
+        "stock being up 50%+ since last January → regret about not taking position earlier",
+        "laser weapons being super cool → decision to invest in $LASR"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-57",
+      "theme": "lasr / serenity / posting / stock",
+      "nodeIds": [
+        "n_268",
+        "n_269",
+        "n_270",
+        "n_271"
+      ],
+      "edgeIds": [
+        "n_268->n_269",
+        "n_270->n_271"
+      ],
+      "sourceChunks": [
+        "tweet-2028457265263710538"
+      ],
+      "representativeClaims": [
+        "$LASR shooting down a bunch of stuff → Serenity taking positions in $LASR",
+        "Serenity posting about $LASR → $LASR stock price increases"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-58",
+      "theme": "lasr / combat / seeing / action",
+      "nodeIds": [
+        "n_272",
+        "n_273",
+        "n_274",
+        "n_275"
+      ],
+      "edgeIds": [
+        "n_272->n_273",
+        "n_274->n_275"
+      ],
+      "sourceChunks": [
+        "tweet-2028456926644965419"
+      ],
+      "representativeClaims": [
+        "seeing $LASR in combat action → finding it wild/impressive",
+        "lack of combat validation → not really understanding $LASR's capabilities"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-60",
+      "theme": "three / four / hyperscaler / orders",
+      "nodeIds": [
+        "n_282",
+        "n_283",
+        "n_284",
+        "n_285"
+      ],
+      "edgeIds": [
+        "n_282->n_283",
+        "n_284->n_285"
+      ],
+      "sourceChunks": [
+        "tweet-2028431595779358963"
+      ],
+      "representativeClaims": [
+        "three to four hyperscaler orders for all capacity they can make a year ⊣ risk of cancellation",
+        "Made in America supply chains → rarity/competitive differentiation"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-61",
+      "theme": "diversification / across / multiple / stocks",
+      "nodeIds": [
+        "n_286",
+        "n_287",
+        "n_288",
+        "n_289"
+      ],
+      "edgeIds": [
+        "n_286->n_287",
+        "n_288->n_289"
+      ],
+      "sourceChunks": [
+        "tweet-2028429689946357937"
+      ],
+      "representativeClaims": [
+        "holding both $AEHR and $AAOI → portfolio diversification",
+        "diversification across multiple stocks → better investment strategy"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-62",
+      "theme": "upside / hitting / revenue / projection",
+      "nodeIds": [
+        "n_290",
+        "n_291",
+        "n_292",
+        "n_293"
+      ],
+      "edgeIds": [
+        "n_290->n_291",
+        "n_292->n_293"
+      ],
+      "sourceChunks": [
+        "tweet-2028428302718038200"
+      ],
+      "representativeClaims": [
+        "hitting ~$4B revenue projection with 40% margins → significant upside potential",
+        "being early to things on X → investment opportunity/upside"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-66",
+      "theme": "market / perception / decisive / israeli",
+      "nodeIds": [
+        "n_309",
+        "n_310",
+        "n_311"
+      ],
+      "edgeIds": [
+        "n_309->n_310",
+        "n_311->n_310"
+      ],
+      "sourceChunks": [
+        "tweet-2028405556944445919"
+      ],
+      "representativeClaims": [
+        "market perception of decisive Israeli victory → stock market gains (8.85% exchange, 4.23% local index)",
+        "market perception of long-term risk reduction from Iran → stock market gains (8.85% exchange, 4.23% local index)"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-70",
+      "theme": "sndk / nand / contract / price",
+      "nodeIds": [
+        "n_332",
+        "n_333",
+        "n_334"
+      ],
+      "edgeIds": [
+        "n_332->n_333",
+        "n_334->n_333"
+      ],
+      "sourceChunks": [
+        "tweet-2028392329460253121"
+      ],
+      "representativeClaims": [
+        "NAND contract price increases (500% over six months) → SNDK macro performance",
+        "three-year prepayment for SNDK → SNDK macro performance"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-71",
+      "theme": "53b / arr / margins / 900",
+      "nodeIds": [
+        "n_335",
+        "n_336",
+        "n_337",
+        "n_338"
+      ],
+      "edgeIds": [
+        "n_335->n_336",
+        "n_337->n_338"
+      ],
+      "sourceChunks": [
+        "tweet-2028380960954413389"
+      ],
+      "representativeClaims": [
+        "$4.53B ARR by mid-2027 at ~40% margins → photonics stock with ~900% revenue growth blowout",
+        "strong financial projections (~900% growth, $4.53B ARR, 40% margins) → may not need double digit directional SI support"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-73",
+      "theme": "soitec / investment / current / timing",
+      "nodeIds": [
+        "n_341",
+        "n_342",
+        "n_343",
+        "n_344"
+      ],
+      "edgeIds": [
+        "n_341->n_342",
+        "n_343->n_344"
+      ],
+      "sourceChunks": [
+        "tweet-2028317242770014526"
+      ],
+      "representativeClaims": [
+        "current timing for Soitec investment ⊣ investment decision appropriateness",
+        "CPO (共同パッケージ光技術) adoption around 2028 → Soitec becoming a critical bottleneck"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-78",
+      "theme": "hikes / macronix / having / 30-35",
+      "nodeIds": [
+        "n_367",
+        "n_368",
+        "n_369",
+        "n_370"
+      ],
+      "edgeIds": [
+        "n_367->n_368",
+        "n_369->n_370"
+      ],
+      "sourceChunks": [
+        "tweet-2028147215206859218"
+      ],
+      "representativeClaims": [
+        "Macronix having 30-35% NOR Flash market share with smaller market cap ($6.7B vs $15B+) → being the most pure play in the sector",
+        "modest price hikes so far ⊣ stock not yet performing like SNDK (implied: needs larger hikes to achieve SNDK-like performance)"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-88",
+      "theme": "movement / slight / vega / expansion",
+      "nodeIds": [
+        "n_413",
+        "n_414",
+        "n_415",
+        "n_416"
+      ],
+      "edgeIds": [
+        "n_413->n_414",
+        "n_415->n_416"
+      ],
+      "sourceChunks": [
+        "tweet-2028099937947541831"
+      ],
+      "representativeClaims": [
+        "3% movement with slight vega expansion → potential for double (100% return)",
+        "ETF only moved 82% since year 2000 → 14% IV for $XLU is relatively high/attractive"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-89",
+      "theme": "otm / calls / position / portfolio",
+      "nodeIds": [
+        "n_417",
+        "n_418",
+        "n_419",
+        "n_420"
+      ],
+      "edgeIds": [
+        "n_417->n_418",
+        "n_419->n_420"
+      ],
+      "sourceChunks": [
+        "tweet-2028099110310748607"
+      ],
+      "representativeClaims": [
+        "OTM calls position → portfolio gains of 144%+",
+        "$XLU price movement this week → 3% increase in closer to ITM strike value"
+      ],
+      "claimCount": 2
+    },
+    {
+      "id": "cluster-4",
+      "theme": "crcl / price / performance / noteworthy",
+      "nodeIds": [
+        "n_19",
+        "n_20"
+      ],
+      "edgeIds": [
+        "n_19->n_20"
+      ],
+      "sourceChunks": [
+        "tweet-2028914473055232328"
+      ],
+      "representativeClaims": [
+        "$CRCL price performance → noteworthy comment from narrator"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-43",
+      "theme": "price / news / reported / massive",
+      "nodeIds": [
+        "n_223",
+        "n_224"
+      ],
+      "edgeIds": [
+        "n_223->n_224"
+      ],
+      "sourceChunks": [
+        "tweet-2028487006708539512"
+      ],
+      "representativeClaims": [
+        "news about reported massive DRAM/NAND price hikes ⊣ Samsung/SK Hynix and $EWY stock price"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-44",
+      "theme": "positive / developments / iqe / stock",
+      "nodeIds": [
+        "n_225",
+        "n_226"
+      ],
+      "edgeIds": [
+        "n_225->n_226"
+      ],
+      "sourceChunks": [
+        "tweet-2028479744434651470"
+      ],
+      "representativeClaims": [
+        "positive developments with $IQE → stock price appreciation"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-45",
+      "theme": "people / spending / time / read",
+      "nodeIds": [
+        "n_227",
+        "n_228"
+      ],
+      "edgeIds": [
+        "n_227->n_228"
+      ],
+      "sourceChunks": [
+        "tweet-2028472879319498942"
+      ],
+      "representativeClaims": [
+        "people spending time to read about my thoughts → fulfillment"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-47",
+      "theme": "aaoi / stock / price / increase",
+      "nodeIds": [
+        "n_233",
+        "n_234"
+      ],
+      "edgeIds": [
+        "n_233->n_234"
+      ],
+      "sourceChunks": [
+        "tweet-2028470130628514077"
+      ],
+      "representativeClaims": [
+        "AAOI stock price increase → AAOI being on a mega-rally"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-48",
+      "theme": "institutions / receiving / leaked / news",
+      "nodeIds": [
+        "n_235",
+        "n_236"
+      ],
+      "edgeIds": [
+        "n_235->n_236"
+      ],
+      "sourceChunks": [
+        "tweet-2028467833915711710"
+      ],
+      "representativeClaims": [
+        "institutions receiving leaked news early → Taiwan photonics stocks rallying 10%+"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-53",
+      "theme": "lack / pure / play / public",
+      "nodeIds": [
+        "n_252",
+        "n_253"
+      ],
+      "edgeIds": [
+        "n_252->n_253"
+      ],
+      "sourceChunks": [
+        "tweet-2028461742783893827"
+      ],
+      "representativeClaims": [
+        "lack of pure play public exposure to energy directed weapons → LASR being notable/unique investment option"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-63",
+      "theme": "wild / repricing / event / photonics",
+      "nodeIds": [
+        "n_294",
+        "n_295"
+      ],
+      "edgeIds": [
+        "n_294->n_295"
+      ],
+      "sourceChunks": [
+        "tweet-2028426493819506876"
+      ],
+      "representativeClaims": [
+        "wild repricing event in photonics sector stocks → stock price movements"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-72",
+      "theme": "samsung / electronics / hynix / price",
+      "nodeIds": [
+        "n_339",
+        "n_340"
+      ],
+      "edgeIds": [
+        "n_339->n_340"
+      ],
+      "sourceChunks": [
+        "tweet-2028374385544093829"
+      ],
+      "representativeClaims": [
+        "Samsung Electronics and SK Hynix price increases → DRAM prices"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-77",
+      "theme": "rotation / semi / bottlenecks / running",
+      "nodeIds": [
+        "n_365",
+        "n_366"
+      ],
+      "edgeIds": [
+        "n_365->n_366"
+      ],
+      "sourceChunks": [
+        "tweet-2028193274494955709"
+      ],
+      "representativeClaims": [
+        "rotation from semi bottlenecks into running bottlenecks → performance improvement or optimization"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-79",
+      "theme": "scams / sites / pages / claiming",
+      "nodeIds": [
+        "n_371",
+        "n_372"
+      ],
+      "edgeIds": [
+        "n_371->n_372"
+      ],
+      "sourceChunks": [
+        "tweet-2028144874802020510"
+      ],
+      "representativeClaims": [
+        "being scams → sites or pages claiming to be associated with Serenity that are external or paid"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-80",
+      "theme": "having / ibkr / account / access",
+      "nodeIds": [
+        "n_373",
+        "n_374"
+      ],
+      "edgeIds": [
+        "n_373->n_374"
+      ],
+      "sourceChunks": [
+        "tweet-2028144668178038945"
+      ],
+      "representativeClaims": [
+        "having an IBKR account → access to international markets"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-81",
+      "theme": "recent / price / hikes / 10-80",
+      "nodeIds": [
+        "n_375",
+        "n_376"
+      ],
+      "edgeIds": [
+        "n_375->n_376"
+      ],
+      "sourceChunks": [
+        "tweet-2028140055425139186"
+      ],
+      "representativeClaims": [
+        "Recent price hikes (10-80%) in MCUs, NOR Flash, KGD package storage, and power devices → Memory supply squeeze concerns"
+      ],
+      "claimCount": 1
+    },
+    {
+      "id": "cluster-90",
+      "theme": "forecast / dates / extending / september",
+      "nodeIds": [
+        "n_421",
+        "n_422"
+      ],
+      "edgeIds": [
+        "n_421->n_422"
+      ],
+      "sourceChunks": [
+        "tweet-2028098602661511548"
+      ],
+      "representativeClaims": [
+        "forecast dates only extending to September instead of 2028 ⊣ reliability/usefulness of projections"
+      ],
+      "claimCount": 1
+    }
+  ],
+  "synthesizedAt": "2026-03-05T04:09:52.595Z"
+}

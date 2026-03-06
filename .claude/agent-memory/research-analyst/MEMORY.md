@@ -30,7 +30,12 @@
 - FREE-MAD establishes anti-conformity as a design primitive; agents drift toward consensus by default
 - DEBATE benchmark (2510.25110) shows LLM agents over-converge vs humans across 107 topics
 - Moltbook (2602.14299) is the primary evaluation framework inspiration: agents show high inertia at scale
-- R-Debater (2512.24684) uses ORCHID dataset; published at AAMAS 2026
+- R-Debater (2512.24684) uses ORCHID dataset; published at AAMAS 2026; full architecture in docs/research_personality_memory.md
+- PRIME (arXiv:2507.04607, EMNLP 2025): dual episodic+semantic memory for LLM personalization; semantic alone beats episodic alone; personalized thought process (5-step self-distillation) adds 2-5 points over dual memory; memory conflicts are real — naive combination degrades
+- ID-RAG (arXiv:2509.25299, ECAI LLAIS 2025): Chronicle = directed KG of beliefs/traits/values, separate from episodic memory; query-builder LLM forms retrieval strategy as JSON; r-hop neighborhood expansion; 19-58% faster simulation convergence; no conflict resolution mechanism
+- CONSENSAGENT (ACL 2025 Findings): sycophancy causes premature debate convergence; agents most resistant in round 1, drift by round 3+; cap debates at 2-3 rounds; fix: position anchoring + explicit justification for stance changes
+- "When Two LLMs Debate" (arXiv:2505.19184): confidence escalates +10pp per debate despite counter-arguments (anti-Bayesian); self red-teaming prompt reduces escalation from 10.34% to 3.05%; key mitigation: explicit adversarial perspective-taking prompt
+- Persona geometry (arXiv:2512.07092): personality = orthogonal linear subspaces in transformer latent space; layers 14-16 are optimal intervention layers; dynamic contextual sampling (k=3 sentences) captures stylistic invariance
 - ExACT is ICLR 2025, Microsoft Research; uses MAD as internal state evaluator inside MCTS
 - Kimura et al. paper is hard to find — covered by TechXplore Feb 2026; Zenodo DOI reportedly 10.5281/zenodo.17586536
 
