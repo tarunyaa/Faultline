@@ -26,6 +26,8 @@ export interface BridgeConfig {
   qsemType?: string;
   skipBaselines?: boolean;
   personaIds?: string[];
+  useCrux?: boolean;
+  useFacets?: boolean;
 }
 
 export async function* runArgora(config: BridgeConfig): AsyncGenerator<ArgumentEvent> {

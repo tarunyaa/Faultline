@@ -29,7 +29,7 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
   const [selectedDeckId, setSelectedDeckId] = useState(decks[0]?.id ?? '')
   const [selectedPersonas, setSelectedPersonas] = useState<Set<string>>(new Set())
   const [topic, setTopic] = useState('')
-  const [mode, setMode] = useState<'dialogue' | 'argument_personas'>('dialogue')
+  const [mode, setMode] = useState<'dialogue' | 'argument_personas' | 'argument_crux'>('dialogue')
 
   const deck = decks.find(d => d.id === selectedDeckId)
   const deckPersonaIds = deck?.personaIds ?? []
@@ -57,7 +57,9 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
     const topicParam = encodeURIComponent(topic.trim())
 
     if (mode === 'argument_personas') {
-      router.push(`/argument?topic=${topicParam}&personas=${personaParam}`)
+      router.push(`/argument?topic=${topicParam}&personas=${personaParam}&engine=graph`)
+    } else if (mode === 'argument_crux') {
+      router.push(`/argument?topic=${topicParam}&personas=${personaParam}&engine=crux`)
     } else {
       router.push(`/dialogue?personas=${personaParam}&topic=${topicParam}`)
     }
@@ -136,7 +138,7 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
       {/* Mode selector */}
       <div className="space-y-2">
         <label className="text-xs font-semibold uppercase tracking-wider text-muted">Mode</label>
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-3 gap-3">
           <button
             onClick={() => setMode('dialogue')}
             className={`rounded-lg border px-4 py-3 text-left transition-colors ${
@@ -161,6 +163,19 @@ export default function SetupClient({ decks, personas }: SetupClientProps) {
             <span className="text-sm font-medium text-foreground">Graph</span>
             <p className="text-[11px] text-muted mt-0.5">
               Argument-framework based decision engine
+            </p>
+          </button>
+          <button
+            onClick={() => setMode('argument_crux')}
+            className={`rounded-lg border px-4 py-3 text-left transition-colors ${
+              mode === 'argument_crux'
+                ? 'border-accent bg-accent/10'
+                : 'border-card-border bg-card-bg hover:border-muted'
+            }`}
+          >
+            <span className="text-sm font-medium text-foreground">Graph 2.0</span>
+            <p className="text-[11px] text-muted mt-0.5">
+              QBAF + crux cards + counterfactual analysis
             </p>
           </button>
         </div>

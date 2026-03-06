@@ -4,7 +4,7 @@ import { GraphDebateView } from '@/components/argument/GraphDebateView'
 import { getPersona } from '@/lib/personas/loader'
 
 interface Props {
-  searchParams: Promise<{ topic?: string; experts?: string; personas?: string }>
+  searchParams: Promise<{ topic?: string; experts?: string; personas?: string; engine?: string }>
 }
 
 export default async function ArgumentPage({ searchParams }: Props) {
@@ -16,6 +16,7 @@ export default async function ArgumentPage({ searchParams }: Props) {
   }
 
   const numExperts = params.experts ? Math.max(2, Math.min(5, parseInt(params.experts, 10) || 3)) : 3
+  const engine = params.engine ?? 'graph'
 
   // Parse persona IDs from URL (comma-separated)
   const personaIds = params.personas
@@ -35,6 +36,23 @@ export default async function ArgumentPage({ searchParams }: Props) {
     }
   }
 
+  // Graph 2.0: crux-personas engine with personality agent injection
+  if (personaIds && personaIds.length > 0 && engine === 'crux') {
+    return (
+      <ArgumentView
+        config={{
+          topic,
+          numExperts: personaIds.length,
+          personaIds,
+          skipBaselines: true,
+        }}
+        personaNames={personaNames}
+        personaAvatars={personaAvatars}
+      />
+    )
+  }
+
+  // Graph (classic): argora-personas engine
   if (personaIds && personaIds.length > 0) {
     return (
       <GraphDebateView
@@ -43,6 +61,7 @@ export default async function ArgumentPage({ searchParams }: Props) {
           numExperts: personaIds.length,
           personaIds,
           skipBaselines: true,
+          useCrux: false,
         }}
         personaNames={personaNames}
         personaAvatars={personaAvatars}

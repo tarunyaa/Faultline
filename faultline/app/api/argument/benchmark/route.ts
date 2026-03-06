@@ -4,7 +4,7 @@ import type { Dataset } from '@/lib/argument/benchmarks/types'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
-export const maxDuration = 600 // 10 min — batch benchmarks are slow
+export const maxDuration = 300
 
 export async function POST(req: NextRequest) {
   const encoder = new TextEncoder()
