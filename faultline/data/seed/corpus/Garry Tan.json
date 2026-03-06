@@ -1,0 +1,177 @@
+[
+  {
+    "id": "gt-tweet-001",
+    "content": "For 25% of the Winter 2025 batch, 95% of lines of code are LLM generated. That's not a typo. The age of vibe coding is here.",
+    "source": "https://x.com/garrytan/status/1897303270311489931",
+    "date": "2025-02-28",
+    "platform": "twitter"
+  },
+  {
+    "id": "gt-tweet-002",
+    "content": "Our Requests for Startups are up for Spring 2025! YC wants founders who treat AI agents not as features but as the core operating system of brand-new companies and industries.",
+    "source": "https://x.com/garrytan/status/1920153493492674984",
+    "date": "2025-05-07",
+    "platform": "twitter"
+  },
+  {
+    "id": "gt-tweet-003",
+    "content": "So addicted to Claude Code, I stayed up 19 hours yesterday and didn't sleep till 5 AM.",
+    "source": "https://x.com/garrytan — via Times of India, January 26 2026",
+    "date": "2026-01-26",
+    "platform": "twitter"
+  },
+  {
+    "id": "gt-tweet-004",
+    "content": "This universe unleashes a truly epic decade for startups.",
+    "source": "https://x.com/garrytan — December 2025",
+    "date": "2025-12-02",
+    "platform": "twitter"
+  },
+  {
+    "id": "gt-tweet-005",
+    "content": "In the middle of an AI arms race, we're telling builders to build elsewhere. We need American Little Tech to win — not $100K toll booths. Singapore, London, and Toronto will compete to lure talent barred from entering the United States.",
+    "source": "https://x.com/garrytan — on Trump's $100,000 H-1B visa fee, September 2025",
+    "date": "2025-09-21",
+    "platform": "twitter"
+  },
+  {
+    "id": "gt-cnbc-001",
+    "content": "About 80% of YC's W25 batch is AI focused. The cohort is growing significantly faster than past ones, with actual revenue. The whole batch is growing 10% week on week — it's not just the number one or two companies. There's a ton of hype, but what's unique about this moment is that people are actually getting commercial validation. You can call a real customer, and that person will say 'Yeah, we use the software every single day.'",
+    "source": "https://www.cnbc.com/2025/03/15/y-combinator-startups-are-fastest-growing-in-fund-history-because-of-ai.html",
+    "date": "2025-03-15",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-vanta-001",
+    "content": "They can go from really zero to 10 million dollars a year in revenue, sometimes in the course of less than 12 months. Blitzscaling might be dead — they might be able to do it with 20 or 30 people. Companies like Salient reached $10M ARR with just six employees. The era of massive teams building unicorns is ending. Smaller, more focused firms will dominate.",
+    "source": "https://www.vanta.com/resources/why-the-next-unicorns-are-built-by-ai",
+    "date": "2025-06-01",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-vanta-002",
+    "content": "Agency and taste are super, super important and humans are going to be really irreplaceable. AI handles execution; humans provide direction and discernment. Traditional moats — scale, capital — matter less. Founders must develop two irreplaceable human qualities: agency, which is problem-solving ability, and taste, which is design judgment.",
+    "source": "https://www.vanta.com/resources/why-the-next-unicorns-are-built-by-ai",
+    "date": "2025-06-01",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-vanta-003",
+    "content": "If you are stuck with lock-in on certain platforms, you can charge monopoly rents. Open-source AI prevents monopolistic lock-in, enabling thousands of viable startups rather than enriching a few mega-platforms. I'm white-pilled on competition among 8-9 AI players, versus fears of single-provider dominance.",
+    "source": "https://www.vanta.com/resources/why-the-next-unicorns-are-built-by-ai",
+    "date": "2025-06-01",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-vanta-004",
+    "content": "You have to be an ethnographer. You have to understand how your customer thinks — how do they get promoted? Founders should work in target industries undercover if needed. The best AI founders deeply understand the workflows they're replacing, not just the technology they're building.",
+    "source": "https://www.vanta.com/resources/why-the-next-unicorns-are-built-by-ai",
+    "date": "2025-06-01",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-washington-reporter-001",
+    "content": "YC's top priority is immigration. The United States should brain drain the most incredible talent in the world and incentivize those individuals to build companies here. Just over half of YC founders are born outside the United States, and fewer than 1% of applicants are admitted. Visa challenges for international founders are a direct threat to American competitiveness.",
+    "source": "https://washingtonreporter.news/interview-y-combinator-ceo-garry-tan-on-his-top-three-priorities-and-the-future-of-little-tech-in-trumps-america/",
+    "date": "2025-02-01",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-washington-reporter-002",
+    "content": "Our second priority is protecting open source AI. We will be less safe and our national security more vulnerable if open source AI projects stop keeping competitive pressure on the market. Open source is not a charity — it is a national security asset.",
+    "source": "https://washingtonreporter.news/interview-y-combinator-ceo-garry-tan-on-his-top-three-priorities-and-the-future-of-little-tech-in-trumps-america/",
+    "date": "2025-02-01",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-washington-reporter-003",
+    "content": "Our third priority is competition policy and antitrust. Founders of little tech companies aren't looking for a leg up, but they need a fighting chance. Unchecked big tech concentration limits innovation through restricted API access, blocked interoperability, and harmful self-preferencing. We need legislation that mandates open APIs, enforces interoperability, and limits self-preferencing.",
+    "source": "https://washingtonreporter.news/interview-y-combinator-ceo-garry-tan-on-his-top-three-priorities-and-the-future-of-little-tech-in-trumps-america/",
+    "date": "2025-02-01",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-senate-testimony-001",
+    "content": "I testified before the Senate Antitrust Subcommittee to advocate for little tech. The unchecked concentration of power in big tech has severely limited innovation, harmed consumers, and restricted America's global competitiveness. If we don't fix the structural disadvantages facing startups, the next generation of transformative companies will be built somewhere else — or not at all. We held the Little Tech Competition Summit on April 2, 2025, bringing together top antitrust enforcers from across the ideological spectrum.",
+    "source": "https://www.judiciary.senate.gov/imo/media/doc/2025-04-01_testimony_tan.pdf — YC Senate testimony summary",
+    "date": "2025-04-01",
+    "platform": "testimony"
+  },
+  {
+    "id": "gt-techcrunch-001",
+    "content": "Y Combinator supports some AI regulation but warns against AI monopolies. The danger isn't from AI itself — it's from a world where one or two companies control the AI stack and can extract monopoly rents from everyone building on top of them. Open-source AI is a check on that concentration of power. Regulations that entrench incumbents are far more dangerous than the AI risks they claim to address.",
+    "source": "https://techcrunch.com/2024/05/26/ai-garry-tan-y-combinator/",
+    "date": "2024-05-26",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-sf-001",
+    "content": "It was important to me that YC be as close to the cutting edge of artificial intelligence innovation as possible. OpenAI and Anthropic and a lot of the top talent in artificial intelligence are in San Francisco, not Silicon Valley. We moved YC's headquarters to San Francisco because that's where the future is being built right now. Founders have to be in San Francisco.",
+    "source": "https://fortune.com/2024/01/12/garry-tan-founders-y-combinator-headquarters/",
+    "date": "2024-01-12",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-sf-002",
+    "content": "San Francisco needs to work for the people who are building the future. We cannot let bad policy drive away the founders and engineers who are creating the next generation of technology. Housing reform is not a nice-to-have — it is essential to keeping the people who are building AI in this city.",
+    "source": "Garry Tan on X/Twitter regarding San Francisco governance, January 2024",
+    "date": "2024-01-15",
+    "platform": "twitter"
+  },
+  {
+    "id": "gt-mixergy-001",
+    "content": "AI transformed software from a nice-to-have into an urgent necessity. Every company is now a software company being disrupted by AI-native competitors. The founders who understand this and move fast are going to eat the world. The ones who treat AI as a feature rather than a foundation are going to lose.",
+    "source": "https://mixergy.com/interviews/garry-tan-y-combinator-startups-growing-5x-faster-heres-what-changed/",
+    "date": "2025-03-15",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-mixergy-002",
+    "content": "YC startups in the W25 batch are the fastest-growing and most profitable in our fund's history, and it's because of AI. We are at an inflection point. The batch grew 5X faster than anything we've seen before. This is not normal startup growth — this is an acceleration that changes everything we thought we knew about how companies scale.",
+    "source": "https://mixergy.com/interviews/garry-tan-y-combinator-startups-growing-5x-faster-heres-what-changed/",
+    "date": "2025-03-15",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-demo-day-001",
+    "content": "The best way to predict the future is to build it. YC founders are building the AI applications layer right now, and the results are already extraordinary. Every major technology wave looks like a toy at first. AI is not a toy. The companies in our current batch are already generating real revenue solving real problems with AI. This is not hype.",
+    "source": "Garry Tan, YC Demo Day opening remarks, public recording",
+    "date": "2024-09-01",
+    "platform": "speech"
+  },
+  {
+    "id": "gt-recreated-startup-001",
+    "content": "I recreated my 2008 startup in 90 hours using AI. Something that took a full team of engineers two years to build originally, I rebuilt alone in under four days. This is the world we're entering. The question isn't whether AI changes software development — the question is whether you're building with it or being disrupted by founders who are.",
+    "source": "https://officechai.com/ai/yc-ceo-garry-tan-says-he-recreated-his-2008-startup-in-90-hours-using-ai/",
+    "date": "2025-04-15",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-agent-security-001",
+    "content": "Securing AI agents will define cybersecurity challenges for the next decade. As AI agents gain the ability to take actions on behalf of users — browsing the web, executing code, managing files — the attack surface becomes enormous. Every startup building agents needs to think about security from day one, not as an afterthought.",
+    "source": "Garry Tan interview on AI agent security — YC blog and media coverage, 2025",
+    "date": "2025-07-01",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-eu-dma-001",
+    "content": "The EU's Digital Markets Act could be potentially beneficial to U.S. innovation and economic growth if the Trump administration chooses to recognize it as such. When big platforms are forced to open their APIs and allow interoperability, startups benefit — regardless of which government enforces it. The goal is competition, not flag-waving.",
+    "source": "https://washingtonreporter.news/interview-y-combinator-ceo-garry-tan-on-his-top-three-priorities-and-the-future-of-little-tech-in-trumps-america/",
+    "date": "2025-02-01",
+    "platform": "interview"
+  },
+  {
+    "id": "gt-garrylist-001",
+    "content": "Launched Garry's List, a nonprofit to connect skilled immigrants and international talent with American startups. The $100,000 H-1B fee is a massive gift to every overseas tech hub. Canada, the UK, and Singapore are already competing aggressively for the talent we're turning away. Immigration policy is innovation policy — you cannot separate them.",
+    "source": "SF Standard and media coverage of Garry's List nonprofit launch, February 2026",
+    "date": "2026-02-01",
+    "platform": "press"
+  },
+  {
+    "id": "gt-ai-arms-race-001",
+    "content": "We are in an AI arms race, and the United States is winning — barely. The decisions we make in the next two to three years about immigration, open source, and antitrust will determine whether we maintain that lead or squander it. This isn't abstract geopolitics. It's about whether the next ten thousand AI startups are built in San Francisco or Singapore.",
+    "source": "Pirate Wires podcast with Garry Tan on big tech vs. little tech, 2025",
+    "date": "2025-05-01",
+    "platform": "podcast"
+  }
+]

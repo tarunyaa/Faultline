@@ -208,5 +208,23 @@
       "maxSubstackPosts": 20,
       "maxAnchorExcerpts": 15
     }
+  },
+  {
+    "deck": {
+      "id": "ai-industrial-complex",
+      "name": "AI Industrial Complex",
+      "slug": "ai-industrial-complex"
+    },
+    "topic": "Is the AI infrastructure boom a once-in-a-generation investment opportunity, or the largest bubble in history?",
+    "personas": [
+      { "id": "Jensen Huang", "twitterHandle": "jenhsunhuang", "substackUrl": null },
+      { "id": "Alexander Karp", "twitterHandle": "AlexKarp", "substackUrl": null },
+      { "id": "Michael Burry", "twitterHandle": "michaeljburry", "substackUrl": null }
+    ],
+    "settings": {
+      "maxTweets": 500,
+      "maxSubstackPosts": 0,
+      "maxAnchorExcerpts": 15
+    }
   }
 ]

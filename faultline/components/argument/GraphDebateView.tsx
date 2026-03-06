@@ -7,7 +7,7 @@ import { ArgumentTimeline } from './ArgumentTimeline'
 import HexAvatar from '@/components/HexAvatar'
 import { ResultsSection } from './ResultsSection'
 import { TechnicalAnalysis } from './TechnicalAnalysis'
-import { ArgumentCruxCard } from './ArgumentCruxCard'
+import { ArgumentCruxCard, FlipConditionCard } from './ArgumentCruxCard'
 import AgentPolygon from '@/components/AgentPolygon'
 import { CruxCardDisplay } from '@/components/arena/CruxCardDisplay'
 import type { ArenaOutput, ArenaMethod } from '@/lib/arena/types'
@@ -44,6 +44,15 @@ type RichBlock =
   | { kind: 'numbered'; items: string[] }
   | { kind: 'para'; text: string }
   | { kind: 'divider' }
+  | { kind: 'table'; headers: string[]; rows: string[][] }
+
+function parseTableCells(line: string): string[] {
+  return line.split('|').map(c => c.trim()).filter((c, i, arr) => i > 0 && i < arr.length - 1)
+}
+
+function isTableSeparator(line: string): boolean {
+  return /^\|[\s\-:|]+\|/.test(line)
+}
 
 function parseRichBlocks(raw: string): RichBlock[] {
   const clean = raw.replace(/\*\*/g, '').replace(/\*/g, '')
@@ -65,7 +74,18 @@ function parseRichBlocks(raw: string): RichBlock[] {
     if (t === '---' || t === '***' || t === '___') {
       flushBullets(); flushNumbered(); blocks.push({ kind: 'divider' }); continue
     }
-    if (t.startsWith('### ')) {
+    if (t.startsWith('|')) {
+      if (isTableSeparator(t)) continue // skip `|---|---|` rows
+      flushBullets(); flushNumbered()
+      const cells = parseTableCells(t)
+      const last = blocks[blocks.length - 1]
+      if (last?.kind === 'table') {
+        last.rows.push(cells)
+      } else {
+        // First row is the header
+        blocks.push({ kind: 'table', headers: cells, rows: [] })
+      }
+    } else if (t.startsWith('### ')) {
       flushBullets(); flushNumbered()
       blocks.push({ kind: 'h3', text: t.slice(4) })
     } else if (/^#{1,2}\s/.test(t)) {
@@ -125,6 +145,28 @@ function RichText({ text, className }: { text: string; className?: string }) {
         if (block.kind === 'divider') return (
           <div key={i} className="h-px bg-card-border my-1" />
         )
+        if (block.kind === 'table') return (
+          <div key={i} className="overflow-x-auto rounded border border-card-border">
+            <table className="w-full text-xs border-collapse">
+              <thead>
+                <tr className="border-b border-card-border bg-surface">
+                  {block.headers.map((h, j) => (
+                    <th key={j} className="text-left px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-muted whitespace-nowrap">{h}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {block.rows.map((row, j) => (
+                  <tr key={j} className="border-b border-card-border last:border-0 odd:bg-card-bg even:bg-surface">
+                    {row.map((cell, k) => (
+                      <td key={k} className="px-3 py-2 text-foreground align-top leading-snug">{cell}</td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )
         return (
           <p key={i} className="text-xs text-foreground leading-relaxed">{block.text}</p>
         )
@@ -139,6 +181,7 @@ export function GraphDebateView({ config, personaNames, personaAvatars }: GraphD
   const [arenaOutputs, setArenaOutputs] = useState<ArenaOutput[]>([])
   const [comparisonRunning, setComparisonRunning] = useState(false)
   const [comparisonRan, setComparisonRan] = useState(false)
+  const [comparisonDebateId, setComparisonDebateId] = useState<string | null>(null)
   const [activeResultTab, setActiveResultTab] = useState<'results' | 'analysis'>('results')
 
   useEffect(() => {
@@ -171,17 +214,17 @@ export function GraphDebateView({ config, personaNames, personaAvatars }: GraphD
   const activeSpeakerDisplay = activeSpeaker ? (expertNames.get(activeSpeaker) ?? activeSpeaker) : null
 
   const runComparison = async () => {
-    if (!state.arenaDebateId) return
     setComparisonRunning(true)
     try {
+      const body: Record<string, unknown> = {
+        topic: config.topic,
+        methods: ['direct_crux', 'cot_crux', 'multiagent_crux'],
+      }
+      if (state.arenaDebateId) body.existingDebateId = state.arenaDebateId
       const res = await fetch('/api/arena/run', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          topic: config.topic,
-          existingDebateId: state.arenaDebateId,
-          methods: ['direct_crux', 'cot_crux', 'multiagent_crux'],
-        }),
+        body: JSON.stringify(body),
       })
       if (!res.ok) return
       const reader = res.body?.getReader()
@@ -198,6 +241,10 @@ export function GraphDebateView({ config, personaNames, personaAvatars }: GraphD
           if (!line.startsWith('data: ')) continue
           try {
             const event = JSON.parse(line.slice(6))
+            if (event.type === 'arena_start') {
+              const d = event.data as { debateId: string }
+              setComparisonDebateId(d.debateId)
+            }
             if (event.type === 'method_complete') {
               const d = event.data as {
                 method: ArenaMethod
@@ -407,12 +454,14 @@ export function GraphDebateView({ config, personaNames, personaAvatars }: GraphD
                 onClick={async () => {
                   const { exportArgumentPDF } = await import('@/lib/utils/export-pdf')
                   exportArgumentPDF({
-                  topic: config.topic,
-                  personaNames,
-                  personaAvatars,
-                  consensus: state.consensus,
-                  cruxCards: state.cruxCards,
-                  divergenceMap: state.divergenceMap,
+                    topic: config.topic,
+                    personaNames,
+                    personaAvatars,
+                    consensus: state.consensus,
+                    cruxCards: state.cruxCards,
+                    flipConditions: state.flipConditions,
+                    counterfactual: state.counterfactual,
+                    divergenceMap: state.divergenceMap,
                     messages,
                   })
                 }}
@@ -501,15 +550,16 @@ export function GraphDebateView({ config, personaNames, personaAvatars }: GraphD
                   expertAvatars={expertAvatars}
                 />
 
-                {/* Crux cards */}
+                {/* Crux cards (LLM-enriched, from crux-personas) */}
                 {state.cruxCards.length > 0 && (
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 px-1">
-                      <span className="text-accent text-[10px]">♠</span>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-muted">Flip Conditions</span>
-                      <span className="text-[10px] text-muted">({state.cruxCards.length})</span>
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-accent text-xs">♦</span>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-muted">Crux Cards</span>
+                      <div className="flex-1 h-px bg-card-border opacity-60" />
+                      <span className="text-accent text-xs">♦</span>
                     </div>
-                    <div className="space-y-3">
+                    <div className="flex gap-3 overflow-x-auto pb-2">
                       {[...state.cruxCards]
                         .sort((a, b) => b.importance - a.importance)
                         .map((card, i) => (
@@ -518,9 +568,29 @@ export function GraphDebateView({ config, personaNames, personaAvatars }: GraphD
                     </div>
                   </div>
                 )}
-                {state.cruxCards.length === 0 && (
+
+                {/* Flip conditions (math-based, from argora-personas) */}
+                {state.flipConditions.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-accent text-xs">♠</span>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-muted">Fault Lines</span>
+                      <div className="flex-1 h-px bg-card-border opacity-60" />
+                      <span className="text-[10px] text-muted">arguments whose removal most shifts the outcome</span>
+                    </div>
+                    <div className="flex gap-3 overflow-x-auto pb-2">
+                      {[...state.flipConditions]
+                        .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))
+                        .map((cond, i) => (
+                          <FlipConditionCard key={i} condition={cond} index={i} />
+                        ))}
+                    </div>
+                  </div>
+                )}
+
+                {state.cruxCards.length === 0 && state.flipConditions.length === 0 && (
                   <div className="rounded-xl border border-card-border bg-surface p-6 text-center">
-                    <p className="text-xs text-muted">No high-impact flip conditions found — argument strengths are robust.</p>
+                    <p className="text-xs text-muted">No high-impact fault lines found — argument strengths are robust.</p>
                   </div>
                 )}
 
@@ -529,9 +599,9 @@ export function GraphDebateView({ config, personaNames, personaAvatars }: GraphD
                   <div className="px-4 py-3 flex items-center gap-2 border-b border-card-border">
                     <span className="text-foreground/20 text-[10px]">♦</span>
                     <span className="text-xs font-semibold uppercase tracking-wider text-foreground flex-1">Baseline Crux Methods</span>
-                    {arenaOutputs.length > 0 && state.arenaDebateId && (
+                    {arenaOutputs.length > 0 && (comparisonDebateId ?? state.arenaDebateId) && (
                       <a
-                        href={`/arena?debate=${state.arenaDebateId}`}
+                        href={`/arena?debate=${comparisonDebateId ?? state.arenaDebateId}`}
                         className="text-[10px] text-accent hover:text-foreground transition-colors"
                       >
                         View in CruxBench &rarr;
@@ -571,7 +641,7 @@ export function GraphDebateView({ config, personaNames, personaAvatars }: GraphD
                         {!comparisonRan && (
                           <button
                             onClick={runComparison}
-                            disabled={comparisonRunning || !state.arenaDebateId}
+                            disabled={comparisonRunning}
                             className="text-xs border border-accent/60 text-accent hover:bg-accent hover:text-white px-4 py-2 rounded transition-colors disabled:opacity-50"
                           >
                             {comparisonRunning ? 'Running...' : 'Run Comparison'}

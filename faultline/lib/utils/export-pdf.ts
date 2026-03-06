@@ -4,7 +4,7 @@
 import type { DialogueMessage, DebateAspect, PositionShift, DebateSummary } from '@/lib/dialogue/types'
 import type { CruxCard } from '@/lib/crux/types'
 import type { ActiveCruxRoom } from '@/lib/hooks/useDialogueStream'
-import type { ConsensusData, ArgumentCruxCard, DivergenceMap, ArgumentMessage } from '@/lib/argument/types'
+import type { ConsensusData, ArgumentCruxCard, FlipCondition, DivergenceMap, ArgumentMessage, CounterfactualData } from '@/lib/argument/types'
 
 interface ExportDebatePDFParams {
   topic: string
@@ -399,6 +399,8 @@ interface ExportArgumentPDFParams {
   personaAvatars: Map<string, string>
   consensus: ConsensusData | null
   cruxCards: ArgumentCruxCard[]
+  flipConditions?: FlipCondition[]
+  counterfactual?: CounterfactualData | null
   divergenceMap: DivergenceMap | null
   messages: ArgumentMessage[]
 }
@@ -413,6 +415,8 @@ export async function exportArgumentPDF({
   personaAvatars,
   consensus,
   cruxCards,
+  flipConditions,
+  counterfactual,
   divergenceMap,
   messages,
 }: ExportArgumentPDFParams): Promise<void> {
@@ -486,6 +490,45 @@ export async function exportArgumentPDF({
           <p style="font-size:10px;color:#888;margin:2px 0;">Shifts outcome by &plusmn;${card.importance.toFixed(3)} <span style="font-size:9px;">(&sigma; = argument strength score)</span></p>
           <p style="font-size:10px;color:#666;font-style:italic;margin:4px 0;border-left:2px solid #ddd;padding-left:8px;">${esc(stripMd(card.flip_mechanism))}</p>
           ${card.expert ? `<p style="font-size:9px;color:#999;margin:4px 0;text-transform:uppercase;">via ${esc(card.expert)}</p>` : ''}
+        </div>
+      `)
+    }
+  }
+
+  // ── Flip Conditions ──
+  if (flipConditions && flipConditions.length > 0) {
+    sections.push(argRenderSectionHeader('Flip Conditions'))
+    for (const fc of flipConditions) {
+      sections.push(`
+        <div style="margin-bottom:12px;padding:10px 14px;border:1px solid #ddd;border-radius:6px;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:4px;">
+            <span style="font-size:10px;font-weight:700;color:#c00;">${esc(fc.expert)}</span>
+            ${fc.winner_critical ? `<span style="font-size:8px;font-weight:700;text-transform:uppercase;background:#c00;color:#fff;border-radius:3px;padding:1px 5px;">Outcome-Critical</span>` : ''}
+            <span style="font-size:10px;font-family:monospace;color:#888;margin-left:auto;">&delta; ${fc.delta >= 0 ? '+' : ''}${fc.delta.toFixed(3)}</span>
+          </div>
+          <p style="font-size:11px;color:#222;margin:0 0 4px 0;line-height:1.5;">${esc(stripMd(fc.statement))}</p>
+          ${fc.main_argument ? `<p style="font-size:9px;color:#999;margin:2px 0;border-left:2px solid #eee;padding-left:6px;">on: ${esc(stripMd(fc.main_argument))}</p>` : ''}
+        </div>
+      `)
+    }
+  }
+
+  // ── Counterfactual Analysis ──
+  if (counterfactual && Object.keys(counterfactual).length > 0) {
+    sections.push(argRenderSectionHeader('Counterfactual Analysis'))
+    for (const [statement, data] of Object.entries(counterfactual)) {
+      const child = data.most_influential_direct_child
+      const chain = data.most_decisive_chain
+      sections.push(`
+        <div style="margin-bottom:14px;padding:10px 14px;border:1px solid #ddd;border-radius:6px;">
+          <p style="font-size:11px;font-weight:700;color:#222;margin:0 0 6px 0;line-height:1.5;">${esc(stripMd(statement))}</p>
+          <p style="font-size:10px;color:#888;margin:0 0 4px 0;">&sigma; baseline: ${data.baseline_root.toFixed(3)}</p>
+          ${child?.statement ? `
+            <p style="font-size:10px;color:#555;margin:4px 0;"><strong>Most influential:</strong> ${esc(stripMd(child.statement))} <span style="font-family:monospace;">&delta;${child.delta >= 0 ? '+' : ''}${child.delta.toFixed(3)}</span></p>
+          ` : ''}
+          ${chain?.chain_statements?.length ? `
+            <p style="font-size:10px;color:#555;margin:4px 0;"><strong>Decisive chain:</strong> ${chain.chain_statements.map(s => esc(stripMd(s))).join(' → ')}</p>
+          ` : ''}
         </div>
       `)
     }

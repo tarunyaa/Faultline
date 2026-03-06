@@ -8,7 +8,7 @@ import { ArgumentTimeline } from './ArgumentTimeline'
 import { ResultsSection } from './ResultsSection'
 import { MethodComparison } from './MethodComparison'
 import { TechnicalAnalysis } from './TechnicalAnalysis'
-import { ArgumentCruxCard } from './ArgumentCruxCard'
+import { ArgumentCruxCard, FlipConditionCard } from './ArgumentCruxCard'
 import AgentPolygon from '@/components/AgentPolygon'
 
 // Derive a DivergenceMap-compatible structure from ARGORA debate data
@@ -396,15 +396,16 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
                   expertAvatars={expertAvatars}
                 />
 
-                {/* Crux cards */}
+                {/* Crux cards (LLM-enriched, from crux-personas) */}
                 {state.cruxCards.length > 0 && (
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2 px-1">
-                      <span className="text-accent text-[10px]">♠</span>
-                      <span className="text-xs font-semibold uppercase tracking-wider text-muted">Flip Conditions</span>
-                      <span className="text-[10px] text-muted">({state.cruxCards.length})</span>
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-accent text-xs">♦</span>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-muted">Crux Cards</span>
+                      <div className="flex-1 h-px bg-card-border opacity-60" />
+                      <span className="text-accent text-xs">♦</span>
                     </div>
-                    <div className="space-y-3">
+                    <div className="flex gap-3 overflow-x-auto pb-2">
                       {[...state.cruxCards]
                         .sort((a, b) => b.importance - a.importance)
                         .map((card, i) => (
@@ -413,9 +414,29 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
                     </div>
                   </div>
                 )}
-                {state.cruxCards.length === 0 && (
+
+                {/* Flip conditions (math-based, from argora-personas) */}
+                {state.flipConditions.length > 0 && (
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-accent text-xs">♠</span>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-muted">Fault Lines</span>
+                      <div className="flex-1 h-px bg-card-border opacity-60" />
+                      <span className="text-[10px] text-muted">arguments whose removal most shifts the outcome</span>
+                    </div>
+                    <div className="flex gap-3 overflow-x-auto pb-2">
+                      {[...state.flipConditions]
+                        .sort((a, b) => Math.abs(b.delta) - Math.abs(a.delta))
+                        .map((cond, i) => (
+                          <FlipConditionCard key={i} condition={cond} index={i} />
+                        ))}
+                    </div>
+                  </div>
+                )}
+
+                {state.cruxCards.length === 0 && state.flipConditions.length === 0 && (
                   <div className="rounded-xl border border-card-border bg-surface p-6 text-center">
-                    <p className="text-xs text-muted">No high-impact flip conditions found — argument strengths are robust.</p>
+                    <p className="text-xs text-muted">No high-impact fault lines found — argument strengths are robust.</p>
                   </div>
                 )}
 
