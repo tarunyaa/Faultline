@@ -99,11 +99,11 @@ function PhaseDivider({ label, suit }: { label: string; suit?: string }) {
   )
 }
 
-const ROUND_SUITS = ['♠', '♥', '♦', '♣'] as const
+// Suits for reply depths: ♥ (red), ♦ (red), ♣ (black)
+const DEPTH_SUITS = ['♥', '♦', '♣'] as const
 
 export function ArgumentTimeline({
   messages,
-  experts,
   expertNames,
   expertAvatars,
   phase,
@@ -118,110 +118,70 @@ export function ArgumentTimeline({
     }
   }, [messages.length])
 
-  const msgById = new Map(messages.map(m => [m.id, m]))
-  const maxDepth = messages.reduce((acc, m) => Math.max(acc, m.depth), -1)
-
-  // Group messages by depth level
-  const byDepth = new Map<number, ArgumentMessage[]>()
-  for (const msg of messages) {
-    const arr = byDepth.get(msg.depth) ?? []
-    arr.push(msg)
-    byDepth.set(msg.depth, arr)
-  }
-
-  // Group depth-N messages by their parentId
-  function groupByParent(msgs: ArgumentMessage[]): Map<string | undefined, ArgumentMessage[]> {
-    const map = new Map<string | undefined, ArgumentMessage[]>()
-    for (const msg of msgs) {
-      const arr = map.get(msg.parentId) ?? []
-      arr.push(msg)
-      map.set(msg.parentId, arr)
-    }
-    return map
-  }
-
   const winnerStatement = consensus?.winner
-  const mainArgs = byDepth.get(0) ?? []
-  const hasSubArgs = maxDepth > 0
+
+  // Build parent→children map for recursive threading
+  const childrenOf = new Map<string | undefined, ArgumentMessage[]>()
+  for (const msg of messages) {
+    const arr = childrenOf.get(msg.parentId) ?? []
+    arr.push(msg)
+    childrenOf.set(msg.parentId, arr)
+  }
+  const rootMessages = childrenOf.get(undefined) ?? []
+
+  function renderThread(nodes: ArgumentMessage[], depth: number): JSX.Element[] {
+    const result: JSX.Element[] = []
+    for (const msg of nodes) {
+      const children = childrenOf.get(msg.id) ?? []
+      const suit = depth > 0 ? DEPTH_SUITS[Math.min(depth - 1, DEPTH_SUITS.length - 1)] : null
+      const isRed = suit === '♥' || suit === '♦'
+      result.push(
+        <div key={msg.id} style={{ marginLeft: `${depth * 20}px` }}>
+          {suit && (
+            <div className="flex items-center gap-1.5 px-1 mt-2 mb-0.5">
+              <span className={`text-[9px] ${isRed ? 'text-accent' : 'text-foreground/30'}`}>{suit}</span>
+              <div className="h-px flex-1 bg-card-border opacity-25" />
+            </div>
+          )}
+          <MessageRow
+            message={msg}
+            expertNames={expertNames}
+            expertAvatars={expertAvatars}
+            isWinner={winnerStatement ? msg.content === winnerStatement : false}
+          />
+        </div>
+      )
+      if (children.length > 0) {
+        result.push(...renderThread(children, depth + 1))
+      }
+    }
+    return result
+  }
 
   return (
     <div className="bg-card-bg border border-card-border rounded-xl flex flex-col h-full">
-      <div ref={scrollRef} className="flex-1 overflow-y-auto px-2 py-3 space-y-0.5 max-h-[75vh]">
+      <div ref={scrollRef} className="flex-1 overflow-y-auto px-2 py-3 max-h-[75vh]">
 
-        {/* Opening positions */}
-        {mainArgs.length > 0 && (
+        {rootMessages.length > 0 && (
           <>
             <PhaseDivider label="Opening Positions" suit="♠" />
-            <div className="space-y-0.5">
-              {mainArgs.map(msg => (
-                <MessageRow
-                  key={msg.id}
-                  message={msg}
-                  expertNames={expertNames}
-                  expertAvatars={expertAvatars}
-                  isWinner={winnerStatement ? msg.content === winnerStatement : false}
-                />
-              ))}
-            </div>
+            {renderThread(rootMessages, 0)}
           </>
         )}
 
-        {/* Rounds 1, 2, 3... */}
-        {Array.from({ length: Math.max(0, maxDepth) }, (_, i) => i + 1).map(depth => {
-          const roundMsgs = byDepth.get(depth) ?? []
-          if (roundMsgs.length === 0) return null
-          const byParent = groupByParent(roundMsgs)
-          const suit = ROUND_SUITS[(depth - 1) % 4]
-          return (
-            <div key={`round-${depth}`}>
-              <PhaseDivider label={`Round ${depth}`} suit={suit} />
-              <div className="space-y-2">
-                {Array.from(byParent.entries()).map(([parentId, children]) => {
-                  const parent = parentId ? msgById.get(parentId) : undefined
-                  const parentDisplayName = parent ? (expertNames.get(parent.expertName) ?? parent.expertName) : null
-                  return (
-                    <div key={parentId ?? 'root'}>
-                      {parent && parentDisplayName && (
-                        <div className="flex items-center gap-1.5 px-3 py-0.5">
-                          <span className="text-[10px] text-muted/60">↩</span>
-                          <span className="text-[10px] text-accent/70 font-medium">{parentDisplayName}:</span>
-                          <span className="text-[10px] text-muted italic truncate">
-                            {parent.content.length > 60 ? parent.content.slice(0, 60) + '…' : parent.content}
-                          </span>
-                        </div>
-                      )}
-                      <div className="border-l-2 border-l-card-border/30 ml-3 space-y-0.5">
-                        {children.map(child => (
-                          <MessageRow
-                            key={child.id}
-                            message={child}
-                            expertNames={expertNames}
-                            expertAvatars={expertAvatars}
-                            isWinner={winnerStatement ? child.content === winnerStatement : false}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          )
-        })}
-
         {/* Loading states */}
-        {mainArgs.length === 0 && isBuilding && (
+        {rootMessages.length === 0 && isBuilding && (
           <div className="py-8 text-center">
             <p className="text-xs text-muted animate-pulse">Experts are forming positions...</p>
           </div>
         )}
-        {isBuilding && mainArgs.length > 0 && !hasSubArgs && (
+        {isBuilding && rootMessages.length > 0 && childrenOf.size <= 1 && (
           <div className="py-3 text-center">
             <p className="text-xs text-muted animate-pulse">Debate in progress...</p>
           </div>
         )}
 
-        {/* Verdict + Complete */}
+        {/* Verdict */}
         {phase === 'complete' && consensus && (
           <>
             <PhaseDivider label="Verdict" suit="♥" />

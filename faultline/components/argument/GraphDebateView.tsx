@@ -180,9 +180,7 @@ export function GraphDebateView({ config, personaNames, personaAvatars }: GraphD
           {/* Topic text */}
           <div className="px-5 pb-4">
             <p className="text-base font-semibold text-foreground leading-snug">
-              {state.framedTopic && state.framedTopic !== config.topic
-                ? state.framedTopic
-                : config.topic}
+              {config.topic}
             </p>
           </div>
 
