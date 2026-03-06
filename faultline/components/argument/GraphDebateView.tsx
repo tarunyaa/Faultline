@@ -3,14 +3,15 @@
 import { useEffect, useRef, useState } from 'react'
 import { useArgumentStream } from '@/lib/hooks/useArgumentStream'
 import type { BridgeConfig } from '@/lib/argument/bridge'
-import type { BaselineResult } from '@/lib/argument/types'
 import { ArgumentTimeline } from './ArgumentTimeline'
 import HexAvatar from '@/components/HexAvatar'
 import { ResultsSection } from './ResultsSection'
 import { TechnicalAnalysis } from './TechnicalAnalysis'
-import { MethodComparison } from './MethodComparison'
 import { ArgumentCruxCard } from './ArgumentCruxCard'
 import AgentPolygon from '@/components/AgentPolygon'
+import { CruxCardDisplay } from '@/components/arena/CruxCardDisplay'
+import type { ArenaOutput, ArenaMethod } from '@/lib/arena/types'
+import { ARENA_METHOD_LABELS } from '@/lib/arena/types'
 
 interface GraphDebateViewProps {
   config: BridgeConfig
@@ -135,9 +136,9 @@ function RichText({ text, className }: { text: string; className?: string }) {
 export function GraphDebateView({ config, personaNames, personaAvatars }: GraphDebateViewProps) {
   const { state, messages, start } = useArgumentStream(config)
   const startedRef = useRef(false)
-  const [localBaselineResults, setLocalBaselineResults] = useState<BaselineResult[]>([])
-  const [baselinesRunning, setBaselinesRunning] = useState(false)
-  const [baselinesRan, setBaselinesRan] = useState(false)
+  const [arenaOutputs, setArenaOutputs] = useState<ArenaOutput[]>([])
+  const [comparisonRunning, setComparisonRunning] = useState(false)
+  const [comparisonRan, setComparisonRan] = useState(false)
   const [activeResultTab, setActiveResultTab] = useState<'results' | 'analysis'>('results')
 
   useEffect(() => {

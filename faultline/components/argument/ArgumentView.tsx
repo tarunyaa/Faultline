@@ -1,14 +1,83 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useMemo } from 'react'
 import { useArgumentStream } from '@/lib/hooks/useArgumentStream'
 import type { BridgeConfig } from '@/lib/argument/bridge'
-import type { BaselineResult } from '@/lib/argument/types'
+import type { BaselineResult, QBAFHierarchyNode, StreamingArg, DivergenceMap } from '@/lib/argument/types'
 import { ArgumentTimeline } from './ArgumentTimeline'
 import { ResultsSection } from './ResultsSection'
 import { MethodComparison } from './MethodComparison'
 import { TechnicalAnalysis } from './TechnicalAnalysis'
 import { ArgumentCruxCard } from './ArgumentCruxCard'
+import AgentPolygon from '@/components/AgentPolygon'
+
+// Derive a DivergenceMap-compatible structure from ARGORA debate data
+function deriveDebateDivergenceMap(
+  qbafHierarchy: QBAFHierarchyNode[],
+  streamingArgs: StreamingArg[],
+  experts: string[],
+): DivergenceMap | null {
+  if (experts.length < 2) return null
+
+  const per_expert: Record<string, { root_strength: number; support_count: number; attack_count: number }> = {}
+
+  if (qbafHierarchy.length > 0) {
+    // After completion: use final σ scores from root (depth-0) hierarchy nodes
+    for (const node of qbafHierarchy) {
+      if (!node.expert) continue
+      if (!per_expert[node.expert]) {
+        per_expert[node.expert] = { root_strength: 0.5, support_count: 0, attack_count: 0 }
+      }
+      if (node.final_score != null) {
+        per_expert[node.expert].root_strength = Math.max(0, Math.min(1, node.final_score))
+      }
+      for (const child of node.supplementary_args ?? []) {
+        if (child.relation === 'attack') per_expert[node.expert].attack_count++
+        else per_expert[node.expert].support_count++
+      }
+    }
+  } else {
+    // During streaming: equal strength, count attack activity
+    for (const expert of experts) {
+      const attacks = streamingArgs.filter(a => a.expert === expert && a.type === 'attacking_argument').length
+      const supports = streamingArgs.filter(a => a.expert === expert && a.type === 'supporting_argument').length
+      per_expert[expert] = { root_strength: 0.5, support_count: supports, attack_count: attacks }
+    }
+  }
+
+  // Detect attack relationships between experts via streamingArgs
+  const attackPairs = new Set<string>()
+  if (streamingArgs.length > 0) {
+    const graphMaps = new Map<number, Map<number, string>>() // graph_id → node_id → expert
+    for (const arg of streamingArgs) {
+      const gid = arg.graph_id ?? 0
+      if (!graphMaps.has(gid)) graphMaps.set(gid, new Map())
+      graphMaps.get(gid)!.set(arg.id, arg.expert)
+    }
+    for (const arg of streamingArgs) {
+      if (arg.type === 'attacking_argument' && arg.parent_id != null) {
+        const gid = arg.graph_id ?? 0
+        const parentExpert = graphMaps.get(gid)?.get(arg.parent_id)
+        if (parentExpert && parentExpert !== arg.expert) {
+          attackPairs.add([arg.expert, parentExpert].sort().join('<->'))
+        }
+      }
+    }
+  }
+
+  const pairwise: DivergenceMap['pairwise'] = []
+  for (let i = 0; i < experts.length; i++) {
+    for (let j = i + 1; j < experts.length; j++) {
+      const a = experts[i], b = experts[j]
+      const key = [a, b].sort().join('<->')
+      const sA = per_expert[a]?.root_strength ?? 0.5
+      const sB = per_expert[b]?.root_strength ?? 0.5
+      pairwise.push({ expert_a: a, expert_b: b, gap: Math.abs(sA - sB), is_crux: attackPairs.has(key) })
+    }
+  }
+
+  return { consensus_facets: [], crux_facets: [], per_expert, pairwise }
+}
 
 interface ArgumentViewProps {
   config: BridgeConfig
@@ -117,9 +186,31 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
     })
   }
 
+  // Alignment polygon data
+  const polygonAgents = useMemo(() =>
+    state.experts.map(expert => ({
+      id: expert,
+      name: expertNames.get(expert) ?? expert,
+      picture: expertAvatars.get(expert) ?? '',
+    })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [state.experts, expertNames.size],
+  )
+  const expertNameToPersonaId = useMemo(
+    () => Object.fromEntries(state.experts.map(e => [e, e])),
+    [state.experts],
+  )
+  const debateDivergenceMap = useMemo(
+    () => deriveDebateDivergenceMap(state.qbafHierarchy, state.streamingArgs, state.experts),
+    [state.qbafHierarchy, state.streamingArgs, state.experts],
+  )
+  const lastStreamingExpert = state.streamingArgs.length > 0
+    ? state.streamingArgs[state.streamingArgs.length - 1].expert
+    : null
+
   if (state.phase === 'error') {
     return (
-      <div className="min-h-screen bg-background px-6 py-8">
+      <div className="min-h-screen bg-background px-6 py-8 max-w-6xl mx-auto">
         <div className="max-w-md p-6 bg-card-bg border border-accent/40 rounded-xl text-accent">
           <h2 className="font-bold mb-2">Error</h2>
           <p className="text-sm text-muted">{state.error}</p>
@@ -151,7 +242,7 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
     <div className="min-h-screen bg-background">
       {/* ─── Top Bar ─── */}
       <div className="border-b border-card-border bg-surface/50">
-        <div className="max-w-4xl mx-auto px-6 py-2.5 flex items-center gap-4">
+        <div className="max-w-6xl mx-auto px-6 py-2.5 flex items-center gap-4">
           {/* Status */}
           <div className="flex items-center gap-3">
             {isRunning && (
@@ -184,7 +275,7 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
       </div>
 
       {/* ─── Main Layout ─── */}
-      <div className="max-w-4xl mx-auto px-6 py-5">
+      <div className="max-w-6xl mx-auto px-6 py-5">
 
         {/* Debate Topic card */}
         <div className="rounded-xl border border-card-border bg-surface px-4 py-3 mb-4">
@@ -192,15 +283,37 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
           <p className="text-sm text-foreground font-medium leading-snug">{config.topic}</p>
         </div>
 
-        {/* Debate Timeline — full width */}
-        <ArgumentTimeline
-          messages={messages}
-          experts={state.experts}
-          expertNames={expertNames}
-          expertAvatars={expertAvatars}
-          phase={state.phase}
-          consensus={state.consensus}
-        />
+        {/* Two-column: Timeline + Alignment Polygon */}
+        <div className={`grid gap-4 ${polygonAgents.length >= 2 ? 'grid-cols-1 lg:grid-cols-3' : 'grid-cols-1'}`}>
+          <div className={polygonAgents.length >= 2 ? 'lg:col-span-2' : ''}>
+            <ArgumentTimeline
+              messages={messages}
+              experts={state.experts}
+              expertNames={expertNames}
+              expertAvatars={expertAvatars}
+              phase={state.phase}
+              consensus={state.consensus}
+            />
+          </div>
+
+          {polygonAgents.length >= 2 && (
+            <div className="lg:col-span-1 space-y-3">
+              <div className="bg-card-bg border border-card-border rounded-xl p-4">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-accent text-[10px]">♦</span>
+                  <span className="text-[10px] text-muted uppercase tracking-widest">Argument Strength</span>
+                </div>
+                <AgentPolygon
+                  agents={polygonAgents}
+                  messages={[]}
+                  activeSpeakerId={lastStreamingExpert}
+                  divergenceMap={debateDivergenceMap ?? undefined}
+                  expertNameToPersonaId={expertNameToPersonaId}
+                />
+              </div>
+            </div>
+          )}
+        </div>
 
         {/* ─── Results Sections (Tabbed) ─── */}
         {showResults && isComplete && (
@@ -402,7 +515,7 @@ export function ArgumentView({ config, personaNames, personaAvatars }: ArgumentV
             )}
 
             {activeTab === 'benchmarks' && (
-              <div className="max-w-5xl">
+              <div className="max-w-6xl">
                 {localBaselineResults.length > 0 ? (
                   <MethodComparison
                     results={localBaselineResults}

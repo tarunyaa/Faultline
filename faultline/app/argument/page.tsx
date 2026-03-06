@@ -9,7 +9,7 @@ interface Props {
 
 export default async function ArgumentPage({ searchParams }: Props) {
   const params = await searchParams
-  const topic = params.topic ? decodeURIComponent(params.topic).trim() : ''
+  const topic = params.topic ? (() => { try { return decodeURIComponent(params.topic!).trim() } catch { return params.topic!.trim() } })() : ''
 
   if (!topic) {
     return <ArgumentSetup />
@@ -20,7 +20,7 @@ export default async function ArgumentPage({ searchParams }: Props) {
 
   // Parse persona IDs from URL (comma-separated)
   const personaIds = params.personas
-    ? params.personas.split(',').map(id => decodeURIComponent(id)).slice(0, 5)
+    ? params.personas.split(',').map(id => { try { return decodeURIComponent(id) } catch { return id } }).slice(0, 5)
     : undefined
 
   // Load persona names + avatars for display

@@ -1,4 +1,4 @@
-import { eq } from 'drizzle-orm'
+import { eq, desc } from 'drizzle-orm'
 import { db } from '@/lib/db'
 import { arenaDebates, arenaOutputs, arenaVotes } from '@/lib/db/schema'
 import type { ArenaDebate, ArenaOutput, ArenaVote, ArenaMethod, CruxCardOutput } from './types'
@@ -64,13 +64,25 @@ export async function getArenaDebate(
 }
 
 export async function listArenaDebates(limit = 20): Promise<ArenaDebate[]> {
+  // Fetch extra rows (most recent first) then deduplicate by topic
   const rows = await db
     .select()
     .from(arenaDebates)
-    .orderBy(arenaDebates.createdAt)
-    .limit(limit)
+    .orderBy(desc(arenaDebates.createdAt))
+    .limit(limit * 4)
 
-  return rows.map(r => ({
+  const seen = new Set<string>()
+  const unique: typeof rows = []
+  for (const row of rows) {
+    const key = row.topic.trim().toLowerCase()
+    if (!seen.has(key)) {
+      seen.add(key)
+      unique.push(row)
+    }
+    if (unique.length >= limit) break
+  }
+
+  return unique.map(r => ({
     id: r.id,
     topic: r.topic,
     createdAt: r.createdAt,

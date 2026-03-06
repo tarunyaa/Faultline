@@ -42,7 +42,7 @@ export function ArenaClient({
   initialTopic,
 }: Props) {
   const [phase, setPhase] = useState<Phase>(
-    initialDebateId && initialOutputs && initialOutputs.length >= 2 ? 'voting' : 'idle',
+    initialDebateId && initialOutputs && initialOutputs.length > 0 ? 'results' : 'idle',
   )
   const [topic, setTopic] = useState(initialTopic ?? '')
   const [progress, setProgress] = useState<MethodProgress[]>([])
@@ -229,22 +229,6 @@ export function ArenaClient({
         </div>
       )}
 
-      {phase === 'idle' && initialDebateId && initialOutputs && initialOutputs.length === 1 && (
-        <div className="rounded-xl border border-card-border bg-surface p-4 space-y-2">
-          <p className="text-xs font-semibold text-foreground">ARGORA Crux output loaded</p>
-          <p className="text-xs text-muted">
-            {initialOutputs[0].cruxCards.length} crux cards from ARGORA. Run comparison methods to enable voting.
-          </p>
-          <button
-            onClick={runArena}
-            disabled={!topic.trim()}
-            className="text-xs border border-accent/60 text-accent hover:bg-accent hover:text-white px-4 py-2 rounded transition-colors disabled:opacity-40"
-          >
-            Run Comparison Methods
-          </button>
-          <p className="text-[10px] text-muted">This will run Direct Crux, CoT Crux, and Multi-Agent Crux on the same topic.</p>
-        </div>
-      )}
 
       {/* Running: show per-method progress */}
       {phase === 'running' && (

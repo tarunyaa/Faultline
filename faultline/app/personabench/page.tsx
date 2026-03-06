@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import SuitIcon from '@/components/SuitIcon'
 
 export default function PersonaBenchPage() {
@@ -86,13 +85,6 @@ export default function PersonaBenchPage() {
 
         {/* CTA */}
         <div className="flex items-center gap-4 pt-2">
-          <Link
-            href="/setup"
-            className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent/90 transition-colors"
-          >
-            Try a debate first
-            <span className="text-xs">&#8594;</span>
-          </Link>
           <span className="text-xs text-muted">PersonaBench launches after CruxArena stabilises</span>
         </div>
 

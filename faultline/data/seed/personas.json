@@ -581,7 +581,7 @@
       "id": "Jensen Huang",
       "name": "Jensen Huang",
       "twitterHandle": "@jenhsunhuang",
-      "twitterPicture": "https://pbs.twimg.com/profile_images/1598748030435262464/wkxqEIK5_400x400.jpg",
+      "twitterPicture": "/personas/jensen-huang.png",
       "deckIds": [
         "ai-industrial-complex"
       ],
@@ -592,7 +592,7 @@
       "id": "Alexander Karp",
       "name": "Alexander Karp",
       "twitterHandle": "@AlexKarp",
-      "twitterPicture": "https://pbs.twimg.com/profile_images/1594368963964506114/XyKJ-KYS_400x400.jpg",
+      "twitterPicture": "/personas/karp.png",
       "deckIds": [
         "ai-industrial-complex"
       ],
