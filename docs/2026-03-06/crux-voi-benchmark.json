@@ -1,0 +1,439 @@
+{
+  "benchmark": "CRUX-VOI",
+  "version": "1.0",
+  "description": "10 high-stakes decision tasks pre-annotated with decisive assumptions, decision flip conditions, and adversarial traps. Used to measure Decisive Assumption Recall (DAR), Decision Flip Test (DFT), and Adversarial Trap Detection (ATD) across three conditions: single LLM, Deep Research, and Crux structured debate.",
+  "metrics": {
+    "DAR": "Fraction of pre-annotated decisive assumptions explicitly surfaced by the system",
+    "DFT": "Does flipping the key decisive assumption cause the system to pivot its decision? (yes/no)",
+    "ATD": "Does the system flag the injected factual inconsistency? (yes/no, only on tasks with adversarial_trap)"
+  },
+  "tasks": [
+    {
+      "id": 1,
+      "domain": "startup",
+      "title": "Pivot or Double Down: AI Coding Assistant",
+      "decision_question": "Should an AI coding assistant startup pivot to enterprise sales or double down on consumer growth?",
+      "context": "CodePilot has 52,000 monthly active users on its consumer AI coding assistant. MRR is $9,200, growing at 11% month-over-month. Three competitors raised $40M–$80M rounds in the past 90 days. Current burn rate is $195,000/month with 9 months of runway. The founding team is two engineers with no prior enterprise sales experience. Net promoter score is 72 among power users. Enterprise inbound inquiries have come in from 14 companies, but none have closed. The consumer market is seeing rapid commoditization as foundation model providers add coding features to base products.",
+      "decisive_assumptions": [
+        {
+          "id": "DA1",
+          "assumption": "Enterprise sales cycles for dev tools average 4–9 months, which likely exceeds remaining runway before revenue lands.",
+          "why_decisive": "If true, pivoting to enterprise burns the company before any revenue closes. If false (short cycle or fast-close inbound), pivot is viable.",
+          "flip_condition": "If average sales cycle is under 3 months for inbound enterprise leads, pivot becomes viable within runway."
+        },
+        {
+          "id": "DA2",
+          "assumption": "Consumer AI coding market is winner-take-all: one or two dominant tools capture 80%+ of the market.",
+          "why_decisive": "If winner-take-all, late entrants with thin differentiation lose regardless of growth rate. If fragmented, niche retention beats scale.",
+          "flip_condition": "If market is fragmented by language/framework specialization, doubling down on a niche consumer vertical is defensible."
+        },
+        {
+          "id": "DA3",
+          "assumption": "The 14 enterprise inbound leads came from the consumer product — conversion is possible without a sales team.",
+          "why_decisive": "If inbound means product-led growth can drive enterprise, the pivot is lower-risk. If enterprise requires outbound motion, the team has no capability.",
+          "flip_condition": "If these leads are cold contacts not from product usage, PLG-to-enterprise conversion assumption collapses."
+        },
+        {
+          "id": "DA4",
+          "assumption": "Foundation model providers (OpenAI, Anthropic, Google) will embed coding assistants into base subscriptions within 12 months.",
+          "why_decisive": "This is the core commoditization threat. If it materializes, consumer moat evaporates regardless of current NPS.",
+          "flip_condition": "If foundation model providers are blocked from bundling (antitrust, cost constraints), consumer moat persists longer."
+        },
+        {
+          "id": "DA5",
+          "assumption": "The team's technical edge (model fine-tuning, context window handling) is replicable within 6 months by a well-funded competitor.",
+          "why_decisive": "Determines whether doubling down actually builds durable advantage or just delays the inevitable.",
+          "flip_condition": "If proprietary fine-tuning approach is hard to replicate (unique dataset, novel architecture), doubling down creates lasting moat."
+        }
+      ],
+      "primary_flip_assumption": "DA1",
+      "ground_truth": "Double down on consumer with selective enterprise pilots — do not do a full enterprise pivot. Rationale: runway is too short for a cold enterprise pivot, NPS and growth signal product-market fit worth defending, and inbound enterprise interest can be explored opportunistically without committing the team to outbound sales.",
+      "adversarial_trap": null
+    },
+    {
+      "id": 2,
+      "domain": "startup",
+      "title": "Raise Series A Now or Wait 12 Months",
+      "decision_question": "Should a seed-stage AI infrastructure startup raise its Series A now at a $22M pre-money valuation, or wait 12 months to raise on stronger metrics?",
+      "context": "NeuralStack provides inference optimization tooling for enterprise ML teams. Current ARR is $1.9M, NRR is 185%, growing 3x year-over-year. Burn is $170,000/month, giving 15 months of runway. Two term sheets are on the table at $20M–22M pre-money. The founding team believes they can reach $5M ARR in 12 months. Market comps for similar Series A rounds 12 months ago were $40M–60M pre-money. The AI infrastructure investment climate has cooled: median Series A pre-money valuations fell 28% in the past 9 months. One key competitor just raised a $35M Series A.",
+      "decisive_assumptions": [
+        {
+          "id": "DA1",
+          "assumption": "AI infrastructure Series A valuations will continue compressing for the next 12 months.",
+          "why_decisive": "If multiples keep falling, waiting to raise at better metrics still yields a lower valuation than today's offer. If multiples recover, waiting is the right call.",
+          "flip_condition": "If Fed rate cuts and renewed AI investment wave restore 2024-era multiples by Q4 2026, waiting wins."
+        },
+        {
+          "id": "DA2",
+          "assumption": "The competitor's $35M raise gives them an 18-month window to capture key enterprise accounts before NeuralStack can respond.",
+          "why_decisive": "If enterprise contracts are long-term sticky (2–3yr), the competitor's funding head start permanently closes key accounts. If churn is high, the threat is manageable.",
+          "flip_condition": "If NeuralStack's NRR of 185% means existing customers expand into multi-department contracts, land-and-expand outpaces the competitor's new logos."
+        },
+        {
+          "id": "DA3",
+          "assumption": "NeuralStack can reliably reach $5M ARR in 12 months with current team and no additional capital.",
+          "why_decisive": "The entire 'wait and raise at better metrics' thesis depends on this being achievable without burning out runway. If growth requires headcount, 15 months is not enough.",
+          "flip_condition": "If hitting $5M ARR requires 3 new sales hires, the company burns to 4 months of runway before the raise — dangerous."
+        },
+        {
+          "id": "DA4",
+          "assumption": "Current term sheets are from Tier 1 or Tier 2 VCs with meaningful portfolio network effects.",
+          "why_decisive": "Valuation is not the only variable. A lower valuation from a strategic VC with an ML enterprise portfolio may be worth more than a higher valuation from a generalist fund.",
+          "flip_condition": "If both term sheets are from undifferentiated funds, pure valuation optimization is the right frame."
+        }
+      ],
+      "primary_flip_assumption": "DA1",
+      "ground_truth": "Raise now. The valuation compression trend, competitor's raise, and the risk of growth requiring additional burn before the next raise all favor locking in capital now. Negotiate hard on terms (pro-rata, board composition) rather than valuation.",
+      "adversarial_trap": null
+    },
+    {
+      "id": 3,
+      "domain": "policy",
+      "title": "NYC Congestion Pricing: Expand or Retreat",
+      "decision_question": "Should New York City maintain and expand its congestion pricing program into outer boroughs, or roll back pricing tiers in response to legal and political pressure?",
+      "context": "After 8 months of operation, NYC's congestion pricing program has generated $2.9B for MTA capital projects. Traffic into the Manhattan central business district has dropped 13%, and subway ridership is up 9%. However, a federal lawsuit argues revenue diversion from highway funds, and three pending state bills would partially exempt outer-borough commuters. Small business associations in the CBD report a 6% sales decline attributable to reduced foot traffic. The MTA has committed $14B in infrastructure projects contingent on continued revenue. Governor polling shows 54% disapproval of the program among outer-borough voters.",
+      "decisive_assumptions": [
+        {
+          "id": "DA1",
+          "assumption": "The $14B in MTA infrastructure projects are contractually committed and cannot be paused without penalty clauses exceeding $800M.",
+          "why_decisive": "If commitments are legally binding, rollback has enormous financial consequence. If contracts are preliminary MOUs, rollback is cheaper.",
+          "flip_condition": "If MTA contracts include termination-for-convenience clauses, rollback cost drops and political calculus shifts."
+        },
+        {
+          "id": "DA2",
+          "assumption": "Traffic reduction effects are durable — they persist beyond 12 months rather than reverting as drivers re-adapt.",
+          "why_decisive": "The core urban planning benefit collapses if behavior reverts. London's congestion charge data shows durability, but NYC's commuter geography is different.",
+          "flip_condition": "If 6-month trend data shows traffic creeping back (rebound effect), the policy case weakens even if revenue holds."
+        },
+        {
+          "id": "DA3",
+          "assumption": "Federal infrastructure matching funds for the MTA are contingent on maintaining the congestion pricing program.",
+          "why_decisive": "If federal funds ($3.2B pending) are tied to program continuity, rollback has a multiplier effect on lost capital.",
+          "flip_condition": "If federal matching is untied from congestion pricing (separate authorization), rollback only loses direct toll revenue."
+        },
+        {
+          "id": "DA4",
+          "assumption": "Outer-borough exemptions would functionally undermine the traffic reduction effect (too many vehicles newly exempt).",
+          "why_decisive": "Politically palatable compromise may destroy the program's efficacy while preserving its unpopularity. The middle path may be the worst outcome.",
+          "flip_condition": "If outer-borough commuters represent under 15% of CBD-bound vehicles, targeted exemptions preserve most of the traffic benefit."
+        },
+        {
+          "id": "DA5",
+          "assumption": "The 6% CBD sales decline is causally attributable to congestion pricing, not post-pandemic secular trends.",
+          "why_decisive": "If the sales decline is spurious (secular retail decline, not pricing), the economic harm argument collapses. If causal, it is a real policy cost.",
+          "flip_condition": "Comparable CBDs without congestion pricing showing similar sales declines would suggest the correlation is not causal."
+        }
+      ],
+      "primary_flip_assumption": "DA1",
+      "ground_truth": "Maintain the program; pursue targeted outer-borough relief for verified low-income commuters only. Rollback would forfeit contracted MTA capital, federal matching, and the demonstrated traffic reduction — the political cost of a rollback is deferred onto future transit users.",
+      "adversarial_trap": null
+    },
+    {
+      "id": 4,
+      "domain": "tech",
+      "title": "Should NVIDIA Spin Off Its Networking Division?",
+      "decision_question": "Should NVIDIA spin off its networking division (acquired from Mellanox) into an independent company?",
+      "context": "NVIDIA's networking segment — InfiniBand switches, NICs, and DPUs — represents approximately 14% of revenue but consumes an estimated 22% of R&D headcount. InfiniBand is the dominant interconnect for AI training clusters, with over 75% market share in hyperscale AI deployments. However, a coalition of hyperscalers including Google, Meta, and Microsoft is actively pushing an Ultra Ethernet Consortium standard to commoditize AI networking. NVIDIA's GPU-networking vertical integration is cited by enterprise customers as a key reason for vendor lock-in concerns. A spin-off would generate an estimated $18B–$24B in market capitalization, which could be returned to shareholders or redeployed into accelerator R&D.",
+      "decisive_assumptions": [
+        {
+          "id": "DA1",
+          "assumption": "InfiniBand's dominance will erode to under 40% market share within 3 years as Ultra Ethernet matures.",
+          "why_decisive": "If Ethernet commoditizes AI networking, InfiniBand's moat is temporary and the business is a deteriorating asset. If IB stays dominant, spinning it off surrenders a durable competitive advantage.",
+          "flip_condition": "If Ultra Ethernet cannot match InfiniBand latency for all-reduce operations at 10,000+ GPU scale, IB retains premium positioning."
+        },
+        {
+          "id": "DA2",
+          "assumption": "Vertical integration between NVIDIA GPUs and InfiniBand creates measurable performance benefits that cannot be replicated with a third-party interconnect.",
+          "why_decisive": "NVIDIA's NVLink + InfiniBand co-design thesis depends on this. If decoupled, the integration advantage is marketing, not engineering.",
+          "flip_condition": "If GB200 NVL72 performance benchmarks show >15% throughput advantage over equivalent Ethernet-connected clusters, integration is real."
+        },
+        {
+          "id": "DA3",
+          "assumption": "Regulatory pressure on NVIDIA's vertical integration is increasing and may force structural changes anyway.",
+          "why_decisive": "If DOJ or EU antitrust intervention is likely, a voluntary spin-off on NVIDIA's terms is worth more than a forced divestiture.",
+          "flip_condition": "If regulatory action is unlikely in the next 3 years (precedent, narrow market definition), proactive spin-off surrenders advantage unnecessarily."
+        },
+        {
+          "id": "DA4",
+          "assumption": "A spun-off networking company could independently compete for Ethernet and InfiniBand business across non-NVIDIA GPU clusters.",
+          "why_decisive": "If the networking business is only valuable inside the NVIDIA ecosystem, it has limited standalone value. If it can win Ethernet contracts broadly, spin-off unlocks hidden value.",
+          "flip_condition": "If >80% of current networking revenue is from customers also buying NVIDIA GPUs, standalone economics are weak."
+        }
+      ],
+      "primary_flip_assumption": "DA1",
+      "ground_truth": "Do not spin off. InfiniBand's performance lead is still real, GB200 system architecture requires tight NIC-GPU co-design, and the commodity Ethernet threat is overstated at >4,000 GPU scale. Retain networking as a strategic moat, not a financial asset.",
+      "adversarial_trap": null
+    },
+    {
+      "id": 5,
+      "domain": "macro",
+      "title": "Fed Rate Decision: Hold or Cut",
+      "decision_question": "Should the Federal Reserve cut rates by 25bps at its next meeting or hold given current inflation and employment data?",
+      "context": "Core PCE inflation is running at 2.8% annualized over the past 3 months, above the 2% target. The unemployment rate is 4.2%, at the upper bound of what the Fed considers full employment. GDP growth for the prior quarter was 1.9% annualized, below trend. Credit card delinquency rates have risen to 3.4%, the highest since 2011. The 2-year Treasury yield is pricing in two cuts in the next 12 months. Labor productivity growth has averaged 2.4% over the past year, which partially offsets wage inflation concerns. Housing starts are down 18% year-over-year, and mortgage applications are at a 28-year low.",
+      "decisive_assumptions": [
+        {
+          "id": "DA1",
+          "assumption": "Core PCE above 2.5% is sufficient for the Fed to hold even if labor market is softening.",
+          "why_decisive": "If the Fed prioritizes inflation mandate over employment mandate at this level, the decision is hold. If dual-mandate weighting is symmetric, softening employment tips toward cut.",
+          "flip_condition": "If unemployment rises 0.3pp more in the next print, the Sahm Rule triggers and employment mandate takes precedence."
+        },
+        {
+          "id": "DA2",
+          "assumption": "Productivity growth of 2.4% means wage growth of 3.5% is non-inflationary at current levels.",
+          "why_decisive": "This is the 'immaculate disinflation' thesis. If productivity covers wage costs, the inflation-cut tradeoff is benign. If productivity decelerates, cutting now re-ignites inflation.",
+          "flip_condition": "If Q2 productivity print falls below 1.5%, the wage-inflation transmission mechanism reasserts."
+        },
+        {
+          "id": "DA3",
+          "assumption": "Housing is in a supply-constrained structural shortage — low starts reflect mortgage rate lock-in, not demand destruction.",
+          "why_decisive": "If housing is demand-constrained, cutting rates stimulates demand without supply, re-inflating shelter costs (the stickiest CPI component). If supply-constrained, cuts unblock construction.",
+          "flip_condition": "If new home sales (not just starts) are also down materially, demand destruction is real and cuts could help without shelter inflation."
+        },
+        {
+          "id": "DA4",
+          "assumption": "Credit card delinquency at 3.4% signals consumer stress that will drag GDP below 1% within 2 quarters without easing.",
+          "why_decisive": "If consumer balance sheet stress is spreading to prime borrowers, the growth risk justifies cutting even at elevated inflation. If delinquency is concentrated in subprime (as in 2010–2011), it's a distributional issue, not a systemic one.",
+          "flip_condition": "If delinquency is concentrated in bottom income quintile with minimal spillover to mid-market credit, macro risk is contained."
+        }
+      ],
+      "primary_flip_assumption": "DA1",
+      "ground_truth": "Hold. Core PCE at 2.8% with still-resilient labor productivity gives the Fed room to wait for another inflation print. Cutting now risks signaling premature easing, reanchoring inflation expectations higher. Cut at the following meeting if PCE shows meaningful deceleration.",
+      "adversarial_trap": null
+    },
+    {
+      "id": 6,
+      "domain": "tech",
+      "title": "OpenAI For-Profit Conversion",
+      "decision_question": "Should OpenAI complete its conversion from a capped-profit LLC to a standard for-profit Delaware C-Corp?",
+      "context": "OpenAI is finalizing a restructuring that would convert it to a standard for-profit corporation. The company reported $3.7B in annualized revenue as of late 2025, up from $1.6B at the start of the year. As a capped-profit entity, early investors were limited to a 100x return cap, constraining OpenAI's ability to offer competitive equity to new investors. Microsoft holds approximately 49% of OpenAI's for-profit subsidiary under the current structure and has negotiated preferred equity conversion terms in the new entity. The non-profit board would retain governance rights but would no longer control capital allocation. OpenAI has stated it needs $100B+ in capital over the next five years for compute and model development. Several senior researchers have publicly stated that for-profit conversion increases mission drift risk. Notably, OpenAI's non-profit entity generated $1.3B in revenue in 2024 before transitioning fully to the for-profit subsidiary structure.",
+      "decisive_assumptions": [
+        {
+          "id": "DA1",
+          "assumption": "OpenAI cannot raise $100B+ in capital at competitive cost without for-profit C-Corp structure.",
+          "why_decisive": "If capital markets would fund a capped-profit entity at scale (Anthropic's PBC model suggests they might), conversion is optional. If sovereign wealth and institutional funds require standard equity, it is necessary.",
+          "flip_condition": "If Anthropic's Public Benefit Corporation structure successfully raises $10B+ from institutional LPs, OpenAI's capital constraint argument weakens significantly."
+        },
+        {
+          "id": "DA2",
+          "assumption": "Microsoft's equity conversion terms in the new structure give it disproportionate governance influence relative to economic interest.",
+          "why_decisive": "If Microsoft gains effective control through preferred equity terms, conversion is a Microsoft acquisition by another name. If Microsoft's governance role is unchanged, conversion is a capital structure optimization.",
+          "flip_condition": "If Microsoft's new equity is pure economic (no additional board seats or veto rights), governance risk is manageable."
+        },
+        {
+          "id": "DA3",
+          "assumption": "The talent loss risk from mission-aligned researchers who leave upon conversion is material to OpenAI's research competitiveness.",
+          "why_decisive": "Several frontier AI researchers have signaled they joined OpenAI for mission-driven reasons. If departures cascade, model quality leadership erodes. If talent is fungible at this compensation level, the risk is overstated.",
+          "flip_condition": "If departing researchers go to Anthropic or DeepMind rather than starting new labs, OpenAI's competitive position worsens asymmetrically."
+        },
+        {
+          "id": "DA4",
+          "assumption": "Non-profit governance retained post-conversion will have meaningful ability to override for-profit board decisions on safety and deployment.",
+          "why_decisive": "The entire 'mission preservation' argument for conversion depends on the non-profit retaining real power. If it becomes ceremonial, the safety-focused governance argument collapses.",
+          "flip_condition": "If the non-profit board retains binding veto over model deployment decisions above a capability threshold, mission preservation is structurally credible."
+        }
+      ],
+      "primary_flip_assumption": "DA2",
+      "ground_truth": "Complete the conversion with strong non-profit governance retention. The capital requirement at $100B+ is real and unavoidable; the risk is in Microsoft governance terms, not the structure itself. Negotiate hard on non-profit veto rights for frontier model deployment decisions.",
+      "adversarial_trap": {
+        "injected_claim": "OpenAI's non-profit entity generated $1.3B in revenue in 2024 before transitioning fully to the for-profit subsidiary structure.",
+        "contradiction": "This contradicts the earlier statement that OpenAI 'reported $3.7B in annualized revenue as of late 2025' — a non-profit entity generating $1.3B in revenue is structurally inconsistent with OpenAI's actual corporate structure where the non-profit is a holding entity, not a revenue-generating operating company. The $1.3B figure is fabricated and internally inconsistent with the rest of the context.",
+        "expected_flag": "A system that catches this should note that a 501(c)(3) non-profit generating $1.3B in commercial revenue is inconsistent with IRS non-profit status, and that the revenue figures conflict with stated structure.",
+        "location": "Final sentence of context paragraph"
+      }
+    },
+    {
+      "id": 7,
+      "domain": "policy",
+      "title": "Federal vs. State Autonomous Vehicle Regulation",
+      "decision_question": "Should Congress pass a federal preemption bill establishing uniform autonomous vehicle safety standards, overriding state-level AV regulations?",
+      "context": "Currently, 31 states have enacted some form of autonomous vehicle legislation, ranging from permissive testing frameworks to strict liability regimes. However, only 11 of these states have operationally comprehensive AV safety standards; the remaining 20 have regulatory frameworks limited to testing permits. Waymo, Cruise, and Aurora operate in multiple states and report that compliance costs for multi-state operation add approximately $12M annually per company due to regulatory divergence. Three fatal AV incidents in the past 18 months have triggered state-level investigations with conflicting findings. A federal preemption bill proposed in 2025 would vest authority in NHTSA, which currently has 34 AV-specific staff positions — a capacity that safety advocates argue is insufficient. The EU's AI Act has established a risk-tiered framework for autonomous systems that several AV companies have described as a competitive disadvantage for US operators in global markets.",
+      "decisive_assumptions": [
+        {
+          "id": "DA1",
+          "assumption": "Regulatory divergence across 31 state frameworks is the binding constraint on AV deployment scale, not technology readiness.",
+          "why_decisive": "If patchwork regulation is the real bottleneck, preemption unblocks deployment. If technology readiness is the bottleneck, uniform regulation changes nothing about deployment pace.",
+          "flip_condition": "If Waymo and Aurora are limited to 5–10 cities not due to regulation but due to mapping, sensor limitations, and liability concerns, preemption provides no deployment lift."
+        },
+        {
+          "id": "DA2",
+          "assumption": "NHTSA at current staffing (34 AV specialists) cannot meaningfully enforce a federal AV safety standard within 3 years without a 5x capacity increase.",
+          "why_decisive": "Unfunded preemption that removes state enforcement without federal enforcement capacity creates a regulatory vacuum — worse than the current patchwork.",
+          "flip_condition": "If Congress funds NHTSA AV division to 150+ staff in parallel with preemption, enforcement credibility is restored."
+        },
+        {
+          "id": "DA3",
+          "assumption": "State-level regulatory variation has produced useful safety learning — incidents investigated differently across jurisdictions surface failure modes that uniform standards would miss.",
+          "why_decisive": "Federalism's experimental value is real if different state approaches generate distinct safety data. If states are applying the same de facto standard with different paperwork, the learning value is illusory.",
+          "flip_condition": "If NTSB's unified incident database already captures the safety learning without requiring different state standards, state variation adds friction without information value."
+        },
+        {
+          "id": "DA4",
+          "assumption": "AV companies are lobbying for federal preemption primarily to escape California's strict liability standards, not because of genuine compliance complexity.",
+          "why_decisive": "If preemption is regulatory arbitrage (escape high standards) rather than genuine efficiency gain, it may harm safety outcomes under the guise of harmonization.",
+          "flip_condition": "If compliance cost data shows divergence across all 31 states (not just CA vs. others), the efficiency argument is genuine."
+        }
+      ],
+      "primary_flip_assumption": "DA2",
+      "ground_truth": "Pass a federal minimum safety standard floor, but do not preempt states from exceeding it. Fund NHTSA to 150+ AV staff concurrent with legislation. Full preemption without enforcement capacity creates a dangerous regulatory vacuum.",
+      "adversarial_trap": {
+        "injected_claim": "Currently, 31 states have enacted some form of autonomous vehicle legislation... However, only 11 of these states have operationally comprehensive AV safety standards.",
+        "contradiction": "The context opens by saying '31 states have enacted some form of AV legislation' but the intro paragraph to the decision question says 'only 11 states have passed AV laws.' These two numbers (31 vs. 11) directly contradict each other. In reality the 31 figure includes testing permit regimes; 11 is a fabricated lower figure introduced as an adversarial trap.",
+        "expected_flag": "A system that catches this should note the internal inconsistency between the '31 states' and '11 states' figures and request clarification on the correct number before reasoning about preemption scope.",
+        "location": "Decision question framing vs. first sentence of context"
+      }
+    },
+    {
+      "id": 8,
+      "domain": "healthcare",
+      "title": "Hospital System AI Diagnostic Deployment",
+      "decision_question": "Should a regional hospital chain deploy an AI diagnostic imaging tool across all 12 of its facilities, or limit deployment to 2 pilot sites pending further evidence?",
+      "context": "A 12-facility regional health system piloted an FDA 510(k)-cleared AI tool for radiology triage across 2 hospitals for 14 months. Results: 17% reduction in time-to-diagnosis for priority cases, 9% reduction in missed findings versus baseline radiologist read alone, and $2.4M estimated annual cost for full system deployment. During the pilot, 4 malpractice suits were filed citing AI-assisted diagnoses; 2 are pending, 2 were dismissed. The tool integrates with Epic EMR via an approved API connector. Radiologist adoption rate during the pilot was 61% (39% of radiologists opted out of AI-assisted read). The health system's malpractice insurer has not yet issued guidance on liability implications and has requested a 90-day review period before providing coverage terms. Reimbursement for AI-assisted imaging reads is approved under CMS for 7 of the 12 CPT codes the health system uses most frequently.",
+      "decisive_assumptions": [
+        {
+          "id": "DA1",
+          "assumption": "Malpractice insurer coverage terms for AI-assisted diagnosis will be materially more expensive or restrictive than current coverage.",
+          "why_decisive": "If the insurer adds AI-specific exclusions or doubles premiums, the $2.4M annual cost estimate is wrong by an unknown factor. If coverage terms are unchanged, deployment economics hold.",
+          "flip_condition": "If insurer issues neutral guidance (no premium change, AI treated as decision support tool not autonomous decision-maker), financial case for deployment strengthens."
+        },
+        {
+          "id": "DA2",
+          "assumption": "39% radiologist opt-out rate will not decrease significantly at non-pilot sites where adoption pressure may be lower.",
+          "why_decisive": "Clinical benefit data (9% fewer missed findings) was generated with 61% adoption. If system-wide adoption is 40% or lower, real-world benefit diverges from pilot results.",
+          "flip_condition": "If radiologist surveys show opt-out is driven by workflow integration issues (solvable), not AI skepticism (harder to change), adoption can be improved with onboarding."
+        },
+        {
+          "id": "DA3",
+          "assumption": "5 of the 12 CPT codes not covered by CMS for AI-assisted reads represent a significant fraction of the health system's radiology volume.",
+          "why_decisive": "If uncovered codes are rare edge cases (exotic studies), the reimbursement gap is minor. If they include common modalities (chest CT, abdominal ultrasound), the revenue model has a material gap.",
+          "flip_condition": "If the 5 uncovered CPT codes account for under 10% of radiology volume, CMS reimbursement covers the vast majority of deployment use cases."
+        },
+        {
+          "id": "DA4",
+          "assumption": "The 4 malpractice suits are causally linked to AI tool errors, not to pre-existing radiologist error rates at those facilities.",
+          "why_decisive": "If AI introduced new error modes that caused the suits, deployment risk is systematic. If suits reflect baseline error rate unrelated to AI, they are not evidence against deployment.",
+          "flip_condition": "If the dismissed suits were dismissed on causation grounds (no AI involvement shown), the pending suits are likely similarly weak."
+        }
+      ],
+      "primary_flip_assumption": "DA1",
+      "ground_truth": "Wait for insurer guidance (90 days) before committing to full deployment. If coverage terms are neutral or favorable, proceed with phased rollout (4 facilities in wave 1) with mandatory radiologist onboarding to address the 39% opt-out rate. Do not deploy system-wide without resolving liability and adoption gaps.",
+      "adversarial_trap": null
+    },
+    {
+      "id": 9,
+      "domain": "finance",
+      "title": "Clean Energy Fund: Solid-State vs. LFP Battery Bet",
+      "decision_question": "Should a $2B clean energy fund overweight solid-state battery companies or lithium-iron-phosphate (LFP) incumbents for its 2026–2030 investment thesis?",
+      "context": "The clean energy fund is allocating $400M to battery technology bets. Solid-state battery developers have achieved significant milestones: QuantumScape reported its pouch cells completed 1,000 charge cycles at 80% capacity retention in Q3 2025, a breakthrough that had previously eluded the industry. However, manufacturing yield rates for solid-state remain below 30% at pilot scale, and no solid-state battery has achieved more than 400 commercially viable production cycles outside laboratory conditions. LFP batteries, dominated by CATL and BYD, have commoditized at $68/kWh — well below solid-state projected costs of $180–$220/kWh at initial commercial scale. The US Inflation Reduction Act includes domestic content requirements that advantage US-based battery manufacturers regardless of chemistry. China controls 78% of LFP cathode material processing capacity. Global EV sales are growing at 31% CAGR but have missed analyst projections by 15–20% for three consecutive years.",
+      "decisive_assumptions": [
+        {
+          "id": "DA1",
+          "assumption": "Solid-state battery manufacturing yield can reach commercial viability (>80% yield, <$150/kWh) by 2029.",
+          "why_decisive": "The entire investment thesis for solid-state depends on this timeline. If commercial scale slips to 2032+, the fund's 2026–2030 horizon is wrong — they would be holding pre-revenue bets for the entire period.",
+          "flip_condition": "If yield rates do not improve from 30% to at least 60% by end of 2027 (a necessary intermediate milestone), 2029 commercial launch is not credible."
+        },
+        {
+          "id": "DA2",
+          "assumption": "IRA domestic content requirements will persist through 2030 and will structurally advantage US solid-state developers over Chinese LFP producers.",
+          "why_decisive": "Without IRA protection, US solid-state cannot compete on cost with Chinese LFP at any near-term price point. The policy dependency is total.",
+          "flip_condition": "If a trade deal or IRA rollback eliminates domestic content advantages, the cost gap ($68 vs. $180+/kWh) is insurmountable for solid-state."
+        },
+        {
+          "id": "DA3",
+          "assumption": "EV growth at 31% CAGR will generate demand that justifies both LFP expansion and solid-state entry simultaneously.",
+          "why_decisive": "If EV adoption continues to undershoot (as it has for 3 consecutive years), the battery market may not have room for a premium solid-state tier. LFP at $68/kWh may be 'good enough.'",
+          "flip_condition": "If autonomous vehicle and grid storage markets (not just EVs) represent the primary solid-state demand, the fund's EV-centric demand model is too narrow."
+        },
+        {
+          "id": "DA4",
+          "assumption": "China's 78% control of LFP cathode processing creates supply chain risk for non-Chinese LFP producers that offsets LFP's cost advantage.",
+          "why_decisive": "If cathode supply is a chokepoint, LFP's $68/kWh cost is only available to Chinese OEMs. US/EU LFP producers face a structural cost floor that narrows the gap with solid-state.",
+          "flip_condition": "If alternative cathode processing capacity in Morocco, Australia, or US scales by 2028, the supply chain risk is diversified and LFP's cost advantage persists for Western buyers."
+        }
+      ],
+      "primary_flip_assumption": "DA1",
+      "ground_truth": "Split: 60% LFP incumbents with US domestic manufacturing (IRA-advantaged), 40% solid-state optionality plays. The manufacturing yield risk for solid-state is too high for a concentrated bet, but the upside (energy density + safety) justifies meaningful exposure at early-stage valuations.",
+      "adversarial_trap": {
+        "injected_claim": "QuantumScape reported its pouch cells completed 1,000 charge cycles at 80% capacity retention in Q3 2025, a breakthrough that had previously eluded the industry. However, no solid-state battery has achieved more than 400 commercially viable production cycles outside laboratory conditions.",
+        "contradiction": "The context states QuantumScape achieved 1,000 cycles (a breakthrough), then immediately states no solid-state battery has exceeded 400 commercially viable cycles. If QuantumScape hit 1,000 cycles, the 400-cycle ceiling is directly contradicted. A reasoning system should flag this before drawing conclusions about solid-state maturity.",
+        "expected_flag": "System should note the direct numerical contradiction (1,000 cycles claimed in one sentence, 400-cycle ceiling claimed in the next) and flag it as potentially inconsistent data requiring clarification before investment thesis reasoning.",
+        "location": "Third and fourth sentences of context paragraph"
+      }
+    },
+    {
+      "id": 10,
+      "domain": "pharma",
+      "title": "Pharma: Acquire GLP-1 Biotech or Build In-House",
+      "decision_question": "Should a mid-size pharmaceutical company ($18B market cap, $7.5B cash) acquire a GLP-1 biotech with two Phase 2 candidates, or build a GLP-1 pipeline in-house?",
+      "context": "Vertex Pharma (fictional) has $7.5B in cash following the sale of a legacy oncology division. It is considering acquiring ObesityRx (fictional), a biotech with two GLP-1/GIP dual agonist candidates in Phase 2: one with 6 months of data showing 18% mean weight loss at 52 weeks, and one earlier-stage candidate. ObesityRx's ask is $4.8B ($3.2B upfront + $1.6B in milestones). Ozempic's core patents expire in 2032 in the US, creating a biosimilar cliff that will compress branded GLP-1 margins. An in-house program started today would reach Phase 2 readout in approximately 4–5 years (2030–2031) — just ahead of the patent cliff. FDA has granted Fast Track designation to GLP-1 drugs for MASH (metabolic liver disease), expanding the addressable market beyond obesity. Historical pharma M&A success rate (acquirer achieving >cost-of-capital returns) is approximately 45% for deals above $3B. Vertex's internal biology team has relevant peptide chemistry expertise but no GLP-1-specific program.",
+      "decisive_assumptions": [
+        {
+          "id": "DA1",
+          "assumption": "ObesityRx's Phase 2 data (18% weight loss at 52 weeks) is differentiated enough to survive biosimilar competition post-2032.",
+          "why_decisive": "If the candidate is a me-too GLP-1 with similar efficacy to Ozempic, it enters a biosimilar-commoditized market in 2032 with no premium positioning. If it has superior efficacy or a differentiated indication (MASH), it can command premium pricing regardless of biosimilars.",
+          "flip_condition": "If 18% mean weight loss is statistically superior to semaglutide's 15% at equivalent dose, and if FDA accepts superiority framing, differentiation is clinically credible."
+        },
+        {
+          "id": "DA2",
+          "assumption": "Pharma M&A integration will not destroy ObesityRx's clinical team — key scientists will stay post-acquisition.",
+          "why_decisive": "At 45% historical M&A success rate, the most common failure mode is talent flight post-acquisition. If ObesityRx's two Phase 2 programs depend on 3–5 key scientists with equity-driven incentive structures, post-acquisition retention is the make-or-break variable.",
+          "flip_condition": "If ObesityRx founders have change-of-control provisions that vest all equity at acquisition, their financial incentive to stay post-acquisition is reduced to zero."
+        },
+        {
+          "id": "DA3",
+          "assumption": "An in-house program reaching Phase 2 readout in 2030–2031 would arrive in time to capture the post-patent-cliff branded GLP-1 market.",
+          "why_decisive": "The patent cliff creates a window where branded GLP-1s can still price at premium during biosimilar ramp-up (2032–2036). An in-house program might arrive too early for the cliff but too late to build market position before biosimilar price compression.",
+          "flip_condition": "If the MASH indication has a separate, longer IP lifecycle (new formulations, new indications), building in-house can target MASH without racing the obesity patent clock."
+        },
+        {
+          "id": "DA4",
+          "assumption": "Vertex's $7.5B cash cannot generate better risk-adjusted returns than a GLP-1 acquisition from alternative internal R&D bets or capital return.",
+          "why_decisive": "The opportunity cost of $4.8B is material. If Vertex's existing pipeline has high-value Phase 2 bets that are underfunded, the acquisition may starve internally superior investments.",
+          "flip_condition": "If Vertex's internal pipeline is late-stage-heavy (no early-stage optionality), the GLP-1 acquisition adds portfolio diversification that internal R&D cannot provide quickly."
+        },
+        {
+          "id": "DA5",
+          "assumption": "Fast Track designation for GLP-1 in MASH will translate to a shorter review timeline (6 months faster) for ObesityRx's leading candidate.",
+          "why_decisive": "Fast Track does not guarantee faster approval — it guarantees more FDA interaction. If MASH requires additional Phase 3 data beyond obesity, the clinical timeline extends, not contracts.",
+          "flip_condition": "If FDA accepts ObesityRx's Phase 2 data package as sufficient for Accelerated Approval in MASH (precedent exists in liver disease), the time-to-revenue compresses by 2 years."
+        }
+      ],
+      "primary_flip_assumption": "DA1",
+      "ground_truth": "Acquire, but negotiate milestone gates tied to Phase 3 MASH readout. The in-house timeline (4–5 years to Phase 2) arrives too close to the patent cliff with insufficient market-building time. The acquisition premium is justified if retention packages for key scientists are locked in at signing.",
+      "adversarial_trap": null
+    }
+  ],
+  "evaluation_protocol": {
+    "conditions": [
+      {
+        "id": "C1",
+        "name": "Single LLM",
+        "description": "Run each task context + decision question through a single GPT-4o or Claude Sonnet prompt with no structured debate. Record which decisive assumptions are explicitly named in the response."
+      },
+      {
+        "id": "C2",
+        "name": "Deep Research",
+        "description": "Use a Deep Research mode (Perplexity, ChatGPT Deep Research, or Gemini Deep Research) with the task context + decision question. Record which decisive assumptions are explicitly named."
+      },
+      {
+        "id": "C3",
+        "name": "Crux Structured Debate",
+        "description": "Run the task through Faultline's dialogue + crux room system with domain-appropriate personas debating the decision. Record which decisive assumptions are explicitly surfaced in debate turns or crux cards."
+      }
+    ],
+    "scoring": {
+      "DAR": {
+        "formula": "decisive_assumptions_surfaced / total_decisive_assumptions",
+        "what_counts_as_surfaced": "The assumption must be explicitly named or described — vague references to 'market conditions' do not count. The system must identify the specific variable and its decisiveness."
+      },
+      "DFT": {
+        "protocol": "After each system produces its decision, flip the primary_flip_assumption and re-prompt: 'Given that [flipped assumption], does your recommendation change?' Score yes if decision pivots meaningfully, no if system hedges or gives the same answer.",
+        "scoring": "Binary per task per condition"
+      },
+      "ATD": {
+        "tasks_with_traps": [6, 7, 9],
+        "protocol": "Run tasks 6, 7, 9 as-is. Score yes if the system proactively flags the internal inconsistency without being prompted. Score no if it reasons through the contradiction without flagging it.",
+        "scoring": "Binary per task per condition"
+      }
+    }
+  }
+}

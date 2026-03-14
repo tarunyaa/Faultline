@@ -54,9 +54,9 @@ data/seed/corpus/[Name].json    — raw scraped text (tweets, essays)
 
 `lib/personas/loader.ts` is the only entry point for persona data at runtime. `scripts/build-personas.ts` regenerates contracts from scratch using X API + Substack RSS + Claude.
 
-### Active Debate Engine: Dialogue + Crux Rooms
+### Active Debate Engine 1: Dialogue + Crux Rooms
 
-The only active engine is the **Dialogue + Crux system** at `/dialogue`.
+The primary TypeScript-native engine is the **Dialogue + Crux system** at `/dialogue`.
 
 ```
 app/api/dialogue/route.ts              — SSE endpoint (POST)
@@ -83,12 +83,93 @@ All LLM calls go through `lib/llm/client.ts`:
 - Two model tiers: `'sonnet'` (claude-sonnet-4-5) and `'haiku'` (claude-haiku-4-5). Haiku for cheap extraction/detection, Sonnet for generation.
 - Auto-retry on 429/500/529 with exponential backoff.
 
+### Argument Debate Engine: ARGORA (Python + TypeScript Bridge)
+
+The `/argument` route runs debates through the **ARGORA** Quantitative Bipolar Argumentation Framework (QBAF) — a Python system separate from the Next.js app.
+
+**Python directories** (at repo root, not inside `faultline/`):
+
+| Directory | What it is |
+|-----------|-----------|
+| `argora/` | Canonical ARGORA — auto-generates domain expert personas |
+| `argora-personas/` | ARGORA variant accepting Faultline persona system prompts |
+| `crux-personas/` | ARGORA + crux extraction (Phases 1–4 from `docs/2026-03-05/argora_to_crux.md`) |
+
+Each Python directory has its own `.venv` and `bridge.py` entry point. **`ARGORA_SKIP_EMBEDDINGS=1`** must be set on Windows/Cygwin (sentence-transformers hangs PyTorch).
+
+**TypeScript bridge** (`lib/argument/bridge.ts`): spawns the Python subprocess, reads newline-delimited JSON from stdout, yields `ArgumentEvent` objects as an async generator. The API route (`app/api/argument/route.ts`) converts these to SSE.
+
+```
+lib/argument/
+  bridge.ts           — spawn Python, pipe JSON events → AsyncGenerator<ArgumentEvent>
+  crux-bridge.ts      — crux-personas variant (richer crux card output)
+  baseline-bridge.ts  — run baseline methods (Direct/CoT/Multi-agent Crux)
+  topic-framer.ts     — reframe topic as formal task (used internally, hidden from UI)
+  types.ts            — ArgumentEvent union type
+
+app/api/argument/
+  route.ts            — SSE endpoint; selects argora vs crux-personas vs baselines
+  baselines/route.ts  — baseline-only endpoint
+  benchmark/route.ts  — benchmark run endpoint
+
+app/argument/
+  page.tsx            — argument debate UI
+  benchmark/page.tsx  — benchmark UI
+```
+
+**ARGORA pipeline phases** (per debate/facet):
+1. Task extraction — topic → `main_task` + `key_elements`
+2. Expert generation — N domain experts (or injected persona system prompts)
+3. Main arguments — each expert independently writes their position
+4. First-level arguments — each expert stances (agree/disagree) on others' positions → QBAF depth 1
+5. Graph-based debate — review (depth 2) + rebuttals (depth 3)
+6. QBAF strength computation — DFQuAD bottom-up propagation; `τ` (base) and `σ` (final) per node
+7. Counterfactual analysis — `edge_local_impact` (delta) per node; `winner_critical` flag
+8. Crux extraction (crux-personas only) — flip conditions → crux cards grounded in graph math
+9. Cross-facet synthesis (faceted mode only) — LLM synthesizes across 3 sub-questions
+
+**Two run modes**: single (default) or faceted (`--use-facets` → 3 sub-questions, 3× the calls).
+
+**Persona injection**: `crux-bridge.ts` loads Faultline persona contracts via `buildConsolidatedPrompt`, writes a temp JSON file, passes `--personas-json` to `bridge.py`. This uses `argora-personas/` or `crux-personas/` (not plain `argora/`).
+
+**SSE event flow (single mode)**:
+`argument_start` → `experts_generated` → `main_arguments_generated` → `level1_complete` → `level2_complete` → `level3_complete` → `qbaf_evaluated` → `counterfactual_complete` → `flip_conditions` → `consensus_generated` → `report_generated` → `crux_cards_extracted` → `argument_complete`
+
+**Faceted mode** adds: `facets_decomposed` → per-facet events prefixed `facetN_*` → `cross_facet_analysis`
+
+**Key metric**: `σ` (sigma) = final QBAF strength after propagation (0–1). Always show a legend when displaying σ/τ in the UI. `edge_local_impact` (delta) = how much the outcome shifts if a node is removed — this IS the flip condition, derived from graph math (not LLM opinion).
+
+**Zero crux cards** is expected when experts never form cross-expert attack edges (QBAF converges). Not a bug.
+
+### CruxArena (`/arena`)
+
+Human preference benchmark comparing debate methods side-by-side. All methods must output `CruxCardOutput[]` in the same schema (see `lib/arena/types.ts`). Blind pairwise voting — users pick which method gave more insight.
+
+```
+lib/arena/
+  types.ts            — CruxCardOutput, ArenaDebate, ArenaOutput, ArenaVote
+  persistence.ts      — save/load debates + votes (arena_debates, arena_outputs, arena_votes tables)
+  stats.ts            — aggregate win rates, CIs
+
+app/arena/
+  page.tsx            — CruxArena dashboard
+  ArenaClient.tsx     — pairwise voting UI + results reveal
+
+app/api/arena/
+  vote/route.ts       — POST pairwise vote
+  stats/route.ts      — GET aggregate stats
+```
+
+**Methods**: Direct Crux (GPT-4o-mini, 1 call) | CoT Crux (o3, 1 call) | Multi-agent Crux (~8 calls) | ARGORA Crux (~50 calls). Baselines live in `crux-personas/bridge_baselines.py`.
+
 ### User Flow
 
 ```
 / (lobby, invite gate)
   → /setup (Build Your Hand: deck → persona selection → topic input)
-      → /dialogue?personas=...&topic=... (active debate engine)
+      → /dialogue?personas=...&topic=... (Dialogue + Crux engine)
+  → /argument (ARGORA QBAF engine — domain experts or persona injection)
+  → /arena (CruxArena benchmark — pairwise voting on debate method quality)
   → /cards (browse decks + persona contracts)
       → /cards/[id] (persona contract detail)
   → /debates (archive of old blitz/graph debates from DB)
@@ -110,6 +191,23 @@ Custom CSS variables are defined in `app/globals.css`. **Always use these instea
 - `text-danger` — error red
 
 Never use `gray-*`, `blue-*`, or `purple-*` classes. Palette is black/red/white only.
+
+### Frontend Text & Readability Rules
+
+These apply to all frontend work, including the frontend engineer subagent:
+
+- **No markdown in rendered UI** — never render `**bold**`, `##`, or other markdown syntax as raw text. If the source is LLM output, strip or parse it before display.
+- **No text walls** — any block of text longer than 2–3 sentences must be broken into paragraphs or bullet points. Never dump raw LLM output directly into a component.
+- **Math/symbol legends** — whenever a math symbol or formula is shown on the frontend (e.g. σ, QBAF scores, probability notation), add a small legend or tooltip nearby explaining what it means in plain language.
+- **Compartmentalize, don't dump** — long results belong in collapsible sections, tabs, or cards. Default to collapsed for secondary information.
+
+### Argument Debate Layout Convention
+
+The Graph (ARGORA) debate type organizes content as:
+- Main arguments (opening positions, depth 0) rendered first under an "Opening Positions" divider
+- Replies threaded directly under the argument they respond to, indented by depth (depth 1 = Round 1 reply, depth 2 = deeper reply, etc.)
+- Playing card suits (♠♥♦♣) used as visual dividers: ♠ for Opening Positions, ♥/♦/♣ for reply depth markers
+- Red suits (♥, ♦) use `text-accent`; black suits (♠, ♣) use `text-foreground/30`
 
 ---
 
@@ -183,14 +281,19 @@ User Prompt Layer (per-call instructions)
 6. **Keep prompt functions pure** — they return strings, they don't make LLM calls (orchestrators do that)
 7. **Temperature conventions**: generation = 0.85, analysis/detection = 0.2, crux exchange = 0.75
 
-## "Argument" Debate Type Independence Rule
+## "Argument" Debate Type Rules
 
-The `argument` debate type is a **clean-slate implementation** based on the ARGORA paper. When building it:
+The `argument` debate type is a **Python-first implementation** (ARGORA). When building it:
 - Do NOT copy patterns from `dialogue` or `graph` just because they exist there
-- Do NOT add persona loading, speech roles, crux rooms, or other dialogue/graph features unless explicitly requested
-- Only adopt a feature from dialogue/graph if the user specifically says to include it in argument
-- ARGORA auto-generates its own domain experts — no personality agents (Jukan, Elon, etc.)
-- Follow the ARGORA paper's design, not Faultline's existing debate conventions
+- Do NOT add speech roles, crux rooms, or other dialogue-specific features unless explicitly requested
+- The Python bridge is the source of truth — TypeScript is a thin SSE wrapper
+- Default mode: ARGORA auto-generates domain experts. Persona mode: `buildConsolidatedPrompt` injects Faultline persona system prompts into ARGORA expert slots (via `argora-personas/` or `crux-personas/`)
+- Crux cards in argument mode come from QBAF counterfactual math, NOT from the TypeScript crux room system
+- Follow the ARGORA paper's design and `docs/2026-03-05/argora_to_crux.md` for crux extraction
+
+## Documentation Rule
+
+All docs must be created as `.md` files inside `docs/YYYY-MM-DD/` using today's date. Never place docs in the repo root or other locations.
 
 ## What NOT to Do
 
